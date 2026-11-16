@@ -1,10 +1,96 @@
 import { ref, watch, getCurrentInstance, onMounted, onBeforeUnmount } from 'vue';
+import { SURVEY_STEPS } from '@/types/survey';
+import { parroquiaToKey } from '@/utils/validation';
 
 export interface OfflineQueueItem {
   clientSubmissionId: string;
   encuestaId: string;
   data: Record<string, unknown>;
   createdAt: string;
+}
+
+const LEGACY_DRAFT_DATA_KEYS = new Set([
+  'cedula',
+  'parroquia',
+  'comunidad_sector',
+  'sector_barrio',
+  'zona_residencia_od',
+  'tipo_vivienda',
+  'residentes',
+  'viajes',
+  'acepta_declaracion'
+]);
+
+function isPlainRecord(value: unknown): value is Record<string, unknown> {
+  return Boolean(value) && typeof value === 'object' && !Array.isArray(value);
+}
+
+export function normalizeDraftStep(rawStep: unknown, maxStep = SURVEY_STEPS.length - 1): number {
+  if (typeof rawStep === 'number' && Number.isFinite(rawStep)) {
+    return Math.min(maxStep, Math.max(0, Math.trunc(rawStep)));
+  }
+  if (typeof rawStep === 'string' && rawStep.trim() !== '') {
+    const parsed = Number(rawStep);
+    if (Number.isFinite(parsed)) {
+      return Math.min(maxStep, Math.max(0, Math.trunc(parsed)));
+    }
+  }
+  return 0;
+}
+
+function normalizeDraftData(
+  rawData: Record<string, unknown>,
+  initialData: Record<string, unknown>
+): Record<string, unknown> {
+  const merged: Record<string, unknown> = { ...rawData };
+
+  // Garantiza valores iniciales faltantes o nulos (especialmente arrays residentes/viajes)
+  for (const [key, fallbackVal] of Object.entries(initialData)) {
+    const current = merged[key];
+    if (current === undefined || (Array.isArray(fallbackVal) && !Array.isArray(current))) {
+      merged[key] = Array.isArray(fallbackVal) ? [...fallbackVal] : fallbackVal;
+    }
+  }
+
+  // Normaliza parroquias guardadas en formato de etiqueta humana en borradores legacy
+  if (typeof merged.parroquia === 'string' && merged.parroquia.trim() !== '') {
+    merged.parroquia = parroquiaToKey(merged.parroquia);
+  }
+
+  return merged;
+}
+
+export function parseStoredDraft(
+  raw: string | null,
+  initialData: Record<string, unknown> = {}
+): { data: Record<string, unknown>; step: number; savedAt: string | null } | null {
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw);
+    if (!isPlainRecord(parsed)) return null;
+
+    let rawData: Record<string, unknown> | null = null;
+    if (isPlainRecord(parsed.data)) {
+      rawData = parsed.data;
+    } else if (isPlainRecord(parsed.formData)) {
+      rawData = parsed.formData;
+    } else if (Object.keys(parsed).some((k) => LEGACY_DRAFT_DATA_KEYS.has(k))) {
+      const { step: _s, savedAt: _sa, version: _v, ...rest } = parsed;
+      rawData = rest;
+    } else if (parsed.step !== undefined && normalizeDraftStep(parsed.step) >= 0) {
+      rawData = {};
+    }
+
+    if (!rawData) return null;
+
+    return {
+      data: normalizeDraftData(rawData, initialData),
+      step: normalizeDraftStep(parsed.step),
+      savedAt: typeof parsed.savedAt === 'string' ? parsed.savedAt : null
+    };
+  } catch {
+    return null;
+  }
 }
 
 export function generateUUID(): string {
@@ -30,17 +116,10 @@ export function useSurveyDraft(encuestaSlug: string, initialData: Record<string,
 
   function checkExistingDraft() {
     if (typeof localStorage === 'undefined') return;
-    const raw = localStorage.getItem(storageKey);
-    if (raw) {
-      try {
-        const parsed = JSON.parse(raw);
-        if (parsed && (parsed.data || parsed.step !== undefined)) {
-          hasRestorableDraft.value = true;
-          lastSavedAt.value = parsed.savedAt ?? null;
-        }
-      } catch {
-        hasRestorableDraft.value = false;
-      }
+    const restored = parseStoredDraft(localStorage.getItem(storageKey), initialData);
+    if (restored) {
+      hasRestorableDraft.value = true;
+      lastSavedAt.value = restored.savedAt;
     } else {
       hasRestorableDraft.value = false;
     }
@@ -48,17 +127,11 @@ export function useSurveyDraft(encuestaSlug: string, initialData: Record<string,
 
   function restoreDraft() {
     if (typeof localStorage === 'undefined') return;
-    const raw = localStorage.getItem(storageKey);
-    if (!raw) return;
-    try {
-      const parsed = JSON.parse(raw);
-      if (parsed) {
-        formData.value = parsed.data ?? {};
-        currentStep.value = parsed.step ?? 0;
-        lastSavedAt.value = parsed.savedAt ?? null;
-      }
-    } catch {
-      // Ignorar json corrupto
+    const restored = parseStoredDraft(localStorage.getItem(storageKey), initialData);
+    if (restored) {
+      formData.value = restored.data;
+      currentStep.value = restored.step;
+      lastSavedAt.value = restored.savedAt;
     }
     hasRestorableDraft.value = false;
   }
@@ -100,7 +173,17 @@ export function useSurveyDraft(encuestaSlug: string, initialData: Record<string,
     if (!rawQueue) return [];
     try {
       const parsed = JSON.parse(rawQueue);
-      return Array.isArray(parsed) ? parsed : [];
+      if (!Array.isArray(parsed)) return [];
+      return parsed
+        .filter((item): item is Record<string, unknown> => isPlainRecord(item))
+        .map((item) => {
+          const clientSubmissionId = String(item.clientSubmissionId ?? item.client_submission_id ?? '');
+          const encuestaId = String(item.encuestaId ?? item.encuesta_id ?? '');
+          const data = isPlainRecord(item.data) ? item.data : {};
+          const createdAt = String(item.createdAt ?? item.created_at ?? new Date().toISOString());
+          return { clientSubmissionId, encuestaId, data, createdAt };
+        })
+        .filter((item) => Boolean(item.clientSubmissionId && item.encuestaId));
     } catch {
       return [];
     }
