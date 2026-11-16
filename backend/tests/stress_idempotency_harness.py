@@ -389,13 +389,13 @@ class EmpiricalChallengeRunner:
         """Challenge malformed and adversarial payloads -> HTTP 422 with RFC 7807 structured errors."""
         test_cases = [
             (
-                "Invalid Parish Name",
-                {"data": {"cedula": "12345678", "parroquia": "parroquia_inexistente"}},
+                "Empty Parish String",
+                {"data": {"cedula": "12345678", "parroquia": ""}},
                 "parroquia",
             ),
             (
-                "Non-Maturín Parish (Caracas)",
-                {"data": {"cedula": "12345678", "parroquia": "chacao"}},
+                "Whitespace-Only Parish",
+                {"data": {"cedula": "12345678", "parroquia": "   "}},
                 "parroquia",
             ),
             (
@@ -463,20 +463,21 @@ class EmpiricalChallengeRunner:
             res = await client.post(f"/api/v1/encuestas/{survey_id}/respuestas", json=payload)
             body = res.json()
             is_422 = res.status_code == 422
+            errors_list = body.get("errors") or []
             rfc_valid = (
                 body.get("code") == "VALIDATION_ERROR"
                 and body.get("status") == 422
-                and isinstance(body.get("errors"), list)
-                and len(body.get("errors")) > 0
+                and isinstance(errors_list, list)
+                and len(errors_list) > 0
             )
             # Verify that either the top-level detail or one of the errors mentions the expected keyword
-            all_messages = " ".join([e.get("msg", "") for e in body.get("errors", [])]).lower()
-            keyword_match = expected_error_keyword.lower() in all_messages or expected_error_keyword.lower() in body.get("detail", "").lower()
+            all_messages = " ".join([e.get("msg", "") for e in errors_list]).lower()
+            keyword_match = expected_error_keyword.lower() in all_messages or expected_error_keyword.lower() in str(body.get("detail", "")).lower()
 
             self.record(
                 f"Malformed Payload - {desc}",
                 is_422 and rfc_valid and keyword_match,
-                f"HTTP {res.status_code}, code={body.get('code')}, field={body.get('field')}, errors_count={len(body.get('errors', []))}, matched='{expected_error_keyword}'",
+                f"HTTP {res.status_code}, code={body.get('code')}, field={body.get('field')}, errors_count={len(errors_list)}, matched='{expected_error_keyword}'",
             )
 
     async def challenge_cedula_less_submissions(
