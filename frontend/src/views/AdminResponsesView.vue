@@ -6,6 +6,7 @@ import {
   type EncuestaAdminItem,
   type AdminRespuestaItem
 } from '@/services/api';
+import { usePiiMasking } from '@/composables/usePiiMasking';
 
 const props = withDefaults(
   defineProps<{
@@ -35,20 +36,8 @@ const selectedRespuesta = ref<AdminRespuestaItem | null>(null);
 const maskPii = ref<boolean>(true);
 const jsonCopied = ref<boolean>(false);
 
-// Campos de PII a enmascarar
-const PII_KEYS = new Set([
-  'cedula',
-  'nombre_apellido',
-  'nombres_apellidos',
-  'nombre',
-  'apellido',
-  'telefono',
-  'correo',
-  'email',
-  'casa_apartamento',
-  'avenida_calle',
-  'direccion_exacta'
-]);
+// Utilidad centralizada de enmascaramiento de PII
+const { maskPiiData } = usePiiMasking();
 
 // Cálculos de paginación
 const totalPages = computed(() => {
@@ -163,34 +152,11 @@ function closeDetail() {
   selectedRespuesta.value = null;
 }
 
-// Enmascaramiento recursivo de PII
-function sanitizeData(data: any, shouldMask: boolean): any {
-  if (!shouldMask || data === null || typeof data !== 'object') {
-    return data;
-  }
-
-  if (Array.isArray(data)) {
-    return data.map((item) => sanitizeData(item, shouldMask));
-  }
-
-  const result: Record<string, any> = {};
-  for (const [k, v] of Object.entries(data)) {
-    if (PII_KEYS.has(k.toLowerCase())) {
-      result[k] = '[PROTEGIDO / PII]';
-    } else if (typeof v === 'object' && v !== null) {
-      result[k] = sanitizeData(v, shouldMask);
-    } else {
-      result[k] = v;
-    }
-  }
-  return result;
-}
-
-// Datos formateados para el modal
-const displayData = computed(() => {
+// Datos formateados para el modal (con PII enmascarada de forma recursiva)
+const displayData = computed<Record<string, any>>(() => {
   if (!selectedRespuesta.value) return {};
-  const cloned = JSON.parse(JSON.stringify(selectedRespuesta.value.datos || {}));
-  return sanitizeData(cloned, maskPii.value);
+  const cloned = JSON.parse(JSON.stringify(selectedRespuesta.value.datos || {})) as Record<string, any>;
+  return maskPiiData(cloned, maskPii.value);
 });
 
 // Copia segura al portapapeles

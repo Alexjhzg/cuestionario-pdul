@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { ref, shallowRef, onMounted, onBeforeUnmount, watch } from 'vue';
-import * as echarts from 'echarts';
+import { computed, ref, watch } from 'vue';
+import type * as echarts from 'echarts';
+import BaseChart from '@/components/dashboard/BaseChart.vue';
+import { CHART_FONT_FAMILY } from '@/composables/useECharts';
 import type { RepartoModalItem } from '@/services/analyticsApi';
 
 const props = withDefaults(
@@ -19,9 +21,8 @@ const props = withDefaults(
 );
 
 const activeType = ref<'donut' | 'bar'>(props.tipoGrafico);
-const chartContainer = ref<HTMLElement | null>(null);
-const chartInstance = shallowRef<echarts.ECharts | null>(null);
-let resizeObserver: ResizeObserver | null = null;
+const baseChartRef = ref<InstanceType<typeof BaseChart> | null>(null);
+const chartInstance = computed(() => baseChartRef.value?.chartInstance ?? null);
 
 const PALETA_MODAL = [
   '#145aff', // Royal Signal
@@ -36,24 +37,21 @@ const PALETA_MODAL = [
 
 function setChartType(type: 'donut' | 'bar') {
   activeType.value = type;
-  updateChart();
 }
 
-function updateChart() {
-  if (!chartInstance.value) return;
+const validItems = computed(() => props.items.filter((it) => it.total_viajes > 0));
+const isEmpty = computed(() => validItems.value.length === 0);
 
-  const validItems = props.items.filter((it) => it.total_viajes > 0);
-
-  if (validItems.length === 0) {
-    chartInstance.value.clear();
-    chartInstance.value.setOption({
+const chartOption = computed<echarts.EChartsOption>(() => {
+  if (isEmpty.value) {
+    return {
       title: {
         text: props.titulo,
         subtext: 'No se registran viajes en la encuesta seleccionada',
         left: 'center',
         top: 'middle',
         textStyle: {
-          fontFamily: 'Inter, sans-serif',
+          fontFamily: CHART_FONT_FAMILY,
           fontSize: 16,
           color: '#6b7280'
         },
@@ -62,8 +60,7 @@ function updateChart() {
           color: '#9ca3af'
         }
       }
-    });
-    return;
+    };
   }
 
   const isBar = activeType.value === 'bar';
@@ -74,7 +71,7 @@ function updateChart() {
       subtext: 'Pregunta: Modo principal (Sección V: Registro de Viajes)',
       left: 'left',
       textStyle: {
-        fontFamily: 'Inter, sans-serif',
+        fontFamily: CHART_FONT_FAMILY,
         fontSize: 16,
         fontWeight: 'bold',
         color: '#020520'
@@ -134,7 +131,7 @@ function updateChart() {
     };
     baseOption.xAxis = {
       type: 'category',
-      data: validItems.map((it) => it.etiqueta),
+      data: validItems.value.map((it) => it.etiqueta),
       axisLabel: {
         interval: 0,
         rotate: 20,
@@ -152,7 +149,7 @@ function updateChart() {
       {
         name: 'Total Viajes',
         type: 'bar',
-        data: validItems.map((it) => it.total_viajes),
+        data: validItems.value.map((it) => it.total_viajes),
         itemStyle: {
           borderRadius: [4, 4, 0, 0]
         }
@@ -197,7 +194,7 @@ function updateChart() {
         labelLine: {
           show: false
         },
-        data: validItems.map((it) => ({
+        data: validItems.value.map((it) => ({
           name: it.etiqueta,
           value: it.total_viajes
         }))
@@ -205,69 +202,27 @@ function updateChart() {
     ];
   }
 
-  chartInstance.value.setOption(baseOption, true);
-}
-
-function initChart() {
-  if (!chartContainer.value) return;
-
-  try {
-    chartInstance.value = echarts.init(chartContainer.value);
-    updateChart();
-
-    if (typeof ResizeObserver !== 'undefined') {
-      resizeObserver = new ResizeObserver(() => {
-        chartInstance.value?.resize();
-      });
-      resizeObserver.observe(chartContainer.value);
-    }
-  } catch (err) {
-    console.warn('ECharts ModalSplitChart init warning:', err);
-  }
-}
+  return baseOption;
+});
 
 function resize() {
-  chartInstance.value?.resize();
+  baseChartRef.value?.resize();
 }
-
-defineExpose({
-  chartInstance,
-  activeType,
-  setChartType,
-  resize
-});
-
-onMounted(() => {
-  initChart();
-});
-
-watch(
-  () => props.items,
-  () => {
-    updateChart();
-  },
-  { deep: true }
-);
 
 watch(
   () => props.tipoGrafico,
   (newType) => {
     if (newType) {
       activeType.value = newType;
-      updateChart();
     }
   }
 );
 
-onBeforeUnmount(() => {
-  if (resizeObserver) {
-    resizeObserver.disconnect();
-    resizeObserver = null;
-  }
-  if (chartInstance.value) {
-    chartInstance.value.dispose();
-    chartInstance.value = null;
-  }
+defineExpose({
+  chartInstance,
+  activeType,
+  setChartType,
+  resize
 });
 </script>
 
@@ -307,13 +262,17 @@ onBeforeUnmount(() => {
       <span>Cargando reparto modal...</span>
     </div>
 
-    <div
-      ref="chartContainer"
-      class="echarts-container"
+    <BaseChart
+      ref="baseChartRef"
+      :option="chartOption"
+      :clear-before-set="isEmpty"
+      height="380px"
+      canvas-class="echarts-container"
       role="img"
       :aria-label="activeType === 'donut' ? 'Gráfico de anillo de distribución modal de viajes' : 'Gráfico de barras de distribución modal de viajes'"
-      tabindex="0"
-    ></div>
+      :tabindex="0"
+      label="ModalSplitChart"
+    />
   </div>
 </template>
 

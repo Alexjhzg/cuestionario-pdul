@@ -282,3 +282,93 @@ a:hover {
   justify-content: center !important;
   cursor: pointer !important;
 }
+
+
+/* Estilos compartidos de secciones del cuestionario ciudadano */
+.survey-radio-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-inline-size: 0;
+}
+
+.survey-radio-group.horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-12);
+}
+
+.survey-radio-option,
+.survey-checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  min-block-size: var(--min-touch-target);
+  padding: var(--spacing-8) var(--spacing-12);
+  cursor: pointer;
+  border-radius: var(--radius-interactive);
+}
+
+.survey-checkbox-option:hover,
+.survey-radio-option:hover {
+  background-color: var(--color-fog-surface);
+}
+
+.survey-radio-option input[type='radio'],
+.survey-checkbox-option input[type='checkbox'] {
+  inline-size: 22px;
+  block-size: 22px;
+  flex-shrink: 0;
+  accent-color: var(--color-royal-signal);
+}
+
+.survey-subsection-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-cards);
+  padding: var(--spacing-16);
+  margin-block-end: var(--spacing-20);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.survey-subsection-title {
+  font-size: var(--text-heading-sm);
+  color: var(--color-royal-signal);
+  margin: 0;
+  padding-block-end: var(--spacing-8);
+  border-bottom: 2px solid var(--color-fog-surface);
+}
+
+.step-section-heading {
+  font-size: var(--text-heading-sm);
+  color: var(--color-midnight-ink);
+  margin: 0;
+}
+
+.nested-field {
+  margin-block-start: var(--spacing-8);
+  margin-inline-start: var(--spacing-16);
+}
+
+.declaration-field {
+  background-color: var(--color-fog-surface);
+  padding: var(--spacing-12);
+  border-radius: var(--radius-cards);
+}
+
+.declaration-label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-8);
+  font-size: var(--text-body-sm);
+  color: var(--color-graphite-body);
+  cursor: pointer;
+}
+
+.declaration-label input {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+}

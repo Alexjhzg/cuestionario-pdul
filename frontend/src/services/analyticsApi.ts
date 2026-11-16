@@ -9,19 +9,9 @@
  * - GET /api/v1/encuestas/{id}/metricas?campo=...
  */
 
-export const MATURIN_PARROQUIAS_OFICIALES = [
-  'alto_de_los_godos',
-  'boqueron',
-  'las_cocuizas',
-  'la_cruz',
-  'san_simon',
-  'santa_cruz',
-  'el_corozo',
-  'el_furrial',
-  'jusepin',
-  'la_pica',
-  'san_vicente'
-] as const;
+import { PARROQUIAS_MATURIN } from '@/utils/validation';
+
+export const MATURIN_PARROQUIAS_OFICIALES = PARROQUIAS_MATURIN;
 
 export interface EncuestaItem {
   id: string;

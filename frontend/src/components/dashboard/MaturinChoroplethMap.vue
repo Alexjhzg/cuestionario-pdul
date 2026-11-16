@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ref, shallowRef, computed, onMounted, onBeforeUnmount, watch } from 'vue';
+import { ref, computed } from 'vue';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import canonicalGeoJsonRaw from '@/assets/geojson/maturin_parroquias.geojson?raw';
+import canonicalGeoJsonRaw from '@shared/geojson/maturin_parroquias.geojson?raw';
+import { useLeafletMap } from '@/composables/useLeafletMap';
 import type { ParroquiaResultado } from '@/services/analyticsApi';
 
 const parsedCanonicalGeoJson = JSON.parse(canonicalGeoJsonRaw) as unknown as GeoJSON.FeatureCollection;
@@ -31,28 +32,20 @@ const emit = defineEmits<{
 }>();
 
 const mapContainer = ref<HTMLElement | null>(null);
-const mapInstance = shallowRef<L.Map | null>(null);
-const geoJsonLayer = shallowRef<L.GeoJSON | null>(null);
 const selectedParroquia = ref<string | null>(null);
 
 const legendThresholds = [
-  { label: '> 25%', color: '#800026' },
-  { label: '18% – 25%', color: '#BD0026' },
-  { label: '12% – 18%', color: '#E31A1C' },
-  { label: '6% – 12%', color: '#FD8D3C' },
-  { label: '2% – 6%', color: '#FEB24C' },
-  { label: '0.1% – 2%', color: '#FED976' },
-  { label: '0% / Sin datos', color: '#FFFFCC' }
+  { label: '> 25%', minExclusive: 25, color: '#800026' },
+  { label: '18% – 25%', minExclusive: 18, color: '#BD0026' },
+  { label: '12% – 18%', minExclusive: 12, color: '#E31A1C' },
+  { label: '6% – 12%', minExclusive: 6, color: '#FD8D3C' },
+  { label: '2% – 6%', minExclusive: 2, color: '#FEB24C' },
+  { label: '0.1% – 2%', minExclusive: 0, color: '#FED976' },
+  { label: '0% / Sin datos', minExclusive: -Infinity, color: '#FFFFCC' }
 ];
 
 function getColorByPercentage(pct: number): string {
-  return pct > 25 ? '#800026' :
-         pct > 18 ? '#BD0026' :
-         pct > 12 ? '#E31A1C' :
-         pct > 6  ? '#FD8D3C' :
-         pct > 2  ? '#FEB24C' :
-         pct > 0  ? '#FED976' :
-                    '#FFFFCC';
+  return legendThresholds.find((threshold) => pct > threshold.minExclusive)?.color ?? '#FFFFCC';
 }
 
 function getStyle(feature: any): L.PathOptions {
@@ -72,146 +65,81 @@ function getStyle(feature: any): L.PathOptions {
   };
 }
 
-function renderChoropleth() {
-  if (!mapInstance.value) return;
-
-  if (geoJsonLayer.value) {
-    geoJsonLayer.value.clearLayers();
-    geoJsonLayer.value.remove();
-    geoJsonLayer.value = null;
-  }
-
+function buildChoroplethLayer(map: L.Map): L.GeoJSON | null {
   const lookup = new Map(props.metricas.map((m) => [m.parroquia, m]));
 
-  try {
-    geoJsonLayer.value = L.geoJSON(activeGeoJson.value, {
-      style: (feature) => getStyle(feature),
-      onEachFeature: (feature, layer) => {
-        const cod = feature?.properties?.codigo_parroquia ?? '';
-        const nombre = feature?.properties?.nombre_parroquia || feature?.properties?.nombre || cod;
-        const metrica = lookup.get(cod);
-        const total = metrica?.total_respuestas ?? 0;
-        const pct = metrica?.porcentaje ?? 0;
+  return L.geoJSON(activeGeoJson.value, {
+    style: (feature) => getStyle(feature),
+    onEachFeature: (feature, layer) => {
+      const cod = feature?.properties?.codigo_parroquia ?? '';
+      const nombre = feature?.properties?.nombre_parroquia || feature?.properties?.nombre || cod;
+      const metrica = lookup.get(cod);
+      const total = metrica?.total_respuestas ?? 0;
+      const pct = metrica?.porcentaje ?? 0;
 
-        layer.bindTooltip(
-          `<div class="map-tooltip-content">
-            <strong class="tooltip-title">${nombre}</strong>
-            <div class="tooltip-row"><span>Respuestas / Viajes:</span> <strong>${total.toLocaleString('es-VE')}</strong></div>
-            <div class="tooltip-row"><span>Participación:</span> <strong>${pct.toFixed(1)}%</strong></div>
-          </div>`,
-          {
-            sticky: true,
-            className: 'custom-map-tooltip',
-            direction: 'auto'
+      layer.bindTooltip(
+        `<div class="map-tooltip-content">
+          <strong class="tooltip-title">${nombre}</strong>
+          <div class="tooltip-row"><span>Respuestas / Viajes:</span> <strong>${total.toLocaleString('es-VE')}</strong></div>
+          <div class="tooltip-row"><span>Participación:</span> <strong>${pct.toFixed(1)}%</strong></div>
+        </div>`,
+        {
+          sticky: true,
+          className: 'custom-map-tooltip',
+          direction: 'auto'
+        }
+      );
+
+      layer.bindPopup(
+        `<div class="map-popup-content">
+          <h4 class="popup-title">${nombre}</h4>
+          <p class="popup-row"><span>Total respuestas / viajes:</span> <strong>${total.toLocaleString('es-VE')}</strong></p>
+          <p class="popup-row"><span>Participación:</span> <strong>${pct.toFixed(1)}%</strong></p>
+        </div>`,
+        { className: 'custom-map-popup' }
+      );
+
+      layer.on({
+        mouseover: (e: L.LeafletMouseEvent) => {
+          const target = e.target;
+          target.setStyle({
+            weight: 3,
+            color: '#020520',
+            fillOpacity: 0.95
+          });
+          if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+            target.bringToFront();
           }
-        );
-
-        layer.bindPopup(
-          `<div class="map-popup-content">
-            <h4 class="popup-title">${nombre}</h4>
-            <p class="popup-row"><span>Total respuestas / viajes:</span> <strong>${total.toLocaleString('es-VE')}</strong></p>
-            <p class="popup-row"><span>Participación:</span> <strong>${pct.toFixed(1)}%</strong></p>
-          </div>`,
-          { className: 'custom-map-popup' }
-        );
-
-        layer.on({
-          mouseover: (e: L.LeafletMouseEvent) => {
-            const target = e.target;
-            target.setStyle({
-              weight: 3,
-              color: '#020520',
-              fillOpacity: 0.95
-            });
-            if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-              target.bringToFront();
-            }
-          },
-          mouseout: (e: L.LeafletMouseEvent) => {
-            if (geoJsonLayer.value) {
-              geoJsonLayer.value.resetStyle(e.target);
-            }
-          },
-          click: () => {
-            selectedParroquia.value = cod;
-            layer.openPopup();
-            emit('select-parroquia', cod);
+        },
+        mouseout: (e: L.LeafletMouseEvent) => {
+          if (geoJsonLayer.value) {
+            geoJsonLayer.value.resetStyle(e.target);
           }
-        });
-      }
-    }).addTo(mapInstance.value);
-  } catch (err) {
-    // Manejo seguro en entornos de prueba con DOM simplificado
-    console.warn('Error al renderizar capa GeoJSON:', err);
-  }
+        },
+        click: () => {
+          selectedParroquia.value = cod;
+          layer.openPopup();
+          emit('select-parroquia', cod);
+        }
+      });
+    }
+  }).addTo(map);
 }
 
-function initMap() {
-  if (!mapContainer.value) return;
-
-  // Centro oficial en Municipio Maturín, Monagas: [9.7457, -63.1832], zoom 11
-  try {
-    mapInstance.value = L.map(mapContainer.value, {
-      center: [9.7457, -63.1832],
-      zoom: 11,
-      minZoom: 9,
-      maxZoom: 16,
-      scrollWheelZoom: false
-    });
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'
-    }).addTo(mapInstance.value);
-
-    renderChoropleth();
-  } catch (err) {
-    console.warn('Leaflet map init warning:', err);
-  }
-}
-
-function invalidateSize() {
-  if (mapInstance.value) {
-    mapInstance.value.invalidateSize();
-  }
-}
+// Centro oficial en Municipio Maturín, Monagas: [9.7457, -63.1832], zoom 11
+const { mapInstance, geoJsonLayer, invalidateSize } = useLeafletMap(mapContainer, {
+  center: [9.7457, -63.1832],
+  zoom: 11,
+  minZoom: 9,
+  maxZoom: 16,
+  watchSources: [() => props.metricas, () => props.geojson],
+  renderLayer: buildChoroplethLayer
+});
 
 defineExpose({
   invalidateSize,
   mapInstance,
   geoJsonLayer
-});
-
-onMounted(() => {
-  initMap();
-});
-
-watch(
-  () => props.metricas,
-  () => {
-    renderChoropleth();
-  },
-  { deep: true }
-);
-
-watch(
-  () => props.geojson,
-  () => {
-    renderChoropleth();
-  },
-  { deep: true }
-);
-
-onBeforeUnmount(() => {
-  if (geoJsonLayer.value) {
-    geoJsonLayer.value.clearLayers();
-    geoJsonLayer.value.remove();
-    geoJsonLayer.value = null;
-  }
-  if (mapInstance.value) {
-    mapInstance.value.remove();
-    mapInstance.value = null;
-  }
 });
 </script>
 

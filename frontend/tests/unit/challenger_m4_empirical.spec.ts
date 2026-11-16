@@ -3,7 +3,7 @@ import { mount, flushPromises } from '@vue/test-utils';
 import FormioBuilder from '@/components/admin/FormioBuilder.vue';
 import FormBuilderView from '@/views/FormBuilderView.vue';
 import { Formio } from '@formio/js';
-import pdulCanonicalSchema from '@/assets/schemas/pdul_origen_destino.json';
+import pdulCanonicalSchema from '@shared/schemas/pdul_origen_destino.json';
 import fs from 'fs';
 import path from 'path';
 

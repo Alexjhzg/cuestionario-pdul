@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import { PARROQUIA_CANONICAL_LABELS } from '@/utils/validation';
 import type {
   KpiMetrics,
   ParroquiaResultado,
@@ -25,22 +26,8 @@ const props = withDefaults(
   }
 );
 
-const PARROQUIA_NOMBRES: Record<string, string> = {
-  san_simon: 'San Simón',
-  alto_de_los_godos: 'Alto de los Godos',
-  boqueron: 'Boquerón',
-  las_cocuizas: 'Las Cocuizas',
-  santa_cruz: 'Santa Cruz',
-  san_vicente: 'San Vicente',
-  la_pica: 'La Pica',
-  el_furrial: 'El Furrial',
-  el_corozo: 'El Corozo',
-  jusepin: 'Jusepín',
-  la_cruz: 'La Cruz'
-};
-
 function formatParroquia(code: string): string {
-  return PARROQUIA_NOMBRES[code] || code;
+  return PARROQUIA_CANONICAL_LABELS[code] || code;
 }
 
 const totalRespuestasParroquias = computed<number>(() => {

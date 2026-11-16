@@ -1,39 +1,30 @@
+import parroquiasCatalog from '@shared/catalogs/parroquias.json';
+import type { ParroquiaCatalogItem } from '@shared/types';
+
 /**
  * Utilidades de validación ciudadana y del PDUL Maturín
  */
 
-export const PARROQUIAS_MATURIN = [
-  'alto_de_los_godos',
-  'boqueron',
-  'las_cocuizas',
-  'la_cruz',
-  'san_simon',
-  'santa_cruz',
-  'el_corozo',
-  'el_furrial',
-  'jusepin',
-  'la_pica',
-  'san_vicente'
-] as const;
+const CATALOG_ITEMS = parroquiasCatalog as ParroquiaCatalogItem[];
 
-export type ParroquiaMaturin = typeof PARROQUIAS_MATURIN[number];
+export const PARROQUIAS_MATURIN = CATALOG_ITEMS.map((item) => item.codigo);
+
+export type ParroquiaMaturin = string;
 
 /**
- * Catálogo centralizado de nombres de parroquias formateados para visualización UI (sin guiones bajos)
+ * Catálogo centralizado de nombres de parroquias formateados para visualización UI (sin guiones bajos).
+ * Se deriva del catálogo canónico compartido en @shared/catalogs/parroquias.json.
  */
-export const PARROQUIA_NOMBRES: Record<string, string> = {
-  alto_de_los_godos: 'Alto de Los Godos',
-  boqueron: 'Boquerón',
-  las_cocuizas: 'Las Cocuizas',
-  la_cruz: 'La Cruz',
-  san_simon: 'San Simón',
-  santa_cruz: 'Santa Cruz',
-  el_corozo: 'El Corozo',
-  el_furrial: 'El Furrial',
-  jusepin: 'Jusepín',
-  la_pica: 'La Pica',
-  san_vicente: 'San Vicente'
-};
+export const PARROQUIA_NOMBRES: Record<string, string> = Object.fromEntries(
+  CATALOG_ITEMS.map((item) => [
+    item.codigo,
+    item.codigo === 'alto_de_los_godos' ? 'Alto de Los Godos' : item.label
+  ])
+);
+
+export const PARROQUIA_CANONICAL_LABELS: Record<string, string> = Object.fromEntries(
+  CATALOG_ITEMS.map((item) => [item.codigo, item.label])
+);
 
 /**
  * Formatea el identificador snake_case de una parroquia a su nombre oficial limpio para la UI.
@@ -62,7 +53,7 @@ export function parroquiaToKey(text?: string | null): string {
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[\s-]+/g, '_');
-  return (PARROQUIAS_MATURIN as readonly string[]).includes(key) ? key : raw;
+  return PARROQUIAS_MATURIN.includes(key) ? key : raw;
 }
 
 /**
@@ -83,7 +74,6 @@ export function parroquiaDisplayText(value?: string | null): string {
 export function normalizeCedula(input: string | number | null | undefined): string {
   if (input === null || input === undefined) return '';
   const str = String(input).trim();
-  // Elimina prefijos comunes como 'V-', 'V', 'E-', 'E' y cualquier caracter no numérico
   return str.replace(/[^0-9]/g, '');
 }
 
@@ -100,7 +90,7 @@ export function isValidCedula(input: string | number | null | undefined): boolea
  */
 export function isValidParroquia(parroquia: string | null | undefined): boolean {
   if (!parroquia) return false;
-  return PARROQUIAS_MATURIN.includes(parroquia.trim().toLowerCase() as ParroquiaMaturin);
+  return PARROQUIAS_MATURIN.includes(parroquia.trim().toLowerCase());
 }
 
 /**

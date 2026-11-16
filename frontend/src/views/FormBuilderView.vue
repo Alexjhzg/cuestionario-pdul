@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue';
 import FormioBuilder from '../components/admin/FormioBuilder.vue';
-import pdulCanonicalSchema from '../assets/schemas/pdul_origen_destino.json';
+import pdulCanonicalSchema from '@shared/schemas/pdul_origen_destino.json';
 import {
   fetchAdminEncuestas,
   fetchAdminEncuesta,

@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { ref, shallowRef, onMounted, onBeforeUnmount, watch } from 'vue';
-import * as echarts from 'echarts';
+import { computed, ref } from 'vue';
+import type * as echarts from 'echarts';
+import BaseChart from '@/components/dashboard/BaseChart.vue';
+import { CHART_FONT_FAMILY } from '@/composables/useECharts';
+import { PARROQUIA_CANONICAL_LABELS } from '@/utils/validation';
 import type { MatrizODItem } from '@/services/analyticsApi';
 
 const props = withDefaults(
@@ -16,43 +19,26 @@ const props = withDefaults(
   }
 );
 
-const chartContainer = ref<HTMLElement | null>(null);
-const chartInstance = shallowRef<echarts.ECharts | null>(null);
-let resizeObserver: ResizeObserver | null = null;
-
-const PARROQUIA_NOMBRES: Record<string, string> = {
-  san_simon: 'San Simón',
-  alto_de_los_godos: 'Alto de los Godos',
-  boqueron: 'Boquerón',
-  las_cocuizas: 'Las Cocuizas',
-  santa_cruz: 'Santa Cruz',
-  san_vicente: 'San Vicente',
-  la_pica: 'La Pica',
-  el_furrial: 'El Furrial',
-  el_corozo: 'El Corozo',
-  jusepin: 'Jusepín',
-  la_cruz: 'La Cruz'
-};
+const baseChartRef = ref<InstanceType<typeof BaseChart> | null>(null);
+const chartInstance = computed(() => baseChartRef.value?.chartInstance ?? null);
 
 function formatZone(code: string): string {
-  return PARROQUIA_NOMBRES[code] || code;
+  return PARROQUIA_CANONICAL_LABELS[code] || code;
 }
 
-function updateChart() {
-  if (!chartInstance.value) return;
+const validItems = computed(() => props.items.filter((it) => it.total_viajes > 0));
+const isEmpty = computed(() => validItems.value.length === 0);
 
-  const validItems = props.items.filter((it) => it.total_viajes > 0);
-
-  if (validItems.length === 0) {
-    chartInstance.value.clear();
-    chartInstance.value.setOption({
+const chartOption = computed<echarts.EChartsOption>(() => {
+  if (isEmpty.value) {
+    return {
       title: {
         text: props.titulo,
         subtext: 'No se registran viajes para generar la matriz Origen-Destino',
         left: 'center',
         top: 'middle',
         textStyle: {
-          fontFamily: 'Inter, sans-serif',
+          fontFamily: CHART_FONT_FAMILY,
           fontSize: 16,
           color: '#6b7280'
         },
@@ -61,15 +47,14 @@ function updateChart() {
           color: '#9ca3af'
         }
       }
-    });
-    return;
+    };
   }
 
   // Obtener zonas únicas presentes en los datos
   const originsSet = new Set<string>();
   const destsSet = new Set<string>();
 
-  validItems.forEach((it) => {
+  validItems.value.forEach((it) => {
     originsSet.add(it.zona_origen);
     destsSet.add(it.zona_destino);
   });
@@ -84,7 +69,7 @@ function updateChart() {
   const lookup = new Map<string, MatrizODItem>();
   let maxTrips = 1;
 
-  validItems.forEach((it) => {
+  validItems.value.forEach((it) => {
     lookup.set(`${it.zona_origen}__${it.zona_destino}`, it);
     if (it.total_viajes > maxTrips) {
       maxTrips = it.total_viajes;
@@ -103,13 +88,13 @@ function updateChart() {
     });
   });
 
-  const option: echarts.EChartsOption = {
+  return {
     title: {
       text: props.titulo,
       subtext: 'Pregunta: Zona O-D origen → Zona O-D destino (Sección V: Registro de Viajes)',
       left: 'left',
       textStyle: {
-        fontFamily: 'Inter, sans-serif',
+        fontFamily: CHART_FONT_FAMILY,
         fontSize: 16,
         fontWeight: 'bold',
         color: '#020520'
@@ -222,58 +207,15 @@ function updateChart() {
       }
     ]
   };
-
-  chartInstance.value.setOption(option, true);
-}
-
-function initChart() {
-  if (!chartContainer.value) return;
-
-  try {
-    chartInstance.value = echarts.init(chartContainer.value);
-    updateChart();
-
-    if (typeof ResizeObserver !== 'undefined') {
-      resizeObserver = new ResizeObserver(() => {
-        chartInstance.value?.resize();
-      });
-      resizeObserver.observe(chartContainer.value);
-    }
-  } catch (err) {
-    console.warn('ECharts OdFlowMatrixChart init warning:', err);
-  }
-}
+});
 
 function resize() {
-  chartInstance.value?.resize();
+  baseChartRef.value?.resize();
 }
 
 defineExpose({
   chartInstance,
   resize
-});
-
-onMounted(() => {
-  initChart();
-});
-
-watch(
-  () => props.items,
-  () => {
-    updateChart();
-  },
-  { deep: true }
-);
-
-onBeforeUnmount(() => {
-  if (resizeObserver) {
-    resizeObserver.disconnect();
-    resizeObserver = null;
-  }
-  if (chartInstance.value) {
-    chartInstance.value.dispose();
-    chartInstance.value = null;
-  }
 });
 </script>
 
@@ -288,13 +230,17 @@ onBeforeUnmount(() => {
       <span>Cargando matriz O-D...</span>
     </div>
 
-    <div
-      ref="chartContainer"
-      class="echarts-matrix-container"
+    <BaseChart
+      ref="baseChartRef"
+      :option="chartOption"
+      :clear-before-set="isEmpty"
+      height="440px"
+      canvas-class="echarts-matrix-container"
       role="img"
       aria-label="Mapa de calor que representa la cantidad de viajes entre cada par de zonas de origen y destino"
-      tabindex="0"
-    ></div>
+      :tabindex="0"
+      label="OdFlowMatrixChart"
+    />
   </div>
 </template>
 
