@@ -1,0 +1,90 @@
+[
+  {
+    "codigo": "alto_de_los_godos",
+    "value": "alto_de_los_godos",
+    "nombre": "Alto de los Godos",
+    "label": "Alto de los Godos",
+    "tipo": "Urbana",
+    "capital": "Los Godos"
+  },
+  {
+    "codigo": "boqueron",
+    "value": "boqueron",
+    "nombre": "Boquerón",
+    "label": "Boquerón",
+    "tipo": "Urbana",
+    "capital": "Boquerón"
+  },
+  {
+    "codigo": "las_cocuizas",
+    "value": "las_cocuizas",
+    "nombre": "Las Cocuizas",
+    "label": "Las Cocuizas",
+    "tipo": "Urbana",
+    "capital": "Las Cocuizas"
+  },
+  {
+    "codigo": "la_cruz",
+    "value": "la_cruz",
+    "nombre": "La Cruz",
+    "label": "La Cruz",
+    "tipo": "Urbana",
+    "capital": "La Cruz"
+  },
+  {
+    "codigo": "san_simon",
+    "value": "san_simon",
+    "nombre": "San Simón (Centro)",
+    "label": "San Simón",
+    "tipo": "Urbana",
+    "capital": "Maturín"
+  },
+  {
+    "codigo": "santa_cruz",
+    "value": "santa_cruz",
+    "nombre": "Santa Cruz",
+    "label": "Santa Cruz",
+    "tipo": "Urbana",
+    "capital": "Santa Cruz"
+  },
+  {
+    "codigo": "el_corozo",
+    "value": "el_corozo",
+    "nombre": "El Corozo",
+    "label": "El Corozo",
+    "tipo": "Rural / Periurbana",
+    "capital": "El Corozo"
+  },
+  {
+    "codigo": "el_furrial",
+    "value": "el_furrial",
+    "nombre": "El Furrial",
+    "label": "El Furrial",
+    "tipo": "Rural / Periurbana",
+    "capital": "El Furrial"
+  },
+  {
+    "codigo": "jusepin",
+    "value": "jusepin",
+    "nombre": "Jusepín",
+    "label": "Jusepín",
+    "tipo": "Rural / Periurbana",
+    "capital": "Jusepín"
+  },
+  {
+    "codigo": "la_pica",
+    "value": "la_pica",
+    "nombre": "La Pica",
+    "label": "La Pica",
+    "tipo": "Rural / Periurbana",
+    "capital": "La Pica"
+  },
+  {
+    "codigo": "san_vicente",
+    "value": "san_vicente",
+    "nombre": "San Vicente",
+    "label": "San Vicente",
+    "tipo": "Rural / Periurbana",
+    "capital": "San Vicente"
+  }
+]

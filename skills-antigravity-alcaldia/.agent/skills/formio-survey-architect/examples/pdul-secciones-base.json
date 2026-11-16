@@ -1,0 +1,200 @@
+{
+  "display": "form",
+  "components": [
+    {
+      "type": "panel",
+      "title": "Sección I: Identificación de la Unidad Residencial",
+      "key": "panel_seccion_i",
+      "collapsible": true,
+      "collapsed": false,
+      "components": [
+        {
+          "type": "textfield",
+          "key": "cedula",
+          "label": "Cédula del Encuestado / Jefe de Hogar",
+          "placeholder": "Ej: 12345678",
+          "validate": {
+            "required": true,
+            "pattern": "^[0-9]{6,9}$",
+            "customMessage": "Ingrese un número de cédula válido (6 a 9 dígitos sin puntos)."
+          }
+        },
+        {
+          "type": "select",
+          "key": "parroquia",
+          "label": "1.- Parroquia",
+          "dataSrc": "values",
+          "data": {
+            "values": [
+              { "label": "Alto de los Godos", "value": "alto_de_los_godos" },
+              { "label": "Boquerón", "value": "boqueron" },
+              { "label": "Las Cocuizas", "value": "las_cocuizas" },
+              { "label": "La Cruz", "value": "la_cruz" },
+              { "label": "San Simón", "value": "san_simon" },
+              { "label": "Santa Cruz", "value": "santa_cruz" },
+              { "label": "El Corozo", "value": "el_corozo" },
+              { "label": "El Furrial", "value": "el_furrial" },
+              { "label": "Jusepín", "value": "jusepin" },
+              { "label": "La Pica", "value": "la_pica" },
+              { "label": "San Vicente", "value": "san_vicente" }
+            ]
+          },
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "zona_residencia_od",
+          "label": "3.- Zona de Residencia (Según Zonificación O-D)",
+          "validate": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "Sección V: Registro General de Viajes",
+      "key": "panel_seccion_v",
+      "collapsible": true,
+      "collapsed": false,
+      "components": [
+        {
+          "type": "datagrid",
+          "key": "viajes",
+          "label": "Viajes realizados el día anterior (mayores de 5 años)",
+          "initEmpty": false,
+          "validate": {
+            "minLength": 1
+          },
+          "components": [
+            {
+              "type": "number",
+              "key": "persona_numero",
+              "label": "Persona (N°)",
+              "validate": { "required": true, "min": 1 }
+            },
+            {
+              "type": "textfield",
+              "key": "zona_od_origen",
+              "label": "Zona O-D Origen",
+              "validate": { "required": true }
+            },
+            {
+              "type": "textfield",
+              "key": "zona_od_destino",
+              "label": "Zona O-D Destino",
+              "validate": { "required": true }
+            },
+            {
+              "type": "select",
+              "key": "motivo_viaje",
+              "label": "Motivo del Viaje",
+              "dataSrc": "values",
+              "data": {
+                "values": [
+                  { "label": "1 = Trabajo", "value": "1" },
+                  { "label": "2 = Estudio", "value": "2" },
+                  { "label": "3 = Compras", "value": "3" },
+                  { "label": "4 = Salud", "value": "4" },
+                  { "label": "5 = Recreación", "value": "5" },
+                  { "label": "6 = Trámites", "value": "6" },
+                  { "label": "7 = Visita Familiar", "value": "7" },
+                  { "label": "8 = Otro", "value": "8" }
+                ]
+              },
+              "validate": { "required": true }
+            },
+            {
+              "type": "select",
+              "key": "modo_principal",
+              "label": "Modo Principal",
+              "dataSrc": "values",
+              "data": {
+                "values": [
+                  { "label": "1 = A pie", "value": "1" },
+                  { "label": "2 = Bicicleta", "value": "2" },
+                  { "label": "3 = Motocicleta", "value": "3" },
+                  { "label": "4 = Automóvil Particular", "value": "4" },
+                  { "label": "5 = Taxi", "value": "5" },
+                  { "label": "6 = Transporte público (bus, buseta)", "value": "6" },
+                  { "label": "7 = Transporte informal (por puesto, mototaxi)", "value": "7" },
+                  { "label": "8 = Otro", "value": "8" }
+                ]
+              },
+              "validate": { "required": true }
+            },
+            {
+              "type": "number",
+              "key": "tiempo_viaje_min",
+              "label": "Tiempo de viaje (min)",
+              "validate": { "required": true, "min": 1, "max": 600 }
+            },
+            {
+              "type": "number",
+              "key": "costo_viaje_bs",
+              "label": "Costo del Viaje (Bs)",
+              "validate": { "required": true, "min": 0 }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "title": "Sección VIII: Esparcimientos y Peatonalidad",
+      "key": "panel_seccion_viii",
+      "collapsible": true,
+      "collapsed": false,
+      "components": [
+        {
+          "type": "selectboxes",
+          "key": "actividades_espacios",
+          "label": "2.- ¿Qué actividad realiza principalmente en estos espacios? (admite respuestas múltiples)",
+          "values": [
+            { "label": "Caminar", "value": "caminar" },
+            { "label": "Trotar/Correr", "value": "trotar_correr" },
+            { "label": "Recreación Infantil", "value": "recreacion_infantil" },
+            { "label": "Deporte", "value": "deporte" },
+            { "label": "Descanso", "value": "descanso" },
+            { "label": "Lectura", "value": "lectura" },
+            { "label": "Otras", "value": "otras" }
+          ]
+        },
+        {
+          "type": "radio",
+          "key": "existe_cruce_peatonal",
+          "label": "20.- ¿Existe cruce peatonal en todas las intersecciones?",
+          "values": [
+            { "label": "Sí", "value": "si" },
+            { "label": "No", "value": "no" }
+          ]
+        },
+        {
+          "type": "radio",
+          "key": "cruce_demarcado_visible",
+          "label": "21.- ¿Está demarcado y visible?",
+          "values": [
+            { "label": "Sí", "value": "si" },
+            { "label": "No", "value": "no" }
+          ],
+          "conditional": {
+            "show": true,
+            "when": "existe_cruce_peatonal",
+            "eq": "si"
+          }
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "key": "submit",
+      "label": "Enviar Participación",
+      "action": "submit",
+      "theme": "primary",
+      "block": true
+    }
+  ]
+}
+

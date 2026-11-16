@@ -1,0 +1,418 @@
+PLAN DE MOVILIDAD URBANA
+
+PDUL
+
+ENCUESTA ORIGEN - DESTINO
+SECCIÓN I: IDENTIFICACIÓN DE LA UNIDAD RESIDENCIAL
+1.- PARROQUIA: ______________________________________________________________________________
+2.- COMUNIDAD/SECTOR: _____________________________________________________________________
+3.- ZONA DE RESIDENCIA (SEGÚN ZONIFICACIÓN O-D): ____________________________________________
+4.- AVENIDA/CALLE:____________________________________________________________________________
+5.- CASA/APARTAMENTO:_______________________________________________________________________
+SECCIÓN II: DATOS DE LA VIVIENDA
+1.- TIPO DE VIVIENDA:
+2.- Contando sala, comedor, cuartos para dormir y otros
+a.- Quinta o Casa quinta
+cuartos ¿Cuántos cuartos tiene en total esta vivienda?
+b.- Casa
+(No incluye baños, pasillos, balcones, cocina, ni lavaderos)
+c.- Apartamento en edificio
+d.- Apartamento en quinta, casa-quinta o casa
+e.- Casa de vecindad
+f.- Vivienda rústica (rancho)
+g.- Otro tipo:_______________________
+SECCIÓN III: DATOS DEL HOGAR
+1.- ¿Cuantos grupos de personas de esta vivienda
+4.- Para este hogar la vivienda es:
+mantienen gastos separado para la comida?
+a.- Propia pagada totalmente
+b.- Propia pagándose
+HOGAR N°:___________
+c.- Alquilada
+d.- Alquilada parte de la Vivienda
+2.- ¿Cuántos cuartos para dormir utiliza este hogar?
+e.- Cedida por razones de trabajo
+f.- Cedida por familiar o amigo
+g.- Tomada/Invadida
+3.- Número de personas que residen en este hogar:
+h.- Otra forma
+SECCIÓN IV: CARACTERISTICAS DE LOS RESIDENTES (Para cada miembro del hogar)
+
+N°
+
+Parentesco
+Sexo
+Nombre
+con el jefe del (1=Hombre,
+Apellido
+hogar
+2=Mujer)
+
+Edad
+
+¿Cuál es el
+medio de
+¿Tiene
+Nivel
+transporte que ¿Posee
+¿Sabe leer
+Ocupación
+algún
+Tipo de
+Educativo
+licencia de
+utiliza
+y escribir
+principal
+vehículo vehículo
+alcanzado
+normalmente conducir?
+disponible?
+para
+trasladarse?
+
+Cantidad de
+Vehículo
+
+1
+2
+3
+4
+
+5
+,,,
+
+Viaje N°
+
+SECCIÓN V: REGISTRO GENERAL DE VIAJES (Para todos los miembros del hogar mayores de 5 años)
+Instrucciones: Registrar los viajes realizados el día anterior (día laboral típico), entendiendo por viaje un desplazamiento de un punto
+de origen a un punto de destino con un propósito determinado
+Persona
+(N°)
+
+Origen
+(Dirección o
+referencia)
+
+Zona O-D
+origen
+
+Destino
+Zona O-D
+(Dirección
+destino
+referencia)
+
+Hora de
+salida
+
+Hora de
+llegada
+
+Motivo del
+viaje
+
+1
+2
+3
+
+4
+5
+,,,
+Códigos para Motivo de Viaje
+1 = Trabajo
+2 = Estudio
+3 = Compras
+4 = Salud
+5 = Recreación
+6 = Trámites
+7 = Visita Familiar
+8 = Otro:_______________
+
+Código para Modo Principal/Secundario
+1 = A pie
+2 = Bicicleta
+3 = Motocicleta
+4 = Automóvil Particular
+5 = Taxi
+6 = Transporte público (bus, buseta)
+7 = Transporte informal (por puesto, mototaxi)
+8 = Otro: _________________________
+
+Modo
+principal
+
+Tiempo
+Modo
+de viaje
+secundario
+(min)
+
+Costo del Viaje
+(Bs)
+
+SECCIÓN VI: CARACTERISTICSA DE TRANSPORTE PÚBLICO (SI SE TULIZO EN ALGÚN VIAJE)
+1.- ¿Cuántas rutas de transporte público diferentes utilizó
+6.- ¿Considera que el servicio de transporte público es:
+en el día?
+a.- Muy bueno
+d.- Malo
+2.- Tiempo total de espero en las paradas (suma de todos
+b.- Bueno
+e.- Muy malo
+los viajes, colocar el tiempo en minutos)
+c.- Regular
+3.- ¿Cuánto kilometros aproximadamente recorrio desde
+su residencia hasta la parada para tomar el transporte
+público?
+
+7.- ¿Cuánto gasta semanalmente en transporte
+(todos los miembros del hogar)? (en bolivares)
+
+4.- ¿Ha tenido dificultades para acceder al transporte
+público en su zona?
+
+8.- ¿Estaría usted de acuerdo en que se crean rutas directas
+desde su origen a su destino final?
+a.- Totalmente de acuerdo
+b.- De acuerdo
+c.- Ni de acuerdo ni en desacuerdo (Neutral)
+d.- En desacuerdo
+e.- Totalmente en desacuerdo
+
+a.- Si
+
+b. No
+
+5.- Si marcó Si, indique la principal dificultad:
+a.- Frecuencia baja
+d.- Inseguridad
+b.- Sobrecupo
+e.- Otro:__________
+c.- Falta de rutas
+SECCIÓN VII: MOVILIDAD NO MOTORIZAD Y PERCEPCIÓN
+1.- ¿Ha cambiado su forma de desplazarse en los últimos
+5 años?
+2.- Si marcó Sí, ¿por qué motivo?
+a.- Cambio de trabajo
+b.- Cambio de residencia
+c.- Falta de transporte
+
+d.- Costo
+e.- Otro:_______
+
+b. No
+
+4.- ¿Utiliza bicicleta como medio de transporte?
+a.- Si
+
+5.- ¿Cuántos días a la semana camina o usa
+bicicleta para desplazarse?
+6.- ¿Realiza desplazamiento en el centro de la ciudad para
+hacer sus actividades o utiliza el transporte público?
+
+3.- ¿Realiza caminatas de más de 10 minutos como
+parte de sus desplazamientos?
+a.- Si
+
+9.- ¿Tiene algún comentario o sugerencia sobre
+el transporte en Maturín?
+
+b. No
+
+SECCIÓN VIII: ESPARCIMIENTOS
+1.- ¿Con qué frecuencia visita parques, plazas u otras áreas
+de esparcimientos
+a.- Nunca
+d.- Semanal
+b.- Ocasionalmente
+e.- Diario
+c.- Mensual
+2.- ¿Qué actividad realiza principalmente en estos espacios?
+(admite respuesta multiples)
+a.- Caminar
+e.- Descanso
+b.- Trotar/Correr
+f.- Lectura
+c.- Recreación Infantil
+g.- Otras:_______
+d.- Deporte
+3.- ¿Suele hacer caminatas por la ciudad?
+a.- Sí
+c.- A veces
+b.- No
+7.- ¿Qué tan seguro(a) se siente parques y rutas peatonales
+durante el día?
+a.- Nada Seguro(a)
+b.- Poco seguro(a)
+c.- Ni seguro(a), ni inseguro(a)/neutral
+d.- Algo seguro(a) / Bastante seguro(a)
+e.- Totalmente seguro(a) / Muy seguro(a)
+
+a.- Camina
+b.- Transporte público
+7.- ¿Considera que las aceras y espacios peatonales
+son adecuados?
+a.- Si
+
+b. No
+
+8.- ¿Se siente seguro al desplazarse por el centro de
+la ciudad?
+a.- Muy seguro d.- Inseguro
+b.- Seguro
+e.- Muy Inseguro
+c.- Neutral
+17.- ¿Qué sector o sectores utiliza para caminar?
+(Colocar los sectores)
+18.- ¿Qué tan fácil es llegar desde su hogar a las áreas de
+esparcimiento o ruta de caminata?
+a.- Muy fácil
+b.- Fácil
+c.- Regular
+d.- Difícil
+e.- Muy Difícil
+19.- ¿Qué esparcimientos considera que faltan en estos
+espacios? (admite respuesta multiples)
+a.- Bancas
+e.- Baños
+b.- Sombra
+f.- Juegos
+c.- Iluminación
+g.- Ciclovía
+d.- Maquinas de ejercicios
+h.- Señalización
+i.- Otros:_____
+20.- ¿Existe cruce peatonal en todas las intersecciones?
+a.- Sí ----> pregunta 21
+b.- No ----> pregunta 23
+21.- ¿Está demarcado y visible?
+a.- Sí
+b.- No
+
+8.- ¿Qué tan seguro(a) se siente parques y rutas peatonales
+durante la noche?
+a.- Nada Seguro(a)
+b.- Poco seguro(a)
+c.- Ni seguro(a), ni inseguro(a)/neutral
+d.- Algo seguro(a) / Bastante seguro(a)
+e.- Totalmente seguro(a) / Muy seguro(a)
+
+16.- ¿Considera que la acera es suficiente y cómoda para
+caminar?
+a.- Totalmente de acuerdo
+b.- De acuerdo
+c.- Ni de acuerdo ni en desacuerdo (Neutral)
+d.- En desacuerdo
+e.- Totalmente en desacuerdo
+
+9.- ¿Cómo califica la limpieza y conservación de las áreas de
+esparcimiento?
+a.- Muy buena
+d.- Mala
+b.- Buena
+e.- Muy mala
+c.- Regular
+
+22.- ¿Se siente seguro al cruzar esta intersección?
+a.- Nada Seguro(a)
+b.- Poco seguro(a)
+c.- Ni seguro(a), ni inseguro(a)/neutral
+d.- Algo seguro(a) / Bastante seguro(a)
+e.- Totalmente seguro(a) / Muy seguro(a)
+
+10.- ¿Qué le impide usar más estos espacios?
+(admite respuesta multiples)
+a.- Distancia
+d.- Mala accesibilidad
+b.- Falta de tiempo
+e.- Falta de mantenimiento
+c.- Inseguridad
+f.- Otras:_______
+11.- ¿Qué tan satifecho(a) está con la cantidad y calidad de áreas
+de esparcimiento y caminata que hay en el centro de la ciudad?
+a.- Muy insatisfecho(a)
+b.- Insatisfecho(a)
+c.- Ni satisfecho(a) ni insatisfecho(a) / Neutral
+d.- Satisfecho(a)
+e.- Muy satisfecho(a)
+12.- ¿Qué mejoras deberían priorizarse?
+(admite respuesta multiples)
+a.- Crear más parques y plazas
+b.- Mejorar el mantenimiento de los parques y espacios existentes
+(limpieza, áreas verdes, bancas, iluminación)
+c.- Ampliar y mejorar las rutas peatonales y ciclovías
+d.- Aumentar la iluminación en parques y rutas peatonales
+e.- Mejorar la seguridad (vigilancia, cámaras, presencia policial)
+f.- Instalar más mobiliario urbano (bancas, basureros, bebederos,
+sombras)
+g.- Crear o mejorar áreas de juego para niños
+h.- Crear o mejorar espacios deportivos y recreativos (canchas,
+gimnasios al aire libre)
+i.- Organizar más actividades culturales y recreativas (eventos,
+talleres, ferias)
+j.- Mejorar la accesibilidad para personas con discapacidad
+k.- Recuperar espacios abandonados o subutilizados
+l.- Promover la participación ciudadana en el diseño y cuidado
+de los espacios
+m.- Otro (especifique): ______________
+
+23.- ¿Hay semáforo peatonal?
+a.- Sí
+b.- No
+24.- ¿Existen mapas peatonales, señales de destino o
+de caminata?
+a.- Sí
+b.- No
+25.- ¿Puede una persona con movilidad reducida
+desplazarse sin ayuda por el cenro de la ciudad?
+a.- Sí
+b.- No
+26.- ¿Hay senalizaciones de nombres de calles visibles?
+a.- Sí
+b.- No
+27.- ¿La señalización es clara y sin obstáculos?
+a.- Sí
+b.- No
+28.- ¿El trayecto a pie hasta la parada es seguro?
+a.- Nada Seguro(a)
+b.- Poco seguro(a)
+c.- Ni seguro(a), ni inseguro(a)/neutral
+d.- Algo seguro(a) / Bastante seguro(a)
+e.- Totalmente seguro(a) / Muy seguro(a),
+29.- ¿El aire y el ruido son aceptables para caminar?
+a.- Sí
+b.- No
+
+13.- ¿Qué parque, plaza o ruta de esparcimiento considera
+que debe mejorarse primero?
+
+30.- ¿Los conductores ceden el paso a los peatones?
+a.- Sí
+b.- No
+
+14.- ¿Estaría dispuesto(a) a participar en actividades de
+mejoras de estos espacios?
+a.- Sí
+b.- No
+c.- Tal vez
+
+31.- ¿Considera que la ciudad prioriza al peatón sobre el
+automóvil?
+a.- Sí
+b.- No
+
+15.- ¿Qué sugerencia daría para mejorar las áreas de
+esparcimiento y caminatas de la ciudad?
+
+32.- ¿Ha participado en consultas sobre espacios
+peatonales?
+a.- Sí
+b.- No
+33.- ¿Existen planes de movilidad peatonal, presupuesto o
+normativa de prioridad peatonal?
+a.- Sí
+b.- No
+c.- No Sabe/No responde
+
+

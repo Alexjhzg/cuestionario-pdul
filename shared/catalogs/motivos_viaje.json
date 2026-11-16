@@ -1,0 +1,50 @@
+[
+  {
+    "codigo": "1",
+    "value": "1",
+    "nombre": "Trabajo",
+    "label": "1 = Trabajo"
+  },
+  {
+    "codigo": "2",
+    "value": "2",
+    "nombre": "Estudio",
+    "label": "2 = Estudio"
+  },
+  {
+    "codigo": "3",
+    "value": "3",
+    "nombre": "Compras",
+    "label": "3 = Compras"
+  },
+  {
+    "codigo": "4",
+    "value": "4",
+    "nombre": "Salud",
+    "label": "4 = Salud"
+  },
+  {
+    "codigo": "5",
+    "value": "5",
+    "nombre": "Recreación",
+    "label": "5 = Recreación"
+  },
+  {
+    "codigo": "6",
+    "value": "6",
+    "nombre": "Trámites",
+    "label": "6 = Trámites"
+  },
+  {
+    "codigo": "7",
+    "value": "7",
+    "nombre": "Visita Familiar",
+    "label": "7 = Visita Familiar"
+  },
+  {
+    "codigo": "8",
+    "value": "8",
+    "nombre": "Otro",
+    "label": "8 = Otro"
+  }
+]

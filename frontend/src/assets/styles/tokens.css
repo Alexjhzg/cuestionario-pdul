@@ -1,0 +1,93 @@
+/* Tokens de Diseño - Cuestionario PDUL Maturín (Alcaldía Bolivariana de Maturín) */
+/* Fuente única de verdad: DESIGN.md y .agent/skills/citizen-survey-ux/references/DESIGN.md */
+
+:root {
+  /* 1. Colores de Marca y Superficies */
+  --color-snow-canvas: #fcfcfc;
+  --color-lavender-wash: #f0f4fe;
+  --color-midnight-ink: #020520;
+  --color-graphite-body: #14141e;
+  --color-slate-caption: #374151;
+  --color-ash-helper: #6b7280;
+  --color-stone-divider: #e2e8f0;
+  --color-fog-surface: #f1f5f9;
+  --color-royal-signal: #145aff;
+  --color-cobalt-glow: #3b82f6;
+  --color-mint-win: #16ca2e;
+  --color-coral-lost: #f26052;
+  --color-amber-pending: #ffa64d;
+  --color-azure-focus: #0099ff;
+
+  /* Alias semánticos */
+  --surface-ground: var(--color-snow-canvas);
+  --surface-card: #ffffff;
+  --surface-highlight: var(--color-lavender-wash);
+  --surface-subtle: var(--color-fog-surface);
+  --border-color: var(--color-stone-divider);
+  --text-primary: var(--color-midnight-ink);
+  --text-color: var(--color-midnight-ink);
+  --text-body-color: var(--color-graphite-body);
+  --text-muted: var(--color-slate-caption);
+  --text-helper: var(--color-ash-helper);
+  --accent-primary: var(--color-royal-signal);
+  --primary-color: var(--color-royal-signal);
+  --focus-ring: var(--color-azure-focus);
+
+  /* 2. Tipografía */
+  --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-roboto-mono: 'Roboto Mono', monospace;
+
+  --text-caption: 0.75rem;     /* 12px */
+  --text-body-sm: 0.875rem;    /* 14px */
+  --text-body: 1rem;           /* 16px - Mínimo absoluto para inputs en móvil */
+  --text-subheading: 1.25rem;  /* 20px */
+  --text-heading-sm: 1.375rem; /* 22px */
+  --text-heading: 2.5rem;      /* 40px */
+  --text-heading-lg: 3.5rem;   /* 56px */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* 3. Radios de Borde (DESIGN.md) */
+  --radius-cards: 8px;
+  --radius-inputs: 12px;
+  --radius-containers: 16px;
+  --radius-pipeline-cards: 16px;
+  --radius-pills: 100px;
+  --radius-buttons: 9999px;
+
+  /* 4. Sombras */
+  --shadow-sm: rgba(0, 0, 0, 0.1) 0px 0px 4px -2px;
+  --shadow-sm-2: rgba(0, 0, 0, 0.25) 0px 0px 4px -2px;
+  --shadow-xl: rgba(20, 90, 255, 0.1) 0px 0px 100px -28px;
+  --shadow-sm-3: rgba(20, 90, 255, 0.3) 0px 0px 4px -2px;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.1);
+
+  /* 5. Espaciado */
+  --spacing-3: 12px;
+  --spacing-4: 4px;
+  --spacing-6: 6px;
+  --spacing-8: 8px;
+  --spacing-10: 10px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-28: 28px;
+  --spacing-32: 32px;
+  --spacing-36: 36px;
+  --spacing-40: 40px;
+  --spacing-52: 52px;
+  --spacing-72: 72px;
+
+  /* 6. Ergonomía Táctil (WCAG AA) */
+  --min-touch-target: 48px;
+}
+
+@media (pointer: coarse) {
+  :root {
+    --min-touch-target: 52px;
+  }
+}

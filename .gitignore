@@ -1,0 +1,31 @@
+# Python / Backend
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node / Frontend
+node_modules/
+dist/
+frontend/dist/
+.vite/
+*.tsbuildinfo
+playwright-report/
+test-results/
+
+# Bases de datos SQLite locales / respaldos de desarrollo
+*.db
+*.db-*
+*.db.*
+
+# Variables de entorno y sistema
+.env
+.env.*
+!.env.example
+.DS_Store
+
+# Directorios temporales de agentes
+.agents/

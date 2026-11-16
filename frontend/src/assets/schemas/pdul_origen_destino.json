@@ -1,0 +1,2003 @@
+{
+  "display": "form",
+  "title": "Cuestionario Origen-Destino (PDUL Maturín)",
+  "name": "cuestionario_od_maturin",
+  "path": "cuestionario-od-maturin",
+  "components": [
+    {
+      "type": "hidden",
+      "key": "schema_version",
+      "defaultValue": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "key": "panel_seccion_i",
+      "title": "Sección I: Identificación de la Unidad Residencial",
+      "collapsible": true,
+      "collapsed": false,
+      "components": [
+        {
+          "type": "textfield",
+          "key": "cedula",
+          "label": "Cédula del Encuestado / Jefe de Hogar",
+          "placeholder": "Ej: 12345678",
+          "validate": {
+            "required": true,
+            "pattern": "^[0-9]{6,9}$",
+            "customMessage": "Ingrese un número de cédula válido (6 a 9 dígitos sin puntos)."
+          }
+        },
+        {
+          "type": "select",
+          "key": "parroquia",
+          "label": "1.- Parroquia",
+          "dataSrc": "values",
+          "data": {
+            "values": [
+              {
+                "label": "Alto de los Godos",
+                "value": "alto_de_los_godos"
+              },
+              {
+                "label": "Boquerón",
+                "value": "boqueron"
+              },
+              {
+                "label": "Las Cocuizas",
+                "value": "las_cocuizas"
+              },
+              {
+                "label": "La Cruz",
+                "value": "la_cruz"
+              },
+              {
+                "label": "San Simón",
+                "value": "san_simon"
+              },
+              {
+                "label": "Santa Cruz",
+                "value": "santa_cruz"
+              },
+              {
+                "label": "El Corozo",
+                "value": "el_corozo"
+              },
+              {
+                "label": "El Furrial",
+                "value": "el_furrial"
+              },
+              {
+                "label": "Jusepín",
+                "value": "jusepin"
+              },
+              {
+                "label": "La Pica",
+                "value": "la_pica"
+              },
+              {
+                "label": "San Vicente",
+                "value": "san_vicente"
+              }
+            ]
+          },
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "comunidad_sector",
+          "label": "2.- Comunidad/Sector",
+          "validate": {
+            "required": true,
+            "maxLength": 120
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "zona_residencia_od",
+          "label": "3.- Zona de Residencia (Según Zonificación O-D)",
+          "validate": {
+            "required": true,
+            "maxLength": 30
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "avenida_calle",
+          "label": "4.- Avenida/Calle",
+          "validate": {
+            "required": true,
+            "maxLength": 150
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "casa_apartamento",
+          "label": "5.- Casa/Apartamento",
+          "validate": {
+            "required": true,
+            "maxLength": 50
+          }
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "key": "panel_seccion_ii",
+      "title": "Sección II: Datos de la Vivienda",
+      "collapsible": true,
+      "collapsed": false,
+      "components": [
+        {
+          "type": "radio",
+          "key": "tipo_vivienda",
+          "label": "1.- Tipo de vivienda",
+          "values": [
+            {
+              "label": "a.- Quinta o Casa quinta",
+              "value": "quinta_casa_quinta"
+            },
+            {
+              "label": "b.- Casa",
+              "value": "casa"
+            },
+            {
+              "label": "c.- Apartamento en edificio",
+              "value": "apartamento_edificio"
+            },
+            {
+              "label": "d.- Apartamento en quinta, casa-quinta o casa",
+              "value": "apartamento_quinta_casa"
+            },
+            {
+              "label": "e.- Casa de vecindad",
+              "value": "casa_vecindad"
+            },
+            {
+              "label": "f.- Vivienda rústica (rancho)",
+              "value": "vivienda_rustica"
+            },
+            {
+              "label": "g.- Otro tipo",
+              "value": "otro"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "tipo_vivienda_otro",
+          "label": "Especifique otro tipo de vivienda",
+          "conditional": {
+            "show": true,
+            "when": "tipo_vivienda",
+            "eq": "otro"
+          }
+        },
+        {
+          "type": "number",
+          "key": "total_cuartos_vivienda",
+          "label": "2.- Contando sala, comedor, cuartos para dormir y otros cuartos ¿Cuántos cuartos tiene en total esta vivienda? (No incluye baños, pasillos, balcones, cocina, ni lavaderos)",
+          "validate": {
+            "required": true,
+            "min": 1,
+            "max": 30
+          }
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "key": "panel_seccion_iii",
+      "title": "Sección III: Datos del Hogar",
+      "collapsible": true,
+      "collapsed": false,
+      "components": [
+        {
+          "type": "number",
+          "key": "grupos_gastos_separados",
+          "label": "1.- ¿Cuántos grupos de personas de esta vivienda mantienen gastos separados para la comida?",
+          "validate": {
+            "required": true,
+            "min": 1,
+            "max": 20
+          }
+        },
+        {
+          "type": "number",
+          "key": "hogar_numero",
+          "label": "Hogar N°",
+          "validate": {
+            "required": true,
+            "min": 1,
+            "max": 20
+          }
+        },
+        {
+          "type": "number",
+          "key": "cuartos_dormir_hogar",
+          "label": "2.- ¿Cuántos cuartos para dormir utiliza este hogar?",
+          "validate": {
+            "required": true,
+            "min": 1,
+            "max": 20
+          }
+        },
+        {
+          "type": "number",
+          "key": "numero_personas_hogar",
+          "label": "3.- Número de personas que residen en este hogar",
+          "validate": {
+            "required": true,
+            "min": 1,
+            "max": 30
+          }
+        },
+        {
+          "type": "radio",
+          "key": "tenencia_vivienda",
+          "label": "4.- Para este hogar la vivienda es:",
+          "values": [
+            {
+              "label": "a.- Propia pagada totalmente",
+              "value": "propia_pagada"
+            },
+            {
+              "label": "b.- Propia pagándose",
+              "value": "propia_pagandose"
+            },
+            {
+              "label": "c.- Alquilada",
+              "value": "alquilada"
+            },
+            {
+              "label": "d.- Alquilada parte de la Vivienda",
+              "value": "alquilada_parte"
+            },
+            {
+              "label": "e.- Cedida por razones de trabajo",
+              "value": "cedida_trabajo"
+            },
+            {
+              "label": "f.- Cedida por familiar o amigo",
+              "value": "cedida_familiar"
+            },
+            {
+              "label": "g.- Tomada/Invadida",
+              "value": "tomada_invadida"
+            },
+            {
+              "label": "h.- Otra forma",
+              "value": "otra_forma"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "tenencia_vivienda_otro",
+          "label": "Especifique otra forma de tenencia",
+          "conditional": {
+            "show": true,
+            "when": "tenencia_vivienda",
+            "eq": "otra_forma"
+          }
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "key": "panel_seccion_iv",
+      "title": "Sección IV: Características de los Residentes",
+      "collapsible": true,
+      "collapsed": false,
+      "components": [
+        {
+          "type": "datagrid",
+          "key": "residentes",
+          "label": "Miembros del Hogar",
+          "initEmpty": false,
+          "validate": {
+            "minLength": 1
+          },
+          "components": [
+            {
+              "type": "number",
+              "key": "persona_numero",
+              "label": "N°",
+              "validate": {
+                "required": true,
+                "min": 1
+              }
+            },
+            {
+              "type": "textfield",
+              "key": "nombre_apellido",
+              "label": "Nombre Apellido",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "select",
+              "key": "parentesco_jefe_hogar",
+              "label": "Parentesco con el jefe del hogar",
+              "dataSrc": "values",
+              "data": {
+                "values": [
+                  {
+                    "label": "Jefe(a) del hogar",
+                    "value": "jefe"
+                  },
+                  {
+                    "label": "Esposo(a) / Pareja",
+                    "value": "esposo_pareja"
+                  },
+                  {
+                    "label": "Hijo(a) / Hijastro(a)",
+                    "value": "hijo_hijastro"
+                  },
+                  {
+                    "label": "Padre / Madre",
+                    "value": "padre_madre"
+                  },
+                  {
+                    "label": "Hermano(a)",
+                    "value": "hermano_hermana"
+                  },
+                  {
+                    "label": "Nieto(a)",
+                    "value": "nieto_nieta"
+                  },
+                  {
+                    "label": "Otro familiar",
+                    "value": "otro_familiar"
+                  },
+                  {
+                    "label": "No familiar",
+                    "value": "no_familiar"
+                  }
+                ]
+              },
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "radio",
+              "key": "sexo",
+              "label": "Sexo",
+              "values": [
+                {
+                  "label": "1 = Hombre",
+                  "value": "1"
+                },
+                {
+                  "label": "2 = Mujer",
+                  "value": "2"
+                }
+              ],
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "number",
+              "key": "edad",
+              "label": "Edad",
+              "validate": {
+                "required": true,
+                "min": 0,
+                "max": 120
+              }
+            },
+            {
+              "type": "radio",
+              "key": "sabe_leer_escribir",
+              "label": "¿Sabe leer y escribir?",
+              "values": [
+                {
+                  "label": "Sí",
+                  "value": "si"
+                },
+                {
+                  "label": "No",
+                  "value": "no"
+                }
+              ],
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "select",
+              "key": "nivel_educativo",
+              "label": "Nivel Educativo alcanzado",
+              "dataSrc": "values",
+              "data": {
+                "values": [
+                  {
+                    "label": "Ninguno",
+                    "value": "ninguno"
+                  },
+                  {
+                    "label": "Primaria",
+                    "value": "primaria"
+                  },
+                  {
+                    "label": "Secundaria",
+                    "value": "secundaria"
+                  },
+                  {
+                    "label": "Técnico",
+                    "value": "tecnico"
+                  },
+                  {
+                    "label": "Universitario",
+                    "value": "universitario"
+                  },
+                  {
+                    "label": "Postgrado",
+                    "value": "postgrado"
+                  },
+                  {
+                    "label": "Doctorado",
+                    "value": "doctorado"
+                  }
+                ]
+              },
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "key": "ocupacion_principal",
+              "label": "Ocupación principal",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "select",
+              "key": "medio_transporte_habitual",
+              "label": "¿Cuál es el medio de transporte que utiliza normalmente para trasladarse?",
+              "dataSrc": "values",
+              "data": {
+                "values": [
+                  {
+                    "label": "1 = A pie",
+                    "value": "1"
+                  },
+                  {
+                    "label": "2 = Bicicleta",
+                    "value": "2"
+                  },
+                  {
+                    "label": "3 = Motocicleta",
+                    "value": "3"
+                  },
+                  {
+                    "label": "4 = Automóvil Particular",
+                    "value": "4"
+                  },
+                  {
+                    "label": "5 = Taxi",
+                    "value": "5"
+                  },
+                  {
+                    "label": "6 = Transporte público (bus, buseta)",
+                    "value": "6"
+                  },
+                  {
+                    "label": "7 = Transporte informal (por puesto, mototaxi)",
+                    "value": "7"
+                  },
+                  {
+                    "label": "8 = Otro",
+                    "value": "8"
+                  }
+                ]
+              },
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "radio",
+              "key": "posee_licencia",
+              "label": "¿Posee licencia de conducir?",
+              "values": [
+                {
+                  "label": "Sí",
+                  "value": "si"
+                },
+                {
+                  "label": "No",
+                  "value": "no"
+                }
+              ],
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "radio",
+              "key": "tiene_vehiculo_disponible",
+              "label": "¿Tiene algún vehículo disponible?",
+              "values": [
+                {
+                  "label": "Sí",
+                  "value": "si"
+                },
+                {
+                  "label": "No",
+                  "value": "no"
+                }
+              ],
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "select",
+              "key": "tipo_vehiculo",
+              "label": "Tipo de vehículo",
+              "dataSrc": "values",
+              "data": {
+                "values": [
+                  {
+                    "label": "Automóvil",
+                    "value": "automovil"
+                  },
+                  {
+                    "label": "Motocicleta",
+                    "value": "motocicleta"
+                  },
+                  {
+                    "label": "Bicicleta",
+                    "value": "bicicleta"
+                  },
+                  {
+                    "label": "Camioneta / Rústico",
+                    "value": "camioneta_rustico"
+                  },
+                  {
+                    "label": "Camión / Carga",
+                    "value": "camion"
+                  },
+                  {
+                    "label": "Otro",
+                    "value": "otro"
+                  }
+                ]
+              },
+              "conditional": {
+                "show": true,
+                "when": "tiene_vehiculo_disponible",
+                "eq": "si"
+              }
+            },
+            {
+              "type": "number",
+              "key": "cantidad_vehiculo",
+              "label": "Cantidad de Vehículo",
+              "conditional": {
+                "show": true,
+                "when": "tiene_vehiculo_disponible",
+                "eq": "si"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "key": "panel_seccion_v",
+      "title": "Sección V: Registro General de Viajes",
+      "collapsible": true,
+      "collapsed": false,
+      "components": [
+        {
+          "type": "datagrid",
+          "key": "viajes",
+          "label": "Registro de Viajes Realizados el Día Anterior (mayores de 5 años)",
+          "initEmpty": false,
+          "components": [
+            {
+              "type": "number",
+              "key": "viaje_numero",
+              "label": "Viaje N°",
+              "validate": {
+                "required": true,
+                "min": 1
+              }
+            },
+            {
+              "type": "number",
+              "key": "persona_numero",
+              "label": "Persona (N°)",
+              "validate": {
+                "required": true,
+                "min": 1
+              }
+            },
+            {
+              "type": "textfield",
+              "key": "origen_direccion",
+              "label": "Origen (Dirección o referencia)",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "key": "zona_od_origen",
+              "label": "Zona O-D origen",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "key": "destino_direccion",
+              "label": "Destino (Dirección o referencia)",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "key": "zona_od_destino",
+              "label": "Zona O-D destino",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "key": "hora_salida",
+              "label": "Hora de salida",
+              "placeholder": "07:30",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "textfield",
+              "key": "hora_llegada",
+              "label": "Hora de llegada",
+              "placeholder": "08:15",
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "select",
+              "key": "motivo_viaje",
+              "label": "Motivo del viaje",
+              "dataSrc": "values",
+              "data": {
+                "values": [
+                  {
+                    "label": "1 = Trabajo",
+                    "value": "1"
+                  },
+                  {
+                    "label": "2 = Estudio",
+                    "value": "2"
+                  },
+                  {
+                    "label": "3 = Compras",
+                    "value": "3"
+                  },
+                  {
+                    "label": "4 = Salud",
+                    "value": "4"
+                  },
+                  {
+                    "label": "5 = Recreación",
+                    "value": "5"
+                  },
+                  {
+                    "label": "6 = Trámites",
+                    "value": "6"
+                  },
+                  {
+                    "label": "7 = Visita Familiar",
+                    "value": "7"
+                  },
+                  {
+                    "label": "8 = Otro",
+                    "value": "8"
+                  }
+                ]
+              },
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "select",
+              "key": "modo_principal",
+              "label": "Modo principal",
+              "dataSrc": "values",
+              "data": {
+                "values": [
+                  {
+                    "label": "1 = A pie",
+                    "value": "1"
+                  },
+                  {
+                    "label": "2 = Bicicleta",
+                    "value": "2"
+                  },
+                  {
+                    "label": "3 = Motocicleta",
+                    "value": "3"
+                  },
+                  {
+                    "label": "4 = Automóvil Particular",
+                    "value": "4"
+                  },
+                  {
+                    "label": "5 = Taxi",
+                    "value": "5"
+                  },
+                  {
+                    "label": "6 = Transporte público (bus, buseta)",
+                    "value": "6"
+                  },
+                  {
+                    "label": "7 = Transporte informal (por puesto, mototaxi)",
+                    "value": "7"
+                  },
+                  {
+                    "label": "8 = Otro",
+                    "value": "8"
+                  }
+                ]
+              },
+              "validate": {
+                "required": true
+              }
+            },
+            {
+              "type": "select",
+              "key": "modo_secundario",
+              "label": "Modo secundario",
+              "dataSrc": "values",
+              "data": {
+                "values": [
+                  {
+                    "label": "Ninguno",
+                    "value": "ninguno"
+                  },
+                  {
+                    "label": "1 = A pie",
+                    "value": "1"
+                  },
+                  {
+                    "label": "2 = Bicicleta",
+                    "value": "2"
+                  },
+                  {
+                    "label": "3 = Motocicleta",
+                    "value": "3"
+                  },
+                  {
+                    "label": "4 = Automóvil Particular",
+                    "value": "4"
+                  },
+                  {
+                    "label": "5 = Taxi",
+                    "value": "5"
+                  },
+                  {
+                    "label": "6 = Transporte público (bus, buseta)",
+                    "value": "6"
+                  },
+                  {
+                    "label": "7 = Transporte informal (por puesto, mototaxi)",
+                    "value": "7"
+                  },
+                  {
+                    "label": "8 = Otro",
+                    "value": "8"
+                  }
+                ]
+              }
+            },
+            {
+              "type": "number",
+              "key": "tiempo_viaje_min",
+              "label": "Tiempo de viaje (min)",
+              "validate": {
+                "required": true,
+                "min": 1,
+                "max": 600
+              }
+            },
+            {
+              "type": "number",
+              "key": "costo_viaje_bs",
+              "label": "Costo del Viaje (Bs)",
+              "validate": {
+                "required": true,
+                "min": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "key": "panel_seccion_vi",
+      "title": "Sección VI: Características de Transporte Público",
+      "collapsible": true,
+      "collapsed": false,
+      "components": [
+        {
+          "type": "radio",
+          "key": "uso_transporte_publico",
+          "label": "¿Utilizó usted o algún miembro del hogar transporte público en algún viaje?",
+          "values": [
+            {
+              "label": "Sí",
+              "value": "si"
+            },
+            {
+              "label": "No",
+              "value": "no"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "number",
+          "key": "rutas_tp_utilizadas_dia",
+          "label": "1.- ¿Cuántas rutas de transporte público diferentes utilizó en el día?",
+          "conditional": {
+            "show": true,
+            "when": "uso_transporte_publico",
+            "eq": "si"
+          }
+        },
+        {
+          "type": "number",
+          "key": "tiempo_espera_paradas_min",
+          "label": "2.- Tiempo total de espera en las paradas (suma de todos los viajes, en minutos)",
+          "conditional": {
+            "show": true,
+            "when": "uso_transporte_publico",
+            "eq": "si"
+          }
+        },
+        {
+          "type": "number",
+          "key": "distancia_residencia_parada_km",
+          "label": "3.- ¿Cuántos kilómetros aproximadamente recorrió desde su residencia hasta la parada?",
+          "conditional": {
+            "show": true,
+            "when": "uso_transporte_publico",
+            "eq": "si"
+          }
+        },
+        {
+          "type": "radio",
+          "key": "dificultad_acceso_tp",
+          "label": "4.- ¿Ha tenido dificultades para acceder al transporte público en su zona?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            }
+          ],
+          "conditional": {
+            "show": true,
+            "when": "uso_transporte_publico",
+            "eq": "si"
+          }
+        },
+        {
+          "type": "radio",
+          "key": "principal_dificultad_tp",
+          "label": "5.- Si marcó Sí, indique la principal dificultad:",
+          "values": [
+            {
+              "label": "a.- Frecuencia baja",
+              "value": "frecuencia_baja"
+            },
+            {
+              "label": "b.- Sobrecupo",
+              "value": "sobrecupo"
+            },
+            {
+              "label": "c.- Falta de rutas",
+              "value": "falta_rutas"
+            },
+            {
+              "label": "d.- Inseguridad",
+              "value": "inseguridad"
+            },
+            {
+              "label": "e.- Otro",
+              "value": "otro"
+            }
+          ],
+          "conditional": {
+            "show": true,
+            "when": "dificultad_acceso_tp",
+            "eq": "si"
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "principal_dificultad_tp_otro",
+          "label": "Especifique otra dificultad",
+          "conditional": {
+            "show": true,
+            "when": "principal_dificultad_tp",
+            "eq": "otro"
+          }
+        },
+        {
+          "type": "radio",
+          "key": "calificacion_servicio_tp",
+          "label": "6.- ¿Considera que el servicio de transporte público es:",
+          "values": [
+            {
+              "label": "Muy bueno",
+              "value": "muy_bueno"
+            },
+            {
+              "label": "Bueno",
+              "value": "bueno"
+            },
+            {
+              "label": "Regular",
+              "value": "regular"
+            },
+            {
+              "label": "Malo",
+              "value": "malo"
+            },
+            {
+              "label": "Muy malo",
+              "value": "muy_malo"
+            }
+          ],
+          "conditional": {
+            "show": true,
+            "when": "uso_transporte_publico",
+            "eq": "si"
+          }
+        },
+        {
+          "type": "number",
+          "key": "gasto_semanal_tp_bs",
+          "label": "7.- ¿Cuánto gasta semanalmente en transporte (todos los miembros del hogar)? (en bolívares)",
+          "conditional": {
+            "show": true,
+            "when": "uso_transporte_publico",
+            "eq": "si"
+          }
+        },
+        {
+          "type": "radio",
+          "key": "acuerdo_rutas_directas",
+          "label": "8.- ¿Estaría usted de acuerdo en que se creen rutas directas desde su origen a su destino final?",
+          "values": [
+            {
+              "label": "Totalmente de acuerdo",
+              "value": "totalmente_de_acuerdo"
+            },
+            {
+              "label": "De acuerdo",
+              "value": "de_acuerdo"
+            },
+            {
+              "label": "Ni de acuerdo ni en desacuerdo (Neutral)",
+              "value": "neutral"
+            },
+            {
+              "label": "En desacuerdo",
+              "value": "en_desacuerdo"
+            },
+            {
+              "label": "Totalmente en desacuerdo",
+              "value": "totalmente_en_desacuerdo"
+            }
+          ],
+          "conditional": {
+            "show": true,
+            "when": "uso_transporte_publico",
+            "eq": "si"
+          }
+        },
+        {
+          "type": "textarea",
+          "key": "comentario_transporte_maturin",
+          "label": "9.- ¿Tiene algún comentario o sugerencia sobre el transporte en Maturín?",
+          "conditional": {
+            "show": true,
+            "when": "uso_transporte_publico",
+            "eq": "si"
+          }
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "key": "panel_seccion_vii",
+      "title": "Sección VII: Movilidad No Motorizada y Percepción",
+      "collapsible": true,
+      "collapsed": false,
+      "components": [
+        {
+          "type": "radio",
+          "key": "cambio_forma_desplazarse_5a",
+          "label": "1.- ¿Ha cambiado su forma de desplazarse en los últimos 5 años?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "radio",
+          "key": "motivo_cambio_desplazamiento",
+          "label": "2.- Si marcó Sí, ¿por qué motivo?",
+          "values": [
+            {
+              "label": "a.- Cambio de trabajo",
+              "value": "cambio_trabajo"
+            },
+            {
+              "label": "b.- Cambio de residencia",
+              "value": "cambio_residencia"
+            },
+            {
+              "label": "c.- Falta de transporte",
+              "value": "falta_transporte"
+            },
+            {
+              "label": "d.- Costo",
+              "value": "costo"
+            },
+            {
+              "label": "e.- Otro",
+              "value": "otro"
+            }
+          ],
+          "conditional": {
+            "show": true,
+            "when": "cambio_forma_desplazarse_5a",
+            "eq": "si"
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "motivo_cambio_desplazamiento_otro",
+          "label": "Especifique otro motivo de cambio",
+          "conditional": {
+            "show": true,
+            "when": "motivo_cambio_desplazamiento",
+            "eq": "otro"
+          }
+        },
+        {
+          "type": "radio",
+          "key": "caminatas_mas_10min",
+          "label": "3.- ¿Realiza caminatas de más de 10 minutos como parte de sus desplazamientos?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "radio",
+          "key": "usa_bicicleta_transporte",
+          "label": "4.- ¿Utiliza bicicleta como medio de transporte?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "number",
+          "key": "dias_semana_camina_bicicleta",
+          "label": "5.- ¿Cuántos días a la semana camina o usa bicicleta para desplazarse?",
+          "validate": {
+            "required": true,
+            "min": 0,
+            "max": 7
+          }
+        },
+        {
+          "type": "radio",
+          "key": "desplazamiento_centro_modo",
+          "label": "6.- ¿Realiza desplazamiento en el centro de la ciudad para hacer sus actividades o utiliza el transporte público?",
+          "values": [
+            {
+              "label": "a.- Camina",
+              "value": "camina"
+            },
+            {
+              "label": "b.- Transporte público",
+              "value": "transporte_publico"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "radio",
+          "key": "aceras_adecuadas",
+          "label": "7.- ¿Considera que las aceras y espacios peatonales son adecuados?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "radio",
+          "key": "seguridad_desplazamiento_centro",
+          "label": "8.- ¿Se siente seguro al desplazarse por el centro de la ciudad?",
+          "values": [
+            {
+              "label": "a.- Muy seguro",
+              "value": "muy_seguro"
+            },
+            {
+              "label": "b.- Seguro",
+              "value": "seguro"
+            },
+            {
+              "label": "c.- Neutral",
+              "value": "neutral"
+            },
+            {
+              "label": "d.- Inseguro",
+              "value": "inseguro"
+            },
+            {
+              "label": "e.- Muy Inseguro",
+              "value": "muy_inseguro"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "key": "panel_seccion_viii",
+      "title": "Sección VIII: Esparcimientos y Peatonalidad",
+      "collapsible": true,
+      "collapsed": false,
+      "components": [
+        {
+          "type": "radio",
+          "key": "frecuencia_visita_parques",
+          "label": "1.- ¿Con qué frecuencia visita parques, plazas u otras áreas de esparcimientos?",
+          "values": [
+            {
+              "label": "a.- Nunca",
+              "value": "nunca"
+            },
+            {
+              "label": "b.- Ocasionalmente",
+              "value": "ocasionalmente"
+            },
+            {
+              "label": "c.- Mensual",
+              "value": "mensual"
+            },
+            {
+              "label": "d.- Semanal",
+              "value": "semanal"
+            },
+            {
+              "label": "e.- Diario",
+              "value": "diario"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "selectboxes",
+          "key": "actividades_espacios",
+          "label": "2.- ¿Qué actividad realiza principalmente en estos espacios? (admite respuestas múltiples)",
+          "values": [
+            {
+              "label": "a.- Caminar",
+              "value": "caminar"
+            },
+            {
+              "label": "b.- Trotar/Correr",
+              "value": "trotar_correr"
+            },
+            {
+              "label": "c.- Recreación Infantil",
+              "value": "recreacion_infantil"
+            },
+            {
+              "label": "d.- Deporte",
+              "value": "deporte"
+            },
+            {
+              "label": "e.- Descanso",
+              "value": "descanso"
+            },
+            {
+              "label": "f.- Lectura",
+              "value": "lectura"
+            },
+            {
+              "label": "g.- Otras",
+              "value": "otras"
+            }
+          ]
+        },
+        {
+          "type": "textfield",
+          "key": "actividades_espacios_otro",
+          "label": "Especifique otras actividades",
+          "conditional": {
+            "show": true,
+            "when": "actividades_espacios",
+            "eq": "otras"
+          }
+        },
+        {
+          "type": "radio",
+          "key": "suele_hacer_caminatas_ciudad",
+          "label": "3.- ¿Suele hacer caminatas por la ciudad?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            },
+            {
+              "label": "c.- A veces",
+              "value": "a_veces"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "radio",
+          "key": "seguridad_parques_rutas_dia",
+          "label": "7.- ¿Qué tan seguro(a) se siente parques y rutas peatonales durante el día?",
+          "values": [
+            {
+              "label": "Nada Seguro(a)",
+              "value": "nada_seguro"
+            },
+            {
+              "label": "Poco seguro(a)",
+              "value": "poco_seguro"
+            },
+            {
+              "label": "Ni seguro(a), ni inseguro(a)/neutral",
+              "value": "neutral"
+            },
+            {
+              "label": "Algo seguro(a) / Bastante seguro(a)",
+              "value": "bastante_seguro"
+            },
+            {
+              "label": "Totalmente seguro(a) / Muy seguro(a)",
+              "value": "totalmente_seguro"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "radio",
+          "key": "seguridad_parques_rutas_noche",
+          "label": "8.- ¿Qué tan seguro(a) se siente parques y rutas peatonales durante la noche?",
+          "values": [
+            {
+              "label": "Nada Seguro(a)",
+              "value": "nada_seguro"
+            },
+            {
+              "label": "Poco seguro(a)",
+              "value": "poco_seguro"
+            },
+            {
+              "label": "Ni seguro(a), ni inseguro(a)/neutral",
+              "value": "neutral"
+            },
+            {
+              "label": "Algo seguro(a) / Bastante seguro(a)",
+              "value": "bastante_seguro"
+            },
+            {
+              "label": "Totalmente seguro(a) / Muy seguro(a)",
+              "value": "totalmente_seguro"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "radio",
+          "key": "calificacion_limpieza_conservacion",
+          "label": "9.- ¿Cómo califica la limpieza y conservación de las áreas de esparcimiento?",
+          "values": [
+            {
+              "label": "a.- Muy buena",
+              "value": "muy_bueno"
+            },
+            {
+              "label": "b.- Buena",
+              "value": "bueno"
+            },
+            {
+              "label": "c.- Regular",
+              "value": "regular"
+            },
+            {
+              "label": "d.- Mala",
+              "value": "malo"
+            },
+            {
+              "label": "e.- Muy mala",
+              "value": "muy_malo"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "selectboxes",
+          "key": "impedimentos_uso_espacios",
+          "label": "10.- ¿Qué le impide usar más estos espacios? (admite respuestas múltiples)",
+          "values": [
+            {
+              "label": "a.- Distancia",
+              "value": "distancia"
+            },
+            {
+              "label": "b.- Falta de tiempo",
+              "value": "falta_tiempo"
+            },
+            {
+              "label": "c.- Inseguridad",
+              "value": "inseguridad"
+            },
+            {
+              "label": "d.- Mala accesibilidad",
+              "value": "mala_accesibilidad"
+            },
+            {
+              "label": "e.- Falta de mantenimiento",
+              "value": "falta_mantenimiento"
+            },
+            {
+              "label": "f.- Otras",
+              "value": "otras"
+            }
+          ]
+        },
+        {
+          "type": "textfield",
+          "key": "impedimentos_uso_espacios_otro",
+          "label": "Especifique otros impedimentos",
+          "conditional": {
+            "show": true,
+            "when": "impedimentos_uso_espacios",
+            "eq": "otras"
+          }
+        },
+        {
+          "type": "radio",
+          "key": "satisfaccion_areas_centro",
+          "label": "11.- ¿Qué tan satisfecho(a) está con la cantidad y calidad de áreas de esparcimiento y caminata que hay en el centro de la ciudad?",
+          "values": [
+            {
+              "label": "a.- Muy insatisfecho(a)",
+              "value": "muy_insatisfecho"
+            },
+            {
+              "label": "b.- Insatisfecho(a)",
+              "value": "insatisfecho"
+            },
+            {
+              "label": "c.- Ni satisfecho(a) ni insatisfecho(a) / Neutral",
+              "value": "neutral"
+            },
+            {
+              "label": "d.- Satisfecho(a)",
+              "value": "satisfecho"
+            },
+            {
+              "label": "e.- Muy satisfecho(a)",
+              "value": "muy_satisfecho"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "selectboxes",
+          "key": "mejoras_prioritarias_espacios",
+          "label": "12.- ¿Qué mejoras deberían priorizarse? (admite respuestas múltiples)",
+          "values": [
+            {
+              "label": "a.- Crear más parques y plazas",
+              "value": "crear_parques_plazas"
+            },
+            {
+              "label": "b.- Mejorar el mantenimiento de los parques y espacios existentes",
+              "value": "mantenimiento_espacios_existentes"
+            },
+            {
+              "label": "c.- Ampliar y mejorar las rutas peatonales y ciclovías",
+              "value": "ampliar_rutas_peatonales_ciclovias"
+            },
+            {
+              "label": "d.- Aumentar la iluminación en parques y rutas peatonales",
+              "value": "aumentar_iluminacion"
+            },
+            {
+              "label": "e.- Mejorar la seguridad (vigilancia, cámaras, presencia policial)",
+              "value": "mejorar_seguridad"
+            },
+            {
+              "label": "f.- Instalar más mobiliario urbano (bancas, basureros, bebederos, sombras)",
+              "value": "instalar_mobiliario_urbano"
+            },
+            {
+              "label": "g.- Crear o mejorar áreas de juego para niños",
+              "value": "crear_mejorar_juegos_ninos"
+            },
+            {
+              "label": "h.- Crear o mejorar espacios deportivos y recreativos",
+              "value": "crear_mejorar_espacios_deportivos"
+            },
+            {
+              "label": "i.- Organizar más actividades culturales y recreativas",
+              "value": "actividades_culturales_recreativas"
+            },
+            {
+              "label": "j.- Mejorar la accesibilidad para personas con discapacidad",
+              "value": "mejorar_accesibilidad_discapacidad"
+            },
+            {
+              "label": "k.- Recuperar espacios abandonados o subutilizados",
+              "value": "recuperar_espacios_abandonados"
+            },
+            {
+              "label": "l.- Promover la participación ciudadana en el diseño y cuidado de los espacios",
+              "value": "promover_participacion_ciudadana"
+            },
+            {
+              "label": "m.- Otro (especifique)",
+              "value": "otro"
+            }
+          ]
+        },
+        {
+          "type": "textfield",
+          "key": "mejoras_prioritarias_espacios_otro",
+          "label": "Especifique otra mejora prioritaria",
+          "conditional": {
+            "show": true,
+            "when": "mejoras_prioritarias_espacios",
+            "eq": "otro"
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "parque_plaza_mejorar_primero",
+          "label": "13.- ¿Qué parque, plaza o ruta de esparcimiento considera que debe mejorarse primero?"
+        },
+        {
+          "type": "radio",
+          "key": "dispuesto_participar_actividades_mejoras",
+          "label": "14.- ¿Estaría dispuesto(a) a participar en actividades de mejoras de estos espacios?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            },
+            {
+              "label": "c.- Tal vez",
+              "value": "tal_vez"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textarea",
+          "key": "sugerencia_mejorar_espacios",
+          "label": "15.- ¿Qué sugerencia daría para mejorar las áreas de esparcimiento y caminatas de la ciudad?"
+        },
+        {
+          "type": "radio",
+          "key": "acera_suficiente_comoda",
+          "label": "16.- ¿Considera que la acera es suficiente y cómoda para caminar?",
+          "values": [
+            {
+              "label": "Totalmente de acuerdo",
+              "value": "totalmente_de_acuerdo"
+            },
+            {
+              "label": "De acuerdo",
+              "value": "de_acuerdo"
+            },
+            {
+              "label": "Ni de acuerdo ni en desacuerdo (Neutral)",
+              "value": "neutral"
+            },
+            {
+              "label": "En desacuerdo",
+              "value": "en_desacuerdo"
+            },
+            {
+              "label": "Totalmente en desacuerdo",
+              "value": "totalmente_en_desacuerdo"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "sectores_utiliza_caminar",
+          "label": "17.- ¿Qué sector o sectores utiliza para caminar? (Colocar los sectores)"
+        },
+        {
+          "type": "radio",
+          "key": "facilidad_llegar_espacios",
+          "label": "18.- ¿Qué tan fácil es llegar desde su hogar a las áreas de esparcimiento o ruta de caminata?",
+          "values": [
+            {
+              "label": "a.- Muy fácil",
+              "value": "muy_facil"
+            },
+            {
+              "label": "b.- Fácil",
+              "value": "facil"
+            },
+            {
+              "label": "c.- Regular",
+              "value": "regular"
+            },
+            {
+              "label": "d.- Difícil",
+              "value": "dificil"
+            },
+            {
+              "label": "e.- Muy Difícil",
+              "value": "muy_dificil"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "selectboxes",
+          "key": "esparcimientos_faltantes",
+          "label": "19.- ¿Qué esparcimientos considera que faltan en estos espacios? (admite respuestas múltiples)",
+          "values": [
+            {
+              "label": "a.- Bancas",
+              "value": "bancas"
+            },
+            {
+              "label": "b.- Sombra",
+              "value": "sombra"
+            },
+            {
+              "label": "c.- Iluminación",
+              "value": "iluminacion"
+            },
+            {
+              "label": "d.- Máquinas de ejercicios",
+              "value": "maquinas_ejercicios"
+            },
+            {
+              "label": "e.- Baños",
+              "value": "banos"
+            },
+            {
+              "label": "f.- Juegos",
+              "value": "juegos"
+            },
+            {
+              "label": "g.- Ciclovía",
+              "value": "ciclovia"
+            },
+            {
+              "label": "h.- Señalización",
+              "value": "senalizacion"
+            },
+            {
+              "label": "i.- Otros",
+              "value": "otros"
+            }
+          ]
+        },
+        {
+          "type": "textfield",
+          "key": "esparcimientos_faltantes_otro",
+          "label": "Especifique otros esparcimientos faltantes",
+          "conditional": {
+            "show": true,
+            "when": "esparcimientos_faltantes",
+            "eq": "otros"
+          }
+        },
+        {
+          "type": "radio",
+          "key": "existe_cruce_peatonal",
+          "label": "20.- ¿Existe cruce peatonal en todas las intersecciones?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "radio",
+          "key": "cruce_demarcado_visible",
+          "label": "21.- ¿Está demarcado y visible?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            }
+          ],
+          "conditional": {
+            "show": true,
+            "when": "existe_cruce_peatonal",
+            "eq": "si"
+          }
+        },
+        {
+          "type": "radio",
+          "key": "seguridad_cruzar_interseccion",
+          "label": "22.- ¿Se siente seguro al cruzar esta intersección?",
+          "values": [
+            {
+              "label": "Nada Seguro(a)",
+              "value": "nada_seguro"
+            },
+            {
+              "label": "Poco seguro(a)",
+              "value": "poco_seguro"
+            },
+            {
+              "label": "Ni seguro(a), ni inseguro(a)/neutral",
+              "value": "neutral"
+            },
+            {
+              "label": "Algo seguro(a) / Bastante seguro(a)",
+              "value": "bastante_seguro"
+            },
+            {
+              "label": "Totalmente seguro(a) / Muy seguro(a)",
+              "value": "totalmente_seguro"
+            }
+          ],
+          "conditional": {
+            "show": true,
+            "when": "existe_cruce_peatonal",
+            "eq": "si"
+          }
+        },
+        {
+          "type": "radio",
+          "key": "hay_semaforo_peatonal",
+          "label": "23.- ¿Hay semáforo peatonal?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "radio",
+          "key": "existen_mapas_senales_peatonales",
+          "label": "24.- ¿Existen mapas peatonales, señales de destino o de caminata?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "radio",
+          "key": "movilidad_reducida_sin_ayuda",
+          "label": "25.- ¿Puede una persona con movilidad reducida desplazarse sin ayuda por el centro de la ciudad?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "radio",
+          "key": "senalizacion_nombres_calles_visible",
+          "label": "26.- ¿Hay señalizaciones de nombres de calles visibles?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "radio",
+          "key": "senalizacion_clara_sin_obstaculos",
+          "label": "27.- ¿La señalización es clara y sin obstáculos?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "radio",
+          "key": "seguridad_trayecto_parada",
+          "label": "28.- ¿El trayecto a pie hasta la parada es seguro?",
+          "values": [
+            {
+              "label": "Nada Seguro(a)",
+              "value": "nada_seguro"
+            },
+            {
+              "label": "Poco seguro(a)",
+              "value": "poco_seguro"
+            },
+            {
+              "label": "Ni seguro(a), ni inseguro(a)/neutral",
+              "value": "neutral"
+            },
+            {
+              "label": "Algo seguro(a) / Bastante seguro(a)",
+              "value": "bastante_seguro"
+            },
+            {
+              "label": "Totalmente seguro(a) / Muy seguro(a)",
+              "value": "totalmente_seguro"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "radio",
+          "key": "aire_ruido_aceptables",
+          "label": "29.- ¿El aire y el ruido son aceptables para caminar?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "radio",
+          "key": "conductores_ceden_paso",
+          "label": "30.- ¿Los conductores ceden el paso a los peatones?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "radio",
+          "key": "ciudad_prioriza_peaton",
+          "label": "31.- ¿Considera que la ciudad prioriza al peatón sobre el automóvil?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "radio",
+          "key": "participado_consultas_espacios",
+          "label": "32.- ¿Ha participado en consultas sobre espacios peatonales?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        },
+        {
+          "type": "radio",
+          "key": "existen_planes_movilidad_peatonal",
+          "label": "33.- ¿Existen planes de movilidad peatonal, presupuesto o normativa de prioridad peatonal?",
+          "values": [
+            {
+              "label": "a.- Sí",
+              "value": "si"
+            },
+            {
+              "label": "b.- No",
+              "value": "no"
+            },
+            {
+              "label": "c.- No Sabe/No responde",
+              "value": "no_sabe"
+            }
+          ],
+          "validate": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "key": "submit",
+      "label": "Enviar Cuestionario Origen-Destino",
+      "action": "submit",
+      "theme": "primary",
+      "block": true
+    }
+  ]
+}

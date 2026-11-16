@@ -1,0 +1,50 @@
+[
+  {
+    "codigo": "1",
+    "value": "1",
+    "nombre": "A pie",
+    "label": "1 = A pie"
+  },
+  {
+    "codigo": "2",
+    "value": "2",
+    "nombre": "Bicicleta",
+    "label": "2 = Bicicleta"
+  },
+  {
+    "codigo": "3",
+    "value": "3",
+    "nombre": "Motocicleta",
+    "label": "3 = Motocicleta"
+  },
+  {
+    "codigo": "4",
+    "value": "4",
+    "nombre": "Automóvil Particular",
+    "label": "4 = Automóvil Particular"
+  },
+  {
+    "codigo": "5",
+    "value": "5",
+    "nombre": "Taxi",
+    "label": "5 = Taxi"
+  },
+  {
+    "codigo": "6",
+    "value": "6",
+    "nombre": "Transporte público (bus, buseta)",
+    "label": "6 = Transporte público (bus, buseta)"
+  },
+  {
+    "codigo": "7",
+    "value": "7",
+    "nombre": "Transporte informal (por puesto, mototaxi)",
+    "label": "7 = Transporte informal (por puesto, mototaxi)"
+  },
+  {
+    "codigo": "8",
+    "value": "8",
+    "nombre": "Otro",
+    "label": "8 = Otro"
+  }
+]
