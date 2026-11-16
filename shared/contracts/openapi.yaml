@@ -1,0 +1,1054 @@
+openapi: 3.1.0
+info:
+  title: Plataforma Web de Encuestas y PDUL - Alcaldía de Maturín
+  version: 0.1.0
+paths:
+  /api/v1/health:
+    get:
+      tags:
+      - Salud
+      summary: Health Check
+      operationId: health_check_api_v1_health_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+                title: Response Health Check Api V1 Health Get
+  /health:
+    get:
+      tags:
+      - Salud
+      summary: Health Check
+      operationId: health_check_health_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+                title: Response Health Check Health Get
+  /api/v1/encuestas:
+    get:
+      tags:
+      - Encuestas
+      summary: Lista las encuestas registradas para selección y analítica
+      operationId: listar_encuestas_api_v1_encuestas_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/EncuestaListItem'
+                type: array
+                title: Response Listar Encuestas Api V1 Encuestas Get
+  /api/v1/encuestas/{slug}:
+    get:
+      tags:
+      - Encuestas
+      summary: Obtiene el esquema Form.io de una encuesta activa por su slug
+      operationId: obtener_encuesta_activa_api_v1_encuestas__slug__get
+      parameters:
+      - name: slug
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Slug
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EncuestaOut'
+        '404':
+          description: Encuesta no encontrada o inactiva
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetailOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/encuestas/{encuesta_id}/respuestas:
+    post:
+      tags:
+      - Encuestas
+      summary: Registra un envío de respuestas con soporte offline idempotente
+      operationId: registrar_respuesta_api_v1_encuestas__encuesta_id__respuestas_post
+      parameters:
+      - name: encuesta_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          title: Encuesta Id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FormioSubmissionIn'
+      responses:
+        '201':
+          description: Participación registrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmissionReceiptOut'
+        '200':
+          description: Reenvío idempotente exitoso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmissionReceiptOut'
+        '400':
+          description: Encuesta inactiva
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetailOut'
+        '404':
+          description: Encuesta no encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetailOut'
+        '409':
+          description: Cédula duplicada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetailOut'
+        '422':
+          description: Error de validación del payload
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetailOut'
+  /api/v1/encuestas/{encuesta_id}/resultados-parroquia:
+    get:
+      tags:
+      - Analítica
+      summary: Conteo y porcentaje agregado por parroquia para mapa coroplético Leaflet
+      operationId: obtener_resultados_parroquia_api_v1_encuestas__encuesta_id__resultados_parroquia_get
+      parameters:
+      - name: encuesta_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          title: Encuesta Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ParroquiaCountOut'
+                title: Response Obtener Resultados Parroquia Api V1 Encuestas  Encuesta
+                  Id  Resultados Parroquia Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/encuestas/{encuesta_id}/metricas:
+    get:
+      tags:
+      - Analítica
+      summary: Serie de frecuencias (labels, values) por campo para gráficos Apache
+        ECharts
+      operationId: obtener_metricas_campo_api_v1_encuestas__encuesta_id__metricas_get
+      parameters:
+      - name: encuesta_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          title: Encuesta Id
+      - name: campo
+        in: query
+        required: true
+        schema:
+          type: string
+          pattern: ^[a-z][a-z0-9_]*$
+          description: Clave snake_case del campo a agregar
+          title: Campo
+        description: Clave snake_case del campo a agregar
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EChartsSeriesOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/encuestas/{encuesta_id}/matriz-od:
+    get:
+      tags:
+      - Analítica
+      summary: Matriz agregada de viajes por pares de zonas Origen-Destino
+      operationId: obtener_matriz_od_api_v1_encuestas__encuesta_id__matriz_od_get
+      parameters:
+      - name: encuesta_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          title: Encuesta Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MatrizODRowOut'
+                title: Response Obtener Matriz Od Api V1 Encuestas  Encuesta Id  Matriz
+                  Od Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/encuestas/{encuesta_id}/reparto-modal:
+    get:
+      tags:
+      - Analítica
+      summary: Distribución de viajes según modo de transporte principal
+      operationId: obtener_reparto_modal_api_v1_encuestas__encuesta_id__reparto_modal_get
+      parameters:
+      - name: encuesta_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          title: Encuesta Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RepartoModalRowOut'
+                title: Response Obtener Reparto Modal Api V1 Encuestas  Encuesta Id  Reparto
+                  Modal Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/encuestas/{encuesta_id}/kpis:
+    get:
+      tags:
+      - Analítica
+      summary: Tarjetas de indicadores ejecutivos del levantamiento (total encuestas,
+        viajes, residentes)
+      operationId: obtener_kpis_generales_api_v1_encuestas__encuesta_id__kpis_get
+      parameters:
+      - name: encuesta_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          title: Encuesta Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KpiMetricsOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/encuestas/{encuesta_id}/preguntas-metricas:
+    get:
+      tags:
+      - Analítica
+      summary: Métricas agregadas para cada una de las preguntas del cuestionario
+      operationId: obtener_metricas_todas_preguntas_api_v1_encuestas__encuesta_id__preguntas_metricas_get
+      parameters:
+      - name: encuesta_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          title: Encuesta Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PreguntaMetricaOut'
+                title: Response Obtener Metricas Todas Preguntas Api V1 Encuestas  Encuesta
+                  Id  Preguntas Metricas Get
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/admin/encuestas:
+    get:
+      tags:
+      - Administración
+      summary: Lista todas las encuestas registradas con total de respuestas acumuladas
+      operationId: listar_encuestas_admin_api_v1_admin_encuestas_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/EncuestaListItem'
+                type: array
+                title: Response Listar Encuestas Admin Api V1 Admin Encuestas Get
+    post:
+      tags:
+      - Administración
+      summary: Crea una nueva encuesta a partir del Form Builder
+      operationId: crear_encuesta_admin_api_v1_admin_encuestas_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EncuestaCreate'
+        required: true
+      responses:
+        '201':
+          description: Encuesta creada exitosamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EncuestaOut'
+        '409':
+          description: El slug ya existe
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetailOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/admin/encuestas/{encuesta_id}:
+    get:
+      tags:
+      - Administración
+      summary: Detalle completo de una encuesta para edición en Form Builder
+      operationId: obtener_encuesta_admin_api_v1_admin_encuestas__encuesta_id__get
+      parameters:
+      - name: encuesta_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          title: Encuesta Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EncuestaOut'
+        '404':
+          description: Encuesta no encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetailOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    put:
+      tags:
+      - Administración
+      summary: Actualiza metadatos o esquema Form.io de una encuesta
+      operationId: actualizar_encuesta_admin_api_v1_admin_encuestas__encuesta_id__put
+      parameters:
+      - name: encuesta_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          title: Encuesta Id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EncuestaUpdate'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EncuestaOut'
+        '404':
+          description: Encuesta no encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetailOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/admin/encuestas/{encuesta_id}/estado:
+    patch:
+      tags:
+      - Administración
+      summary: Alterna el estado activa/inactiva de la encuesta
+      operationId: alternar_estado_encuesta_api_v1_admin_encuestas__encuesta_id__estado_patch
+      parameters:
+      - name: encuesta_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          title: Encuesta Id
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EncuestaEstadoUpdate'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EncuestaOut'
+        '404':
+          description: Encuesta no encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetailOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/admin/encuestas/{encuesta_id}/respuestas:
+    get:
+      tags:
+      - Administración
+      summary: Lista paginada de respuestas recibidas para el panel de supervisión
+      operationId: listar_respuestas_admin_api_v1_admin_encuestas__encuesta_id__respuestas_get
+      parameters:
+      - name: encuesta_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          title: Encuesta Id
+      - name: skip
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 0
+          default: 0
+          title: Skip
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          maximum: 500
+          minimum: 1
+          default: 50
+          title: Limit
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+                title: Response Listar Respuestas Admin Api V1 Admin Encuestas  Encuesta
+                  Id  Respuestas Get
+        '404':
+          description: Encuesta no encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetailOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/admin/encuestas/{encuesta_id}/exportar:
+    get:
+      tags:
+      - Administración
+      summary: Exporta todas las respuestas recibidas en formato CSV o JSON
+      operationId: exportar_respuestas_admin_api_v1_admin_encuestas__encuesta_id__exportar_get
+      parameters:
+      - name: encuesta_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          title: Encuesta Id
+      - name: formato
+        in: query
+        required: false
+        schema:
+          type: string
+          pattern: ^(json|csv)$
+          default: json
+          title: Formato
+      - name: redact_pii
+        in: query
+        required: false
+        schema:
+          type: boolean
+          description: Anonimizar datos personales en la descarga
+          default: false
+          title: Redact Pii
+        description: Anonimizar datos personales en la descarga
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '404':
+          description: Encuesta no encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetailOut'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    EChartsSeriesOut:
+      properties:
+        campo:
+          type: string
+          title: Campo
+          description: Nombre del campo analizado
+        labels:
+          items:
+            type: string
+          type: array
+          title: Labels
+          description: Etiquetas de categorías o valores
+        values:
+          items:
+            type: integer
+          type: array
+          title: Values
+          description: Frecuencias o conteos de cada categoría
+      type: object
+      required:
+      - campo
+      - labels
+      - values
+      title: EChartsSeriesOut
+      description: Estructura normalizada para alimentar gráficos de Apache ECharts.
+    EncuestaCreate:
+      properties:
+        titulo:
+          type: string
+          maxLength: 255
+          title: Titulo
+          description: Título descriptivo de la encuesta
+        slug:
+          type: string
+          maxLength: 120
+          title: Slug
+          description: Identificador amigable único en URL
+        tipo_instrumento:
+          type: string
+          maxLength: 30
+          title: Tipo Instrumento
+          description: Tipo de instrumento (consulta_ciudadana, encuesta_od_pdul,
+            etc.)
+          default: consulta_ciudadana
+        activa:
+          type: boolean
+          title: Activa
+          description: Estado de disponibilidad para recepción de envíos
+          default: true
+        esquema_formio:
+          additionalProperties: true
+          type: object
+          title: Esquema Formio
+          description: Esquema JSON compatible con Form.io (@formio/js)
+      type: object
+      required:
+      - titulo
+      - slug
+      - esquema_formio
+      title: EncuestaCreate
+    EncuestaEstadoUpdate:
+      properties:
+        activa:
+          type: boolean
+          title: Activa
+          description: Nuevo estado activo (True/False)
+      type: object
+      required:
+      - activa
+      title: EncuestaEstadoUpdate
+    EncuestaListItem:
+      properties:
+        id:
+          type: string
+          format: uuid
+          title: Id
+        titulo:
+          type: string
+          title: Titulo
+        slug:
+          type: string
+          title: Slug
+        tipo_instrumento:
+          type: string
+          title: Tipo Instrumento
+        activa:
+          type: boolean
+          title: Activa
+        creado_en:
+          type: string
+          format: date-time
+          title: Creado En
+        total_respuestas:
+          type: integer
+          title: Total Respuestas
+          default: 0
+      type: object
+      required:
+      - id
+      - titulo
+      - slug
+      - tipo_instrumento
+      - activa
+      - creado_en
+      title: EncuestaListItem
+    EncuestaOut:
+      properties:
+        titulo:
+          type: string
+          maxLength: 255
+          title: Titulo
+          description: Título descriptivo de la encuesta
+        slug:
+          type: string
+          maxLength: 120
+          title: Slug
+          description: Identificador amigable único en URL
+        tipo_instrumento:
+          type: string
+          maxLength: 30
+          title: Tipo Instrumento
+          description: Tipo de instrumento (consulta_ciudadana, encuesta_od_pdul,
+            etc.)
+          default: consulta_ciudadana
+        activa:
+          type: boolean
+          title: Activa
+          description: Estado de disponibilidad para recepción de envíos
+          default: true
+        id:
+          type: string
+          format: uuid
+          title: Id
+        esquema_formio:
+          additionalProperties: true
+          type: object
+          title: Esquema Formio
+        creado_en:
+          type: string
+          format: date-time
+          title: Creado En
+      type: object
+      required:
+      - titulo
+      - slug
+      - id
+      - esquema_formio
+      - creado_en
+      title: EncuestaOut
+    EncuestaUpdate:
+      properties:
+        titulo:
+          anyOf:
+          - type: string
+            maxLength: 255
+          - type: 'null'
+          title: Titulo
+        tipo_instrumento:
+          anyOf:
+          - type: string
+            maxLength: 30
+          - type: 'null'
+          title: Tipo Instrumento
+        esquema_formio:
+          anyOf:
+          - additionalProperties: true
+            type: object
+          - type: 'null'
+          title: Esquema Formio
+        activa:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Activa
+      type: object
+      title: EncuestaUpdate
+    FormioSubmissionIn:
+      properties:
+        data:
+          additionalProperties: true
+          type: object
+          title: Data
+          description: Datos del formulario enviados por @formio/js
+        client_submission_id:
+          anyOf:
+          - type: string
+            format: uuid
+          - type: 'null'
+          title: Client Submission Id
+          description: UUID v4 generado en el cliente para garantizar idempotencia
+            offline.
+        cedula_limpia:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Cedula Limpia
+        parroquia:
+          type: string
+          title: Parroquia
+          default: ''
+        zona_od:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Zona Od
+      type: object
+      required:
+      - data
+      title: FormioSubmissionIn
+      description: 'Valida tanto un payload envuelto en {''data'': {...}} como el
+        objeto directo.'
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    KpiMetricsOut:
+      properties:
+        total_encuestas:
+          type: integer
+          title: Total Encuestas
+          description: Total de encuestas válidas
+        total_viajes:
+          type: integer
+          title: Total Viajes
+          description: Total de viajes registrados en la grilla
+        total_residentes:
+          type: integer
+          title: Total Residentes
+          description: Total de residentes censados en los hogares
+        parroquia_lider:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Parroquia Lider
+          description: Parroquia con mayor número de participaciones
+      type: object
+      required:
+      - total_encuestas
+      - total_viajes
+      - total_residentes
+      title: KpiMetricsOut
+      description: Métricas ejecutivas de resumen del levantamiento para el dashboard
+        municipal.
+    MatrizODRowOut:
+      properties:
+        zona_origen:
+          type: string
+          title: Zona Origen
+          description: Código de la zona origen
+        zona_destino:
+          type: string
+          title: Zona Destino
+          description: Código de la zona destino
+        total_viajes:
+          type: integer
+          title: Total Viajes
+          description: Total de viajes entre origen y destino
+        tiempo_promedio_min:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Tiempo Promedio Min
+          description: Tiempo promedio de viaje en minutos
+        costo_promedio_bs:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Costo Promedio Bs
+          description: Costo monetario promedio del trayecto en Bolívares
+      type: object
+      required:
+      - zona_origen
+      - zona_destino
+      - total_viajes
+      title: MatrizODRowOut
+      description: Fila agregada de interacción entre pares de zonas Origen-Destino.
+    ParroquiaCountOut:
+      properties:
+        parroquia:
+          type: string
+          title: Parroquia
+          description: Código snake_case de la parroquia
+        total_respuestas:
+          type: integer
+          title: Total Respuestas
+          description: Cantidad total de encuestas registradas
+        porcentaje:
+          type: number
+          title: Porcentaje
+          description: Porcentaje relativo sobre el total de la encuesta
+      type: object
+      required:
+      - parroquia
+      - total_respuestas
+      - porcentaje
+      title: ParroquiaCountOut
+      description: Conteo de respuestas agregadas por parroquia para mapas GIS coropléticos.
+    PreguntaMetricaOut:
+      properties:
+        seccion:
+          type: string
+          title: Seccion
+          description: Nombre de la sección del cuestionario
+        clave:
+          type: string
+          title: Clave
+          description: Identificador o clave de la pregunta
+        pregunta:
+          type: string
+          title: Pregunta
+          description: Texto exacto de la pregunta en el cuestionario
+        tipo_grafico:
+          type: string
+          title: Tipo Grafico
+          description: Tipo de gráfico recomendado ('donut' | 'bar')
+          default: bar
+        total_respuestas:
+          type: integer
+          title: Total Respuestas
+          description: Total de respuestas válidas para esta pregunta
+          default: 0
+        labels:
+          items:
+            type: string
+          type: array
+          title: Labels
+          description: Etiquetas legibles de las categorías
+        values:
+          items:
+            type: integer
+          type: array
+          title: Values
+          description: Conteos de cada categoría
+      type: object
+      required:
+      - seccion
+      - clave
+      - pregunta
+      title: PreguntaMetricaOut
+      description: Métricas agregadas para una pregunta específica del cuestionario.
+    ProblemDetailOut:
+      properties:
+        code:
+          type: string
+          title: Code
+          description: Código máquina del error
+        title:
+          type: string
+          title: Title
+          description: Título legible del error
+        status:
+          type: integer
+          title: Status
+          description: Código de estado HTTP
+        detail:
+          type: string
+          title: Detail
+          description: Detalle del error
+        field:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Field
+          description: Campo del formulario afectado si aplica
+        errors:
+          anyOf:
+          - items:
+              additionalProperties: true
+              type: object
+            type: array
+          - type: 'null'
+          title: Errors
+          description: Lista detallada de errores de validación de campos
+      type: object
+      required:
+      - code
+      - title
+      - status
+      - detail
+      title: ProblemDetailOut
+      description: Estructura de error estándar RFC 7807 amigable con citizen-survey-ux.
+    RepartoModalRowOut:
+      properties:
+        modo:
+          type: string
+          title: Modo
+          description: Código numérico o identificador del modo de transporte
+        etiqueta:
+          type: string
+          title: Etiqueta
+          description: Etiqueta legible del modo de transporte
+        total_viajes:
+          type: integer
+          title: Total Viajes
+          description: Conteo de viajes en este modo
+        porcentaje:
+          type: number
+          title: Porcentaje
+          description: Porcentaje respecto al total de viajes registrados
+      type: object
+      required:
+      - modo
+      - etiqueta
+      - total_viajes
+      - porcentaje
+      title: RepartoModalRowOut
+      description: Frecuencia y proporción de viajes según el modo de transporte.
+    SubmissionReceiptOut:
+      properties:
+        id:
+          type: integer
+          title: Id
+          description: Identificador único del registro en la base de datos
+        fecha_registro:
+          type: string
+          format: date-time
+          title: Fecha Registro
+          description: Marca temporal del registro
+        idempotent_replay:
+          type: boolean
+          title: Idempotent Replay
+          description: Indica si la respuesta fue recuperada de un envío idéntico
+            previo
+          default: false
+        mensaje:
+          type: string
+          title: Mensaje
+          description: Mensaje explicativo para el usuario o encuestador
+      type: object
+      required:
+      - id
+      - fecha_registro
+      - mensaje
+      title: SubmissionReceiptOut
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
