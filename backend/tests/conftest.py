@@ -13,6 +13,7 @@ from sqlalchemy.ext.asyncio import (
 )
 
 from backend.app.core.database import Base, get_db
+from backend.app.domain.interfaces.unit_of_work import AbstractUnitOfWork
 from backend.app.main import create_app
 from backend.app.models.encuesta import Encuesta
 from backend.app.models.respuesta import RespuestaCiudadana
@@ -164,3 +165,11 @@ def mock_encuesta_repo() -> AsyncMock:
     repo = AsyncMock(spec=EncuestaRepository)
     repo.session = AsyncMock()
     return repo
+
+
+@pytest.fixture
+def mock_uow(mock_survey_repo: AsyncMock, mock_encuesta_repo: AsyncMock) -> AsyncMock:
+    uow = AsyncMock(spec=AbstractUnitOfWork)
+    uow.surveys = mock_encuesta_repo
+    uow.submissions = mock_survey_repo
+    return uow

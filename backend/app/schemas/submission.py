@@ -5,9 +5,9 @@ from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
-from backend.app.services.normalizers import (
-    normalize_cedula,
-    normalize_parroquia,
+from backend.app.domain.value_objects import (
+    normalize_cedula_value as normalize_cedula,
+    normalize_parroquia_value as normalize_parroquia,
 )
 
 

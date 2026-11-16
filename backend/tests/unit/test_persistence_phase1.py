@@ -65,3 +65,4 @@ async def test_sqlalchemy_unit_of_work_rolls_back_on_exception():
 
     session.rollback.assert_awaited_once()
     session.commit.assert_not_awaited()
+

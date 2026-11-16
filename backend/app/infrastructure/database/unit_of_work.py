@@ -18,3 +18,4 @@ class SqlAlchemyUnitOfWork(AbstractUnitOfWork):
 
     async def rollback(self) -> None:
         await self.session.rollback()
+

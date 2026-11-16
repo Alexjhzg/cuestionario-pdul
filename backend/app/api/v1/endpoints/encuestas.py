@@ -1,11 +1,12 @@
 import uuid
 from typing import List
-from fastapi import APIRouter, Depends, HTTPException, Response, status
-from sqlalchemy.ext.asyncio import AsyncSession
+from fastapi import APIRouter, Depends, Response, status
 
-from backend.app.core.database import get_db
-from backend.app.repositories.encuesta_repo import EncuestaRepository
-from backend.app.repositories.survey_repo import SurveyRepository
+from backend.app.api.deps import (
+    get_admin_service,
+    get_encuesta_repo,
+    get_survey_service,
+)
 from backend.app.schemas.encuesta import EncuestaListItem, EncuestaOut
 from backend.app.schemas.problem import ProblemDetailOut
 from backend.app.schemas.submission import (
@@ -17,17 +18,12 @@ from backend.app.services.survey_service import SurveyService
 
 router = APIRouter()
 
-
-def get_survey_service(db: AsyncSession = Depends(get_db)) -> SurveyService:
-    return SurveyService(SurveyRepository(db), EncuestaRepository(db))
-
-
-def get_admin_service(db: AsyncSession = Depends(get_db)) -> AdminService:
-    return AdminService(EncuestaRepository(db), SurveyRepository(db))
-
-
-def get_encuesta_repo(db: AsyncSession = Depends(get_db)) -> EncuestaRepository:
-    return EncuestaRepository(db)
+__all__ = [
+    "get_admin_service",
+    "get_encuesta_repo",
+    "get_survey_service",
+    "router",
+]
 
 
 @router.get(
@@ -51,20 +47,9 @@ async def listar_encuestas(
 )
 async def obtener_encuesta_activa(
     slug: str,
-    repo: EncuestaRepository = Depends(get_encuesta_repo),
+    service: SurveyService = Depends(get_survey_service),
 ) -> EncuestaOut:
-    encuesta = await repo.get_by_slug(slug)
-    if not encuesta or not encuesta.activa:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail=ProblemDetailOut(
-                code="ENCUESTA_NO_ENCONTRADA",
-                title="Encuesta no encontrada",
-                status=404,
-                detail=f"La encuesta con slug '{slug}' no existe o se encuentra inactiva.",
-            ).model_dump(),
-        )
-    return EncuestaOut.model_validate(encuesta)
+    return await service.get_active_survey_by_slug(slug)
 
 
 @router.post(

@@ -1,11 +1,9 @@
+import json
 import uuid
 from typing import Any, Dict, List
 from fastapi import APIRouter, Depends, Query, Response, status
-from sqlalchemy.ext.asyncio import AsyncSession
 
-from backend.app.core.database import get_db
-from backend.app.repositories.encuesta_repo import EncuestaRepository
-from backend.app.repositories.survey_repo import SurveyRepository
+from backend.app.api.deps import get_admin_service
 from backend.app.schemas.encuesta import (
     EncuestaCreate,
     EncuestaEstadoUpdate,
@@ -17,10 +15,6 @@ from backend.app.schemas.problem import ProblemDetailOut
 from backend.app.services.admin_service import AdminService
 
 router = APIRouter()
-
-
-def get_admin_service(db: AsyncSession = Depends(get_db)) -> AdminService:
-    return AdminService(EncuestaRepository(db), SurveyRepository(db))
 
 
 @router.get(
@@ -128,7 +122,6 @@ async def exportar_respuestas_admin(
                 "Content-Disposition": f'attachment; filename="encuesta_{encuesta_id}.csv"'
             },
         )
-    import json
     return Response(
         content=json.dumps(resultado, ensure_ascii=False),
         media_type="application/json",

@@ -1,13 +1,5 @@
-from backend.app.services.normalizers import (
-    PARROQUIAS_MATURIN,
-    normalize_cedula,
-    normalize_parroquia,
-    sanitize_pii,
-)
+from backend.app.services.admin_service import AdminService
+from backend.app.services.analytics_service import AnalyticsService
+from backend.app.services.survey_service import SurveyService
 
-__all__ = [
-    "normalize_cedula",
-    "normalize_parroquia",
-    "sanitize_pii",
-    "PARROQUIAS_MATURIN",
-]
+__all__ = ["AdminService", "AnalyticsService", "SurveyService"]

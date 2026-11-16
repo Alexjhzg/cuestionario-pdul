@@ -110,26 +110,22 @@ def test_sanitize_pii_scrubs_residential_identities_and_names():
 
 
 @pytest.mark.asyncio
-async def test_survey_service_get_field_metrics_rejects_all_pii_fields():
+async def test_survey_service_get_field_metrics_rejects_all_pii_fields(mock_uow):
     import uuid
-    from unittest.mock import MagicMock
-    from fastapi import HTTPException
+    from backend.app.domain.exceptions import RestrictedPiiFieldError
     from backend.app.services.normalizers import PII_FIELDS
     from backend.app.services.survey_service import SurveyService
 
-    mock_survey_repo = MagicMock()
-    mock_encuesta_repo = MagicMock()
-    service = SurveyService(mock_survey_repo, mock_encuesta_repo)
+    service = SurveyService(mock_uow)
     encuesta_id = uuid.uuid4()
 
     for pii_field in PII_FIELDS:
-        with pytest.raises(HTTPException) as exc_info:
+        with pytest.raises(RestrictedPiiFieldError) as exc_info:
             await service.get_field_metrics(encuesta_id, pii_field)
-        assert exc_info.value.status_code == 400
-        assert exc_info.value.detail["code"] == "CAMPO_PII_RESTRINGIDO"
-        assert exc_info.value.detail["field"] == "campo"
-        assert pii_field in exc_info.value.detail["detail"]
+        assert exc_info.value.code == "CAMPO_PII_RESTRINGIDO"
+        assert exc_info.value.field == "campo"
+        assert pii_field in exc_info.value.message
 
     # El repositorio nunca debe ser consultado para campos prohibidos
-    mock_survey_repo.aggregate_field_series.assert_not_called()
+    mock_uow.submissions.aggregate_field_series.assert_not_called()
 

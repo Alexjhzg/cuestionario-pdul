@@ -3,6 +3,7 @@ from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from backend.app.core.config import settings
 from backend.app.domain.interfaces.survey_repository import AbstractSurveyRepository
 from backend.app.models.encuesta import Encuesta
 from backend.app.models.respuesta import RespuestaCiudadana
@@ -27,12 +28,11 @@ class EncuestaRepository(AbstractSurveyRepository):
         result = await self.session.execute(stmt)
         encuesta = result.scalar_one_or_none()
         if not encuesta:
-            # Alias fallback between canonical and legacy survey slugs
             alias = None
-            if slug == "cuestionario-od-maturin":
-                alias = "pdul_origen_destino"
-            elif slug == "pdul_origen_destino":
-                alias = "cuestionario-od-maturin"
+            if slug == settings.CANONICAL_SURVEY_SLUG:
+                alias = settings.LEGACY_SURVEY_SLUG
+            elif slug == settings.LEGACY_SURVEY_SLUG:
+                alias = settings.CANONICAL_SURVEY_SLUG
             if alias:
                 stmt_alias = select(Encuesta).where(Encuesta.slug == alias)
                 result_alias = await self.session.execute(stmt_alias)
@@ -50,16 +50,24 @@ class EncuestaRepository(AbstractSurveyRepository):
         result = await self.session.execute(stmt)
         return [(row[0], int(row[1])) for row in result.all()]
 
-    async def create(self, encuesta_in: "EncuestaCreate") -> Encuesta:
-        encuesta = Encuesta(
-            titulo=encuesta_in.titulo,
-            slug=encuesta_in.slug,
-            tipo_instrumento=encuesta_in.tipo_instrumento,
-            esquema_formio=encuesta_in.esquema_formio,
-            activa=encuesta_in.activa,
-        )
+    async def create(
+        self,
+        encuesta_in: "EncuestaCreate",
+        encuesta_id: Optional[uuid.UUID] = None,
+    ) -> Encuesta:
+        kwargs: Dict[str, Any] = {
+            "titulo": encuesta_in.titulo,
+            "slug": encuesta_in.slug,
+            "tipo_instrumento": encuesta_in.tipo_instrumento,
+            "esquema_formio": encuesta_in.esquema_formio,
+            "activa": encuesta_in.activa,
+        }
+        if encuesta_id is not None:
+            kwargs["id"] = encuesta_id
+        encuesta = Encuesta(**kwargs)
         self.session.add(encuesta)
         await self.session.flush()
+        await self.session.refresh(encuesta)
         return encuesta
 
     async def update(self, encuesta: Encuesta, update_data: Dict[str, Any]) -> Encuesta:
@@ -67,6 +75,7 @@ class EncuestaRepository(AbstractSurveyRepository):
             if value is not None and hasattr(encuesta, key):
                 setattr(encuesta, key, value)
         await self.session.flush()
+        await self.session.refresh(encuesta)
         return encuesta
 
     async def update_status(self, encuesta_id: uuid.UUID, activa: bool) -> Optional[Encuesta]:
@@ -75,4 +84,5 @@ class EncuestaRepository(AbstractSurveyRepository):
             return None
         encuesta.activa = activa
         await self.session.flush()
+        await self.session.refresh(encuesta)
         return encuesta

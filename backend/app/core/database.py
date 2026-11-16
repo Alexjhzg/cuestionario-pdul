@@ -1,4 +1,5 @@
-from collections.abc import AsyncGenerator
+from collections.abc import AsyncGenerator, Awaitable, Callable
+from typing import Optional
 from sqlalchemy import text
 from sqlalchemy.exc import DBAPIError, OperationalError
 from sqlalchemy.ext.asyncio import (
@@ -34,13 +35,20 @@ async_session_factory = async_sessionmaker(
 
 _fallback_engine: AsyncEngine | None = None
 _fallback_ready: bool = False
+_fallback_seed_hook: Optional[Callable[[], Awaitable[None]]] = None
+
+
+def register_fallback_seed_hook(hook: Optional[Callable[[], Awaitable[None]]]) -> None:
+    """Registra un callback asíncrono opcional para sembrar datos tras activar SQLite fallback."""
+    global _fallback_seed_hook
+    _fallback_seed_hook = hook
 
 
 async def init_sqlite_fallback() -> AsyncEngine:
     global _fallback_engine, _fallback_ready
     if _fallback_engine is None:
         _fallback_engine = create_async_engine(
-            "sqlite+aiosqlite:///pdul_dev.db",
+            settings.SQLITE_FALLBACK_URL,
             echo=False,
             future=True,
         )
@@ -70,8 +78,8 @@ async def get_db() -> AsyncGenerator[AsyncSession, None]:
                     extra={"error": str(test_err)},
                 )
                 await init_sqlite_fallback()
-                from backend.app.main import seed_default_pdul_survey
-                await seed_default_pdul_survey()
+                if _fallback_seed_hook is not None:
+                    await _fallback_seed_hook()
                 session = async_session_factory()
 
         yield session

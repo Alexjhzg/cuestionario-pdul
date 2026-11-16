@@ -29,3 +29,4 @@ class AbstractSurveyRepository(ABC):
     @abstractmethod
     async def update_status(self, encuesta_id: uuid.UUID, activa: bool) -> Optional[Any]:
         ...
+

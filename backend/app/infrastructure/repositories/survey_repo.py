@@ -89,3 +89,4 @@ class SurveyRepository(AbstractSubmissionRepository):
         self, encuesta_id: uuid.UUID
     ) -> List[PreguntaMetricaOut]:
         return await self._delegate.aggregate_all_questions(encuesta_id)
+

@@ -160,3 +160,4 @@ class BaseSurveyRepository(AbstractSubmissionRepository):
 
         from backend.app.services.question_analytics import aggregate_all_survey_questions
         return aggregate_all_survey_questions(schema, data_rows)
+

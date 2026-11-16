@@ -1,11 +1,8 @@
 import uuid
 from typing import List
 from fastapi import APIRouter, Depends, Query
-from sqlalchemy.ext.asyncio import AsyncSession
 
-from backend.app.core.database import get_db
-from backend.app.repositories.encuesta_repo import EncuestaRepository
-from backend.app.repositories.survey_repo import SurveyRepository
+from backend.app.api.deps import get_analytics_service
 from backend.app.schemas.analytics import (
     EChartsSeriesOut,
     KpiMetricsOut,
@@ -14,13 +11,9 @@ from backend.app.schemas.analytics import (
     PreguntaMetricaOut,
     RepartoModalRowOut,
 )
-from backend.app.services.survey_service import SurveyService
+from backend.app.services.analytics_service import AnalyticsService
 
 router = APIRouter()
-
-
-def get_survey_service(db: AsyncSession = Depends(get_db)) -> SurveyService:
-    return SurveyService(SurveyRepository(db), EncuestaRepository(db))
 
 
 @router.get(
@@ -30,7 +23,7 @@ def get_survey_service(db: AsyncSession = Depends(get_db)) -> SurveyService:
 )
 async def obtener_resultados_parroquia(
     encuesta_id: uuid.UUID,
-    service: SurveyService = Depends(get_survey_service),
+    service: AnalyticsService = Depends(get_analytics_service),
 ) -> List[ParroquiaCountOut]:
     return await service.get_parroquia_results(encuesta_id)
 
@@ -43,7 +36,7 @@ async def obtener_resultados_parroquia(
 async def obtener_metricas_campo(
     encuesta_id: uuid.UUID,
     campo: str = Query(..., pattern=r"^[a-z][a-z0-9_]*$", description="Clave snake_case del campo a agregar"),
-    service: SurveyService = Depends(get_survey_service),
+    service: AnalyticsService = Depends(get_analytics_service),
 ) -> EChartsSeriesOut:
     return await service.get_field_metrics(encuesta_id, campo)
 
@@ -55,7 +48,7 @@ async def obtener_metricas_campo(
 )
 async def obtener_matriz_od(
     encuesta_id: uuid.UUID,
-    service: SurveyService = Depends(get_survey_service),
+    service: AnalyticsService = Depends(get_analytics_service),
 ) -> List[MatrizODRowOut]:
     return await service.get_od_matrix(encuesta_id)
 
@@ -67,7 +60,7 @@ async def obtener_matriz_od(
 )
 async def obtener_reparto_modal(
     encuesta_id: uuid.UUID,
-    service: SurveyService = Depends(get_survey_service),
+    service: AnalyticsService = Depends(get_analytics_service),
 ) -> List[RepartoModalRowOut]:
     return await service.get_modal_split(encuesta_id)
 
@@ -79,7 +72,7 @@ async def obtener_reparto_modal(
 )
 async def obtener_kpis_generales(
     encuesta_id: uuid.UUID,
-    service: SurveyService = Depends(get_survey_service),
+    service: AnalyticsService = Depends(get_analytics_service),
 ) -> KpiMetricsOut:
     return await service.get_kpis(encuesta_id)
 
@@ -91,6 +84,6 @@ async def obtener_kpis_generales(
 )
 async def obtener_metricas_todas_preguntas(
     encuesta_id: uuid.UUID,
-    service: SurveyService = Depends(get_survey_service),
+    service: AnalyticsService = Depends(get_analytics_service),
 ) -> List[PreguntaMetricaOut]:
     return await service.get_all_questions_metrics(encuesta_id)

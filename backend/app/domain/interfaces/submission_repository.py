@@ -1,16 +1,19 @@
+from __future__ import annotations
+
 from abc import ABC, abstractmethod
-from typing import Any, Dict, List, Optional
+from typing import TYPE_CHECKING, Any, Dict, List, Optional
 import uuid
 
-from backend.app.schemas.analytics import (
-    EChartsSeriesOut,
-    KpiMetricsOut,
-    MatrizODRowOut,
-    ParroquiaCountOut,
-    PreguntaMetricaOut,
-    RepartoModalRowOut,
-)
-from backend.app.schemas.submission import FormioSubmissionIn
+if TYPE_CHECKING:
+    from backend.app.schemas.analytics import (
+        EChartsSeriesOut,
+        KpiMetricsOut,
+        MatrizODRowOut,
+        ParroquiaCountOut,
+        PreguntaMetricaOut,
+        RepartoModalRowOut,
+    )
+    from backend.app.schemas.submission import FormioSubmissionIn
 
 
 class AbstractSubmissionRepository(ABC):
