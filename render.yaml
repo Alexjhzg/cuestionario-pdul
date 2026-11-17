@@ -32,8 +32,6 @@ services:
   - type: web
     name: cuestionario-pdul-frontend
     runtime: static
-    plan: free
-    region: oregon
     buildCommand: npm --prefix frontend install && npm --prefix frontend run build
     staticPublishPath: frontend/dist
     routes:
@@ -45,5 +43,5 @@ services:
         fromService:
           type: web
           name: cuestionario-pdul-backend
-          property: url
+          envVarKey: RENDER_EXTERNAL_URL
 
