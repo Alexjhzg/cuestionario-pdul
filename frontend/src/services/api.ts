@@ -89,7 +89,14 @@ export interface AdminRespuestasResponse {
   items: AdminRespuestaItem[];
 }
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/v1';
+const resolveBaseUrl = (): string => {
+  const raw = import.meta.env.VITE_API_BASE_URL;
+  if (!raw) return '/api/v1';
+  const trimmed = raw.replace(/\/+$/, '');
+  return trimmed.endsWith('/api/v1') ? trimmed : `${trimmed}/api/v1`;
+};
+
+const BASE_URL = resolveBaseUrl();
 
 export class ApiError extends Error {
   status: number;
