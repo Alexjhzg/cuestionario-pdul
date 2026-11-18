@@ -117,6 +117,14 @@ function cerrarModalDetalles() {
   modalDetallesAbierto.value = false;
   viajeSeleccionado.value = null;
 }
+
+const viajeFormRef = ref<{ resetDraft?: () => void } | null>(null);
+
+function resetDraft() {
+  viajeFormRef.value?.resetDraft?.();
+}
+
+defineExpose({ resetDraft });
 </script>
 
 <template>
@@ -160,6 +168,7 @@ function cerrarModalDetalles() {
 
     <!-- Formulario para agregar un nuevo viaje -->
     <ViajeForm
+      ref="viajeFormRef"
       :residentes="residentes"
       :sugerencia-origen="sugerenciaOrigen"
       @agregar-viaje="onViajeAgregado"

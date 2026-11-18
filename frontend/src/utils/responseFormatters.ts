@@ -136,10 +136,13 @@ export const MODOS_TRANSPORTE_LABELS: Record<string, string> = {
   '6': 'Transporte público (bus, buseta)',
   '7': 'Transporte informal (por puesto, mototaxi)',
   '8': 'Otro',
+  '9': 'Transporte Institucional',
   a_pie: 'A pie',
   bicicleta: 'Bicicleta',
   motocicleta: 'Motocicleta',
   automovil: 'Automóvil Particular',
+  institucional: 'Transporte Institucional',
+  transporte_institucional: 'Transporte Institucional',
   taxi: 'Taxi',
   transporte_publico: 'Transporte público',
   otro: 'Otro'

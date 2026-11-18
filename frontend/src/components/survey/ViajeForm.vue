@@ -12,6 +12,7 @@ import {
   createEmptyTripDraft,
   validateNewTripForm,
   buildTripFromDraft,
+  isVehiculoParticular,
   type HoraPeriodo
 } from '@/utils/tripCatalogs';
 
@@ -50,6 +51,58 @@ watch(
     }
   }
 );
+
+watch(
+  () => nuevoViaje.value.modo_principal,
+  (newModo) => {
+    if (isVehiculoParticular(newModo)) {
+      nuevoViaje.value.modo_secundario = '';
+      nuevoViaje.value.modo_secundario_otro = '';
+      nuevoViaje.value.costo_viaje_bs = 0;
+    }
+  }
+);
+
+watch(
+  () => nuevoViaje.value.persona_numero,
+  (newPersona, oldPersona) => {
+    if (newPersona !== oldPersona && oldPersona !== undefined) {
+      // Al cambiar de persona, reiniciar variables para no arrastrar datos de otro usuario
+      nuevoViaje.value.origen_direccion = '';
+      nuevoViaje.value.zona_od_origen = props.sugerenciaOrigen || '';
+      nuevoViaje.value.destino_direccion = '';
+      nuevoViaje.value.zona_od_destino = '';
+      nuevoViaje.value.motivo_viaje = '';
+      nuevoViaje.value.motivo_viaje_otro = '';
+      nuevoViaje.value.modo_principal = '';
+      nuevoViaje.value.modo_principal_otro = '';
+      nuevoViaje.value.modo_secundario = '';
+      nuevoViaje.value.modo_secundario_otro = '';
+      nuevoViaje.value.tiempo_viaje_min = undefined;
+      nuevoViaje.value.costo_viaje_bs = undefined;
+      horaSalidaH.value = '';
+      horaSalidaM.value = '00';
+      horaSalidaPeriodo.value = 'AM';
+      horaLlegadaH.value = '';
+      horaLlegadaM.value = '00';
+      horaLlegadaPeriodo.value = 'AM';
+      formError.value = '';
+    }
+  }
+);
+
+function resetDraft() {
+  formError.value = '';
+  horaSalidaH.value = '';
+  horaSalidaM.value = '00';
+  horaSalidaPeriodo.value = 'AM';
+  horaLlegadaH.value = '';
+  horaLlegadaM.value = '00';
+  horaLlegadaPeriodo.value = 'AM';
+  nuevoViaje.value = createEmptyTripDraft(props.sugerenciaOrigen);
+}
+
+defineExpose({ resetDraft });
 
 function onAgregarViaje() {
   formError.value = '';
@@ -108,7 +161,7 @@ function onAgregarViaje() {
   horaLlegadaM.value = '00';
   horaLlegadaPeriodo.value = 'AM';
 
-  // Encadenar siguiente viaje: origen = destino recién agregado y campos vacíos
+  // Encadenar siguiente viaje para la misma persona: origen = destino recién agregado y campos de destino/tiempo limpios
   nuevoViaje.value = createEmptyTripDraft(
     viajePayload.zona_od_destino,
     viajePayload.persona_numero,
@@ -146,7 +199,7 @@ function onAgregarViaje() {
           v-model.number="nuevoViaje.persona_numero"
           class="survey-select"
         >
-          <option :value="undefined" disabled selected>-- Seleccione el residente que viajó --</option>
+          <option value="" disabled selected>-- Seleccione el residente que viajó --</option>
           <option
             v-for="r in residentes"
             :key="r.persona_numero"
@@ -370,7 +423,7 @@ function onAgregarViaje() {
         />
       </div>
 
-      <div class="survey-field">
+      <div v-if="!isVehiculoParticular(nuevoViaje.modo_principal)" class="survey-field">
         <label class="survey-label" for="viaje-modo-sec">
           Modo secundario:
         </label>
@@ -382,7 +435,7 @@ function onAgregarViaje() {
         </select>
       </div>
 
-      <div v-if="nuevoViaje.modo_secundario === '8'" class="survey-field">
+      <div v-if="!isVehiculoParticular(nuevoViaje.modo_principal) && nuevoViaje.modo_secundario === '8'" class="survey-field">
         <label class="survey-label" for="viaje-modo-sec-otro">
           Especifique otro modo secundario:
         </label>
@@ -415,7 +468,7 @@ function onAgregarViaje() {
         />
       </div>
 
-      <div class="survey-field">
+      <div v-if="!isVehiculoParticular(nuevoViaje.modo_principal)" class="survey-field">
         <div class="survey-label-row">
           <label class="survey-label" for="viaje-costo">
             Costo del Viaje (Bs):

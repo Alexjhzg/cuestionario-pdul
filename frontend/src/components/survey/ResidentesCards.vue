@@ -81,7 +81,9 @@ const medioTransporteLabels: Record<string, string> = {
   '5': 'Taxi',
   '6': 'Transporte público (bus, buseta)',
   '7': 'Transporte informal (por puesto, mototaxi)',
-  '8': 'Otro'
+  '8': 'Otro',
+  '9': 'Transporte Institucional',
+  institucional: 'Transporte Institucional'
 };
 
 function isBlankValue(value: unknown): boolean {
@@ -238,6 +240,30 @@ function onEliminar(index: number) {
   }));
   emit('update:modelValue', actualizados);
 }
+
+function resetDraft() {
+  formError.value = '';
+  nuevoResidente.value = {
+    persona_numero: props.modelValue.length + 1,
+    nombres: '',
+    nombre_apellido: '',
+    parentesco: '',
+    parentesco_jefe_hogar: '',
+    sexo: '',
+    edad: undefined,
+    sabe_leer_escribir: '',
+    nivel_educativo: '',
+    actividad_principal: '',
+    ocupacion_principal: '',
+    medio_transporte_habitual: '',
+    posee_licencia: '',
+    tiene_vehiculo_disponible: '',
+    tipo_vehiculo: '',
+    cantidad_vehiculo: undefined
+  };
+}
+
+defineExpose({ resetDraft });
 </script>
 
 <template>
@@ -442,6 +468,7 @@ function onEliminar(index: number) {
             <option value="2">Bicicleta</option>
             <option value="3">Motocicleta</option>
             <option value="4">Automóvil Particular</option>
+            <option value="9">Transporte Institucional</option>
             <option value="5">Taxi</option>
             <option value="6">Transporte público (bus, buseta)</option>
             <option value="7">Transporte informal (por puesto, mototaxi)</option>

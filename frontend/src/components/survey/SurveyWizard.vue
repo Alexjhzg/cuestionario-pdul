@@ -62,6 +62,8 @@ const progressPercentage = computed(() => {
 const currentStepData = computed(() => SURVEY_STEPS[currentStepIndex.value] || SURVEY_STEPS[0]);
 const stepErrors = ref<string[]>([]);
 const touchedFields = ref<Record<string, boolean>>({});
+const residentesCardsRef = ref<{ resetDraft?: () => void } | null>(null);
+const viajesCardsRef = ref<{ resetDraft?: () => void } | null>(null);
 
 watch(
   () => props.modelValue,
@@ -128,8 +130,17 @@ function validateCurrentStep(): boolean {
   return true;
 }
 
+function cleanCurrentStepTransientFields() {
+  if (currentStepIndex.value === 3) {
+    residentesCardsRef.value?.resetDraft?.();
+  } else if (currentStepIndex.value === 4) {
+    viajesCardsRef.value?.resetDraft?.();
+  }
+}
+
 function nextStep() {
   if (validateCurrentStep() && currentStepIndex.value < totalSteps - 1) {
+    cleanCurrentStepTransientFields();
     currentStepIndex.value++;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -253,6 +264,7 @@ function onSubmit() {
 
       <section v-else-if="currentStepIndex === 3" class="step-form-section">
         <ResidentesCards
+          ref="residentesCardsRef"
           :model-value="modelValue.residentes || []"
           :numero-personas-declarado="modelValue.numero_personas_hogar ? Number(modelValue.numero_personas_hogar) : undefined"
           @update:model-value="updateResidentes"
@@ -261,6 +273,7 @@ function onSubmit() {
 
       <section v-else-if="currentStepIndex === 4" class="step-form-section">
         <ViajesMobileCards
+          ref="viajesCardsRef"
           :model-value="modelValue.viajes || []"
           :zona-residencia-default="modelValue.zona_residencia_od || modelValue.parroquia || ''"
           :residentes="modelValue.residentes || []"

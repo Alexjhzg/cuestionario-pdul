@@ -487,6 +487,10 @@
                     "value": "4"
                   },
                   {
+                    "label": "9 = Transporte Institucional",
+                    "value": "9"
+                  },
+                  {
                     "label": "5 = Taxi",
                     "value": "5"
                   },
@@ -747,6 +751,10 @@
                     "value": "4"
                   },
                   {
+                    "label": "9 = Transporte Institucional",
+                    "value": "9"
+                  },
+                  {
                     "label": "5 = Taxi",
                     "value": "5"
                   },
@@ -772,6 +780,11 @@
               "type": "select",
               "key": "modo_secundario",
               "label": "Modo secundario",
+              "conditional": {
+                "show": false,
+                "when": "modo_principal",
+                "eq": "4"
+              },
               "dataSrc": "values",
               "data": {
                 "values": [
@@ -794,6 +807,10 @@
                   {
                     "label": "4 = Automóvil Particular",
                     "value": "4"
+                  },
+                  {
+                    "label": "9 = Transporte Institucional",
+                    "value": "9"
                   },
                   {
                     "label": "5 = Taxi",
@@ -828,6 +845,11 @@
               "type": "number",
               "key": "costo_viaje_bs",
               "label": "Costo del Viaje (Bs)",
+              "conditional": {
+                "show": false,
+                "when": "modo_principal",
+                "eq": "4"
+              },
               "validate": {
                 "required": true,
                 "min": 0

@@ -128,17 +128,89 @@ async function syncPendingQueue() {
   syncCount.value = getOfflineQueue().length;
 }
 
+function getCleanInitialFormData(): Record<string, any> {
+  return {
+    cedula: '',
+    parroquia: '',
+    comunidad_sector: '',
+    comunidad_codigo: '',
+    zona_residencia_od: '',
+    avenida_calle: '',
+    casa_apartamento: '',
+    tipo_vivienda: '',
+    tipo_vivienda_otro: '',
+    total_cuartos_vivienda: '',
+    grupos_gastos_separados: '',
+    hogar_numero: '',
+    cuartos_dormir_hogar: '',
+    numero_personas_hogar: '',
+    tenencia_vivienda: '',
+    tenencia_vivienda_otro: '',
+    residentes: [],
+    viajes: [],
+    rutas_tp_dia: '',
+    tiempo_espera_paradas_min: '',
+    km_residencia_parada: '',
+    dificultades_acceso_tp: '',
+    principal_dificultad_tp: '',
+    principal_dificultad_tp_otro: '',
+    calificacion_servicio_tp: '',
+    gasto_semanal_transporte_bs: '',
+    acuerdo_rutas_directas: '',
+    comentarios_transporte_maturin: '',
+    cambio_movilidad_5_anos: '',
+    motivo_cambio_desplazamiento: '',
+    motivo_cambio_desplazamiento_otro: '',
+    caminatas_mas_10min: '',
+    usa_bicicleta: '',
+    dias_camina_bici_semana: '',
+    modo_actividades_centro: '',
+    aceras_adecuadas: '',
+    seguridad_desplazamiento_centro: '',
+    frecuencia_visita_parques: '',
+    actividades_parques: [],
+    actividades_parques_otras: '',
+    caminatas_ciudad: '',
+    seguridad_parques_dia: '',
+    seguridad_parques_noche: '',
+    limpieza_parques: '',
+    impedimentos_espacios: [],
+    impedimentos_espacios_otras: '',
+    satisfaccion_centro: '',
+    mejoras_prioritarias: [],
+    mejoras_prioritarias_otro: '',
+    parque_mejorar_primero: '',
+    disposicion_participar_mejoras: '',
+    sugerencias_esparcimiento: '',
+    acera_comoda: '',
+    sectores_para_caminar: '',
+    facilidad_llegada_parques: '',
+    esparcimientos_faltantes: [],
+    esparcimientos_faltantes_otros: '',
+    cruce_peatonal_todas: '',
+    cruce_demarcado_visible: '',
+    seguridad_cruzar_interseccion: '',
+    hay_semaforo_peatonal: '',
+    mapas_senales_caminata: '',
+    movilidad_reducida_sin_ayuda: '',
+    nombres_calles_visibles: '',
+    senalizacion_clara_sin_obstaculos: '',
+    trayecto_pie_parada_seguro: '',
+    aire_ruido_aceptables: '',
+    conductores_ceden_paso: '',
+    ciudad_prioriza_peaton: '',
+    participacion_consultas_peatonales: '',
+    planes_movilidad_peatonal_normativa: '',
+    observaciones_generales: '',
+    acepta_declaracion: true
+  };
+}
+
 function startNewSurvey() {
   submitSuccess.value = false;
   submissionReceipt.value = null;
   submissionOfflineStored.value = false;
-  formData.value = {
-    cedula: '',
-    parroquia: '',
-    residentes: [],
-    viajes: [],
-    acepta_declaracion: true
-  };
+  formData.value = getCleanInitialFormData();
   currentStep.value = 0;
   clearDraft();
 }

@@ -1,4 +1,5 @@
 import { isValidParroquia } from '@/utils/validation';
+import { isVehiculoParticular } from '@/utils/tripCatalogs';
 import type { Residente, ViajeOD } from '@/types/survey';
 
 export function isBlankValue(value: unknown): boolean {
@@ -204,14 +205,18 @@ export function getStepErrors(stepIdx: number, data: Record<string, any>): strin
         } else if (v.modo_principal === '8' && isBlankValue(v.modo_principal_otro)) {
           errors.push(`${prefix} especifique el otro modo de transporte principal.`);
         }
-        if (v.modo_secundario === '8' && isBlankValue(v.modo_secundario_otro)) {
-          errors.push(`${prefix} especifique el otro modo de transporte secundario.`);
+        if (!isVehiculoParticular(v.modo_principal)) {
+          if (v.modo_secundario === '8' && isBlankValue(v.modo_secundario_otro)) {
+            errors.push(`${prefix} especifique el otro modo de transporte secundario.`);
+          }
         }
         if (!isNumericValue(v.tiempo_viaje_min) || Number(v.tiempo_viaje_min) < 1) {
           errors.push(`${prefix} indique el tiempo de viaje en minutos.`);
         }
-        if (!isNumericValue(v.costo_viaje_bs) || Number(v.costo_viaje_bs) < 0) {
-          errors.push(`${prefix} indique el costo del viaje (puede ser 0).`);
+        if (!isVehiculoParticular(v.modo_principal)) {
+          if (!isNumericValue(v.costo_viaje_bs) || Number(v.costo_viaje_bs) < 0) {
+            errors.push(`${prefix} indique el costo del viaje (puede ser 0).`);
+          }
         }
       });
       break;

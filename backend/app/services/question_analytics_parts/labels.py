@@ -141,6 +141,18 @@ CUSTOM_FIELD_LABELS: Dict[str, Dict[str, str]] = {
         "9": "Transporte institucional / Escolar",
         "10": "Otro modo",
     },
+    "medio_transporte_habitual": {
+        "1": "A pie",
+        "2": "Bicicleta",
+        "3": "Motocicleta",
+        "4": "Automóvil Particular",
+        "5": "Taxi",
+        "6": "Transporte público (bus, buseta)",
+        "7": "Transporte informal (por puesto, mototaxi)",
+        "8": "Otro",
+        "9": "Transporte Institucional",
+        "institucional": "Transporte Institucional",
+    },
     "frecuencia_visita_parques": {
         "diario": "A diario",
         "varias_veces_semana": "Varias veces por semana",

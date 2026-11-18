@@ -101,6 +101,12 @@ export function createEmptyTripDraft(
   };
 }
 
+export function isVehiculoParticular(modo?: string | number): boolean {
+  if (modo === undefined || modo === null) return false;
+  const m = String(modo).toLowerCase().trim();
+  return m === '4' || m === 'automovil' || m.includes('particular');
+}
+
 export function validateNewTripForm(input: TripFormValidationInput): string | null {
   const { draft, sugerenciaOrigen, horaSalidaH, horaLlegadaH } = input;
   const origen = (draft.zona_od_origen || sugerenciaOrigen).trim();
@@ -141,8 +147,10 @@ export function validateNewTripForm(input: TripFormValidationInput): string | nu
   if (draft.modo_principal === '8' && !String(draft.modo_principal_otro || '').trim()) {
     return 'Por favor especifique el otro modo de transporte principal.';
   }
-  if (draft.modo_secundario === '8' && !String(draft.modo_secundario_otro || '').trim()) {
-    return 'Por favor especifique el otro modo de transporte secundario.';
+  if (!isVehiculoParticular(draft.modo_principal)) {
+    if (draft.modo_secundario === '8' && !String(draft.modo_secundario_otro || '').trim()) {
+      return 'Por favor especifique el otro modo de transporte secundario.';
+    }
   }
   if (
     isBlankValue(draft.tiempo_viaje_min) ||
@@ -151,12 +159,14 @@ export function validateNewTripForm(input: TripFormValidationInput): string | nu
   ) {
     return 'Por favor indique el tiempo de viaje en minutos.';
   }
-  if (
-    isBlankValue(draft.costo_viaje_bs) ||
-    isNaN(Number(draft.costo_viaje_bs)) ||
-    Number(draft.costo_viaje_bs) < 0
-  ) {
-    return 'Por favor indique el costo del viaje (puede ser 0).';
+  if (!isVehiculoParticular(draft.modo_principal)) {
+    if (
+      isBlankValue(draft.costo_viaje_bs) ||
+      isNaN(Number(draft.costo_viaje_bs)) ||
+      Number(draft.costo_viaje_bs) < 0
+    ) {
+      return 'Por favor indique el costo del viaje (puede ser 0).';
+    }
   }
 
   return null;
@@ -171,6 +181,7 @@ export function buildTripFromDraft(input: TripBuildInput): ViajeOD {
 
   const horaSalidaFinal = getHoraFormateada(horaSalida.hora, horaSalida.minuto, horaSalida.periodo);
   const horaLlegadaFinal = getHoraFormateada(horaLlegada.hora, horaLlegada.minuto, horaLlegada.periodo);
+  const esParticular = isVehiculoParticular(draft.modo_principal);
 
   return {
     viaje_numero: viajeNumero,
@@ -185,10 +196,10 @@ export function buildTripFromDraft(input: TripBuildInput): ViajeOD {
     motivo_viaje_otro: draft.motivo_viaje === '8' ? (draft.motivo_viaje_otro || '').trim() : undefined,
     modo_principal: String(draft.modo_principal),
     modo_principal_otro: draft.modo_principal === '8' ? (draft.modo_principal_otro || '').trim() : undefined,
-    modo_secundario: draft.modo_secundario ? String(draft.modo_secundario) : undefined,
-    modo_secundario_otro: draft.modo_secundario === '8' ? (draft.modo_secundario_otro || '').trim() : undefined,
+    modo_secundario: !esParticular && draft.modo_secundario ? String(draft.modo_secundario) : undefined,
+    modo_secundario_otro: !esParticular && draft.modo_secundario === '8' ? (draft.modo_secundario_otro || '').trim() : undefined,
     tiempo_viaje_min: Number(draft.tiempo_viaje_min),
-    costo_viaje_bs: Number(draft.costo_viaje_bs)
+    costo_viaje_bs: esParticular ? 0 : Number(draft.costo_viaje_bs ?? 0)
   };
 }
 
@@ -197,6 +208,7 @@ export function buildReturnTrip(
   viajeNumero: number,
   zonaResidenciaDefault = ''
 ): ViajeOD {
+  const esParticular = isVehiculoParticular(viajeIda.modo_principal);
   const regreso: ViajeOD = {
     viaje_numero: viajeNumero,
     persona_numero: viajeIda.persona_numero,
@@ -205,7 +217,7 @@ export function buildReturnTrip(
     motivo_viaje: viajeIda.motivo_viaje,
     modo_principal: viajeIda.modo_principal,
     tiempo_viaje_min: viajeIda.tiempo_viaje_min,
-    costo_viaje_bs: viajeIda.costo_viaje_bs
+    costo_viaje_bs: esParticular ? 0 : viajeIda.costo_viaje_bs
   };
 
   if (viajeIda.destino_direccion) regreso.origen_direccion = viajeIda.destino_direccion;
@@ -214,8 +226,8 @@ export function buildReturnTrip(
   if (viajeIda.hora_llegada) regreso.hora_llegada = viajeIda.hora_llegada;
   if (viajeIda.motivo_viaje_otro) regreso.motivo_viaje_otro = viajeIda.motivo_viaje_otro;
   if (viajeIda.modo_principal_otro) regreso.modo_principal_otro = viajeIda.modo_principal_otro;
-  if (viajeIda.modo_secundario) regreso.modo_secundario = viajeIda.modo_secundario;
-  if (viajeIda.modo_secundario_otro) regreso.modo_secundario_otro = viajeIda.modo_secundario_otro;
+  if (!esParticular && viajeIda.modo_secundario) regreso.modo_secundario = viajeIda.modo_secundario;
+  if (!esParticular && viajeIda.modo_secundario_otro) regreso.modo_secundario_otro = viajeIda.modo_secundario_otro;
 
   return regreso;
 }

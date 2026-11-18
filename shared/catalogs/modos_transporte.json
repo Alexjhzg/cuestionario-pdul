@@ -46,5 +46,11 @@
     "value": "8",
     "nombre": "Otro",
     "label": "8 = Otro"
+  },
+  {
+    "codigo": "9",
+    "value": "9",
+    "nombre": "Transporte Institucional",
+    "label": "9 = Transporte Institucional"
   }
 ]
