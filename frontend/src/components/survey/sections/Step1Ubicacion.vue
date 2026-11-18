@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
+import QuestionHelpTip from '@/components/common/QuestionHelpTip.vue';
+import { QUESTION_HELP_TIPS } from '@/utils/questionHelpCatalog';
 import comunidadesCatalogJson from '@shared/catalogs/comunidades_maturin.json';
 import zonasOdCatalogJson from '@shared/catalogs/zonas_od_maturin.json';
 import {
@@ -208,10 +210,16 @@ function onZonaSelectChange(event: Event) {
 
 <template>
   <div class="survey-field">
-    <label for="parroquia" class="survey-label">
-      1.- Parroquia:
-      <span class="required-indicator" aria-hidden="true">*</span>
-    </label>
+    <div class="survey-label-row">
+      <label for="parroquia" class="survey-label">
+        1.- Parroquia:
+        <span class="required-indicator" aria-hidden="true">*</span>
+      </label>
+      <QuestionHelpTip
+        :text="QUESTION_HELP_TIPS.parroquia"
+        question-label="Parroquia de residencia"
+      />
+    </div>
     <select
       id="parroquia"
       :value="modelValue.parroquia || ''"
@@ -232,10 +240,16 @@ function onZonaSelectChange(event: Event) {
   </div>
 
   <div class="survey-field">
-    <label for="comunidad_sector" class="survey-label">
-      2.- Comunidad/Sector:
-      <span class="required-indicator" aria-hidden="true">*</span>
-    </label>
+    <div class="survey-label-row">
+      <label for="comunidad_sector" class="survey-label">
+        2.- Comunidad/Sector:
+        <span class="required-indicator" aria-hidden="true">*</span>
+      </label>
+      <QuestionHelpTip
+        :text="QUESTION_HELP_TIPS.comunidad_sector"
+        question-label="Comunidad o Sector"
+      />
+    </div>
     <select
       id="comunidad_sector"
       :value="selectedComunidadSelectValue"
@@ -290,10 +304,16 @@ function onZonaSelectChange(event: Event) {
   </div>
 
   <div class="survey-field">
-    <label for="zona_residencia_od" class="survey-label">
-      3.- Zona de residencia (según zonificación O-D):
-      <span class="required-indicator" aria-hidden="true">*</span>
-    </label>
+    <div class="survey-label-row">
+      <label for="zona_residencia_od" class="survey-label">
+        3.- Zona de residencia (según zonificación O-D):
+        <span class="required-indicator" aria-hidden="true">*</span>
+      </label>
+      <QuestionHelpTip
+        :text="QUESTION_HELP_TIPS.zona_residencia_od"
+        question-label="Zona de residencia según zonificación O-D"
+      />
+    </div>
     <select
       id="zona_residencia_od"
       :value="modelValue.zona_residencia_od || ''"
@@ -329,7 +349,13 @@ function onZonaSelectChange(event: Event) {
   </div>
 
   <div class="survey-field">
-    <label for="avenida_calle" class="survey-label">4.- Avenida/Calle:</label>
+    <div class="survey-label-row">
+      <label for="avenida_calle" class="survey-label">4.- Avenida/Calle:</label>
+      <QuestionHelpTip
+        :text="QUESTION_HELP_TIPS.avenida_calle"
+        question-label="Avenida o Calle"
+      />
+    </div>
     <input
       id="avenida_calle"
       :value="modelValue.avenida_calle || ''"
@@ -341,7 +367,13 @@ function onZonaSelectChange(event: Event) {
   </div>
 
   <div class="survey-field">
-    <label for="casa_apartamento" class="survey-label">5.- Casa/Apartamento:</label>
+    <div class="survey-label-row">
+      <label for="casa_apartamento" class="survey-label">5.- Casa/Apartamento:</label>
+      <QuestionHelpTip
+        :text="QUESTION_HELP_TIPS.casa_apartamento"
+        question-label="Casa o Apartamento"
+      />
+    </div>
     <input
       id="casa_apartamento"
       :value="modelValue.casa_apartamento || ''"

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import QuestionHelpTip from '@/components/common/QuestionHelpTip.vue';
+import { QUESTION_HELP_TIPS } from '@/utils/questionHelpCatalog';
 import { TENENCIA_VIVIENDA } from '@/utils/surveyOptions';
 
 defineProps<{
@@ -12,9 +14,15 @@ const emit = defineEmits<{
 
 <template>
   <div class="survey-field">
-    <label for="grupos_gastos_separados" class="survey-label">
-      1.- ¿Cuántos grupos de personas de esta vivienda mantienen gastos separados para la comida?
-    </label>
+    <div class="survey-label-row">
+      <label for="grupos_gastos_separados" class="survey-label">
+        1.- ¿Cuántos grupos de personas de esta vivienda mantienen gastos separados para la comida?
+      </label>
+      <QuestionHelpTip
+        :text="QUESTION_HELP_TIPS.grupos_gastos_separados"
+        question-label="Grupos con gastos separados para la comida"
+      />
+    </div>
     <input
       id="grupos_gastos_separados"
       :value="modelValue.grupos_gastos_separados ?? ''"
@@ -29,9 +37,15 @@ const emit = defineEmits<{
   </div>
 
   <div class="survey-field">
-    <label for="hogar_numero" class="survey-label">
-      Hogar N°:
-    </label>
+    <div class="survey-label-row">
+      <label for="hogar_numero" class="survey-label">
+        Hogar N°:
+      </label>
+      <QuestionHelpTip
+        :text="QUESTION_HELP_TIPS.hogar_numero"
+        question-label="Número de hogar dentro de la vivienda"
+      />
+    </div>
     <input
       id="hogar_numero"
       :value="modelValue.hogar_numero ?? ''"
@@ -46,9 +60,15 @@ const emit = defineEmits<{
   </div>
 
   <div class="survey-field">
-    <label for="cuartos_dormir_hogar" class="survey-label">
-      2.- ¿Cuántos cuartos para dormir utiliza este hogar?
-    </label>
+    <div class="survey-label-row">
+      <label for="cuartos_dormir_hogar" class="survey-label">
+        2.- ¿Cuántos cuartos para dormir utiliza este hogar?
+      </label>
+      <QuestionHelpTip
+        :text="QUESTION_HELP_TIPS.cuartos_dormir_hogar"
+        question-label="Cuartos para dormir"
+      />
+    </div>
     <input
       id="cuartos_dormir_hogar"
       :value="modelValue.cuartos_dormir_hogar ?? ''"
@@ -63,9 +83,15 @@ const emit = defineEmits<{
   </div>
 
   <div class="survey-field">
-    <label for="numero_personas_hogar" class="survey-label">
-      3.- Número de personas que residen en este hogar:
-    </label>
+    <div class="survey-label-row">
+      <label for="numero_personas_hogar" class="survey-label">
+        3.- Número de personas que residen en este hogar:
+      </label>
+      <QuestionHelpTip
+        :text="QUESTION_HELP_TIPS.numero_personas_hogar"
+        question-label="Número de personas que residen en este hogar"
+      />
+    </div>
     <input
       id="numero_personas_hogar"
       :value="modelValue.numero_personas_hogar ?? ''"
@@ -80,7 +106,13 @@ const emit = defineEmits<{
   </div>
 
   <fieldset class="survey-field survey-radio-fieldset">
-    <legend class="survey-label">4.- Para este hogar la vivienda es:</legend>
+    <legend class="survey-label">
+      <span>4.- Para este hogar la vivienda es:</span>
+      <QuestionHelpTip
+        :text="QUESTION_HELP_TIPS.tenencia_vivienda"
+        question-label="Tenencia de la vivienda"
+      />
+    </legend>
     <label v-for="op in TENENCIA_VIVIENDA" :key="op.value" class="survey-radio-option">
       <input
         type="radio"
@@ -104,4 +136,3 @@ const emit = defineEmits<{
     </div>
   </fieldset>
 </template>
-

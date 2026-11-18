@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, nextTick } from 'vue';
 import { useToast } from 'primevue/usetoast';
+import QuestionHelpTip from '@/components/common/QuestionHelpTip.vue';
+import { QUESTION_HELP_TIPS } from '@/utils/questionHelpCatalog';
 import type { Residente } from '@/types/survey';
 
 const props = withDefaults(
@@ -231,9 +233,15 @@ function onEliminar(index: number) {
 <template>
   <div ref="sectionRef" class="residentes-section" aria-labelledby="titulo-residentes">
     <div class="residentes-header">
-      <h3 id="titulo-residentes" class="residentes-title">
-        Composición del Hogar y Residentes Habituales ({{ modelValue.length }}{{ numeroPersonasDeclarado ? ` de ${numeroPersonasDeclarado}` : '' }})
-      </h3>
+      <div class="survey-label-row">
+        <h3 id="titulo-residentes" class="residentes-title">
+          Composición del Hogar y Residentes Habituales ({{ modelValue.length }}{{ numeroPersonasDeclarado ? ` de ${numeroPersonasDeclarado}` : '' }})
+        </h3>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.residentes"
+          question-label="composición del hogar y residentes habituales"
+        />
+      </div>
       <p class="residentes-desc">
         Registre a las personas que duermen habitualmente en la vivienda y comparten el gasto de alimentación.
       </p>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import QuestionHelpTip from '@/components/common/QuestionHelpTip.vue';
+import { QUESTION_HELP_TIPS } from '@/utils/questionHelpCatalog';
 import {
   ACTIVIDADES_PARQUES,
   ACUERDO_ACERA_COMODA,
@@ -38,7 +40,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     <h3 class="survey-subsection-title">A. Uso y Percepción de Parques y Plazas</h3>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">1.- ¿Con qué frecuencia visita parques, plazas u otras áreas de esparcimientos?</legend>
+      <legend class="survey-label">
+        <span>1.- ¿Con qué frecuencia visita parques, plazas u otras áreas de esparcimientos?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.frecuencia_visita_parques"
+          question-label="frecuencia de visita a parques y plazas"
+        />
+      </legend>
       <label v-for="op in FRECUENCIA_VISITA_PARQUES" :key="op.value" class="survey-radio-option">
         <input
           type="radio"
@@ -52,7 +60,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">2.- ¿Qué actividad realiza principalmente en estos espacios? (admite respuestas múltiples):</legend>
+      <legend class="survey-label">
+        <span>2.- ¿Qué actividad realiza principalmente en estos espacios? (admite respuestas múltiples):</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.actividades_parques"
+          question-label="actividades principales en parques y plazas"
+        />
+      </legend>
       <label v-for="op in ACTIVIDADES_PARQUES" :key="op.value" class="survey-checkbox-option">
         <input
           type="checkbox"
@@ -77,7 +91,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">3.- ¿Suele hacer caminatas por la ciudad?</legend>
+      <legend class="survey-label">
+        <span>3.- ¿Suele hacer caminatas por la ciudad?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.caminatas_ciudad"
+          question-label="caminatas por la ciudad"
+        />
+      </legend>
       <div class="survey-radio-group horizontal">
         <label v-for="op in CAMINATAS_CIUDAD" :key="op.value" class="survey-radio-option">
           <input
@@ -93,7 +113,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">7.- ¿Qué tan seguro(a) se siente en parques y rutas peatonales durante el día?</legend>
+      <legend class="survey-label">
+        <span>7.- ¿Qué tan seguro(a) se siente en parques y rutas peatonales durante el día?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.seguridad_parques_dia"
+          question-label="seguridad diurna en parques y rutas peatonales"
+        />
+      </legend>
       <label v-for="op in ESCALA_SEGURIDAD_PARQUES" :key="op.value" class="survey-radio-option">
         <input
           type="radio"
@@ -107,7 +133,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">8.- ¿Qué tan seguro(a) se siente en parques y rutas peatonales durante la noche?</legend>
+      <legend class="survey-label">
+        <span>8.- ¿Qué tan seguro(a) se siente en parques y rutas peatonales durante la noche?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.seguridad_parques_noche"
+          question-label="seguridad nocturna en parques y rutas peatonales"
+        />
+      </legend>
       <label v-for="op in ESCALA_SEGURIDAD_PARQUES" :key="op.value" class="survey-radio-option">
         <input
           type="radio"
@@ -121,7 +153,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">9.- ¿Cómo califica la limpieza y conservación de las áreas de esparcimiento?</legend>
+      <legend class="survey-label">
+        <span>9.- ¿Cómo califica la limpieza y conservación de las áreas de esparcimiento?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.limpieza_parques"
+          question-label="limpieza y conservación de áreas de esparcimiento"
+        />
+      </legend>
       <label v-for="op in CALIFICACION_LIMPIEZA" :key="op.value" class="survey-radio-option">
         <input
           type="radio"
@@ -135,7 +173,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">10.- ¿Qué le impide usar más estos espacios? (admite respuestas múltiples):</legend>
+      <legend class="survey-label">
+        <span>10.- ¿Qué le impide usar más estos espacios? (admite respuestas múltiples):</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.impedimentos_espacios"
+          question-label="impedimentos para usar áreas de esparcimiento"
+        />
+      </legend>
       <label v-for="op in IMPEDIMENTOS_ESPACIOS" :key="op.value" class="survey-checkbox-option">
         <input
           type="checkbox"
@@ -160,7 +204,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">11.- ¿Qué tan satisfecho(a) está con la cantidad y calidad de áreas de esparcimiento y caminata que hay en el centro de la ciudad?</legend>
+      <legend class="survey-label">
+        <span>11.- ¿Qué tan satisfecho(a) está con la cantidad y calidad de áreas de esparcimiento y caminata que hay en el centro de la ciudad?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.satisfaccion_centro"
+          question-label="satisfacción con áreas de esparcimiento del centro"
+        />
+      </legend>
       <label v-for="op in SATISFACCION_CENTRO" :key="op.value" class="survey-radio-option">
         <input
           type="radio"
@@ -174,7 +224,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">12.- ¿Qué mejoras deberían priorizarse? (admite respuestas múltiples):</legend>
+      <legend class="survey-label">
+        <span>12.- ¿Qué mejoras deberían priorizarse? (admite respuestas múltiples):</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.mejoras_prioritarias"
+          question-label="mejoras prioritarias en esparcimiento"
+        />
+      </legend>
       <label v-for="op in MEJORAS_PRIORITARIAS" :key="op.value" class="survey-checkbox-option">
         <input
           type="checkbox"
@@ -199,9 +255,15 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <div class="survey-field">
-      <label for="parque_mejorar_primero" class="survey-label">
-        13.- ¿Qué parque, plaza o ruta de esparcimiento considera que debe mejorarse primero?
-      </label>
+      <div class="survey-label-row">
+        <label for="parque_mejorar_primero" class="survey-label">
+          13.- ¿Qué parque, plaza o ruta de esparcimiento considera que debe mejorarse primero?
+        </label>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.parque_mejorar_primero"
+          question-label="parque o plaza a mejorar primero"
+        />
+      </div>
       <input
         id="parque_mejorar_primero"
         :value="modelValue.parque_mejorar_primero || ''"
@@ -213,7 +275,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </div>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">14.- ¿Estaría dispuesto(a) a participar en actividades de mejoras de estos espacios?</legend>
+      <legend class="survey-label">
+        <span>14.- ¿Estaría dispuesto(a) a participar en actividades de mejoras de estos espacios?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.disposicion_participar_mejoras"
+          question-label="disposición a participar en mejoras"
+        />
+      </legend>
       <div class="survey-radio-group horizontal">
         <label v-for="op in DISPOSICION_PARTICIPAR" :key="op.value" class="survey-radio-option">
           <input
@@ -229,9 +297,15 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <div class="survey-field">
-      <label for="sugerencias_esparcimiento" class="survey-label">
-        15.- ¿Qué sugerencia daría para mejorar las áreas de esparcimiento y caminatas de la ciudad?
-      </label>
+      <div class="survey-label-row">
+        <label for="sugerencias_esparcimiento" class="survey-label">
+          15.- ¿Qué sugerencia daría para mejorar las áreas de esparcimiento y caminatas de la ciudad?
+        </label>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.sugerencias_esparcimiento"
+          question-label="sugerencias para áreas de esparcimiento"
+        />
+      </div>
       <textarea
         id="sugerencias_esparcimiento"
         :value="modelValue.sugerencias_esparcimiento || ''"
@@ -248,7 +322,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     <h3 class="survey-subsection-title">B. Infraestructura y Rutas de Caminata</h3>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">16.- ¿Considera que la acera es suficiente y cómoda para caminar?</legend>
+      <legend class="survey-label">
+        <span>16.- ¿Considera que la acera es suficiente y cómoda para caminar?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.acera_comoda"
+          question-label="suficiencia y comodidad de aceras"
+        />
+      </legend>
       <label v-for="op in ACUERDO_ACERA_COMODA" :key="op.value" class="survey-radio-option">
         <input
           type="radio"
@@ -262,9 +342,15 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <div class="survey-field">
-      <label for="sectores_para_caminar" class="survey-label">
-        17.- ¿Qué sector o sectores utiliza para caminar? (Colocar los sectores):
-      </label>
+      <div class="survey-label-row">
+        <label for="sectores_para_caminar" class="survey-label">
+          17.- ¿Qué sector o sectores utiliza para caminar? (Colocar los sectores):
+        </label>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.sectores_para_caminar"
+          question-label="sectores que utiliza para caminar"
+        />
+      </div>
       <input
         id="sectores_para_caminar"
         :value="modelValue.sectores_para_caminar || ''"
@@ -276,7 +362,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </div>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">18.- ¿Qué tan fácil es llegar desde su hogar a las áreas de esparcimiento o ruta de caminata?</legend>
+      <legend class="survey-label">
+        <span>18.- ¿Qué tan fácil es llegar desde su hogar a las áreas de esparcimiento o ruta de caminata?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.facilidad_llegada_parques"
+          question-label="facilidad para llegar a áreas de esparcimiento"
+        />
+      </legend>
       <label v-for="op in FACILIDAD_LLEGADA" :key="op.value" class="survey-radio-option">
         <input
           type="radio"
@@ -290,7 +382,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">19.- ¿Qué esparcimientos considera que faltan en estos espacios? (admite respuestas múltiples):</legend>
+      <legend class="survey-label">
+        <span>19.- ¿Qué esparcimientos considera que faltan en estos espacios? (admite respuestas múltiples):</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.esparcimientos_faltantes"
+          question-label="equipamientos faltantes en espacios públicos"
+        />
+      </legend>
       <label v-for="op in ESPARCIMIENTOS_FALTANTES" :key="op.value" class="survey-checkbox-option">
         <input
           type="checkbox"
@@ -320,7 +418,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     <h3 class="survey-subsection-title">C. Cruces Peatonales e Intersecciones</h3>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">20.- ¿Existe cruce peatonal en todas las intersecciones?</legend>
+      <legend class="survey-label">
+        <span>20.- ¿Existe cruce peatonal en todas las intersecciones?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.cruce_peatonal_todas"
+          question-label="cruces peatonales en intersecciones"
+        />
+      </legend>
       <div class="survey-radio-group horizontal">
         <label v-for="op in OPCIONES_SI_NO" :key="op.value" class="survey-radio-option">
           <input
@@ -336,7 +440,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset v-if="modelValue.cruce_peatonal_todas === 'si'" class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">21.- ¿Está demarcado y visible?</legend>
+      <legend class="survey-label">
+        <span>21.- ¿Está demarcado y visible?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.cruce_demarcado_visible"
+          question-label="demarcación y visibilidad de cruces peatonales"
+        />
+      </legend>
       <div class="survey-radio-group horizontal">
         <label v-for="op in OPCIONES_SI_NO" :key="op.value" class="survey-radio-option">
           <input
@@ -352,7 +462,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">22.- ¿Se siente seguro al cruzar esta intersección?</legend>
+      <legend class="survey-label">
+        <span>22.- ¿Se siente seguro al cruzar esta intersección?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.seguridad_cruzar_interseccion"
+          question-label="seguridad al cruzar intersecciones"
+        />
+      </legend>
       <label v-for="op in ESCALA_SEGURIDAD_PARQUES" :key="op.value" class="survey-radio-option">
         <input
           type="radio"
@@ -366,7 +482,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">23.- ¿Hay semáforo peatonal?</legend>
+      <legend class="survey-label">
+        <span>23.- ¿Hay semáforo peatonal?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.hay_semaforo_peatonal"
+          question-label="existencia de semáforo peatonal"
+        />
+      </legend>
       <div class="survey-radio-group horizontal">
         <label v-for="op in OPCIONES_SI_NO" :key="op.value" class="survey-radio-option">
           <input
@@ -387,7 +509,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     <h3 class="survey-subsection-title">D. Señalización, Accesibilidad y Entorno Urbano</h3>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">24.- ¿Existen mapas peatonales, señales de destino o de caminata?</legend>
+      <legend class="survey-label">
+        <span>24.- ¿Existen mapas peatonales, señales de destino o de caminata?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.mapas_senales_caminata"
+          question-label="mapas peatonales y señales de caminata"
+        />
+      </legend>
       <div class="survey-radio-group horizontal">
         <label v-for="op in OPCIONES_SI_NO" :key="op.value" class="survey-radio-option">
           <input
@@ -403,7 +531,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">25.- ¿Puede una persona con movilidad reducida desplazarse sin ayuda por el centro de la ciudad?</legend>
+      <legend class="survey-label">
+        <span>25.- ¿Puede una persona con movilidad reducida desplazarse sin ayuda por el centro de la ciudad?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.movilidad_reducida_sin_ayuda"
+          question-label="accesibilidad para personas con movilidad reducida"
+        />
+      </legend>
       <div class="survey-radio-group horizontal">
         <label v-for="op in OPCIONES_SI_NO" :key="op.value" class="survey-radio-option">
           <input
@@ -419,7 +553,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">26.- ¿Hay señalizaciones de nombres de calles visibles?</legend>
+      <legend class="survey-label">
+        <span>26.- ¿Hay señalizaciones de nombres de calles visibles?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.nombres_calles_visibles"
+          question-label="señalización de nombres de calles"
+        />
+      </legend>
       <div class="survey-radio-group horizontal">
         <label v-for="op in OPCIONES_SI_NO" :key="op.value" class="survey-radio-option">
           <input
@@ -435,7 +575,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">27.- ¿La señalización es clara y sin obstáculos?</legend>
+      <legend class="survey-label">
+        <span>27.- ¿La señalización es clara y sin obstáculos?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.senalizacion_clara_sin_obstaculos"
+          question-label="claridad de señalización sin obstáculos"
+        />
+      </legend>
       <div class="survey-radio-group horizontal">
         <label v-for="op in OPCIONES_SI_NO" :key="op.value" class="survey-radio-option">
           <input
@@ -451,7 +597,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">28.- ¿El trayecto a pie hasta la parada es seguro?</legend>
+      <legend class="survey-label">
+        <span>28.- ¿El trayecto a pie hasta la parada es seguro?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.trayecto_pie_parada_seguro"
+          question-label="seguridad en trayecto a pie hacia la parada"
+        />
+      </legend>
       <label v-for="op in ESCALA_SEGURIDAD_PARQUES" :key="op.value" class="survey-radio-option">
         <input
           type="radio"
@@ -465,7 +617,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">29.- ¿El aire y el ruido son aceptables para caminar?</legend>
+      <legend class="survey-label">
+        <span>29.- ¿El aire y el ruido son aceptables para caminar?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.aire_ruido_aceptables"
+          question-label="calidad del aire y nivel de ruido al caminar"
+        />
+      </legend>
       <div class="survey-radio-group horizontal">
         <label v-for="op in OPCIONES_SI_NO" :key="op.value" class="survey-radio-option">
           <input
@@ -481,7 +639,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">30.- ¿Los conductores ceden el paso a los peatones?</legend>
+      <legend class="survey-label">
+        <span>30.- ¿Los conductores ceden el paso a los peatones?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.conductores_ceden_paso"
+          question-label="respeto de conductores al paso peatonal"
+        />
+      </legend>
       <div class="survey-radio-group horizontal">
         <label v-for="op in OPCIONES_SI_NO" :key="op.value" class="survey-radio-option">
           <input
@@ -497,7 +661,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">31.- ¿Considera que la ciudad prioriza al peatón sobre el automóvil?</legend>
+      <legend class="survey-label">
+        <span>31.- ¿Considera que la ciudad prioriza al peatón sobre el automóvil?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.ciudad_prioriza_peaton"
+          question-label="prioridad del peatón frente al automóvil"
+        />
+      </legend>
       <div class="survey-radio-group horizontal">
         <label v-for="op in OPCIONES_SI_NO" :key="op.value" class="survey-radio-option">
           <input
@@ -513,7 +683,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">32.- ¿Ha participado en consultas sobre espacios peatonales?</legend>
+      <legend class="survey-label">
+        <span>32.- ¿Ha participado en consultas sobre espacios peatonales?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.participacion_consultas_peatonales"
+          question-label="participación en consultas peatonales"
+        />
+      </legend>
       <div class="survey-radio-group horizontal">
         <label v-for="op in OPCIONES_SI_NO" :key="op.value" class="survey-radio-option">
           <input
@@ -529,7 +705,13 @@ function isCheckedMulti(arr: unknown, value: string): boolean {
     </fieldset>
 
     <fieldset class="survey-field survey-radio-fieldset">
-      <legend class="survey-label">33.- ¿Existen planes de movilidad peatonal, presupuesto o normativa de prioridad peatonal?</legend>
+      <legend class="survey-label">
+        <span>33.- ¿Existen planes de movilidad peatonal, presupuesto o normativa de prioridad peatonal?</span>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.planes_movilidad_peatonal_normativa"
+          question-label="planes y normativa de movilidad peatonal"
+        />
+      </legend>
       <label v-for="op in PLANES_MOVILIDAD_PESTONAL" :key="op.value" class="survey-radio-option">
         <input
           type="radio"

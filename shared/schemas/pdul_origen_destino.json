@@ -180,7 +180,7 @@
         {
           "type": "number",
           "key": "total_cuartos_vivienda",
-          "label": "2.- Contando sala, comedor, cuartos para dormir y otros cuartos ¿Cuántos cuartos tiene en total esta vivienda? (No incluye baños, pasillos, balcones, cocina, ni lavaderos)",
+          "label": "2.- Contando sala-comedor, cuartos para dormir y otros cuartos, ¿cuántos espacios tiene en total la vivienda? (No incluye baños, pasillos, balcones, cocina, ni lavaderos)",
           "validate": {
             "required": true,
             "min": 1,

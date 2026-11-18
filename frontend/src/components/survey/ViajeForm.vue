@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
+import QuestionHelpTip from '@/components/common/QuestionHelpTip.vue';
+import { QUESTION_HELP_TIPS } from '@/utils/questionHelpCatalog';
 import type { Residente, ViajeOD } from '@/types/survey';
 import { formatParroquia } from '@/utils/validation';
 import {
@@ -129,9 +131,15 @@ function onAgregarViaje() {
 
     <div class="grid-inputs">
       <div class="survey-field field-persona">
-        <label class="survey-label" for="viaje-persona">
-          Persona (N°):
-        </label>
+        <div class="survey-label-row">
+          <label class="survey-label" for="viaje-persona">
+            Persona (N°):
+          </label>
+          <QuestionHelpTip
+            :text="QUESTION_HELP_TIPS.viaje_persona"
+            question-label="persona que realizó el viaje"
+          />
+        </div>
         <select
           v-if="residentes && residentes.length > 0"
           id="viaje-persona"
@@ -172,9 +180,15 @@ function onAgregarViaje() {
       </div>
 
       <div class="survey-field">
-        <label class="survey-label" for="viaje-origen">
-          Zona O-D origen:
-        </label>
+        <div class="survey-label-row">
+          <label class="survey-label" for="viaje-origen">
+            Zona O-D origen:
+          </label>
+          <QuestionHelpTip
+            :text="QUESTION_HELP_TIPS.viaje_origen_zona"
+            question-label="zona origen-destino de partida"
+          />
+        </div>
         <span id="hint-origen" class="survey-hint">Prellenado automáticamente</span>
         <input
           id="viaje-origen"
@@ -200,10 +214,16 @@ function onAgregarViaje() {
       </div>
 
       <div class="survey-field">
-        <label class="survey-label" for="viaje-destino">
-          Zona O-D destino:
-          <span class="required-indicator" aria-hidden="true">*</span>
-        </label>
+        <div class="survey-label-row">
+          <label class="survey-label" for="viaje-destino">
+            Zona O-D destino:
+            <span class="required-indicator" aria-hidden="true">*</span>
+          </label>
+          <QuestionHelpTip
+            :text="QUESTION_HELP_TIPS.viaje_destino_zona"
+            question-label="zona origen-destino de llegada"
+          />
+        </div>
         <span id="hint-destino" class="survey-hint">Indique la zona o sector de llegada</span>
         <input
           id="viaje-destino"
@@ -289,9 +309,15 @@ function onAgregarViaje() {
       </div>
 
       <div class="survey-field">
-        <label class="survey-label" for="viaje-motivo">
-          Motivo del viaje:
-        </label>
+        <div class="survey-label-row">
+          <label class="survey-label" for="viaje-motivo">
+            Motivo del viaje:
+          </label>
+          <QuestionHelpTip
+            :text="QUESTION_HELP_TIPS.viaje_motivo"
+            question-label="motivo del viaje"
+          />
+        </div>
         <select id="viaje-motivo" v-model="nuevoViaje.motivo_viaje" class="survey-select">
           <option value="" disabled selected>-- Seleccione el motivo del viaje --</option>
           <option v-for="opt in MOTIVO_OPTIONS" :key="`motivo-${opt.codigo}`" :value="opt.codigo">
@@ -314,9 +340,15 @@ function onAgregarViaje() {
       </div>
 
       <div class="survey-field">
-        <label class="survey-label" for="viaje-modo">
-          Modo principal:
-        </label>
+        <div class="survey-label-row">
+          <label class="survey-label" for="viaje-modo">
+            Modo principal:
+          </label>
+          <QuestionHelpTip
+            :text="QUESTION_HELP_TIPS.viaje_modo_principal"
+            question-label="modo principal de transporte del viaje"
+          />
+        </div>
         <select id="viaje-modo" v-model="nuevoViaje.modo_principal" class="survey-select">
           <option value="" disabled selected>-- Seleccione el modo de transporte principal --</option>
           <option v-for="opt in MODO_OPTIONS" :key="`modo-${opt.codigo}`" :value="opt.codigo">
@@ -364,9 +396,15 @@ function onAgregarViaje() {
       </div>
 
       <div class="survey-field">
-        <label class="survey-label" for="viaje-tiempo">
-          Tiempo de viaje (min):
-        </label>
+        <div class="survey-label-row">
+          <label class="survey-label" for="viaje-tiempo">
+            Tiempo de viaje (min):
+          </label>
+          <QuestionHelpTip
+            :text="QUESTION_HELP_TIPS.viaje_tiempo_costo"
+            question-label="tiempo y costo del viaje"
+          />
+        </div>
         <input
           id="viaje-tiempo"
           v-model.number="nuevoViaje.tiempo_viaje_min"
@@ -378,9 +416,15 @@ function onAgregarViaje() {
       </div>
 
       <div class="survey-field">
-        <label class="survey-label" for="viaje-costo">
-          Costo del Viaje (Bs):
-        </label>
+        <div class="survey-label-row">
+          <label class="survey-label" for="viaje-costo">
+            Costo del Viaje (Bs):
+          </label>
+          <QuestionHelpTip
+            :text="QUESTION_HELP_TIPS.viaje_tiempo_costo"
+            question-label="costo del viaje en bolívares"
+          />
+        </div>
         <input
           id="viaje-costo"
           v-model.number="nuevoViaje.costo_viaje_bs"

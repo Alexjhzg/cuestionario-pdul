@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, computed, nextTick } from 'vue';
 import { useToast } from 'primevue/usetoast';
+import QuestionHelpTip from '@/components/common/QuestionHelpTip.vue';
+import { QUESTION_HELP_TIPS } from '@/utils/questionHelpCatalog';
 import type { ViajeOD, Residente } from '@/types/survey';
 import { formatParroquia } from '@/utils/validation';
 import { buildReturnTrip, getNombreResidente } from '@/utils/tripCatalogs';
@@ -120,9 +122,15 @@ function cerrarModalDetalles() {
 <template>
   <div ref="sectionRef" class="viajes-section" aria-labelledby="titulo-viajes-od">
     <div class="viajes-header">
-      <h3 id="titulo-viajes-od" class="viajes-title">
-        Registro de Viajes Cotidianos ({{ modelValue.length }})
-      </h3>
+      <div class="survey-label-row">
+        <h3 id="titulo-viajes-od" class="viajes-title">
+          Registro de Viajes Cotidianos ({{ modelValue.length }})
+        </h3>
+        <QuestionHelpTip
+          :text="QUESTION_HELP_TIPS.viajes"
+          question-label="registro de viajes cotidianos"
+        />
+      </div>
       <p class="viajes-subtitle">
         SECCIÓN V: REGISTRO GENERAL DE VIAJES (Para todos los miembros del hogar mayores de 5 años)
       </p>

@@ -29,7 +29,7 @@ QUESTIONS_METRIC_CONFIG: List[Dict[str, Any]] = [
     {
         "seccion": "Sección II: Datos de la Vivienda",
         "clave": "total_cuartos_vivienda",
-        "pregunta": "2.- Contando sala, comedor, cuartos para dormir y otros cuartos ¿Cuántos cuartos tiene en total esta vivienda?",
+        "pregunta": "2.- Contando sala-comedor, cuartos para dormir y otros cuartos, ¿cuántos espacios tiene en total la vivienda?",
         "tipo_grafico": "bar",
         "aliases": ["total_cuartos_vivienda"],
     },

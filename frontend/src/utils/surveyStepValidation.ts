@@ -121,7 +121,7 @@ export function getStepErrors(stepIdx: number, data: Record<string, any>): strin
       if (source.tipo_vivienda === 'otro') {
         requireField('tipo_vivienda_otro', '1.g.- Especifique el otro tipo de vivienda.');
       }
-      requireNumber('total_cuartos_vivienda', '2.- Indique el total de cuartos de la vivienda.', 1);
+      requireNumber('total_cuartos_vivienda', '2.- Indique el total de espacios de la vivienda.', 1);
       break;
     }
     case 2: {

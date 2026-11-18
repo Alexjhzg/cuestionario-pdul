@@ -81,7 +81,7 @@ defineProps<{
           <span class="field-content">{{ humanLabel(TENENCIA_VIVIENDA_LABELS, displayData.tenencia_vivienda) }}</span>
         </div>
         <div class="detail-field">
-          <span class="field-title">Total Cuartos de la Vivienda</span>
+          <span class="field-title">Total de Espacios de la Vivienda</span>
           <span class="field-content">{{ displayData.total_cuartos_vivienda ?? '—' }}</span>
         </div>
         <div class="detail-field">
