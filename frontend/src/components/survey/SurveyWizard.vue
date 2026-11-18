@@ -29,7 +29,7 @@ const props = withDefaults(
   {
     step: 0,
     submitting: false,
-    encuestaTitulo: 'Cuestionario Origen-Destino (PDUL Maturín)'
+    encuestaTitulo: 'Encuesta Origen-Destino Maturín (PDUL)'
   }
 );
 

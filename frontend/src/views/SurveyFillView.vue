@@ -35,7 +35,7 @@ const {
 });
 
 const encuestaId = ref<string>('00000000-0000-0000-0000-000000000001');
-const encuestaTitulo = ref<string>('Cuestionario Origen-Destino (PDUL Maturín)');
+const encuestaTitulo = ref<string>('Encuesta Origen-Destino Maturín (PDUL)');
 const submitting = ref<boolean>(false);
 const submitSuccess = ref<boolean>(false);
 const submissionReceipt = ref<RespuestaSubmissionResponse | null>(null);
