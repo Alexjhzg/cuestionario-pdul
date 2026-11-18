@@ -6,6 +6,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from backend.app.domain.interfaces.submission_repository import (
     AbstractSubmissionRepository,
 )
+from backend.app.models.comunidad import ComunidadCatalogo
 from backend.app.models.encuesta import Encuesta
 from backend.app.models.respuesta import RespuestaCiudadana
 from backend.app.schemas.analytics import KpiMetricsOut, PreguntaMetricaOut
@@ -68,16 +69,60 @@ class BaseSurveyRepository(AbstractSubmissionRepository):
             return {"id": row[0]}
         return None
 
+    async def _resolve_comunidad_codigo(
+        self, parroquia: str, datos: Dict[str, Any]
+    ) -> Optional[str]:
+        raw_code = str(datos.get("comunidad_codigo") or "").strip()
+        if raw_code:
+            row = (
+                await self.session.execute(
+                    select(ComunidadCatalogo.codigo, ComunidadCatalogo.nombre).where(
+                        ComunidadCatalogo.codigo == raw_code
+                    )
+                )
+            ).first()
+            if row:
+                if not datos.get("comunidad_sector"):
+                    datos["comunidad_sector"] = row[1]
+                return str(row[0])
+
+        raw_name = str(datos.get("comunidad_sector") or "").strip()
+        if not raw_name:
+            return None
+
+        par_candidates = (
+            ["la_cruz", "santa_cruz"]
+            if parroquia in ("la_cruz", "santa_cruz")
+            else [parroquia]
+        )
+        row = (
+            await self.session.execute(
+                select(ComunidadCatalogo.codigo).where(
+                    ComunidadCatalogo.parroquia.in_(par_candidates),
+                    func.upper(ComunidadCatalogo.nombre) == raw_name.upper(),
+                ).limit(1)
+            )
+        ).first()
+        if row:
+            datos["comunidad_codigo"] = str(row[0])
+            return str(row[0])
+        return None
+
     async def insert_submission(
         self, encuesta_id: uuid.UUID, submission: FormioSubmissionIn
     ) -> Dict[str, Any]:
+        payload_data = dict(submission.data)
+        comunidad_codigo = await self._resolve_comunidad_codigo(
+            submission.parroquia, payload_data
+        )
         nueva_respuesta = RespuestaCiudadana(
             encuesta_id=encuesta_id,
             client_submission_id=submission.client_submission_id,
             cedula=submission.cedula_limpia,
             parroquia=submission.parroquia,
+            comunidad_codigo=comunidad_codigo,
             zona_od=submission.zona_od,
-            datos=submission.data,
+            datos=payload_data,
         )
         self.session.add(nueva_respuesta)
         await self.session.flush()

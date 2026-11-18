@@ -110,7 +110,34 @@ export class ApiError extends Error {
   }
 }
 
+export interface ComunidadCatalogoItem {
+  codigo: string;
+  nombre: string;
+  xpar: string;
+  parroquia: string;
+  municipio_codigo: string;
+  municipio: string;
+}
+
 // --- Endpoints Públicos ---
+
+export async function fetchCatalogoComunidades(
+  parroquia?: string
+): Promise<ComunidadCatalogoItem[]> {
+  const query = parroquia ? `?parroquia=${encodeURIComponent(parroquia)}` : '';
+  const response = await fetch(`${BASE_URL}/encuestas/catalogo/comunidades${query}`, {
+    headers: {
+      Accept: 'application/json'
+    }
+  });
+  if (!response.ok) {
+    throw new ApiError(
+      response.status,
+      `Error al obtener catálogo de comunidades (${response.status})`
+    );
+  }
+  return response.json();
+}
 
 export async function fetchEncuesta(slug: string): Promise<EncuestaPublica> {
   const response = await fetch(`${BASE_URL}/encuestas/${slug}`, {

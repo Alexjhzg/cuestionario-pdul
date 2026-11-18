@@ -1,4 +1,4 @@
-"""Initial schema for encuestas and respuestas_ciudadanas.
+"""Initial schema for encuestas, catalogo_comunidades, and respuestas_ciudadanas.
 
 Revision ID: 0001_initial_schema
 Revises:
@@ -19,6 +19,35 @@ depends_on: Union[str, Sequence[str], None] = None
 
 
 def upgrade() -> None:
+    op.create_table(
+        "catalogo_comunidades",
+        sa.Column("codigo", sa.String(length=20), nullable=False),
+        sa.Column("nombre", sa.String(length=150), nullable=False),
+        sa.Column("xpar", sa.String(length=10), nullable=False),
+        sa.Column("parroquia", sa.String(length=60), nullable=False),
+        sa.Column("municipio_codigo", sa.String(length=10), nullable=False),
+        sa.Column("municipio", sa.String(length=60), nullable=False),
+        sa.PrimaryKeyConstraint("codigo"),
+    )
+    op.create_index(
+        "ix_catalogo_comunidades_nombre",
+        "catalogo_comunidades",
+        ["nombre"],
+        unique=False,
+    )
+    op.create_index(
+        "ix_catalogo_comunidades_xpar",
+        "catalogo_comunidades",
+        ["xpar"],
+        unique=False,
+    )
+    op.create_index(
+        "ix_catalogo_comunidades_parroquia",
+        "catalogo_comunidades",
+        ["parroquia"],
+        unique=False,
+    )
+
     op.create_table(
         "encuestas",
         sa.Column(
@@ -65,6 +94,7 @@ def upgrade() -> None:
         ),
         sa.Column("cedula", sa.String(length=15), nullable=True),
         sa.Column("parroquia", sa.String(length=60), nullable=False),
+        sa.Column("comunidad_codigo", sa.String(length=20), nullable=True),
         sa.Column("zona_od", sa.String(length=30), nullable=True),
         sa.Column(
             "datos",
@@ -78,6 +108,11 @@ def upgrade() -> None:
             nullable=False,
         ),
         sa.ForeignKeyConstraint(["encuesta_id"], ["encuestas.id"], ondelete="RESTRICT"),
+        sa.ForeignKeyConstraint(
+            ["comunidad_codigo"],
+            ["catalogo_comunidades.codigo"],
+            ondelete="SET NULL",
+        ),
         sa.PrimaryKeyConstraint("id"),
         sa.UniqueConstraint("encuesta_id", "cedula", name="uq_voto_ciudadano"),
     )
@@ -86,6 +121,12 @@ def upgrade() -> None:
         "respuestas_ciudadanas",
         ["client_submission_id"],
         unique=True,
+    )
+    op.create_index(
+        "ix_respuestas_ciudadanas_comunidad_codigo",
+        "respuestas_ciudadanas",
+        ["comunidad_codigo"],
+        unique=False,
     )
     op.create_index(
         "ix_respuestas_ciudadanas_encuesta_id",
@@ -139,6 +180,10 @@ def downgrade() -> None:
     op.drop_index("ix_respuestas_ciudadanas_parroquia", table_name="respuestas_ciudadanas")
     op.drop_index("ix_respuestas_ciudadanas_encuesta_id", table_name="respuestas_ciudadanas")
     op.drop_index(
+        "ix_respuestas_ciudadanas_comunidad_codigo",
+        table_name="respuestas_ciudadanas",
+    )
+    op.drop_index(
         "ix_respuestas_ciudadanas_client_submission_id",
         table_name="respuestas_ciudadanas",
     )
@@ -146,3 +191,8 @@ def downgrade() -> None:
 
     op.drop_index("ix_encuestas_slug", table_name="encuestas")
     op.drop_table("encuestas")
+
+    op.drop_index("ix_catalogo_comunidades_parroquia", table_name="catalogo_comunidades")
+    op.drop_index("ix_catalogo_comunidades_xpar", table_name="catalogo_comunidades")
+    op.drop_index("ix_catalogo_comunidades_nombre", table_name="catalogo_comunidades")
+    op.drop_table("catalogo_comunidades")

@@ -5,12 +5,14 @@ from typing import Optional
 
 from alembic import command
 from alembic.config import Config
-from sqlalchemy import inspect
+from sqlalchemy import inspect, text
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import AsyncEngine, create_async_engine
 
 from backend.app.core.config import Settings, settings
+from backend.app.core.database import Base
 from backend.app.core.logging import logger
+import backend.app.models  # noqa: F401
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 ALEMBIC_INI_PATH = PROJECT_ROOT / "alembic.ini"
@@ -42,6 +44,25 @@ def _run_alembic_upgrade_head(sync_conn: Connection, cfg: Config) -> None:
     command.upgrade(cfg, "head")
 
 
+def _ensure_comunidades_schema(sync_conn: Connection) -> None:
+    inspector = inspect(sync_conn)
+    existing_tables = set(inspector.get_table_names())
+    if "catalogo_comunidades" not in existing_tables:
+        Base.metadata.tables["catalogo_comunidades"].create(bind=sync_conn, checkfirst=True)
+    if "respuestas_ciudadanas" in existing_tables:
+        cols = {c["name"] for c in inspector.get_columns("respuestas_ciudadanas")}
+        if "comunidad_codigo" not in cols:
+            sync_conn.execute(
+                text("ALTER TABLE respuestas_ciudadanas ADD COLUMN comunidad_codigo VARCHAR(20)")
+            )
+            sync_conn.execute(
+                text(
+                    "CREATE INDEX IF NOT EXISTS ix_respuestas_ciudadanas_comunidad_codigo "
+                    "ON respuestas_ciudadanas (comunidad_codigo)"
+                )
+            )
+
+
 async def run_migrations_for_engine(target_engine: AsyncEngine) -> None:
     """Apply Alembic migrations on an existing AsyncEngine, stamping pre-Alembic schemas first."""
     cfg = build_alembic_config()
@@ -60,6 +81,10 @@ async def run_migrations_for_engine(target_engine: AsyncEngine) -> None:
                 await conn.commit()
 
         await conn.run_sync(_run_alembic_upgrade_head, cfg)
+        if conn.in_transaction():
+            await conn.commit()
+
+        await conn.run_sync(_ensure_comunidades_schema)
         if conn.in_transaction():
             await conn.commit()
 

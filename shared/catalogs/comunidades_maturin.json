@@ -1,0 +1,6770 @@
+[
+  {
+    "codigo": "48226",
+    "nombre": "AGUA CALIENTE",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48227",
+    "nombre": "AGUA CLARITA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48228",
+    "nombre": "AMANA ABAJO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48229",
+    "nombre": "AMANA DEL TAMARINDO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48230",
+    "nombre": "ANTONIO JOSE DE SUCRE",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48231",
+    "nombre": "APAMATICO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48232",
+    "nombre": "ARENAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48233",
+    "nombre": "ASENTAMIENTO EL RESPIRO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48234",
+    "nombre": "BARLOVENTO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48235",
+    "nombre": "BARRIO AMERICA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48236",
+    "nombre": "BARUTA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48237",
+    "nombre": "BLANQUERO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48238",
+    "nombre": "BOCA DE BUJITA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48239",
+    "nombre": "BOCA DE GUANIPA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48240",
+    "nombre": "BOCA DE JANEIRA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48241",
+    "nombre": "BOCA DE LA PUENTE",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48242",
+    "nombre": "BOCA DE TIGRE",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48243",
+    "nombre": "BOQUERÓN DE AMANA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48244",
+    "nombre": "BUENA VISTA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48245",
+    "nombre": "BUJITA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48246",
+    "nombre": "CAMORUCO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48247",
+    "nombre": "CAMPO CLARO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48248",
+    "nombre": "CAMPO MORICHAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48249",
+    "nombre": "CAÑO BOLANO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48250",
+    "nombre": "CAÑO DEL MEDIO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48251",
+    "nombre": "CAÑO EL MEDIO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48252",
+    "nombre": "CARACATAL DE BUJA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48253",
+    "nombre": "CARANGANO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48254",
+    "nombre": "CARAPAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48255",
+    "nombre": "CARAPAL DEL TIGRE",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48256",
+    "nombre": "CARATAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48257",
+    "nombre": "CARATAL DE BUJA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48258",
+    "nombre": "CARATAL DEL TIGRE",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48259",
+    "nombre": "CARRIZALES DE LA MORROCOYA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48260",
+    "nombre": "CARRIZALITO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48261",
+    "nombre": "CARRIZALITO DE AGUA NEGRA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48262",
+    "nombre": "CAUJARAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48263",
+    "nombre": "CHUCUTO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48264",
+    "nombre": "CIUDAD COLONIAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48265",
+    "nombre": "COLOMBIA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48266",
+    "nombre": "COROZAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48267",
+    "nombre": "COROZAL DEL TIGRE",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48268",
+    "nombre": "COSTA DE LA IGLESIA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48269",
+    "nombre": "CURIEPE",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48270",
+    "nombre": "DAIWAJA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48271",
+    "nombre": "EL ACEITE",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48272",
+    "nombre": "EL ALGARROBAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48273",
+    "nombre": "EL ARBOLITO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48274",
+    "nombre": "EL BAGRE",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48275",
+    "nombre": "EL BAJO DEL TORO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48276",
+    "nombre": "EL BAUL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48277",
+    "nombre": "EL BLANQUERO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48278",
+    "nombre": "EL BURRO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48279",
+    "nombre": "EL CARUTO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48280",
+    "nombre": "EL CATUCHE",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48281",
+    "nombre": "EL CHISPERO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48282",
+    "nombre": "EL CLAVO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48283",
+    "nombre": "EL COROZO ALTO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48284",
+    "nombre": "EL DANTO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48285",
+    "nombre": "EL DORADO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48286",
+    "nombre": "EL GUSTAVERO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48287",
+    "nombre": "EL JOBAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48288",
+    "nombre": "EL LIMON",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48289",
+    "nombre": "EL LIMON DEL BECERRO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48290",
+    "nombre": "EL MAITERO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48291",
+    "nombre": "EL MANGO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48292",
+    "nombre": "EL MARQUERO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48293",
+    "nombre": "EL MEREY",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48294",
+    "nombre": "EL MEREY ARRIBA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48295",
+    "nombre": "EL MEREY DE AMANA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48296",
+    "nombre": "EL MOTERO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48297",
+    "nombre": "EL POTRO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48298",
+    "nombre": "EL PUEBLITO DE ARIBI",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48299",
+    "nombre": "EL PUENTE DE MORICHAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48300",
+    "nombre": "EL PUENTE MORICHAL LARGO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48301",
+    "nombre": "EL REINOSO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48302",
+    "nombre": "EL RESPIRO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48303",
+    "nombre": "EL RINCON DE MANTECAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48304",
+    "nombre": "EL RINCON DE MONAGAS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48305",
+    "nombre": "EL ROMERENO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48306",
+    "nombre": "EL RUICERO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48307",
+    "nombre": "EL SALTO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48308",
+    "nombre": "EL SAMAN",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48309",
+    "nombre": "EL SILENCIO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48310",
+    "nombre": "EL SILENCIO DE MORICHAL LARGO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48311",
+    "nombre": "EL SOCORRO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48312",
+    "nombre": "EL TAPON",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48313",
+    "nombre": "EL TIESTERO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48314",
+    "nombre": "EL TROMPILLO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48315",
+    "nombre": "EL VENADO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48316",
+    "nombre": "EL VENADO DE MUJICA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48317",
+    "nombre": "EL YAGUAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48318",
+    "nombre": "EL ZAMURO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48319",
+    "nombre": "GUANIPA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48320",
+    "nombre": "GUARAUNO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48321",
+    "nombre": "JABILLAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48322",
+    "nombre": "JARUPUNA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48323",
+    "nombre": "JOAQUIN",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48324",
+    "nombre": "JOAQUIN DEL TIGRE",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48325",
+    "nombre": "JUAN FELIPE",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48326",
+    "nombre": "LA ABUNDANCIA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48327",
+    "nombre": "LA AGUADITA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48328",
+    "nombre": "LA ALEGRIA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48329",
+    "nombre": "LA BELLEZA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48330",
+    "nombre": "LA BOCA DE MORICHAL LARGO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48331",
+    "nombre": "LA BUSCA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48332",
+    "nombre": "LA CARATA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48333",
+    "nombre": "LA CENTELLA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48334",
+    "nombre": "LA CENTELLITA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48335",
+    "nombre": "LA CONCEPCION",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48336",
+    "nombre": "LA COSTUMBRE",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48337",
+    "nombre": "LA CUCHILLA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48338",
+    "nombre": "LA CULEBRA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48339",
+    "nombre": "LA CURAGUA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48340",
+    "nombre": "LA ESQUINA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48341",
+    "nombre": "LA ESTRECHURA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48342",
+    "nombre": "LA FLORIDA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48343",
+    "nombre": "LA IGUANA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48344",
+    "nombre": "LA ISLA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48345",
+    "nombre": "LA MADERA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48346",
+    "nombre": "LA MANGA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48347",
+    "nombre": "LA MATICA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48348",
+    "nombre": "LA MORROCOYA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48349",
+    "nombre": "LA OROQUERA DE LA SOLEDAD",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48350",
+    "nombre": "LA PALOMA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48351",
+    "nombre": "LA PUENTE DE AGUA NEGRA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48352",
+    "nombre": "LA RECAMARA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48353",
+    "nombre": "LA SARRAPIA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48354",
+    "nombre": "LA TIGRA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48355",
+    "nombre": "LA UNION DE MORICHAL LARGO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48356",
+    "nombre": "LA VENTUROSA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48357",
+    "nombre": "LA VIGIA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48358",
+    "nombre": "LA ZANJA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48359",
+    "nombre": "LAS BOCAS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48360",
+    "nombre": "LAS BRISAS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48361",
+    "nombre": "LAS CASITAS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48362",
+    "nombre": "LAS MALVINAS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48363",
+    "nombre": "LAS MERCEDES",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48364",
+    "nombre": "LAS MINAS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48365",
+    "nombre": "LAS PIÑAS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48366",
+    "nombre": "LEPAGERO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48367",
+    "nombre": "LOS ACEITE DE GUANIPA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48368",
+    "nombre": "LOS ARAGUANEYES",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48369",
+    "nombre": "LOS CABALLITOS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48370",
+    "nombre": "LOS CANITOS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48371",
+    "nombre": "LOS CARAPACHOS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48372",
+    "nombre": "LOS COROCITOS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48373",
+    "nombre": "LOS MANGLECITOS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48374",
+    "nombre": "LOS MEREYES",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48375",
+    "nombre": "LOS MUERTOS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48376",
+    "nombre": "LOS OCHOEROS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48377",
+    "nombre": "LOS POZO DE GUANIPA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48378",
+    "nombre": "LOS TRES HERMANOS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48379",
+    "nombre": "MACANILLAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48380",
+    "nombre": "MATA DE BEJUCO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48381",
+    "nombre": "MATA LINDA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48382",
+    "nombre": "MATA OSCURA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48383",
+    "nombre": "MATA PAULINERO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48384",
+    "nombre": "MATAPALO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48385",
+    "nombre": "MONTE CRISTO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48386",
+    "nombre": "MONTE NEGRO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48387",
+    "nombre": "MONTE OSCURO DE MORICHAL LARGO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48388",
+    "nombre": "MONTE QUEMADO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48389",
+    "nombre": "MORENO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48390",
+    "nombre": "MORICHAL EL POTRO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48391",
+    "nombre": "MORICHAL SOLO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48392",
+    "nombre": "MULATICO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48393",
+    "nombre": "MULATINO DE GUANIPA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48394",
+    "nombre": "NUEVA REPUBLICA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48395",
+    "nombre": "PARARE",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48396",
+    "nombre": "PASO REAL DE SAN ANTONIO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48397",
+    "nombre": "PAVAS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48398",
+    "nombre": "PERICOCO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48399",
+    "nombre": "PERICOCO DE ARIBI",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48400",
+    "nombre": "PINONAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48401",
+    "nombre": "PITOTAN",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48402",
+    "nombre": "PUNTA DE PIEDRA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48403",
+    "nombre": "QUEBRADA DEL MEDIO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48404",
+    "nombre": "RABANAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48405",
+    "nombre": "RINCON DE MONAGAS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48406",
+    "nombre": "RISILLO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48407",
+    "nombre": "ROSILLO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48408",
+    "nombre": "SALTO NORTE",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48409",
+    "nombre": "SALTO SUR",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48410",
+    "nombre": "SAN ANTONIO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48411",
+    "nombre": "SAN ANTONIO DE GUANIPA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48412",
+    "nombre": "SAN JOSE DE BUJA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48413",
+    "nombre": "SAN JOSE DE MAPIRITO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48414",
+    "nombre": "SAN JOSE DE YABO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48415",
+    "nombre": "SAN PABLO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48416",
+    "nombre": "SAN PEDRO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48417",
+    "nombre": "SAN RAFAEL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48418",
+    "nombre": "SANTA BARBARA DE SOTILLO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48419",
+    "nombre": "SANTA RITA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48420",
+    "nombre": "SEBASTIAN",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48421",
+    "nombre": "SOLEDAD DE YABO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48422",
+    "nombre": "TERRON DE GUANIPA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48423",
+    "nombre": "TERRONAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48424",
+    "nombre": "TIRADO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48425",
+    "nombre": "TRAGALOCHA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48426",
+    "nombre": "UVERO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48427",
+    "nombre": "VALLE DE SAN SIMON",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48428",
+    "nombre": "VALLE HONDO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48429",
+    "nombre": "VILLANUEVA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48430",
+    "nombre": "VUELTA EL TORO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48431",
+    "nombre": "WANA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48432",
+    "nombre": "WARAO BUJA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48433",
+    "nombre": "YABINOKO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48434",
+    "nombre": "YAGRUMITO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "80851",
+    "nombre": "BOQUERON",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "80907",
+    "nombre": "LA CRUZ DE LA PALOMA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "80926",
+    "nombre": "BRISAS DEL AEROPUERTO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "80938",
+    "nombre": "TIPURO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "80982",
+    "nombre": "LAS COCUIZAS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "80999",
+    "nombre": "SANTA INES",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81003",
+    "nombre": "LAS CAYENAS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81004",
+    "nombre": "BELLO HORIZONTE 2",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81009",
+    "nombre": "ZONA INDUSTRIAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81019",
+    "nombre": "ALTO PARAMACONI",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81023",
+    "nombre": "24 DE JUNIO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81170",
+    "nombre": "LA PUENTE",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81171",
+    "nombre": "LOS GUARITOS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81172",
+    "nombre": "LAS GARZAS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81173",
+    "nombre": "ALTAMIRA",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81174",
+    "nombre": "JUANICO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81724",
+    "nombre": "PALO NEGRO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81725",
+    "nombre": "VILLA LAS AMÉRICAS",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81726",
+    "nombre": "SECTOR NEGRO PRIMERO",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81893",
+    "nombre": "BARRIO MORICHAL",
+    "xpar": "160801",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47747",
+    "nombre": "12 DE OCTUBRE",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47748",
+    "nombre": "5 DE JULIO",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47749",
+    "nombre": "AGUAS BLANCAS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47750",
+    "nombre": "AGUAS VIVAS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47751",
+    "nombre": "ALI PRIMERA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47752",
+    "nombre": "ALTO DE LOS GODOS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47753",
+    "nombre": "ALTO DE PARAMACONI",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47754",
+    "nombre": "ALTO PARAMACONI",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47755",
+    "nombre": "ALTO PARAMACONI NORTE",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47756",
+    "nombre": "ALTOS DE LOS GODOS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47757",
+    "nombre": "ANTONIO JOSE DE SUCRE",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47758",
+    "nombre": "BAJO PARAMACONI",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47759",
+    "nombre": "BATALLA DE LOS GODOS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47760",
+    "nombre": "BELLA VISTA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47761",
+    "nombre": "BELLO HORIZONTE",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47762",
+    "nombre": "BELLO MONTE",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47763",
+    "nombre": "BOLIVAR",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47764",
+    "nombre": "BRISAS DE LAS CASCADAS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47765",
+    "nombre": "BRISAS DE MORICHAL",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47766",
+    "nombre": "BRISAS DE VENEZUELA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47767",
+    "nombre": "BRISAS DEL LIBERTADOR",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47768",
+    "nombre": "BRISAS DEL MORICHAL",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47769",
+    "nombre": "CACIQUE PARAMACONI",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47770",
+    "nombre": "CAMPO AYACUCHO",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47771",
+    "nombre": "CARMELO URDANETA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47772",
+    "nombre": "CASAS CHINAS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47773",
+    "nombre": "CENTRO DE PARAMACONI",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47774",
+    "nombre": "CENTRO PARAMACONI",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47775",
+    "nombre": "COLICENTRO PARAMACONI",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47776",
+    "nombre": "COLINAS DEL PARAMACONI",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47777",
+    "nombre": "COLINAS PARAMACONI",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47778",
+    "nombre": "COMPLEJO HABITACIONAL PARAMACONI",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47779",
+    "nombre": "DOÑA FELICIA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47780",
+    "nombre": "EL ABANICO",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47781",
+    "nombre": "EL CARO",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47782",
+    "nombre": "EL MANGOZAL",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47783",
+    "nombre": "EL PIÑAL",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47784",
+    "nombre": "EL ROSILLO",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47785",
+    "nombre": "ELENA DE CHAVEZ",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47786",
+    "nombre": "ENMANUEL",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47787",
+    "nombre": "FRANCISCO DE MIRANDA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47788",
+    "nombre": "FUNDEMOS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47789",
+    "nombre": "GODOS 1B",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47790",
+    "nombre": "GUANAGUANAY",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47791",
+    "nombre": "GUARAPICHE",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47792",
+    "nombre": "GUARITOS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47793",
+    "nombre": "GUARITOS SAN RAFAEL",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47794",
+    "nombre": "HATO EL ROSILLO",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47795",
+    "nombre": "HEROES",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47796",
+    "nombre": "INAVI",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47797",
+    "nombre": "JOSE FRANCISCO BERMUDEZ",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47798",
+    "nombre": "JOSE MARIA VARGAS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47799",
+    "nombre": "JOSE TADEO MONAGAS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47800",
+    "nombre": "JOSEFINA MAZA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47801",
+    "nombre": "JUANA RAMIREZ",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47802",
+    "nombre": "JUANICO VIEJO",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47803",
+    "nombre": "LA CANDELARIA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47804",
+    "nombre": "LA CAÑADA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47805",
+    "nombre": "LA CUCHILLA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47806",
+    "nombre": "LA FLORIDA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47807",
+    "nombre": "LA LAGUNA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47808",
+    "nombre": "LA LUCHA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47809",
+    "nombre": "LA MURALLA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47810",
+    "nombre": "LA MURALLITA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47811",
+    "nombre": "LA ORQUIDEA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47812",
+    "nombre": "LA PRADERA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47813",
+    "nombre": "LA PUENTE",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47814",
+    "nombre": "LAS ACACIAS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47815",
+    "nombre": "LAS FLORES",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47816",
+    "nombre": "LAS VIRGENES",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47817",
+    "nombre": "LIBERTAD",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47818",
+    "nombre": "LIBERTADOR",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47819",
+    "nombre": "VILLA LOS ÁNGELES",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47820",
+    "nombre": "LOS GAURITOS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47821",
+    "nombre": "LOS GODOS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47822",
+    "nombre": "LOS GUARITOS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47823",
+    "nombre": "LOS GUAROS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47824",
+    "nombre": "LOS PAJAROS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47825",
+    "nombre": "LOS PINOS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47826",
+    "nombre": "LOS TULIPANES",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47827",
+    "nombre": "MANGOZAL",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47828",
+    "nombre": "MANUELITA SAENZ",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47829",
+    "nombre": "MORICHAL",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47830",
+    "nombre": "MURALLA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47831",
+    "nombre": "MURALLITA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47832",
+    "nombre": "NUEVO HORIZONTE",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47833",
+    "nombre": "NUEVOS HORIZONTES",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47834",
+    "nombre": "ORINOCO",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47835",
+    "nombre": "PARAMACONI",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47836",
+    "nombre": "PINTO SALINAS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47837",
+    "nombre": "PRADERAS DEL SUR",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47838",
+    "nombre": "PRADO DEL SUR",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47839",
+    "nombre": "PRADOS DEL SUR",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47840",
+    "nombre": "PUERTA DEL SUR",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47841",
+    "nombre": "RENACER DE LOS GODOS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47842",
+    "nombre": "ROMULO BETANCOURT",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47843",
+    "nombre": "SAGRADO CORAZON",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47844",
+    "nombre": "SAGRADO CORAZON DE JESUS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47845",
+    "nombre": "SALVADOR RIVERA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47846",
+    "nombre": "SAN JUDA TADEO",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47847",
+    "nombre": "SAN RAFAEL",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47848",
+    "nombre": "SECTOR LA TERRAZA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47849",
+    "nombre": "SIMON BOLIVAR",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47850",
+    "nombre": "TERRA SUR",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47851",
+    "nombre": "VALENZUELA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47852",
+    "nombre": "VALLE PARAMACONI",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47853",
+    "nombre": "VILLA HEROICA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47854",
+    "nombre": "VILLA HEROICA NORTE",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47855",
+    "nombre": "VILLA HEROICA SUR",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47856",
+    "nombre": "VILLA LAS AMERICAS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47857",
+    "nombre": "VILLAS LAS VALENTIA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47858",
+    "nombre": "VILLAS MORICHAL",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "80698",
+    "nombre": "GUARAPICHE II",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "80832",
+    "nombre": "COMPLEJO HABITACIONAL LA GRAN VICTORIA",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "80879",
+    "nombre": "GUARAPICHE 2",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81163",
+    "nombre": "VENCEDORES DE LOS GODOS",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81479",
+    "nombre": "GUARITOS IV",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "82496",
+    "nombre": "LOS GUARITOS V",
+    "xpar": "160802",
+    "parroquia": "alto_de_los_godos",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47859",
+    "nombre": "1 DE MAYO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47860",
+    "nombre": "4 DE OCTUBRE",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47861",
+    "nombre": "8 DE MARZO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47862",
+    "nombre": "AGUA CLARA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47863",
+    "nombre": "ALIRIO UGARTE PELAYO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47864",
+    "nombre": "ALTO DE LAS PIÑAS",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47865",
+    "nombre": "ALTO DE SAN JUAN",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47866",
+    "nombre": "ALTO SUCRE",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47867",
+    "nombre": "AMBIENTE",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47868",
+    "nombre": "ANDRES ELOY BLANCO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47869",
+    "nombre": "ARAGUANEY",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47870",
+    "nombre": "ARENA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47871",
+    "nombre": "ARENAS DE OROCUAL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47872",
+    "nombre": "BARRANCAS DE MATURIN",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47873",
+    "nombre": "BELLO CAMPO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47874",
+    "nombre": "BOQUERON",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47875",
+    "nombre": "BOQUERON CENTRAL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47876",
+    "nombre": "BOSQUE DE LA LAGUNA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47877",
+    "nombre": "BOSQUES DE LA LAGUNA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47878",
+    "nombre": "BRISAS DE ORIENTE",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47879",
+    "nombre": "BRISAS DEL COSTO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47880",
+    "nombre": "BRISAS DEL MORICHAL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47881",
+    "nombre": "BRISAS DEL SARRAPIAL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47882",
+    "nombre": "CLAVELLINOS",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47883",
+    "nombre": "COSTO ABAJO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47884",
+    "nombre": "COSTO ABAJO LA PLAZA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47885",
+    "nombre": "COSTO ARAGUA ABAJO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47886",
+    "nombre": "COSTO ARAGUA ARRIBA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47887",
+    "nombre": "COSTO ARRIBA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47888",
+    "nombre": "DIONISIO NUÑEZ",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47889",
+    "nombre": "DOÑA MENCA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47890",
+    "nombre": "EL BOSQUE",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47891",
+    "nombre": "EL CAMPITO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47892",
+    "nombre": "EL CEMENTERIO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47893",
+    "nombre": "EL CHISPERO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47894",
+    "nombre": "EL ESFUERZO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47895",
+    "nombre": "EL TANQUE",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47896",
+    "nombre": "EL TRIANGULO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47897",
+    "nombre": "EL ZAMURO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47898",
+    "nombre": "EL ZORRO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47899",
+    "nombre": "ENTRADA AL PARAISO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47900",
+    "nombre": "ENTRADA DE AGUA CLARA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47901",
+    "nombre": "ENTRADA DE OROCUAL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47902",
+    "nombre": "FELIX ARMANDO NUÑEZ",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47903",
+    "nombre": "FELIX ARMANDO NUÑEZ BEAPERTHUY",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47904",
+    "nombre": "GODO FREDO GONZALEZ",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47905",
+    "nombre": "GUAYABAL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47906",
+    "nombre": "GUAYABAL ABAJO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47907",
+    "nombre": "GUAYABAL ARRIBA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47908",
+    "nombre": "HARAS DE PARADERO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47909",
+    "nombre": "INVASION SAN MIGUELITO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47910",
+    "nombre": "JOSE ANTONIO PAEZ",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47911",
+    "nombre": "JUANA RAMIREZ",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47912",
+    "nombre": "LA BOCA DEL CANITO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47913",
+    "nombre": "LA CURVA DE PUEBLO NUEVO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47914",
+    "nombre": "LA ESTANCIA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47915",
+    "nombre": "LA LAGUNA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47916",
+    "nombre": "LA PALOMA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47917",
+    "nombre": "LA PAZ",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47918",
+    "nombre": "LA SABANA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47919",
+    "nombre": "LA SABANA DEL ZORRO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47920",
+    "nombre": "LA SABANITA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47921",
+    "nombre": "LA SABANITA DEL ZORRO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47922",
+    "nombre": "LA UNION",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47923",
+    "nombre": "LAS BESTIAS",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47924",
+    "nombre": "LAS PIEDRITAS",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47925",
+    "nombre": "LAS PIEDRITAS DE VIBORAL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47926",
+    "nombre": "LAS PIÑAS",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47927",
+    "nombre": "LAS PIÑAS DEL ZORRO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47928",
+    "nombre": "LAS VIVIENDAS",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47929",
+    "nombre": "LIRIOS DEL ESTE",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47930",
+    "nombre": "LOMAS DEL BOSQUE",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47931",
+    "nombre": "LOS GALPONES",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47932",
+    "nombre": "LOS GIRASOLES",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47933",
+    "nombre": "LOS JABILLOS",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47934",
+    "nombre": "LOS MACOS",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47935",
+    "nombre": "LOS OLIVOS",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47936",
+    "nombre": "LOS PROCERES",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47937",
+    "nombre": "LOS SAUCES",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47938",
+    "nombre": "MANUELA SAENZ",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47939",
+    "nombre": "MENCA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47940",
+    "nombre": "MENCA DE LEONI",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47941",
+    "nombre": "MILENIO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47942",
+    "nombre": "MONTE CRISTO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47943",
+    "nombre": "MONTERREY",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47944",
+    "nombre": "MOSCU",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47945",
+    "nombre": "OCHO DE MARZO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47946",
+    "nombre": "ORINOCO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47947",
+    "nombre": "OROCUAL DE AGUA CLARA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47948",
+    "nombre": "OROCUAL EL BREAL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47949",
+    "nombre": "OROCUAL EL TIGUAL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47950",
+    "nombre": "PALO SECO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47951",
+    "nombre": "PARADERO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47952",
+    "nombre": "PARCELAMIENTO VIBORAL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47953",
+    "nombre": "PAZ",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47954",
+    "nombre": "PERSEVERANCIA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47955",
+    "nombre": "PLANTACION",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47956",
+    "nombre": "POZO CALIENTE",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47957",
+    "nombre": "PROLONGACION",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47958",
+    "nombre": "PUEBLO NUEVO DE OROCUAL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47959",
+    "nombre": "PUEBLO VIEJO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47960",
+    "nombre": "PUENTE GOMEZ",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47961",
+    "nombre": "RAFAEL BETANCOURT",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47962",
+    "nombre": "RUCIO VIEJO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47963",
+    "nombre": "SABANETA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47964",
+    "nombre": "SAN JACINTO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47965",
+    "nombre": "SAN LUIS",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47966",
+    "nombre": "SAN MATURIN",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47967",
+    "nombre": "SAN MIGUEL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47968",
+    "nombre": "SANTA ELENA DE LAS PIÑAS",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47969",
+    "nombre": "SANTA ELENA DE LAS PIÑAS CASCO CENTRAL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47970",
+    "nombre": "SANTA ELENA DE VIBORAL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47971",
+    "nombre": "TIERRA DEL SOL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47972",
+    "nombre": "TIPURO",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47973",
+    "nombre": "TIPURO ZONA RURAL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47974",
+    "nombre": "UN NUEVO AMANECER",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47975",
+    "nombre": "URB GODOFREDO GONZALEZ",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47976",
+    "nombre": "VALLE DE LUNA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47977",
+    "nombre": "VALLE REAL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47978",
+    "nombre": "VALLES DEL GUARAPICHE",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47979",
+    "nombre": "VIBORAL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47980",
+    "nombre": "VILLA ESPERANZA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47981",
+    "nombre": "VILLA OLIMPICA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47982",
+    "nombre": "VILLAS DEL CHAPARRAL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47983",
+    "nombre": "VILLAS PLAZA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47984",
+    "nombre": "VIRGEN DEL VALLE",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47985",
+    "nombre": "VISTA HERMOSA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47986",
+    "nombre": "ZAMURO AFUERA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81478",
+    "nombre": "PALMA REAL",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81539",
+    "nombre": "DOÑA MENCA II",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81891",
+    "nombre": "LA ESPERANZA",
+    "xpar": "160803",
+    "parroquia": "boqueron",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47987",
+    "nombre": "1 DE MAYO",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47988",
+    "nombre": "4 DE FEBRERO",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47989",
+    "nombre": "LAS ACACIAS",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47990",
+    "nombre": "ANDRES ELOY BLANCO",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47991",
+    "nombre": "ARAGUANEY",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47992",
+    "nombre": "BAJO GUARAPICHE",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47993",
+    "nombre": "BRISAS DE LA FLORESTA",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47994",
+    "nombre": "BRISAS DEL AEROPUERTO",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47995",
+    "nombre": "BRISAS DEL GUARAPICHE",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47996",
+    "nombre": "BRISAS DEL NAZARETH",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47997",
+    "nombre": "CAMPO ALEGRE",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47998",
+    "nombre": "CECILIA NUÑEZ SUCRE",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47999",
+    "nombre": "CECILIO ACOSTA",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48000",
+    "nombre": "CHACAITO",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48001",
+    "nombre": "CHACAO",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48002",
+    "nombre": "COLINAS DEL SUR",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48003",
+    "nombre": "CONSTITUYENTE",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48004",
+    "nombre": "CORTIJOS CENTRAL",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48005",
+    "nombre": "DOÑA GLADYS",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48006",
+    "nombre": "EL MEREYAL",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48007",
+    "nombre": "EL PARQUE",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48008",
+    "nombre": "EL PARQUECITO",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48009",
+    "nombre": "EL SILENCIO",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48010",
+    "nombre": "EL SILENCIO DE CAMPO ALEGRE",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48011",
+    "nombre": "EZEQUIEL ZAMORA",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48012",
+    "nombre": "JOSE GREGORIO HERNANDEZ",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48013",
+    "nombre": "JOSE GREGORIO MONAGAS",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48014",
+    "nombre": "JUANICO",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48015",
+    "nombre": "LA CANCHITA",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48016",
+    "nombre": "LA CONSTITUYENTE",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48017",
+    "nombre": "LA DEMOCRACIA",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48018",
+    "nombre": "LA FLORECITA",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48019",
+    "nombre": "LA FLORESTA",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48020",
+    "nombre": "LA JUVENTUD",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48021",
+    "nombre": "LA LINEA DE PARARI",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48022",
+    "nombre": "LA PICA",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48023",
+    "nombre": "LA TIJERA",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48024",
+    "nombre": "LA VIÑA",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48025",
+    "nombre": "LAS COCUIZAS",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48026",
+    "nombre": "LAS FLORES",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48027",
+    "nombre": "LAS TRINITARIAS",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48028",
+    "nombre": "LAS VILLAS",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48029",
+    "nombre": "LOMAS DEL VIENTO",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48030",
+    "nombre": "LOS ALMENDRONES",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48031",
+    "nombre": "LOS CAPACHOS",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48032",
+    "nombre": "LOS CORTIJOS",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48033",
+    "nombre": "LOS ROSALES",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48034",
+    "nombre": "LUISA CACERES DE ARISMENDI",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48035",
+    "nombre": "MARIA TERESA DE CALCUTA",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48036",
+    "nombre": "MEREYAL",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48037",
+    "nombre": "MORICHAL",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48038",
+    "nombre": "NAZARENO",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48039",
+    "nombre": "PARARICITO",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48040",
+    "nombre": "PARQUE DEL ESTE",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48041",
+    "nombre": "PARQUECITO",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48042",
+    "nombre": "PETRA BASTARDO",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48043",
+    "nombre": "PRADOS DEL ESTE",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48044",
+    "nombre": "PRINCIPE DE PAZ",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48045",
+    "nombre": "PROCESO DE CHACAO",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48046",
+    "nombre": "PUEBLO NUEVO DEL SILENCIO",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48047",
+    "nombre": "REMANSO DE LA LAGUNA",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48048",
+    "nombre": "SABANA GRANDE",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48049",
+    "nombre": "SANTA INES",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48050",
+    "nombre": "SANTA MARIA EL PORVENIR",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48051",
+    "nombre": "SANTA MONICA",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48052",
+    "nombre": "SILENCIO",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48053",
+    "nombre": "SIMON RODRIGUEZ",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48054",
+    "nombre": "SOLEDAD CLAVIER",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48055",
+    "nombre": "TERRAZAS DE CAMPO ALEGRE",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48056",
+    "nombre": "URB CECILIA NUÑEZ SUCRE",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48057",
+    "nombre": "VILLA MIRADOR",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48058",
+    "nombre": "VILLAS DE LA FLORESTA",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48059",
+    "nombre": "VILLAS DEL SOL",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48060",
+    "nombre": "VIRGEN DEL CARMEN",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48061",
+    "nombre": "VIRGEN DEL VALLE",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48062",
+    "nombre": "VISTA MORICHAL",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81164",
+    "nombre": "SANTA ELENA EL PORVENIR",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "82368",
+    "nombre": "TAPIALES II",
+    "xpar": "160804",
+    "parroquia": "las_cocuizas",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48153",
+    "nombre": "23 DE ENERO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48154",
+    "nombre": "23 ENERO A",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48155",
+    "nombre": "23 ENERO B",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48156",
+    "nombre": "ALBERTO RAVELL",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48157",
+    "nombre": "ALBERTO RAVELL CENTRAL",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48158",
+    "nombre": "ALTAMIRA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48159",
+    "nombre": "ALTO GURI",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48160",
+    "nombre": "ALTO LOS ANGELES",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48161",
+    "nombre": "ANTONIO JOSE DE SUCRE",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48162",
+    "nombre": "ARAGUANEY",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48163",
+    "nombre": "AV. ROJAS",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48164",
+    "nombre": "BARRIO OBRERO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48165",
+    "nombre": "BATALLA DE BOMBONA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48166",
+    "nombre": "BELLA VISTA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48167",
+    "nombre": "BICENTENARIO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48168",
+    "nombre": "BOYA PIAR",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48169",
+    "nombre": "BRISAS CENTRO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48170",
+    "nombre": "BRISAS DE LA LAGUNA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48171",
+    "nombre": "CARBONERA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48172",
+    "nombre": "CENTRO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48173",
+    "nombre": "CENTRO URUGUAY",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48174",
+    "nombre": "CIUDAD COLONIAL",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48175",
+    "nombre": "CRUZ PERAZA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48176",
+    "nombre": "CUCUTA LOS BLOQUES",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48177",
+    "nombre": "EL DORADO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48178",
+    "nombre": "EL PARAISO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48179",
+    "nombre": "EL RINCON DE MONAGAS",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48180",
+    "nombre": "EL SAMAN",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48181",
+    "nombre": "INDIO MATURIN",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48182",
+    "nombre": "JUANICO EL MILAGRO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48183",
+    "nombre": "JUNIN",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48184",
+    "nombre": "LA CARBONERA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48185",
+    "nombre": "LA FLORESTA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48186",
+    "nombre": "LA MANGA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48187",
+    "nombre": "LA MATA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48188",
+    "nombre": "LA PERIQUERA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48189",
+    "nombre": "LA VICTORIA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48190",
+    "nombre": "LAS AVENIDAS",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48191",
+    "nombre": "LAS BRISAS DEL ORINOCO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48192",
+    "nombre": "LAS MALVINAS",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48193",
+    "nombre": "LAS MARIAS",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48194",
+    "nombre": "LAS PARCELAS",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48195",
+    "nombre": "LAS VEGAS",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48196",
+    "nombre": "LIBERTADOR",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48197",
+    "nombre": "LOMAS DEL VIENTO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48198",
+    "nombre": "LOS BLOQUES",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48199",
+    "nombre": "LOS COCOS",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48200",
+    "nombre": "MANUEL PIAR",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48201",
+    "nombre": "MELANIA ROSA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48202",
+    "nombre": "MERCADO VIEJO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48203",
+    "nombre": "MERECURE",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48204",
+    "nombre": "NEGRO PRIMERO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48205",
+    "nombre": "OBRERO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48206",
+    "nombre": "ORINOCO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48207",
+    "nombre": "ORQUIDEA DEL SUR",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48208",
+    "nombre": "PALO NEGRO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48209",
+    "nombre": "PARARE",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48210",
+    "nombre": "PUERTAS DEL SUR",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48211",
+    "nombre": "ROSA INES",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48212",
+    "nombre": "RUIZ PINEDA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48213",
+    "nombre": "SAN JUDAS TADEO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48214",
+    "nombre": "SAN MIGUEL",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48215",
+    "nombre": "SAN SIMON CENTRO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48216",
+    "nombre": "SANTA INES",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48217",
+    "nombre": "SANTISIMA TRINIDAD",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48218",
+    "nombre": "SOSEMEN",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48219",
+    "nombre": "VALENZUELA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48220",
+    "nombre": "VIENTO COLAO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48221",
+    "nombre": "VILLA DEL PARQUE SUR",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48222",
+    "nombre": "VILLA HERMOSA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48223",
+    "nombre": "VILLA HEROICA SUR",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48224",
+    "nombre": "VILLAS DEL SUR",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48225",
+    "nombre": "VILLAS LAS TORRES",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "80848",
+    "nombre": "AMANA ABAJO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "80974",
+    "nombre": "LA LLOVIZNA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81166",
+    "nombre": "EL MEREY DE AMANA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81167",
+    "nombre": "GUANAGUANAY",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81168",
+    "nombre": "LA MURALLA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81169",
+    "nombre": "SANTA BARBARA DE SOTILLO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81494",
+    "nombre": "BOQUERÓN DE AMANA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81558",
+    "nombre": "LAS BRISAS DEL ORINOCO II",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81561",
+    "nombre": "EL ROSARIO",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81655",
+    "nombre": "SAN ANTONIO DE GUANIPA",
+    "xpar": "160805",
+    "parroquia": "san_simon",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48063",
+    "nombre": "19 DE ABRIL",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48064",
+    "nombre": "ALEROS",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48065",
+    "nombre": "ALTO DE PARAMACONI",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48066",
+    "nombre": "ALTO PARAMACONI",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48067",
+    "nombre": "ARAGUANEY",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48068",
+    "nombre": "ARISMENDI",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48069",
+    "nombre": "AVES DEL PARAISO",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48070",
+    "nombre": "BATALLA DE CARABOBO",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48071",
+    "nombre": "BRISAS DEL SAMAN",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48072",
+    "nombre": "BRISAS DEL SOL",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48073",
+    "nombre": "BUENA VISTA",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48074",
+    "nombre": "CAMPO CLARO",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48075",
+    "nombre": "CAÑO E CRUZ",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48076",
+    "nombre": "CARIPE SOSA",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48077",
+    "nombre": "CENTRO CRUZ",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48078",
+    "nombre": "DELICIAS",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48079",
+    "nombre": "DELICIAS DEL SAMAN",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48080",
+    "nombre": "DELICIAS IV",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48081",
+    "nombre": "DESARROLLO HABITACIONAL EL FARO",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48082",
+    "nombre": "EL CALVARIO",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48083",
+    "nombre": "EL MARQUEZ",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48084",
+    "nombre": "EL SAMAN",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48085",
+    "nombre": "EL VALLE",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48086",
+    "nombre": "EL YAGUAL",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48087",
+    "nombre": "ESFUERZO SAN SIMON",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48088",
+    "nombre": "FARO",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48089",
+    "nombre": "FLAMBOYAN",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48090",
+    "nombre": "FLOR MARINA",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48091",
+    "nombre": "GUANAGUANAY",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48092",
+    "nombre": "GUANAGUANAY CASITAS",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48093",
+    "nombre": "JARDINES DE LA CRUZ",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48094",
+    "nombre": "JARDINES DE SAN JAIME",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48095",
+    "nombre": "JOSE TADEO MONAGAS",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48096",
+    "nombre": "JUANA LA CRUZ",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48097",
+    "nombre": "JUANA LA AVANZADORA",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48098",
+    "nombre": "LA CEIBA",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48099",
+    "nombre": "LA CRUZ DE LA PALOMA",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48100",
+    "nombre": "LA LLOVIZNA",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48101",
+    "nombre": "LA MACARENA",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48102",
+    "nombre": "LA VICTORIA",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48103",
+    "nombre": "LA VILLA DE FRAMBOYAN",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48104",
+    "nombre": "LAGUNA AZUL",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48105",
+    "nombre": "LAGUNA DEL PARAISO",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48106",
+    "nombre": "LAGUNA PARAISO",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48107",
+    "nombre": "LAS CAROLINAS",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48108",
+    "nombre": "LAS CAYENAS",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48109",
+    "nombre": "LAS GARAZAS",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48110",
+    "nombre": "LAS GARZAS",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48111",
+    "nombre": "LOS LUCES",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48112",
+    "nombre": "LAS MARIAS",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48113",
+    "nombre": "LAS TERRAZAS",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48114",
+    "nombre": "LIBERTAD",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48115",
+    "nombre": "LOS APAMATES",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48116",
+    "nombre": "LOS FRAILEJONES",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48117",
+    "nombre": "LOS GIRASOLES",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48118",
+    "nombre": "LOS GIRASOLES VILLA COUNTRY",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48119",
+    "nombre": "LOS GUAYABITOS",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48120",
+    "nombre": "LOS LUCES",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48121",
+    "nombre": "LOS SAMANES",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48122",
+    "nombre": "LUCIO MAGO",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48123",
+    "nombre": "MACOS SAMAN",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48124",
+    "nombre": "MARQUEZ BOLIVAR",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48125",
+    "nombre": "MATA CABALLO",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48126",
+    "nombre": "MORICHALES DE SAN JAIME",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48127",
+    "nombre": "MORICHE",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48128",
+    "nombre": "MUCUCHIES",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48129",
+    "nombre": "NUEVO HORIZONTE",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48130",
+    "nombre": "PEPE",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48131",
+    "nombre": "PRADERAS DEL SUR",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48132",
+    "nombre": "LOS PRADOS",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48133",
+    "nombre": "PREFAGUA",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48134",
+    "nombre": "PUERTAS DE PUEBLO LIBRE",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48135",
+    "nombre": "PUESTA AL SOL",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48136",
+    "nombre": "REINA PAULINA",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48137",
+    "nombre": "SAN JAIME",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48138",
+    "nombre": "SAN PEDRO",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48139",
+    "nombre": "SAN RAFAEL",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48140",
+    "nombre": "SAUCES TIMOTES",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48141",
+    "nombre": "SIMON BOLIVAR",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48142",
+    "nombre": "TERRAZA DEL OESTE",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48143",
+    "nombre": "URBANIZACION VILLAS ALTAMIRA",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48144",
+    "nombre": "VALLE GRANDE",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48145",
+    "nombre": "VALLE GRANDE COUNTRY CLUB",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48146",
+    "nombre": "VILLA JAGUEY",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48147",
+    "nombre": "VILLAS ALTA CRUZ",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48148",
+    "nombre": "VILLAS DEL OESTE",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48149",
+    "nombre": "VILLAS JARDINES DE SAN JAIME",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48150",
+    "nombre": "VIRGEN DE COROMOTO",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48151",
+    "nombre": "VISTA AL SOL",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "48152",
+    "nombre": "ZONA INDUSTRIAL",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "80908",
+    "nombre": "PUESTA DEL SOL",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "80932",
+    "nombre": "DELICIAS III",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81892",
+    "nombre": "DELICIAS II",
+    "xpar": "160806",
+    "parroquia": "la_cruz",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47681",
+    "nombre": "AMARILIS",
+    "xpar": "160807",
+    "parroquia": "el_corozo",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47682",
+    "nombre": "AMAZONAS",
+    "xpar": "160807",
+    "parroquia": "el_corozo",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47683",
+    "nombre": "COROZO CENTRO",
+    "xpar": "160807",
+    "parroquia": "el_corozo",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47684",
+    "nombre": "EL COROZO ALTO",
+    "xpar": "160807",
+    "parroquia": "el_corozo",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47685",
+    "nombre": "EL GOMERO",
+    "xpar": "160807",
+    "parroquia": "el_corozo",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47686",
+    "nombre": "KUWAIT",
+    "xpar": "160807",
+    "parroquia": "el_corozo",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47687",
+    "nombre": "LA REFORMA",
+    "xpar": "160807",
+    "parroquia": "el_corozo",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47688",
+    "nombre": "MADRICERA",
+    "xpar": "160807",
+    "parroquia": "el_corozo",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47689",
+    "nombre": "MAKEDONIA",
+    "xpar": "160807",
+    "parroquia": "el_corozo",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47690",
+    "nombre": "ROMERAL",
+    "xpar": "160807",
+    "parroquia": "el_corozo",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47691",
+    "nombre": "SAGRADO CORAZON DE JESUS",
+    "xpar": "160807",
+    "parroquia": "el_corozo",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81918",
+    "nombre": "EL COROZO",
+    "xpar": "160807",
+    "parroquia": "el_corozo",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47636",
+    "nombre": "BRISAS DE MORICHAL",
+    "xpar": "160808",
+    "parroquia": "el_furrial",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47637",
+    "nombre": "BRISAS DEL MORICHAL",
+    "xpar": "160808",
+    "parroquia": "el_furrial",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47638",
+    "nombre": "CENTENARIO DEL CAITUCO",
+    "xpar": "160808",
+    "parroquia": "el_furrial",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47639",
+    "nombre": "CUMBRES DE AMANA",
+    "xpar": "160808",
+    "parroquia": "el_furrial",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47640",
+    "nombre": "EL AGUARDIENTE",
+    "xpar": "160808",
+    "parroquia": "el_furrial",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47641",
+    "nombre": "EL FURRIAL",
+    "xpar": "160808",
+    "parroquia": "el_furrial",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47642",
+    "nombre": "EL RINCON",
+    "xpar": "160808",
+    "parroquia": "el_furrial",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47643",
+    "nombre": "EN PROCESO",
+    "xpar": "160808",
+    "parroquia": "el_furrial",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47644",
+    "nombre": "IGLESIA CENTRO",
+    "xpar": "160808",
+    "parroquia": "el_furrial",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47645",
+    "nombre": "JULIO CAMINO",
+    "xpar": "160808",
+    "parroquia": "el_furrial",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47646",
+    "nombre": "LA CANDELARIA",
+    "xpar": "160808",
+    "parroquia": "el_furrial",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47647",
+    "nombre": "LA CANDELARIA NORTE",
+    "xpar": "160808",
+    "parroquia": "el_furrial",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47648",
+    "nombre": "MATA LINDA",
+    "xpar": "160808",
+    "parroquia": "el_furrial",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47649",
+    "nombre": "MONTE VERDE",
+    "xpar": "160808",
+    "parroquia": "el_furrial",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47650",
+    "nombre": "MULTIPLE",
+    "xpar": "160808",
+    "parroquia": "el_furrial",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47651",
+    "nombre": "POTRERITO",
+    "xpar": "160808",
+    "parroquia": "el_furrial",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47652",
+    "nombre": "SAN JOSE LA CEIBA",
+    "xpar": "160808",
+    "parroquia": "el_furrial",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47653",
+    "nombre": "VILLAS DE AMANA",
+    "xpar": "160808",
+    "parroquia": "el_furrial",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47654",
+    "nombre": "ANDRES ELOY",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47655",
+    "nombre": "ANDRES ELOY BLANCO",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47656",
+    "nombre": "AYACUCHO",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47657",
+    "nombre": "BARRANCAS",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47658",
+    "nombre": "BRISAS DE AYACUCHO",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47659",
+    "nombre": "CAMPO AYACUCHO",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47660",
+    "nombre": "CAMPO LAS DELICIAS",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47661",
+    "nombre": "COLOMBIA",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47662",
+    "nombre": "COROCITO",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47663",
+    "nombre": "COTOPERIZ",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47664",
+    "nombre": "EL CARO",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47665",
+    "nombre": "EL ESFUERZO",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47666",
+    "nombre": "EL PINAL",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47667",
+    "nombre": "FE Y ALEGRIA",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47668",
+    "nombre": "HALLIBURTON",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47669",
+    "nombre": "JUSEPIN",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47670",
+    "nombre": "LA JUVENTUD",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47671",
+    "nombre": "LA LINEA",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47672",
+    "nombre": "LAS DELICIAS",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47673",
+    "nombre": "LAS MARGARITAS",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47674",
+    "nombre": "MAISANTA",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47675",
+    "nombre": "PABLO MORILLO",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47676",
+    "nombre": "RESCATE",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47677",
+    "nombre": "RUCIO VIEJO",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47678",
+    "nombre": "SABANETA",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47679",
+    "nombre": "SAN JOSE",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47680",
+    "nombre": "SUMARPANES",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "81723",
+    "nombre": "CAMPO SUCRE",
+    "xpar": "160809",
+    "parroquia": "jusepin",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47716",
+    "nombre": "17 DE ENERO",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47717",
+    "nombre": "ALTAMIRA",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47718",
+    "nombre": "BARRIL",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47719",
+    "nombre": "BOCA DE GUANIPA",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47720",
+    "nombre": "CARITAL",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47721",
+    "nombre": "CASCO CENTRAL",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47722",
+    "nombre": "EL BARRIL",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47723",
+    "nombre": "EL CANITO",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47724",
+    "nombre": "EL GUAMITO",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47725",
+    "nombre": "EL YAGUAL",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47726",
+    "nombre": "GUANIPA",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47727",
+    "nombre": "GUARAUNO",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47728",
+    "nombre": "ISLA VENADO",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47729",
+    "nombre": "JOROPO",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47730",
+    "nombre": "LA BOCA DE LAGUNA GRANDE",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47731",
+    "nombre": "LA ESPERANZA",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47732",
+    "nombre": "LA HORMIGA",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47733",
+    "nombre": "LA LOCACION",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47734",
+    "nombre": "LA PICA",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47735",
+    "nombre": "LA VIUDA",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47736",
+    "nombre": "LA YAGUA",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47737",
+    "nombre": "LAS LOMAS",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47738",
+    "nombre": "LAS MALVINAS",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47739",
+    "nombre": "MEREYAL",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47740",
+    "nombre": "PARARI",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47741",
+    "nombre": "PICA YUNIS",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47742",
+    "nombre": "PROGRESO",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47743",
+    "nombre": "QUEBRADA HONDA",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47744",
+    "nombre": "RORAIMA",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47745",
+    "nombre": "SAN AGUSTIN",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47746",
+    "nombre": "VUELTA LARGA",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "80824",
+    "nombre": "LOMAS DE PARARI",
+    "xpar": "160810",
+    "parroquia": "la_pica",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47692",
+    "nombre": "1 DE MAYO",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47693",
+    "nombre": "24 DE JULIO",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47694",
+    "nombre": "8 DE MARZO",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47695",
+    "nombre": "ALEXIS LEMUS",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47696",
+    "nombre": "ARAGUANEY",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47697",
+    "nombre": "BRISAS DE ABIGAIL",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47698",
+    "nombre": "BRISAS DE PUEBLO LIBRE",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47699",
+    "nombre": "BRISAS DEL GUARAPICHE",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47700",
+    "nombre": "CASCO CENTRAL",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47701",
+    "nombre": "COLINAS DE SAN VICENTE",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47702",
+    "nombre": "EL ESTADIO",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47703",
+    "nombre": "GUZMAN BLANCO",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47704",
+    "nombre": "JUAN RAMIREZ",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47705",
+    "nombre": "LA TRES UNIDADES",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47706",
+    "nombre": "LA AVANZADORA",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47707",
+    "nombre": "LAS HEROINAS DE JUANA",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47708",
+    "nombre": "LAS VEGAS",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47709",
+    "nombre": "PUEBLO LIBRE",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47710",
+    "nombre": "SAN ANDRES",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47711",
+    "nombre": "SAN JOSE",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47712",
+    "nombre": "SAN VICENTE",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47713",
+    "nombre": "SAN VICENTE CENTRO",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47714",
+    "nombre": "SAN VICENTE FERRER",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  },
+  {
+    "codigo": "47715",
+    "nombre": "SIMON BOLIVAR",
+    "xpar": "160811",
+    "parroquia": "san_vicente",
+    "municipio_codigo": "1608",
+    "municipio": "MATURIN"
+  }
+]
