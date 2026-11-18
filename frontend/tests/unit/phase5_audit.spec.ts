@@ -183,8 +183,8 @@ describe('Fase 5 - Auditoría de Soberanía Tecnológica, Contraste Cromático y
 
     const stepItems = wrapper.findAll('.step-indicator-item');
     const stepBtns = wrapper.findAll('.step-indicator-btn');
-    expect(stepItems).toHaveLength(8);
-    expect(stepBtns).toHaveLength(8);
+    expect(stepItems).toHaveLength(9);
+    expect(stepBtns).toHaveLength(9);
     expect(stepItems[0].attributes('aria-current')).toBe('step');
     for (const btn of stepBtns) {
       expect(btn.attributes('type')).toBe('button');

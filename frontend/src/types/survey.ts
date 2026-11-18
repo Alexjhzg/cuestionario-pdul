@@ -12,8 +12,9 @@ export const SURVEY_STEPS: SurveyStep[] = [
   { id: 4, title: 'Composición del Hogar y Residentes Habituales', shortTitle: 'Residentes', estimatedTime: '3 min' },
   { id: 5, title: 'Movilidad Cotidiana y Registro de Viajes', shortTitle: 'Viajes', estimatedTime: '4 min' },
   { id: 6, title: 'Calidad de los Servicios de Transporte', shortTitle: 'Transporte Público', estimatedTime: '2 min' },
-  { id: 7, title: 'Movilidad Activa y Espacio Público', shortTitle: 'Espacio Público', estimatedTime: '2 min' },
-  { id: 8, title: 'Observaciones y Cierre', shortTitle: 'Cierre', estimatedTime: '1 min' }
+  { id: 7, title: 'Movilidad No Motorizada y Percepción', shortTitle: 'Movilidad Activa', estimatedTime: '2 min' },
+  { id: 8, title: 'Áreas de Esparcimiento y Recreación', shortTitle: 'Esparcimientos', estimatedTime: '2 min' },
+  { id: 9, title: 'Infraestructura Peatonal y Cierre', shortTitle: 'Peatones', estimatedTime: '2 min' }
 ];
 
 export interface Residente {

@@ -11,6 +11,7 @@ import Step3Hogar from './sections/Step3Hogar.vue';
 import Step6TransportePublico from './sections/Step6TransportePublico.vue';
 import Step7MovilidadActiva from './sections/Step7MovilidadActiva.vue';
 import Step8Esparcimiento from './sections/Step8Esparcimiento.vue';
+import Step9Peatones from './sections/Step9Peatones.vue';
 
 let toast: ReturnType<typeof useToast> | null = null;
 try {
@@ -294,6 +295,13 @@ function onSubmit() {
           :model-value="modelValue"
           @update-field="updateField"
           @toggle-multi="toggleMultiSelect"
+        />
+      </section>
+
+      <section v-else-if="currentStepIndex === 8" class="step-form-section">
+        <Step9Peatones
+          :model-value="modelValue"
+          @update-field="updateField"
         />
       </section>
 

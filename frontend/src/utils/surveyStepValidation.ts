@@ -73,17 +73,40 @@ export function calculateStepProgress(stepIdx: number, data: Record<string, any>
     case 7: {
       let filled = 0;
       if (data.frecuencia_visita_parques) filled++;
+      if (Array.isArray(data.actividades_parques) && data.actividades_parques.length > 0) filled++;
       if (data.caminatas_ciudad) filled++;
       if (data.seguridad_parques_dia) filled++;
       if (data.seguridad_parques_noche) filled++;
       if (data.limpieza_parques) filled++;
+      if (Array.isArray(data.impedimentos_espacios) && data.impedimentos_espacios.length > 0) filled++;
       if (data.satisfaccion_centro) filled++;
+      if (Array.isArray(data.mejoras_prioritarias) && data.mejoras_prioritarias.length > 0) filled++;
+      if (data.parque_mejorar_primero && String(data.parque_mejorar_primero).trim().length > 0) filled++;
+      if (data.disposicion_participar_mejoras) filled++;
+      if (data.sugerencias_esparcimiento && String(data.sugerencias_esparcimiento).trim().length > 0) filled++;
       if (data.acera_comoda) filled++;
+      if (data.sectores_para_caminar && String(data.sectores_para_caminar).trim().length > 0) filled++;
       if (data.facilidad_llegada_parques) filled++;
+      if (Array.isArray(data.esparcimientos_faltantes) && data.esparcimientos_faltantes.length > 0) filled++;
+      return filled > 0 ? filled / 16 : 0.25;
+    }
+    case 8: {
+      let filled = 0;
       if (data.cruce_peatonal_todas) filled++;
+      if (data.hay_semaforo_peatonal) filled++;
+      if (data.mapas_senales_caminata) filled++;
+      if (data.movilidad_reducida_sin_ayuda) filled++;
+      if (data.nombres_calles_visibles) filled++;
+      if (data.senalizacion_clara_sin_obstaculos) filled++;
+      if (data.trayecto_pie_parada_seguro) filled++;
+      if (data.aire_ruido_aceptables) filled++;
+      if (data.conductores_ceden_paso) filled++;
+      if (data.ciudad_prioriza_peaton) filled++;
+      if (data.participacion_consultas_peatonales) filled++;
+      if (data.planes_movilidad_peatonal_normativa) filled++;
       if (data.observaciones_generales && String(data.observaciones_generales).trim().length > 0) filled++;
       if (data.acepta_declaracion !== false) filled++;
-      return filled > 0 ? filled / 11 : 0.25;
+      return filled > 0 ? filled / 14 : 0.25;
     }
     default:
       return 0;
@@ -283,22 +306,25 @@ export function getStepErrors(stepIdx: number, data: Record<string, any>): strin
       if (Array.isArray(source.esparcimientos_faltantes) && source.esparcimientos_faltantes.includes('otros')) {
         requireField('esparcimientos_faltantes_otros', '19.i.- Especifique los otros esparcimientos faltantes.');
       }
-      requireField('cruce_peatonal_todas', '20.- Indique si existe cruce peatonal en todas las intersecciones.');
+      break;
+    }
+    case 8: {
+      requireField('cruce_peatonal_todas', '1.- Indique si existe cruce peatonal en todas las intersecciones.');
       if (source.cruce_peatonal_todas === 'si') {
-        requireField('cruce_demarcado_visible', '21.- Indique si el cruce peatonal está demarcado y visible.');
+        requireField('cruce_demarcado_visible', '2.- Indique si el cruce peatonal está demarcado y visible.');
+        requireField('seguridad_cruzar_interseccion', '3.- Indique si se siente seguro al cruzar esta intersección.');
       }
-      requireField('seguridad_cruzar_interseccion', '22.- Indique si se siente seguro al cruzar la intersección.');
-      requireField('hay_semaforo_peatonal', '23.- Indique si hay semáforo peatonal.');
-      requireField('mapas_senales_caminata', '24.- Indique si existen mapas o señales de caminata.');
-      requireField('movilidad_reducida_sin_ayuda', '25.- Indique si una persona con movilidad reducida puede desplazarse sin ayuda.');
-      requireField('nombres_calles_visibles', '26.- Indique si las señalizaciones de nombres de calles son visibles.');
-      requireField('senalizacion_clara_sin_obstaculos', '27.- Indique si la señalización es clara y sin obstáculos.');
-      requireField('trayecto_pie_parada_seguro', '28.- Indique si el trayecto a pie hasta la parada es seguro.');
-      requireField('aire_ruido_aceptables', '29.- Indique si el aire y el ruido son aceptables para caminar.');
-      requireField('conductores_ceden_paso', '30.- Indique si los conductores ceden el paso a los peatones.');
-      requireField('ciudad_prioriza_peaton', '31.- Indique si la ciudad prioriza al peatón sobre el automóvil.');
-      requireField('participacion_consultas_peatonales', '32.- Indique si ha participado en consultas sobre espacios peatonales.');
-      requireField('planes_movilidad_peatonal_normativa', '33.- Indique si existen planes, presupuesto o normativa de movilidad peatonal.');
+      requireField('hay_semaforo_peatonal', '4.- Indique si hay semáforo peatonal.');
+      requireField('mapas_senales_caminata', '5.- Indique si existen mapas peatonales, señales de destino o de caminata.');
+      requireField('movilidad_reducida_sin_ayuda', '6.- Indique si una persona con movilidad reducida puede desplazarse sin ayuda.');
+      requireField('nombres_calles_visibles', '7.- Indique si las señalizaciones de nombres de calles son visibles.');
+      requireField('senalizacion_clara_sin_obstaculos', '8.- Indique si la señalización es clara y sin obstáculos.');
+      requireField('trayecto_pie_parada_seguro', '9.- Indique si el trayecto a pie hasta la parada es seguro.');
+      requireField('aire_ruido_aceptables', '10.- Indique si el aire y el ruido son aceptables para caminar.');
+      requireField('conductores_ceden_paso', '11.- Indique si los conductores ceden el paso a los peatones.');
+      requireField('ciudad_prioriza_peaton', '12.- Indique si la ciudad prioriza al peatón sobre el automóvil.');
+      requireField('participacion_consultas_peatonales', '13.- Indique si ha participado en consultas sobre espacios peatonales.');
+      requireField('planes_movilidad_peatonal_normativa', '14.- Indique si existen planes, presupuesto o normativa de movilidad peatonal.');
       requireField('observaciones_generales', 'Observaciones: escriba sus observaciones o propuestas adicionales.');
       if (source.acepta_declaracion === false) {
         errors.push('Debe confirmar la veracidad de la información para enviar.');

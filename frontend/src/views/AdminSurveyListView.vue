@@ -1,4 +1,5 @@
 <script setup lang="ts">
+defineOptions({ name: 'AdminSurveyListView' });
 import { useAdminSurveyList } from '@/composables/useAdminSurveyList';
 import AdminSurveyTable from '@/components/admin/AdminSurveyTable.vue';
 import AdminSurveyMobileCards from '@/components/admin/AdminSurveyMobileCards.vue';

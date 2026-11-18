@@ -39,11 +39,11 @@ describe('Fase 4 - Retrocompatibilidad de borradores pdul_draft_* e integración
     vi.clearAllMocks();
   });
 
-  it('normaliza pasos legacy numéricos, en string o fuera de rango dentro de [0, 7]', () => {
+  it('normaliza pasos legacy numéricos, en string o fuera de rango dentro de [0, 8]', () => {
     expect(normalizeDraftStep(0)).toBe(0);
     expect(normalizeDraftStep('4')).toBe(4);
     expect(normalizeDraftStep(-5)).toBe(0);
-    expect(normalizeDraftStep(999)).toBe(7);
+    expect(normalizeDraftStep(999)).toBe(8);
     expect(normalizeDraftStep('no-numerico')).toBe(0);
     expect(normalizeDraftStep(undefined)).toBe(0);
   });
@@ -101,7 +101,7 @@ describe('Fase 4 - Retrocompatibilidad de borradores pdul_draft_* e integración
     });
 
     restoreDraft();
-    expect(currentStep.value).toBe(7);
+    expect(currentStep.value).toBe(8);
     expect(formData.value.parroquia).toBe('san_simon');
     expect(formData.value.residentes).toEqual([]);
     expect(formData.value.viajes).toEqual([]);

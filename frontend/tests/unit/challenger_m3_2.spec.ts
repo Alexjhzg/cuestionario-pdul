@@ -18,8 +18,9 @@ describe('Challenger 2 Empirical Verification: Mobile Viewport 360px, Gestalt Pr
       { step: 3, title: 'Composición del Hogar y Residentes Habituales' },
       { step: 4, title: 'Movilidad Cotidiana y Registro de Viajes' },
       { step: 5, title: 'Calidad de los Servicios de Transporte' },
-      { step: 6, title: 'Movilidad Activa y Espacio Público' },
-      { step: 7, title: 'Observaciones y Cierre' }
+      { step: 6, title: 'Movilidad No Motorizada y Percepción' },
+      { step: 7, title: 'Áreas de Esparcimiento y Recreación' },
+      { step: 8, title: 'Infraestructura Peatonal y Cierre' }
     ];
 
     it.each(stepsData)('verifica que el paso $step ($title) respeta la estructura de sección vertical', ({ step, title }) => {

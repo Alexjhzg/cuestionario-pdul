@@ -233,9 +233,11 @@ test.describe('Auditoría Funcional - Flujo Ciudadano (Llenado del Cuestionario 
     await page.check('input[name="facilidad_llegada_parques"][value="regular"]');
     await page.check('input[name="esparcimientos_faltantes"][value="bancas"]');
 
+    // Avanzar a Paso 9 (Peatones)
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+
     // Bloque C: Cruces peatonales
     await page.check('input[name="cruce_peatonal_todas"][value="no"]');
-    await page.check('input[name="seguridad_cruzar_interseccion"][value="neutral"]');
     await page.check('input[name="hay_semaforo_peatonal"][value="si"]');
 
     // Bloque D: Señalización, accesibilidad y entorno

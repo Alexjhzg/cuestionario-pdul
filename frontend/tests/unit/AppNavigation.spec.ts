@@ -1,6 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { mount, flushPromises } from '@vue/test-utils';
 import App from '@/App.vue';
+import AdminSurveyListView from '@/views/AdminSurveyListView.vue';
 import fs from 'fs';
 import path from 'path';
 
@@ -161,7 +162,7 @@ describe('App.vue Navigation & WAI-ARIA Tabs (Milestone 4)', () => {
     await wrapper.find('#tab-admin-surveys').trigger('click');
     await flushPromises();
 
-    const adminSurveysComponent = wrapper.findComponent({ name: 'AdminSurveyListView' });
+    const adminSurveysComponent = wrapper.findComponent(AdminSurveyListView);
     expect(adminSurveysComponent.exists()).toBe(true);
 
     // Simular evento edit-survey emitido por la vista
@@ -176,7 +177,7 @@ describe('App.vue Navigation & WAI-ARIA Tabs (Milestone 4)', () => {
     await wrapper.find('#tab-admin-surveys').trigger('click');
     await flushPromises();
 
-    const adminSurveys2 = wrapper.findComponent({ name: 'AdminSurveyListView' });
+    const adminSurveys2 = wrapper.findComponent(AdminSurveyListView);
     adminSurveys2.vm.$emit('view-responses', '00000000-0000-0000-0000-000000000001');
     await flushPromises();
 

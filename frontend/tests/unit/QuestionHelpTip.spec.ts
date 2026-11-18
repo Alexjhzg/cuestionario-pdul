@@ -5,6 +5,7 @@ import Step2Vivienda from '@/components/survey/sections/Step2Vivienda.vue';
 import Step6TransportePublico from '@/components/survey/sections/Step6TransportePublico.vue';
 import Step7MovilidadActiva from '@/components/survey/sections/Step7MovilidadActiva.vue';
 import Step8Esparcimiento from '@/components/survey/sections/Step8Esparcimiento.vue';
+import Step9Peatones from '@/components/survey/sections/Step9Peatones.vue';
 import { QUESTION_HELP_TIPS } from '@/utils/questionHelpCatalog';
 
 const mountedWrappers: VueWrapper[] = [];
@@ -127,18 +128,21 @@ describe('Sección II Q2 reformulada y tooltips en secciones del cuestionario', 
     );
   });
 
-  it('integra íconos de ayuda ? en Secciones VI, VII y VIII sin anidar botones dentro de <label>', () => {
+  it('integra íconos de ayuda ? en Secciones VI, VII, VIII y IX sin anidar botones dentro de <label>', () => {
     const step6 = trackMount(mount(Step6TransportePublico, { props: { modelValue: { dificultades_acceso_tp: 'si' } } }));
     const step7 = trackMount(mount(Step7MovilidadActiva, { props: { modelValue: { cambio_movilidad_5_anos: 'si' } } }));
-    const step8 = trackMount(mount(Step8Esparcimiento, { props: { modelValue: { cruce_peatonal_todas: 'si' } } }));
+    const step8 = trackMount(mount(Step8Esparcimiento, { props: { modelValue: {} } }));
+    const step9 = trackMount(mount(Step9Peatones, { props: { modelValue: { cruce_peatonal_todas: 'si' } } }));
 
     expect(step6.findAll('[data-testid="btn-question-help"]').length).toBe(9);
     expect(step7.findAll('[data-testid="btn-question-help"]').length).toBe(8);
-    expect(step8.findAll('[data-testid="btn-question-help"]').length).toBe(30);
+    expect(step8.findAll('[data-testid="btn-question-help"]').length).toBe(16);
+    expect(step9.findAll('[data-testid="btn-question-help"]').length).toBe(14);
 
     expect(step6.findAll('label button')).toHaveLength(0);
     expect(step7.findAll('label button')).toHaveLength(0);
     expect(step8.findAll('label button')).toHaveLength(0);
+    expect(step9.findAll('label button')).toHaveLength(0);
   });
 });
 

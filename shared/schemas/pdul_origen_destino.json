@@ -1246,9 +1246,7 @@
     {
       "type": "panel",
       "key": "panel_seccion_viii",
-      "title": "Sección VIII: Esparcimientos y Peatonalidad",
-      "collapsible": true,
-      "collapsed": false,
+      "title": "Sección VIII: Esparcimientos",
       "components": [
         {
           "type": "radio",
@@ -1726,11 +1724,18 @@
             "when": "esparcimientos_faltantes",
             "eq": "otros"
           }
-        },
+        }
+      ]
+    },
+    {
+      "type": "panel",
+      "key": "panel_seccion_ix",
+      "title": "Sección IX: Peatones",
+      "components": [
         {
           "type": "radio",
           "key": "existe_cruce_peatonal",
-          "label": "20.- ¿Existe cruce peatonal en todas las intersecciones?",
+          "label": "1.- ¿Existe cruce peatonal en todas las intersecciones?",
           "values": [
             {
               "label": "a.- Sí",
@@ -1748,7 +1753,7 @@
         {
           "type": "radio",
           "key": "cruce_demarcado_visible",
-          "label": "21.- ¿Está demarcado y visible?",
+          "label": "2.- ¿Está demarcado y visible?",
           "values": [
             {
               "label": "a.- Sí",
@@ -1768,7 +1773,7 @@
         {
           "type": "radio",
           "key": "seguridad_cruzar_interseccion",
-          "label": "22.- ¿Se siente seguro al cruzar esta intersección?",
+          "label": "3.- ¿Se siente seguro al cruzar esta intersección?",
           "values": [
             {
               "label": "Nada Seguro(a)",
@@ -1800,7 +1805,7 @@
         {
           "type": "radio",
           "key": "hay_semaforo_peatonal",
-          "label": "23.- ¿Hay semáforo peatonal?",
+          "label": "4.- ¿Hay semáforo peatonal?",
           "values": [
             {
               "label": "a.- Sí",
@@ -1818,7 +1823,7 @@
         {
           "type": "radio",
           "key": "existen_mapas_senales_peatonales",
-          "label": "24.- ¿Existen mapas peatonales, señales de destino o de caminata?",
+          "label": "5.- ¿Existen mapas peatonales, señales de destino o de caminata?",
           "values": [
             {
               "label": "a.- Sí",
@@ -1836,7 +1841,7 @@
         {
           "type": "radio",
           "key": "movilidad_reducida_sin_ayuda",
-          "label": "25.- ¿Puede una persona con movilidad reducida desplazarse sin ayuda por el centro de la ciudad?",
+          "label": "6.- ¿Puede una persona con movilidad reducida desplazarse sin ayuda por el centro de la ciudad?",
           "values": [
             {
               "label": "a.- Sí",
@@ -1854,7 +1859,7 @@
         {
           "type": "radio",
           "key": "senalizacion_nombres_calles_visible",
-          "label": "26.- ¿Hay señalizaciones de nombres de calles visibles?",
+          "label": "7.- ¿Hay señalizaciones de nombres de calles visibles?",
           "values": [
             {
               "label": "a.- Sí",
@@ -1872,7 +1877,7 @@
         {
           "type": "radio",
           "key": "senalizacion_clara_sin_obstaculos",
-          "label": "27.- ¿La señalización es clara y sin obstáculos?",
+          "label": "8.- ¿La señalización es clara y sin obstáculos?",
           "values": [
             {
               "label": "a.- Sí",
@@ -1890,7 +1895,7 @@
         {
           "type": "radio",
           "key": "seguridad_trayecto_parada",
-          "label": "28.- ¿El trayecto a pie hasta la parada es seguro?",
+          "label": "9.- ¿El trayecto a pie hasta la parada es seguro?",
           "values": [
             {
               "label": "Nada Seguro(a)",
@@ -1920,7 +1925,7 @@
         {
           "type": "radio",
           "key": "aire_ruido_aceptables",
-          "label": "29.- ¿El aire y el ruido son aceptables para caminar?",
+          "label": "10.- ¿El aire y el ruido son aceptables para caminar?",
           "values": [
             {
               "label": "a.- Sí",
@@ -1938,7 +1943,7 @@
         {
           "type": "radio",
           "key": "conductores_ceden_paso",
-          "label": "30.- ¿Los conductores ceden el paso a los peatones?",
+          "label": "11.- ¿Los conductores ceden el paso a los peatones?",
           "values": [
             {
               "label": "a.- Sí",
@@ -1956,7 +1961,7 @@
         {
           "type": "radio",
           "key": "ciudad_prioriza_peaton",
-          "label": "31.- ¿Considera que la ciudad prioriza al peatón sobre el automóvil?",
+          "label": "12.- ¿Considera que la ciudad prioriza al peatón sobre el automóvil?",
           "values": [
             {
               "label": "a.- Sí",
@@ -1974,7 +1979,7 @@
         {
           "type": "radio",
           "key": "participado_consultas_espacios",
-          "label": "32.- ¿Ha participado en consultas sobre espacios peatonales?",
+          "label": "13.- ¿Ha participado en consultas sobre espacios peatonales?",
           "values": [
             {
               "label": "a.- Sí",
@@ -1992,7 +1997,7 @@
         {
           "type": "radio",
           "key": "existen_planes_movilidad_peatonal",
-          "label": "33.- ¿Existen planes de movilidad peatonal, presupuesto o normativa de prioridad peatonal?",
+          "label": "14.- ¿Existen planes de movilidad peatonal, presupuesto o normativa de prioridad peatonal?",
           "values": [
             {
               "label": "a.- Sí",

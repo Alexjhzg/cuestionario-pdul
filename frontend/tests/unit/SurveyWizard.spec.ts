@@ -5,8 +5,8 @@ import SurveyWizard from '@/components/survey/SurveyWizard.vue';
 // Mock scrollTo para evitar errores en entorno de prueba DOM
 window.scrollTo = vi.fn() as any;
 
-describe('Componente SurveyWizard.vue (Asistente de 8 Pasos)', () => {
-  it('renderiza el paso activo y calcula el porcentaje de avance correcto (12.5% en paso 1)', () => {
+describe('Componente SurveyWizard.vue (Asistente de 9 Pasos)', () => {
+  it('renderiza el paso activo y calcula el porcentaje de avance correcto (11.1% en paso 1)', () => {
     const wrapper = mount(SurveyWizard, {
       props: {
         modelValue: {
@@ -17,15 +17,15 @@ describe('Componente SurveyWizard.vue (Asistente de 8 Pasos)', () => {
       }
     });
 
-    expect(wrapper.text()).toContain('Paso 1 de 8:');
+    expect(wrapper.text()).toContain('Paso 1 de 9:');
     expect(wrapper.text()).toContain('Ubicación y Caracterización del Hogar');
-    expect(wrapper.text()).toContain('12.5% completado');
+    expect(wrapper.text()).toContain('11.1% completado');
 
     const progressbar = wrapper.find('[role="progressbar"]');
-    expect(progressbar.attributes('aria-valuenow')).toBe('12.5');
+    expect(progressbar.attributes('aria-valuenow')).toBe('11.1');
   });
 
-  it('calcula correctamente el porcentaje en pasos intermedios (ej. 50% en paso 4 con residentes)', () => {
+  it('calcula correctamente el porcentaje en pasos intermedios (ej. 44.4% en paso 4 con residentes)', () => {
     const wrapper = mount(SurveyWizard, {
       props: {
         modelValue: {
@@ -37,8 +37,8 @@ describe('Componente SurveyWizard.vue (Asistente de 8 Pasos)', () => {
       }
     });
 
-    expect(wrapper.text()).toContain('Paso 4 de 8:');
-    expect(wrapper.text()).toContain('50% completado');
+    expect(wrapper.text()).toContain('Paso 4 de 9:');
+    expect(wrapper.text()).toContain('44.4% completado');
   });
 
   it('incrementa el porcentaje de progreso en tiempo real al responder preguntas dentro de un paso', async () => {
@@ -61,7 +61,7 @@ describe('Componente SurveyWizard.vue (Asistente de 8 Pasos)', () => {
         parroquia: 'san_simon'
       }
     });
-    expect(wrapper.find('.progress-percentage').text()).toBe('12.5% completado');
+    expect(wrapper.find('.progress-percentage').text()).toBe('11.1% completado');
   });
 
   it('previene el avance si faltan campos obligatorios en el paso actual', async () => {

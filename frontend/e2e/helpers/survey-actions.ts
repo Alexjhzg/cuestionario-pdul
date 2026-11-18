@@ -370,18 +370,20 @@ export class SurveyBotOperator {
       await expect(campoEspOtro).toHaveCount(0);
     }
 
+    // Avanzar de Paso 8 (Esparcimientos) a Paso 9 (Peatones)
+    await this.page.getByRole('button', { name: 'Siguiente' }).click();
+
     // Cruces peatonales en todas partes
     await this.page.check(`input[name="cruce_peatonal_todas"][value="${data.cruce_peatonal_todas}"]`);
     const fieldsetCruceDemarcado = this.page.locator('fieldset:has(legend:has-text("¿Está demarcado y visible?"))');
     if (data.cruce_peatonal_todas === 'si') {
       await expect(fieldsetCruceDemarcado).toBeVisible();
       await this.page.check('input[name="cruce_demarcado_visible"][value="si"]');
+      if (data.seguridad_cruzar_interseccion) {
+        await this.page.check(`input[name="seguridad_cruzar_interseccion"][value="${data.seguridad_cruzar_interseccion}"]`);
+      }
     } else {
       await expect(fieldsetCruceDemarcado).toHaveCount(0);
-    }
-
-    if (data.seguridad_cruzar_interseccion) {
-      await this.page.check(`input[name="seguridad_cruzar_interseccion"][value="${data.seguridad_cruzar_interseccion}"]`);
     }
 
     await this.page.check(`input[name="hay_semaforo_peatonal"][value="${data.hay_semaforo_peatonal}"]`);

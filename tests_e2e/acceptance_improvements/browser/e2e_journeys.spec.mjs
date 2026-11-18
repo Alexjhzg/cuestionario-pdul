@@ -240,7 +240,7 @@ test.describe('Citizen Mobile Journeys (360x740)', () => {
     await page.locator('input[name="seguridad_desplazamiento_centro"][value="neutral"]').check();
     await page.getByRole('button', { name: 'Siguiente' }).click();
 
-    // Step 8
+    // Step 8: Esparcimientos
     await page.locator('input[name="frecuencia_visita_parques"][value="semanal"]').check();
     await page.locator('input[name="actividades_parques"][value="caminar"]').check();
     await page.locator('input[name="caminatas_ciudad"][value="a_veces"]').check();
@@ -257,8 +257,10 @@ test.describe('Citizen Mobile Journeys (360x740)', () => {
     await page.locator('#sectores_para_caminar').fill('Av. Bolívar');
     await page.locator('input[name="facilidad_llegada_parques"][value="facil"]').check();
     await page.locator('input[name="esparcimientos_faltantes"][value="iluminacion"]').check();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+
+    // Step 9: Peatones
     await page.locator('input[name="cruce_peatonal_todas"][value="no"]').check();
-    await page.locator('input[name="seguridad_cruzar_interseccion"][value="poco_seguro"]').check();
     await page.locator('input[name="hay_semaforo_peatonal"][value="si"]').check();
     await page.locator('input[name="mapas_senales_caminata"][value="no"]').check();
     await page.locator('input[name="movilidad_reducida_sin_ayuda"][value="no"]').check();
