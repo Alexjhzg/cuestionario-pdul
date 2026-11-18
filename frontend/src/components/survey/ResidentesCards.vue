@@ -88,6 +88,16 @@ function isBlankValue(value: unknown): boolean {
   return value === undefined || value === null || (typeof value === 'string' && value.trim().length === 0);
 }
 
+function onNombreInput(event: Event) {
+  const input = event.target as HTMLInputElement;
+  // Permitir letras (incluye acentos, ñ, ü), espacios y puntos para abreviaturas
+  const clean = input.value.replace(/[^a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s.]/g, '');
+  if (clean !== input.value) {
+    input.value = clean;
+  }
+  nuevoResidente.value.nombres = clean;
+}
+
 async function onAgregar() {
   formError.value = '';
   const nombreLimpio = (nuevoResidente.value.nombres || nuevoResidente.value.nombre_apellido || '').trim();
@@ -327,10 +337,13 @@ function onEliminar(index: number) {
           </label>
           <input
             id="residente-nombre"
-            v-model="nuevoResidente.nombres"
+            :value="nuevoResidente.nombres"
             type="text"
             class="survey-input"
             placeholder="Ej: María P. (o Jefe de Hogar)"
+            autocomplete="name"
+            pattern="^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s.]+$"
+            @input="onNombreInput"
           />
         </div>
 

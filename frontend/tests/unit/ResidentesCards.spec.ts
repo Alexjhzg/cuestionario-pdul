@@ -153,4 +153,16 @@ describe('Componente ResidentesCards.vue (Composición del Hogar PDUL)', () => {
     expect(wrapper.emitted('update:modelValue')).toBeTruthy();
     expect(wrapper.emitted('update:modelValue')![0][0]).toEqual([]);
   });
+
+  it('bloquea números y caracteres no alfabéticos en el campo de nombre', async () => {
+    const wrapper = mount(ResidentesCards, {
+      props: {
+        modelValue: []
+      }
+    });
+
+    const nombreInput = wrapper.find<HTMLInputElement>('#residente-nombre');
+    await nombreInput.setValue('María 123 P. #4!');
+    expect(nombreInput.element.value).toBe('María  P. ');
+  });
 });
