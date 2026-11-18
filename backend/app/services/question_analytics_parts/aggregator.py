@@ -4,11 +4,11 @@ from collections import Counter
 from typing import Any, Dict, List
 
 from backend.app.schemas.analytics import PreguntaMetricaOut
-from backend.app.services.analytics.labels_catalog import (
+from backend.app.services.question_analytics_parts.labels import (
     _build_options_lookup,
     _humanize_value,
 )
-from backend.app.services.analytics.questions_config import QUESTIONS_METRIC_CONFIG
+from backend.app.services.question_analytics_parts.config import QUESTIONS_METRIC_CONFIG
 
 
 def _bucket_age(cv: Any) -> str:
