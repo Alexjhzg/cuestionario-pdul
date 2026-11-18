@@ -1,4 +1,5 @@
 from typing import Any, List, Union
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -24,7 +25,7 @@ class Settings(BaseSettings):
     CANONICAL_SURVEY_SLUG: str = "cuestionario-od-maturin"
     LEGACY_SURVEY_SLUG: str = "pdul_origen_destino"
 
-    @field_validator("DATABASE_URL", mode="before")
+    @field_validator("DATABASE_URL", "SQLITE_FALLBACK_URL", mode="before")
     @classmethod
     def assemble_database_url(cls, v: Union[str, Any]) -> str:
         if isinstance(v, str):
@@ -33,14 +34,31 @@ class Settings(BaseSettings):
                 val = val.replace("postgres://", "postgresql+asyncpg://", 1)
             elif val.startswith("postgresql://") and not val.startswith("postgresql+asyncpg://"):
                 val = val.replace("postgresql://", "postgresql+asyncpg://", 1)
+            elif val.startswith("sqlite://") and not val.startswith("sqlite+aiosqlite://"):
+                val = val.replace("sqlite://", "sqlite+aiosqlite://", 1)
+
             if "sslmode=" in val:
-                val = (
-                    val.replace("sslmode=require", "ssl=require")
-                    .replace("sslmode=prefer", "")
-                    .replace("sslmode=disable", "")
+                parts = urlsplit(val)
+                filtered_params: list[tuple[str, str]] = []
+                for key, param_val in parse_qsl(parts.query, keep_blank_values=True):
+                    if key == "sslmode":
+                        if param_val == "require":
+                            filtered_params.append(("ssl", "require"))
+                        elif param_val in ("prefer", "disable"):
+                            continue
+                        else:
+                            filtered_params.append((key, param_val))
+                    else:
+                        filtered_params.append((key, param_val))
+                val = urlunsplit(
+                    (
+                        parts.scheme,
+                        parts.netloc,
+                        parts.path,
+                        urlencode(filtered_params),
+                        parts.fragment,
+                    )
                 )
-                if val.endswith("?") or val.endswith("&"):
-                    val = val[:-1]
             return val
         return str(v)
 

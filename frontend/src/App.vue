@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { ref, computed, getCurrentInstance } from 'vue';
+import { ref, computed, getCurrentInstance, defineAsyncComponent } from 'vue';
 import Toast from 'primevue/toast';
 import SurveyFillView from './views/SurveyFillView.vue';
-import FormBuilderView from './views/FormBuilderView.vue';
-import AdminSurveyListView from './views/AdminSurveyListView.vue';
-import AdminResponsesView from './views/AdminResponsesView.vue';
-import DashboardView from './views/DashboardView.vue';
+
+const FormBuilderView = defineAsyncComponent(() => import('./views/FormBuilderView.vue'));
+const AdminSurveyListView = defineAsyncComponent(() => import('./views/AdminSurveyListView.vue'));
+const AdminResponsesView = defineAsyncComponent(() => import('./views/AdminResponsesView.vue'));
+const DashboardView = defineAsyncComponent(() => import('./views/DashboardView.vue'));
 
 export type AppView =
   | 'survey-fill'

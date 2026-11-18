@@ -29,3 +29,9 @@ test-results/
 
 # Directorios temporales de agentes
 .agents/
+
+# Archivos residuales archivados fuera de la raíz
+archive/
+pdf_text.txt
+skills-antigravity-alcaldia.zip
+

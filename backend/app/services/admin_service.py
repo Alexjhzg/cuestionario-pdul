@@ -2,6 +2,7 @@ import csv
 import io
 import json
 import uuid
+from collections.abc import AsyncIterator
 from typing import Any, Dict, List
 
 from backend.app.domain.exceptions import DuplicateSlugError, SurveyNotFoundError
@@ -113,6 +114,91 @@ class AdminService:
             "items": items,
         }
 
+    @staticmethod
+    def _format_export_row(s: Any, redact_pii: bool) -> Dict[str, Any]:
+        datos_export = sanitize_pii(s.datos) if redact_pii else dict(s.datos)
+        row: Dict[str, Any] = {
+            "id": s.id,
+            "encuesta_id": str(s.encuesta_id),
+            "parroquia": s.parroquia,
+            "zona_od": s.zona_od,
+            "fecha_registro": (
+                s.fecha_registro.isoformat() if s.fecha_registro else None
+            ),
+        }
+        if not redact_pii and s.cedula:
+            row["cedula"] = s.cedula
+        row["datos"] = datos_export
+        return row
+
+    @staticmethod
+    def _format_csv_line(values: List[str]) -> str:
+        buf = io.StringIO()
+        csv.writer(buf).writerow(values)
+        return buf.getvalue()
+
+    async def stream_export_submissions(
+        self,
+        encuesta_id: uuid.UUID,
+        formato: str = "json",
+        redact_pii: bool = False,
+        batch_size: int = 200,
+    ) -> AsyncIterator[str]:
+        """Generador asíncrono que transmite respuestas en fragmentos CSV o JSON sin cargar todo en RAM."""
+        fmt = formato.lower()
+        if fmt == "csv":
+            headers = ["id", "parroquia", "zona_od", "fecha_registro"]
+            if not redact_pii:
+                headers.append("cedula")
+            headers.append("datos_json")
+            yield self._format_csv_line(headers)
+
+            offset = 0
+            while True:
+                batch = await self.uow.submissions.list_submissions(
+                    encuesta_id, skip=offset, limit=batch_size
+                )
+                if not batch:
+                    break
+                for s in batch:
+                    item = self._format_export_row(s, redact_pii)
+                    row_vals = [
+                        str(item["id"]),
+                        item.get("parroquia", ""),
+                        item.get("zona_od", "") or "",
+                        item.get("fecha_registro", "") or "",
+                    ]
+                    if not redact_pii:
+                        row_vals.append(item.get("cedula", "") or "")
+                    row_vals.append(
+                        json.dumps(item.get("datos", {}), ensure_ascii=False)
+                    )
+                    yield self._format_csv_line(row_vals)
+                if len(batch) < batch_size:
+                    break
+                offset += batch_size
+            return
+
+        # Formato JSON por streaming incremental
+        yield "["
+        first = True
+        offset = 0
+        while True:
+            batch = await self.uow.submissions.list_submissions(
+                encuesta_id, skip=offset, limit=batch_size
+            )
+            if not batch:
+                break
+            for s in batch:
+                item = self._format_export_row(s, redact_pii)
+                prefix = "" if first else ","
+                first = False
+                yield f"{prefix}{json.dumps(item, ensure_ascii=False)}"
+            if len(batch) < batch_size:
+                break
+            offset += batch_size
+        yield "]"
+
     async def export_submissions(
         self,
         encuesta_id: uuid.UUID,
@@ -126,23 +212,9 @@ class AdminService:
             encuesta_id, skip=0, limit=total or 100000
         )
 
-        cleaned_list: List[Dict[str, Any]] = []
-        for s in subs:
-            datos_export = sanitize_pii(s.datos) if redact_pii else dict(s.datos)
-            row: Dict[str, Any] = {
-                "id": s.id,
-                "encuesta_id": str(s.encuesta_id),
-                "parroquia": s.parroquia,
-                "zona_od": s.zona_od,
-                "fecha_registro": (
-                    s.fecha_registro.isoformat() if s.fecha_registro else None
-                ),
-            }
-            if not redact_pii and s.cedula:
-                row["cedula"] = s.cedula
-
-            row["datos"] = datos_export
-            cleaned_list.append(row)
+        cleaned_list: List[Dict[str, Any]] = [
+            self._format_export_row(s, redact_pii) for s in subs
+        ]
 
         if formato.lower() == "csv":
             output = io.StringIO()

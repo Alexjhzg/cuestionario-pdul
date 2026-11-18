@@ -1,7 +1,7 @@
-import json
 import uuid
 from typing import Any, Dict, List
-from fastapi import APIRouter, Depends, Query, Response, status
+from fastapi import APIRouter, Depends, Query, status
+from fastapi.responses import StreamingResponse
 
 from backend.app.api.deps import get_admin_service
 from backend.app.schemas.encuesta import (
@@ -110,20 +110,21 @@ async def exportar_respuestas_admin(
     formato: str = Query(default="json", pattern=r"^(json|csv)$"),
     redact_pii: bool = Query(default=False, description="Anonimizar datos personales en la descarga"),
     service: AdminService = Depends(get_admin_service),
-) -> Response:
-    resultado = await service.export_submissions(
+) -> StreamingResponse:
+    await service._require_survey(encuesta_id)
+    stream = service.stream_export_submissions(
         encuesta_id, formato=formato, redact_pii=redact_pii
     )
     if formato.lower() == "csv":
-        return Response(
-            content=resultado,
+        return StreamingResponse(
+            content=stream,
             media_type="text/csv",
             headers={
                 "Content-Disposition": f'attachment; filename="encuesta_{encuesta_id}.csv"'
             },
         )
-    return Response(
-        content=json.dumps(resultado, ensure_ascii=False),
+    return StreamingResponse(
+        content=stream,
         media_type="application/json",
         headers={
             "Content-Disposition": f'attachment; filename="encuesta_{encuesta_id}.json"'
