@@ -1,0 +1,273 @@
+[
+  {
+    "codigo": "San Simón Centro (160805)",
+    "nombre": "San Simón Centro (160805)",
+    "parroquia": "san_simon",
+    "xpar": "160805"
+  },
+  {
+    "codigo": "Casco Central Maturín",
+    "nombre": "Casco Central Maturín",
+    "parroquia": "san_simon",
+    "xpar": "160805"
+  },
+  {
+    "codigo": "Juanico / Las Avenidas",
+    "nombre": "Juanico / Las Avenidas",
+    "parroquia": "san_simon",
+    "xpar": "160805"
+  },
+  {
+    "codigo": "La Muralla / Viento Colao",
+    "nombre": "La Muralla / Viento Colao",
+    "parroquia": "san_simon",
+    "xpar": "160805"
+  },
+  {
+    "codigo": "San Simón Sur (160801)",
+    "nombre": "San Simón Sur (160801)",
+    "parroquia": "san_simon",
+    "xpar": "160801"
+  },
+  {
+    "codigo": "Morichal / Zona Sur",
+    "nombre": "Morichal / Zona Sur",
+    "parroquia": "san_simon",
+    "xpar": "160801"
+  },
+  {
+    "codigo": "Alto de Los Godos (160802)",
+    "nombre": "Alto de Los Godos (160802)",
+    "parroquia": "alto_de_los_godos",
+    "xpar": "160802"
+  },
+  {
+    "codigo": "Los Godos Central",
+    "nombre": "Los Godos Central",
+    "parroquia": "alto_de_los_godos",
+    "xpar": "160802"
+  },
+  {
+    "codigo": "Los Guaritos I - IV",
+    "nombre": "Los Guaritos I - IV",
+    "parroquia": "alto_de_los_godos",
+    "xpar": "160802"
+  },
+  {
+    "codigo": "Paramaconi / Alto",
+    "nombre": "Paramaconi / Alto",
+    "parroquia": "alto_de_los_godos",
+    "xpar": "160802"
+  },
+  {
+    "codigo": "Gran Victoria / Fundemos",
+    "nombre": "Gran Victoria / Fundemos",
+    "parroquia": "alto_de_los_godos",
+    "xpar": "160802"
+  },
+  {
+    "codigo": "Boquerón (160803)",
+    "nombre": "Boquerón (160803)",
+    "parroquia": "boqueron",
+    "xpar": "160803"
+  },
+  {
+    "codigo": "Boquerón Centro",
+    "nombre": "Boquerón Centro",
+    "parroquia": "boqueron",
+    "xpar": "160803"
+  },
+  {
+    "codigo": "Tipuro / Zona Norte",
+    "nombre": "Tipuro / Zona Norte",
+    "parroquia": "boqueron",
+    "xpar": "160803"
+  },
+  {
+    "codigo": "Palma Real / La Toscana",
+    "nombre": "Palma Real / La Toscana",
+    "parroquia": "boqueron",
+    "xpar": "160803"
+  },
+  {
+    "codigo": "Orocual / Bosques Laguna",
+    "nombre": "Orocual / Bosques Laguna",
+    "parroquia": "boqueron",
+    "xpar": "160803"
+  },
+  {
+    "codigo": "Las Cocuizas (160804)",
+    "nombre": "Las Cocuizas (160804)",
+    "parroquia": "las_cocuizas",
+    "xpar": "160804"
+  },
+  {
+    "codigo": "Los Cortijos / La Floresta",
+    "nombre": "Los Cortijos / La Floresta",
+    "parroquia": "las_cocuizas",
+    "xpar": "160804"
+  },
+  {
+    "codigo": "Campo Alegre / El Silencio",
+    "nombre": "Campo Alegre / El Silencio",
+    "parroquia": "las_cocuizas",
+    "xpar": "160804"
+  },
+  {
+    "codigo": "Sabana Grande / Aeropuerto",
+    "nombre": "Sabana Grande / Aeropuerto",
+    "parroquia": "las_cocuizas",
+    "xpar": "160804"
+  },
+  {
+    "codigo": "La Cruz (160806)",
+    "nombre": "La Cruz (160806)",
+    "parroquia": "la_cruz",
+    "xpar": "160806"
+  },
+  {
+    "codigo": "Centro La Cruz",
+    "nombre": "Centro La Cruz",
+    "parroquia": "la_cruz",
+    "xpar": "160806"
+  },
+  {
+    "codigo": "San Jaime / Las Garzas",
+    "nombre": "San Jaime / Las Garzas",
+    "parroquia": "la_cruz",
+    "xpar": "160806"
+  },
+  {
+    "codigo": "Juana La Avanzadora",
+    "nombre": "Juana La Avanzadora",
+    "parroquia": "la_cruz",
+    "xpar": "160806"
+  },
+  {
+    "codigo": "Zona Industrial La Cruz",
+    "nombre": "Zona Industrial La Cruz",
+    "parroquia": "la_cruz",
+    "xpar": "160806"
+  },
+  {
+    "codigo": "Santa Cruz (160806)",
+    "nombre": "Santa Cruz (160806)",
+    "parroquia": "santa_cruz",
+    "xpar": "160806"
+  },
+  {
+    "codigo": "Santa Cruz Centro",
+    "nombre": "Santa Cruz Centro",
+    "parroquia": "santa_cruz",
+    "xpar": "160806"
+  },
+  {
+    "codigo": "Zona Industrial Santa Cruz",
+    "nombre": "Zona Industrial Santa Cruz",
+    "parroquia": "santa_cruz",
+    "xpar": "160806"
+  },
+  {
+    "codigo": "Santa Elena / San Rafael",
+    "nombre": "Santa Elena / San Rafael",
+    "parroquia": "santa_cruz",
+    "xpar": "160806"
+  },
+  {
+    "codigo": "El Corozo (160807)",
+    "nombre": "El Corozo (160807)",
+    "parroquia": "el_corozo",
+    "xpar": "160807"
+  },
+  {
+    "codigo": "El Corozo Centro",
+    "nombre": "El Corozo Centro",
+    "parroquia": "el_corozo",
+    "xpar": "160807"
+  },
+  {
+    "codigo": "El Corozo Alto / Amarilis",
+    "nombre": "El Corozo Alto / Amarilis",
+    "parroquia": "el_corozo",
+    "xpar": "160807"
+  },
+  {
+    "codigo": "El Furrial (160808)",
+    "nombre": "El Furrial (160808)",
+    "parroquia": "el_furrial",
+    "xpar": "160808"
+  },
+  {
+    "codigo": "El Furrial Centro",
+    "nombre": "El Furrial Centro",
+    "parroquia": "el_furrial",
+    "xpar": "160808"
+  },
+  {
+    "codigo": "Amana / Potrerito",
+    "nombre": "Amana / Potrerito",
+    "parroquia": "el_furrial",
+    "xpar": "160808"
+  },
+  {
+    "codigo": "Jusepín (160809)",
+    "nombre": "Jusepín (160809)",
+    "parroquia": "jusepin",
+    "xpar": "160809"
+  },
+  {
+    "codigo": "Jusepín Centro",
+    "nombre": "Jusepín Centro",
+    "parroquia": "jusepin",
+    "xpar": "160809"
+  },
+  {
+    "codigo": "Rucio Viejo / Ayacucho",
+    "nombre": "Rucio Viejo / Ayacucho",
+    "parroquia": "jusepin",
+    "xpar": "160809"
+  },
+  {
+    "codigo": "La Pica (160810)",
+    "nombre": "La Pica (160810)",
+    "parroquia": "la_pica",
+    "xpar": "160810"
+  },
+  {
+    "codigo": "La Pica Centro",
+    "nombre": "La Pica Centro",
+    "parroquia": "la_pica",
+    "xpar": "160810"
+  },
+  {
+    "codigo": "El Barril / Carital",
+    "nombre": "El Barril / Carital",
+    "parroquia": "la_pica",
+    "xpar": "160810"
+  },
+  {
+    "codigo": "Boca de Guanipa",
+    "nombre": "Boca de Guanipa",
+    "parroquia": "la_pica",
+    "xpar": "160810"
+  },
+  {
+    "codigo": "San Vicente (160811)",
+    "nombre": "San Vicente (160811)",
+    "parroquia": "san_vicente",
+    "xpar": "160811"
+  },
+  {
+    "codigo": "San Vicente Centro",
+    "nombre": "San Vicente Centro",
+    "parroquia": "san_vicente",
+    "xpar": "160811"
+  },
+  {
+    "codigo": "Pueblo Libre / Colinas",
+    "nombre": "Pueblo Libre / Colinas",
+    "parroquia": "san_vicente",
+    "xpar": "160811"
+  }
+]
+

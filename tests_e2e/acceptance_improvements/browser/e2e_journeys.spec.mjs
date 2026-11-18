@@ -119,10 +119,10 @@ test.describe('Citizen Mobile Journeys (360x740)', () => {
     await page.getByRole('button', { name: 'Siguiente' }).click();
     await expect(page.locator('.wizard-error-banner[role="alert"]')).toBeVisible();
 
-    // Fill Step 1
+    // Fill Step 1 (dependent cascade dropdowns)
     await page.locator('#parroquia').selectOption('san_simon');
-    await page.locator('#comunidad_sector').fill('Las Brisas');
-    await page.locator('#zona_residencia_od').fill('Z-01');
+    await page.locator('#comunidad_sector').selectOption('CENTRO');
+    await page.locator('#zona_residencia_od').selectOption('San Simón Centro (160805)');
     await page.locator('#avenida_calle').fill('Av. Bolívar');
     await page.locator('#casa_apartamento').fill('Casa 12');
     await page.getByRole('button', { name: 'Siguiente' }).click();

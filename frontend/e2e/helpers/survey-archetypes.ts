@@ -135,8 +135,8 @@ export const ARCHETYPES: Record<string, SurveyArchetype> = {
     description: 'Valida que todas las preguntas dependientes (v-if) permanezcan ocultas',
     paso1: {
       parroquia: 'san_simon',
-      comunidad_sector: 'Centro de Maturín',
-      zona_residencia_od: 'San Simón Centro',
+      comunidad_sector: 'CENTRO',
+      zona_residencia_od: 'San Simón Centro (160805)',
       avenida_calle: 'Av. Bicentenario',
       casa_apartamento: 'Edif. Monagas, Piso 2, Apto 4'
     },
@@ -247,8 +247,8 @@ export const ARCHETYPES: Record<string, SurveyArchetype> = {
     description: 'Activa el 100% de los campos condicionales abiertos y sub-bifurcaciones',
     paso1: {
       parroquia: 'alto_de_los_godos',
-      comunidad_sector: 'Los Guaritos III',
-      zona_residencia_od: 'Los Godos Oeste',
+      comunidad_sector: 'ALTO DE LOS GODOS',
+      zona_residencia_od: 'Los Guaritos I - IV',
       avenida_calle: 'Vereda 12 con Calle 4',
       casa_apartamento: 'Quinta 10-A'
     },
@@ -376,8 +376,8 @@ export const ARCHETYPES: Record<string, SurveyArchetype> = {
     description: 'Evalúa familias con tenencia de automóvil, licencia y viajes particulares',
     paso1: {
       parroquia: 'las_cocuizas',
-      comunidad_sector: 'Urbanización San Rafael',
-      zona_residencia_od: 'Las Cocuizas Norte',
+      comunidad_sector: 'LA FLORESTA',
+      zona_residencia_od: 'Los Cortijos / La Floresta',
       avenida_calle: 'Av. Universidad',
       casa_apartamento: 'Casa Nro. 88'
     },
@@ -505,8 +505,8 @@ export const ARCHETYPES: Record<string, SurveyArchetype> = {
     description: 'Enfocado en movilidad no motorizada, caminabilidad y cruces peatonales seguros',
     paso1: {
       parroquia: 'boqueron',
-      comunidad_sector: 'Costanera Norte',
-      zona_residencia_od: 'Boquerón Central',
+      comunidad_sector: 'TIPURO',
+      zona_residencia_od: 'Boquerón Centro',
       avenida_calle: 'Av. Alirio Ugarte Pelayo',
       casa_apartamento: 'Sector San Ramón Casa 12'
     },

@@ -30,10 +30,10 @@ test.describe('Auditoría Funcional - Flujo Ciudadano (Llenado del Cuestionario 
     await btnSiguiente.click();
     await page.waitForTimeout(300);
 
-    // Llenar campos requeridos de Sección I
+    // Llenar campos requeridos de Sección I (cascada Parroquia -> Comunidad -> Zona O-D)
     await page.selectOption('#parroquia', 'san_simon');
-    await page.fill('#comunidad_sector', 'Sector Centro - Avenida Bolívar');
-    await page.fill('#zona_residencia_od', 'San Simón Centro');
+    await page.selectOption('#comunidad_sector', 'CENTRO');
+    await page.selectOption('#zona_residencia_od', 'San Simón Centro (160805)');
     await page.fill('#avenida_calle', 'Calle Monagas c/c Calle Chimborazo');
     await page.fill('#casa_apartamento', 'Casa Nro. 45');
 

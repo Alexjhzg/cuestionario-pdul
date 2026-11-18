@@ -75,8 +75,15 @@ function markTouched(fieldName: string) {
   touchedFields.value[fieldName] = true;
 }
 
+let pendingModelPatch: Record<string, any> | null = null;
+
 function updateField(field: string, value: any) {
-  emit('update:modelValue', { ...props.modelValue, [field]: value });
+  const base = pendingModelPatch ?? props.modelValue;
+  pendingModelPatch = { ...base, [field]: value };
+  emit('update:modelValue', pendingModelPatch);
+  queueMicrotask(() => {
+    pendingModelPatch = null;
+  });
 }
 
 function updateResidentes(residentes: Residente[]) {

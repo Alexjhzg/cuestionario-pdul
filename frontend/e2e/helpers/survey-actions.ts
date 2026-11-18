@@ -31,8 +31,8 @@ export class SurveyBotOperator {
   // =========================================================================
   async fillPaso1(data: SurveyArchetype['paso1']) {
     await this.page.selectOption('#parroquia', data.parroquia);
-    await this.page.fill('#comunidad_sector', data.comunidad_sector);
-    await this.page.fill('#zona_residencia_od', data.zona_residencia_od);
+    await this.page.selectOption('#comunidad_sector', data.comunidad_sector);
+    await this.page.selectOption('#zona_residencia_od', data.zona_residencia_od);
     await this.page.fill('#avenida_calle', data.avenida_calle);
     await this.page.fill('#casa_apartamento', data.casa_apartamento);
     await this.tracker.checkHorizontalOverflow('Paso 1: Ubicación');
