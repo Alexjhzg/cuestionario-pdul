@@ -1,3 +1,8 @@
+<script lang="ts">
+// Variable a nivel de módulo compartida: asegura que solo exista un tooltip abierto a la vez
+let activeCloseCallback: (() => void) | null = null;
+</script>
+
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount, useId } from 'vue';
 
@@ -5,9 +10,11 @@ const props = withDefaults(
   defineProps<{
     text: string;
     questionLabel?: string;
+    autoCloseMs?: number;
   }>(),
   {
-    questionLabel: 'esta pregunta'
+    questionLabel: 'esta pregunta',
+    autoCloseMs: 5000
   }
 );
 
@@ -15,16 +22,59 @@ const isOpen = ref(false);
 const rootRef = ref<HTMLElement | null>(null);
 const triggerRef = ref<HTMLButtonElement | null>(null);
 const tipId = `q-help-${useId()}`;
+let autoCloseTimer: ReturnType<typeof setTimeout> | null = null;
 
-function toggle() {
-  isOpen.value = !isOpen.value;
+function clearAutoCloseTimer() {
+  if (autoCloseTimer !== null) {
+    clearTimeout(autoCloseTimer);
+    autoCloseTimer = null;
+  }
+}
+
+function startAutoCloseTimer() {
+  clearAutoCloseTimer();
+  if (props.autoCloseMs > 0) {
+    autoCloseTimer = setTimeout(() => {
+      close(false);
+    }, props.autoCloseMs);
+  }
+}
+
+function closeInternals() {
+  clearAutoCloseTimer();
+  if (!isOpen.value) return;
+  isOpen.value = false;
+  if (activeCloseCallback === closeInternals) {
+    activeCloseCallback = null;
+  }
 }
 
 function close(restoreFocus = false) {
-  if (!isOpen.value) return;
-  isOpen.value = false;
+  closeInternals();
   if (restoreFocus) {
     triggerRef.value?.focus();
+  }
+}
+
+function open() {
+  // 1. Cerrar cualquier otro tooltip abierto previamente (solo un tooltip a la vez)
+  if (activeCloseCallback && activeCloseCallback !== closeInternals) {
+    activeCloseCallback();
+  }
+  activeCloseCallback = closeInternals;
+
+  // 2. Abrir este tooltip
+  isOpen.value = true;
+
+  // 3. Iniciar temporizador para desaparecer automáticamente tras 5 segundos
+  startAutoCloseTimer();
+}
+
+function toggle() {
+  if (isOpen.value) {
+    close(false);
+  } else {
+    open();
   }
 }
 
@@ -49,6 +99,10 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
+  clearAutoCloseTimer();
+  if (activeCloseCallback === closeInternals) {
+    activeCloseCallback = null;
+  }
   document.removeEventListener('click', onDocumentClick);
   document.removeEventListener('keydown', onDocumentKeydown);
 });

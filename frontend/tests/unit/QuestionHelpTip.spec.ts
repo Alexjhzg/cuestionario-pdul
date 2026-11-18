@@ -1,4 +1,4 @@
-import { describe, it, expect, afterEach } from 'vitest';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import { mount, type VueWrapper } from '@vue/test-utils';
 import QuestionHelpTip from '@/components/common/QuestionHelpTip.vue';
 import Step2Vivienda from '@/components/survey/sections/Step2Vivienda.vue';
@@ -16,6 +16,7 @@ function trackMount<T extends VueWrapper>(wrapper: T): T {
 }
 
 afterEach(() => {
+  vi.useRealTimers();
   while (mountedWrappers.length > 0) {
     mountedWrappers.pop()?.unmount();
   }
@@ -95,6 +96,70 @@ describe('QuestionHelpTip.vue — Toggletip accesible (?)', () => {
     document.body.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     await wrapper.vm.$nextTick();
     expect(wrapper.find('[data-testid="question-help-popover"]').exists()).toBe(false);
+  });
+
+  it('permite un solo tooltip abierto a la vez (cerrando el anterior al abrir uno nuevo)', async () => {
+    const wrapperA = trackMount(
+      mount(QuestionHelpTip, {
+        attachTo: document.body,
+        props: {
+          text: 'Ayuda A',
+          questionLabel: 'Pregunta A'
+        }
+      })
+    );
+    const wrapperB = trackMount(
+      mount(QuestionHelpTip, {
+        attachTo: document.body,
+        props: {
+          text: 'Ayuda B',
+          questionLabel: 'Pregunta B'
+        }
+      })
+    );
+
+    const btnA = wrapperA.get('[data-testid="btn-question-help"]');
+    const btnB = wrapperB.get('[data-testid="btn-question-help"]');
+
+    // Abrir A
+    await btnA.trigger('click');
+    expect(wrapperA.find('[data-testid="question-help-popover"]').exists()).toBe(true);
+    expect(wrapperB.find('[data-testid="question-help-popover"]').exists()).toBe(false);
+
+    // Abrir B -> Debe cerrar A inmediatamente
+    await btnB.trigger('click');
+    expect(wrapperA.find('[data-testid="question-help-popover"]').exists()).toBe(false);
+    expect(wrapperB.find('[data-testid="question-help-popover"]').exists()).toBe(true);
+  });
+
+  it('cierra automáticamente el tooltip después de 5 segundos (5000ms)', async () => {
+    vi.useFakeTimers();
+
+    const wrapper = trackMount(
+      mount(QuestionHelpTip, {
+        attachTo: document.body,
+        props: {
+          text: 'Ayuda con temporizador',
+          questionLabel: 'Pregunta Temporal',
+          autoCloseMs: 5000
+        }
+      })
+    );
+
+    const btn = wrapper.get('[data-testid="btn-question-help"]');
+    await btn.trigger('click');
+    expect(wrapper.find('[data-testid="question-help-popover"]').exists()).toBe(true);
+
+    // Avanzar 4.9 segundos: debe seguir abierto
+    vi.advanceTimersByTime(4900);
+    await wrapper.vm.$nextTick();
+    expect(wrapper.find('[data-testid="question-help-popover"]').exists()).toBe(true);
+
+    // Avanzar 200 ms más (total > 5000ms): debe cerrarse
+    vi.advanceTimersByTime(200);
+    await wrapper.vm.$nextTick();
+    expect(wrapper.find('[data-testid="question-help-popover"]').exists()).toBe(false);
+    expect(btn.attributes('aria-expanded')).toBe('false');
   });
 });
 
