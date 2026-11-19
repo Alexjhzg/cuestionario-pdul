@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
 import QuestionHelpTip from '@/components/common/QuestionHelpTip.vue';
+import GpsLocationCapture, { type GpsPayload } from '@/components/common/GpsLocationCapture.vue';
 import { QUESTION_HELP_TIPS } from '@/utils/questionHelpCatalog';
 import comunidadesCatalogJson from '@shared/catalogs/comunidades_maturin.json';
 import zonasOdCatalogJson from '@shared/catalogs/zonas_od_maturin.json';
@@ -206,6 +207,13 @@ function onZonaSelectChange(event: Event) {
   const value = (event.target as HTMLSelectElement).value;
   emit('update-field', 'zona_residencia_od', value);
 }
+
+function onUpdateGps(payload: GpsPayload) {
+  emit('update-field', 'gps_latitud', payload.latitude);
+  emit('update-field', 'gps_longitud', payload.longitude);
+  emit('update-field', 'gps_precision', payload.accuracy);
+  emit('update-field', 'gps_capturado_en', payload.capturedAt);
+}
 </script>
 
 <template>
@@ -383,4 +391,12 @@ function onZonaSelectChange(event: Event) {
       @input="emit('update-field', 'casa_apartamento', ($event.target as HTMLInputElement).value)"
     />
   </div>
+
+  <GpsLocationCapture
+    :latitude="modelValue.gps_latitud ?? null"
+    :longitude="modelValue.gps_longitud ?? null"
+    :accuracy="modelValue.gps_precision ?? null"
+    :captured-at="modelValue.gps_capturado_en ?? null"
+    @update-gps="onUpdateGps"
+  />
 </template>

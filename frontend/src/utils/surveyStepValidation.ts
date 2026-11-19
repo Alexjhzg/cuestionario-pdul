@@ -138,6 +138,25 @@ export function getStepErrors(stepIdx: number, data: Record<string, any>): strin
       requireField('zona_residencia_od', '3.- Indique su zona de residencia (zonificación O-D).');
       requireField('avenida_calle', '4.- Indique la avenida o calle.');
       requireField('casa_apartamento', '5.- Indique la casa o apartamento.');
+
+      const hasLat = !isBlankValue(source.gps_latitud);
+      const hasLng = !isBlankValue(source.gps_longitud);
+      if (hasLat || hasLng) {
+        const latNum = Number(source.gps_latitud);
+        const lngNum = Number(source.gps_longitud);
+        if (
+          !hasLat ||
+          !hasLng ||
+          !Number.isFinite(latNum) ||
+          !Number.isFinite(lngNum) ||
+          latNum < -90 ||
+          latNum > 90 ||
+          lngNum < -180 ||
+          lngNum > 180
+        ) {
+          errors.push('6.- Las coordenadas GPS registradas no son válidas. Recalcule o quite el punto GPS.');
+        }
+      }
       break;
     }
     case 1: {

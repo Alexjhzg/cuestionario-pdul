@@ -62,6 +62,30 @@ defineProps<{
             {{ displayData.cedula || 'No requerida / Anónimo' }}
           </span>
         </div>
+        <div
+          v-if="typeof displayData.gps_latitud === 'number' && typeof displayData.gps_longitud === 'number'"
+          class="detail-field full-width"
+          data-testid="admin-detail-gps"
+        >
+          <span class="field-title">Geolocalización GPS</span>
+          <div class="gps-admin-row">
+            <span class="field-content gps-admin-coords">
+              {{ displayData.gps_latitud.toFixed(6) }}, {{ displayData.gps_longitud.toFixed(6) }}
+              <template v-if="typeof displayData.gps_precision === 'number'">
+                (Precisión: ±{{ Math.round(displayData.gps_precision) }} m)
+              </template>
+            </span>
+            <a
+              :href="`https://www.openstreetmap.org/?mlat=${displayData.gps_latitud.toFixed(6)}&mlon=${displayData.gps_longitud.toFixed(6)}#map=17/${displayData.gps_latitud.toFixed(6)}/${displayData.gps_longitud.toFixed(6)}`"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="gps-admin-map-link"
+            >
+              <i class="pi pi-external-link" aria-hidden="true"></i>
+              <span>Abrir en OpenStreetMap</span>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -449,5 +473,32 @@ defineProps<{
   font-size: var(--text-body-sm);
   line-height: 1.5;
   color: var(--color-midnight-ink);
+}
+
+.gps-admin-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-8);
+}
+
+.gps-admin-coords {
+  font-family: var(--font-roboto-mono);
+  font-weight: var(--font-weight-semibold);
+}
+
+.gps-admin-map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-royal-signal);
+  text-decoration: none;
+}
+
+.gps-admin-map-link:hover {
+  text-decoration: underline;
 }
 </style>

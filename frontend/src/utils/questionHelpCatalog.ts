@@ -14,6 +14,8 @@ export const QUESTION_HELP_TIPS: Record<string, string> = {
     'Nombre o número de la avenida, calle, carrera o vereda principal de acceso a su vivienda.',
   casa_apartamento:
     'Número o identificador de la casa, quinta, bloque, edificio o apartamento.',
+  gps_ubicacion:
+    'Captura opcional de latitud y longitud mediante el GPS de su dispositivo. Ayuda a georreferenciar con precisión la vivienda en el mapa de movilidad sin bloquear el llenado si no dispone de señal.',
 
   // Sección II: Datos de la Vivienda
   tipo_vivienda:

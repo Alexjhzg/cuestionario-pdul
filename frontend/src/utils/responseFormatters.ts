@@ -34,6 +34,10 @@ export interface ResponseDisplayData {
   zona_residencia_od?: string;
   avenida_calle?: string;
   casa_apartamento?: string;
+  gps_latitud?: number | null;
+  gps_longitud?: number | null;
+  gps_precision?: number | null;
+  gps_capturado_en?: string | null;
   cedula?: string;
   tipo_vivienda?: string;
   tenencia_vivienda?: string;
