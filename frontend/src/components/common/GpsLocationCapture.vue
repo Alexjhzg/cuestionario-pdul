@@ -101,10 +101,6 @@ function handleClear() {
       />
     </div>
 
-    <p class="gps-helper-text">
-      Recomendado para encuestadores en campo. Registra las coordenadas exactas de la residencia con un toque.
-    </p>
-
     <div class="visually-hidden" role="status" aria-live="polite">
       {{ liveAnnouncement }}
     </div>
