@@ -93,7 +93,7 @@ function handleClear() {
   <div class="gps-capture-container" data-testid="gps-location-capture">
     <div class="survey-label-row">
       <span class="survey-label gps-section-label">
-        6.- Punto GPS de la vivienda <span class="optional-tag">(Opcional)</span>
+        6.- Punto GPS de la vivienda
       </span>
       <QuestionHelpTip
         :text="QUESTION_HELP_TIPS.gps_ubicacion"
