@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue';
+import { ref, computed, watch, nextTick, onBeforeUnmount } from 'vue';
 import { useToast } from 'primevue/usetoast';
 import { SURVEY_STEPS, type Residente, type ViajeOD } from '@/types/survey';
-import { calculateStepProgress, getStepErrors } from '@/utils/surveyStepValidation';
+import {
+  calculateStepProgress,
+  getStepValidationErrors,
+  type StepValidationError
+} from '@/utils/surveyStepValidation';
 import ViajesMobileCards from './ViajesMobileCards.vue';
 import ResidentesCards from './ResidentesCards.vue';
 import Step1Ubicacion from './sections/Step1Ubicacion.vue';
@@ -61,15 +65,95 @@ const progressPercentage = computed(() => {
 });
 
 const currentStepData = computed(() => SURVEY_STEPS[currentStepIndex.value] || SURVEY_STEPS[0]);
-const stepErrors = ref<string[]>([]);
+const stepErrorItems = ref<StepValidationError[]>([]);
+const stepErrors = computed(() => stepErrorItems.value.map((item) => item.message));
 const touchedFields = ref<Record<string, boolean>>({});
 const residentesCardsRef = ref<{ resetDraft?: () => void } | null>(null);
 const viajesCardsRef = ref<{ resetDraft?: () => void } | null>(null);
+let highlightTimer: ReturnType<typeof setTimeout> | null = null;
+let lastHighlightedEl: HTMLElement | null = null;
+
+function clearFieldHighlight() {
+  if (highlightTimer !== null) {
+    clearTimeout(highlightTimer);
+    highlightTimer = null;
+  }
+  if (lastHighlightedEl) {
+    lastHighlightedEl.classList.remove('missing-field-highlight');
+    lastHighlightedEl = null;
+  }
+}
+
+function findFieldElement(field: string): HTMLElement | null {
+  if (typeof document === 'undefined' || !field) return null;
+
+  if (field === 'comunidad_sector') {
+    const otherInput = document.getElementById('comunidad_sector_otro');
+    if (otherInput) return otherInput;
+  }
+  if (field === 'gps_ubicacion') {
+    return document.querySelector<HTMLElement>('[data-testid="gps-location-capture"]');
+  }
+  if (field === 'residentes') {
+    return (
+      document.getElementById('residente-nombre') ||
+      document.querySelector<HTMLElement>('.residentes-cards')
+    );
+  }
+  if (field === 'viajes') {
+    return (
+      document.getElementById('viaje-persona') ||
+      document.querySelector<HTMLElement>('.viajes-mobile-cards')
+    );
+  }
+
+  const byId = document.getElementById(field);
+  if (byId) return byId;
+
+  const escaped =
+    typeof CSS !== 'undefined' && typeof CSS.escape === 'function'
+      ? CSS.escape(field)
+      : field.replace(/"/g, '\\"');
+  return document.querySelector<HTMLElement>(`[name="${escaped}"]`);
+}
+
+async function focusMissingQuestion(field: string) {
+  await nextTick();
+  const target = findFieldElement(field);
+  if (!target) return;
+
+  const container =
+    (target.closest('.survey-field, fieldset, .gps-capture-container') as HTMLElement | null) ||
+    target;
+
+  if (typeof container.scrollIntoView === 'function') {
+    container.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  clearFieldHighlight();
+  container.classList.add('missing-field-highlight');
+  lastHighlightedEl = container;
+  highlightTimer = setTimeout(() => {
+    clearFieldHighlight();
+  }, 2400);
+
+  if (typeof target.focus === 'function') {
+    try {
+      target.focus({ preventScroll: true });
+    } catch {
+      target.focus();
+    }
+  }
+}
+
+onBeforeUnmount(() => {
+  clearFieldHighlight();
+});
 
 watch(
   () => props.modelValue,
   () => {
-    if (stepErrors.value.length > 0) stepErrors.value = [];
+    if (stepErrorItems.value.length > 0) stepErrorItems.value = [];
   },
   { deep: true }
 );
@@ -123,9 +207,10 @@ function showValidationErrors(errors: string[], summary = 'Datos requeridos') {
 }
 
 function validateCurrentStep(): boolean {
-  stepErrors.value = getStepErrors(currentStepIndex.value, props.modelValue || {});
-  if (stepErrors.value.length > 0) {
+  stepErrorItems.value = getStepValidationErrors(currentStepIndex.value, props.modelValue || {});
+  if (stepErrorItems.value.length > 0) {
     showValidationErrors(stepErrors.value);
+    void focusMissingQuestion(stepErrorItems.value[0].field);
     return false;
   }
   return true;
@@ -149,7 +234,7 @@ function nextStep() {
 
 function prevStep() {
   if (currentStepIndex.value > 0) {
-    stepErrors.value = [];
+    stepErrorItems.value = [];
     currentStepIndex.value--;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -157,28 +242,31 @@ function prevStep() {
 
 function goToStep(targetIndex: number) {
   if (targetIndex < currentStepIndex.value) {
-    stepErrors.value = [];
+    stepErrorItems.value = [];
     currentStepIndex.value = targetIndex;
   } else if (targetIndex === currentStepIndex.value + 1) {
     nextStep();
   }
 }
 
-function onSubmit() {
+async function onSubmit() {
   const data = props.modelValue || {};
   for (let idx = 0; idx < totalSteps; idx++) {
-    const errors = getStepErrors(idx, data);
+    const errors = getStepValidationErrors(idx, data);
     if (errors.length > 0) {
-      stepErrors.value = errors;
+      stepErrorItems.value = errors;
       if (currentStepIndex.value !== idx) {
         currentStepIndex.value = idx;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-      showValidationErrors(errors, 'Complete todas las preguntas de la encuesta');
+      showValidationErrors(
+        errors.map((e) => e.message),
+        'Complete todas las preguntas de la encuesta'
+      );
+      await focusMissingQuestion(errors[0].field);
       return;
     }
   }
-  stepErrors.value = [];
+  stepErrorItems.value = [];
   emit('submit', data);
 }
 </script>
@@ -241,12 +329,22 @@ function onSubmit() {
         </h2>
       </div>
 
-      <div v-if="stepErrors.length > 0" class="wizard-error-banner" role="alert">
+      <div v-if="stepErrorItems.length > 0" class="wizard-error-banner" role="alert">
         <i class="pi pi-exclamation-circle error-banner-icon" aria-hidden="true"></i>
         <div class="error-banner-body">
-          <strong>Debe completar todas las preguntas de esta sección para continuar:</strong>
-          <ul>
-            <li v-for="err in stepErrors" :key="err">{{ err }}</li>
+          <strong>Debe completar todas las preguntas de esta sección para continuar (pulse cualquiera para ir directo):</strong>
+          <ul class="error-jump-list">
+            <li v-for="(err, idx) in stepErrorItems" :key="`${err.field}-${idx}`">
+              <button
+                type="button"
+                class="error-jump-btn"
+                data-testid="btn-jump-missing-field"
+                @click="focusMissingQuestion(err.field)"
+              >
+                <span>{{ err.message }}</span>
+                <i class="pi pi-arrow-down-right error-jump-icon" aria-hidden="true"></i>
+              </button>
+            </li>
           </ul>
         </div>
       </div>
@@ -530,9 +628,54 @@ function onSubmit() {
   padding-top: 2px;
 }
 
-.error-banner-body ul {
-  margin-left: var(--spacing-16);
-  margin-top: var(--spacing-4);
+.error-banner-body ul.error-jump-list {
+  list-style: none;
+  margin: var(--spacing-8) 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.error-jump-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid rgba(185, 28, 28, 0.22);
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.72);
+  color: #991b1b;
+  font-family: inherit;
+  font-size: var(--text-body-sm);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.error-jump-btn:hover {
+  background-color: #ffffff;
+  border-color: #dc2626;
+  text-decoration: underline;
+}
+
+.error-jump-btn:focus-visible {
+  outline: 3px solid var(--color-azure-focus, #0099ff);
+  outline-offset: 2px;
+}
+
+.error-jump-icon {
+  font-size: 0.75rem;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+:deep(.missing-field-highlight) {
+  border-radius: var(--radius-cards, 10px);
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.45);
+  background-color: rgba(254, 242, 242, 0.55);
+  transition: box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
 .wizard-step-content {

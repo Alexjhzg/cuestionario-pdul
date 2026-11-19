@@ -235,4 +235,43 @@ describe('Componente SurveyWizard.vue (Asistente de 9 Pasos)', () => {
     const conOtraForma = mount(SurveyWizard, { props: { modelValue: { tenencia_vivienda: 'otra_forma' }, step: 2 } });
     expect(conOtraForma.find('#tenencia_vivienda_otro').exists()).toBe(true);
   });
+
+  it('redirige, enfoca y resalta automáticamente la primera pregunta faltante al intentar avanzar', async () => {
+    const wrapper = mount(SurveyWizard, {
+      attachTo: document.body,
+      props: {
+        modelValue: {
+          parroquia: 'san_simon',
+          comunidad_sector: 'CENTRO',
+          zona_residencia_od: '160805',
+          avenida_calle: '',
+          casa_apartamento: ''
+        },
+        step: 0
+      }
+    });
+
+    const scrollSpy = vi.fn();
+    const avenidaInput = wrapper.get('#avenida_calle').element as HTMLInputElement;
+    const avenidaContainer = avenidaInput.closest('.survey-field') as HTMLElement;
+    avenidaContainer.scrollIntoView = scrollSpy;
+
+    const btnSiguiente = wrapper.findAll('button').find((b) => b.text().includes('Siguiente'));
+    await btnSiguiente!.trigger('click');
+    await wrapper.vm.$nextTick();
+
+    expect(scrollSpy).toHaveBeenCalledWith({ behavior: 'smooth', block: 'center' });
+    expect(document.activeElement).toBe(avenidaInput);
+    expect(avenidaContainer.classList.contains('missing-field-highlight')).toBe(true);
+
+    // Al pulsar el segundo error en el banner, salta directamente a casa_apartamento
+    const jumpBtns = wrapper.findAll('[data-testid="btn-jump-missing-field"]');
+    expect(jumpBtns).toHaveLength(2);
+    const casaInput = wrapper.get('#casa_apartamento').element as HTMLInputElement;
+    await jumpBtns[1].trigger('click');
+    await wrapper.vm.$nextTick();
+    expect(document.activeElement).toBe(casaInput);
+
+    wrapper.unmount();
+  });
 });

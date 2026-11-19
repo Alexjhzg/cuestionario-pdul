@@ -113,26 +113,35 @@ export function calculateStepProgress(stepIdx: number, data: Record<string, any>
   }
 }
 
-export function getStepErrors(stepIdx: number, data: Record<string, any>): string[] {
-  const errors: string[] = [];
+export interface StepValidationError {
+  field: string;
+  message: string;
+}
+
+export function getStepValidationErrors(stepIdx: number, data: Record<string, any>): StepValidationError[] {
+  const errors: StepValidationError[] = [];
   const source = data || {};
 
+  const pushError = (field: string, message: string) => {
+    errors.push({ field, message });
+  };
+
   const requireField = (field: string, label: string) => {
-    if (isBlankValue(source[field])) errors.push(label);
+    if (isBlankValue(source[field])) pushError(field, label);
   };
 
   const requireNumber = (field: string, label: string, min: number) => {
-    if (!isNumericValue(source[field]) || Number(source[field]) < min) errors.push(label);
+    if (!isNumericValue(source[field]) || Number(source[field]) < min) pushError(field, label);
   };
 
   const requireMulti = (field: string, label: string) => {
-    if (!Array.isArray(source[field]) || source[field].length === 0) errors.push(label);
+    if (!Array.isArray(source[field]) || source[field].length === 0) pushError(field, label);
   };
 
   switch (stepIdx) {
     case 0: {
       if (!source.parroquia || !isValidParroquia(source.parroquia)) {
-        errors.push('1.- Seleccione su parroquia.');
+        pushError('parroquia', '1.- Seleccione su parroquia.');
       }
       requireField('comunidad_sector', '2.- Indique su comunidad o sector.');
       requireField('zona_residencia_od', '3.- Indique su zona de residencia (zonificación O-D).');
@@ -154,7 +163,10 @@ export function getStepErrors(stepIdx: number, data: Record<string, any>): strin
           lngNum < -180 ||
           lngNum > 180
         ) {
-          errors.push('6.- Las coordenadas GPS registradas no son válidas. Recalcule o quite el punto GPS.');
+          pushError(
+            'gps_ubicacion',
+            '6.- Las coordenadas GPS registradas no son válidas. Recalcule o quite el punto GPS.'
+          );
         }
       }
       break;
@@ -183,9 +195,10 @@ export function getStepErrors(stepIdx: number, data: Record<string, any>): strin
       const esperado = Number(source.numero_personas_hogar);
 
       if (residentes.length === 0) {
-        errors.push('Registre al menos un residente en el hogar.');
+        pushError('residentes', 'Registre al menos un residente en el hogar.');
       } else if (!isNaN(esperado) && esperado > 0 && residentes.length < esperado) {
-        errors.push(
+        pushError(
+          'residentes',
           `Ha registrado ${residentes.length} de ${esperado} integrantes declarados en la Sección III (Pregunta 3). Debe completar los datos de todos los miembros de la familia.`
         );
       }
@@ -193,30 +206,30 @@ export function getStepErrors(stepIdx: number, data: Record<string, any>): strin
       residentes.forEach((r, idx) => {
         const prefix = `Residente #${idx + 1}:`;
         if (isBlankValue(r.nombres) && isBlankValue(r.nombre_apellido)) {
-          errors.push(`${prefix} indique el nombre y apellido.`);
+          pushError('residentes', `${prefix} indique el nombre y apellido.`);
         }
         if (isBlankValue(r.parentesco) && isBlankValue(r.parentesco_jefe_hogar)) {
-          errors.push(`${prefix} seleccione el parentesco con el jefe de hogar.`);
+          pushError('residentes', `${prefix} seleccione el parentesco con el jefe de hogar.`);
         }
-        if (isBlankValue(r.sexo)) errors.push(`${prefix} seleccione el sexo.`);
+        if (isBlankValue(r.sexo)) pushError('residentes', `${prefix} seleccione el sexo.`);
         if (!isNumericValue(r.edad) || Number(r.edad) < 0 || Number(r.edad) > 120) {
-          errors.push(`${prefix} indique una edad válida (0 a 120 años).`);
+          pushError('residentes', `${prefix} indique una edad válida (0 a 120 años).`);
         }
-        if (isBlankValue(r.sabe_leer_escribir)) errors.push(`${prefix} indique si sabe leer y escribir.`);
-        if (isBlankValue(r.nivel_educativo)) errors.push(`${prefix} seleccione el nivel educativo.`);
+        if (isBlankValue(r.sabe_leer_escribir)) pushError('residentes', `${prefix} indique si sabe leer y escribir.`);
+        if (isBlankValue(r.nivel_educativo)) pushError('residentes', `${prefix} seleccione el nivel educativo.`);
         if (isBlankValue(r.actividad_principal) && isBlankValue(r.ocupacion_principal)) {
-          errors.push(`${prefix} seleccione la ocupación o actividad principal.`);
+          pushError('residentes', `${prefix} seleccione la ocupación o actividad principal.`);
         }
         if (isBlankValue(r.medio_transporte_habitual)) {
-          errors.push(`${prefix} seleccione el medio de transporte habitual.`);
+          pushError('residentes', `${prefix} seleccione el medio de transporte habitual.`);
         }
-        if (isBlankValue(r.posee_licencia)) errors.push(`${prefix} indique si posee licencia de conducir.`);
+        if (isBlankValue(r.posee_licencia)) pushError('residentes', `${prefix} indique si posee licencia de conducir.`);
         if (isBlankValue(r.tiene_vehiculo_disponible)) {
-          errors.push(`${prefix} indique si tiene algún vehículo disponible.`);
+          pushError('residentes', `${prefix} indique si tiene algún vehículo disponible.`);
         } else if (r.tiene_vehiculo_disponible === 'si') {
-          if (isBlankValue(r.tipo_vehiculo)) errors.push(`${prefix} seleccione el tipo de vehículo.`);
+          if (isBlankValue(r.tipo_vehiculo)) pushError('residentes', `${prefix} seleccione el tipo de vehículo.`);
           if (!isNumericValue(r.cantidad_vehiculo) || Number(r.cantidad_vehiculo) < 1) {
-            errors.push(`${prefix} indique la cantidad de vehículos.`);
+            pushError('residentes', `${prefix} indique la cantidad de vehículos.`);
           }
         }
       });
@@ -224,40 +237,40 @@ export function getStepErrors(stepIdx: number, data: Record<string, any>): strin
     }
     case 4: {
       const viajes: ViajeOD[] = Array.isArray(source.viajes) ? source.viajes : [];
-      if (viajes.length === 0) errors.push('Registre al menos un viaje realizado.');
+      if (viajes.length === 0) pushError('viajes', 'Registre al menos un viaje realizado.');
 
       viajes.forEach((v, idx) => {
         const prefix = `Viaje #${idx + 1}:`;
         if (!isNumericValue(v.persona_numero) || Number(v.persona_numero) < 1) {
-          errors.push(`${prefix} seleccione la persona que realizó el viaje.`);
+          pushError('viajes', `${prefix} seleccione la persona que realizó el viaje.`);
         }
-        if (isBlankValue(v.origen_direccion)) errors.push(`${prefix} indique la dirección o referencia de origen.`);
-        if (isBlankValue(v.zona_od_origen)) errors.push(`${prefix} indique la zona O-D de origen.`);
-        if (isBlankValue(v.destino_direccion)) errors.push(`${prefix} indique la dirección o referencia de destino.`);
-        if (isBlankValue(v.zona_od_destino)) errors.push(`${prefix} indique la zona O-D de destino.`);
-        if (isBlankValue(v.hora_salida)) errors.push(`${prefix} indique la hora de salida.`);
-        if (isBlankValue(v.hora_llegada)) errors.push(`${prefix} indique la hora de llegada.`);
+        if (isBlankValue(v.origen_direccion)) pushError('viajes', `${prefix} indique la dirección o referencia de origen.`);
+        if (isBlankValue(v.zona_od_origen)) pushError('viajes', `${prefix} indique la zona O-D de origen.`);
+        if (isBlankValue(v.destino_direccion)) pushError('viajes', `${prefix} indique la dirección o referencia de destino.`);
+        if (isBlankValue(v.zona_od_destino)) pushError('viajes', `${prefix} indique la zona O-D de destino.`);
+        if (isBlankValue(v.hora_salida)) pushError('viajes', `${prefix} indique la hora de salida.`);
+        if (isBlankValue(v.hora_llegada)) pushError('viajes', `${prefix} indique la hora de llegada.`);
         if (isBlankValue(v.motivo_viaje)) {
-          errors.push(`${prefix} seleccione el motivo del viaje.`);
+          pushError('viajes', `${prefix} seleccione el motivo del viaje.`);
         } else if (v.motivo_viaje === '8' && isBlankValue(v.motivo_viaje_otro)) {
-          errors.push(`${prefix} especifique el otro motivo del viaje.`);
+          pushError('viajes', `${prefix} especifique el otro motivo del viaje.`);
         }
         if (isBlankValue(v.modo_principal)) {
-          errors.push(`${prefix} seleccione el modo de transporte principal.`);
+          pushError('viajes', `${prefix} seleccione el modo de transporte principal.`);
         } else if (v.modo_principal === '8' && isBlankValue(v.modo_principal_otro)) {
-          errors.push(`${prefix} especifique el otro modo de transporte principal.`);
+          pushError('viajes', `${prefix} especifique el otro modo de transporte principal.`);
         }
         if (!isVehiculoParticular(v.modo_principal)) {
           if (v.modo_secundario === '8' && isBlankValue(v.modo_secundario_otro)) {
-            errors.push(`${prefix} especifique el otro modo de transporte secundario.`);
+            pushError('viajes', `${prefix} especifique el otro modo de transporte secundario.`);
           }
         }
         if (!isNumericValue(v.tiempo_viaje_min) || Number(v.tiempo_viaje_min) < 1) {
-          errors.push(`${prefix} indique el tiempo de viaje en minutos.`);
+          pushError('viajes', `${prefix} indique el tiempo de viaje en minutos.`);
         }
         if (!isVehiculoParticular(v.modo_principal)) {
           if (!isNumericValue(v.costo_viaje_bs) || Number(v.costo_viaje_bs) < 0) {
-            errors.push(`${prefix} indique el costo del viaje (puede ser 0).`);
+            pushError('viajes', `${prefix} indique el costo del viaje (puede ser 0).`);
           }
         }
       });
@@ -346,7 +359,7 @@ export function getStepErrors(stepIdx: number, data: Record<string, any>): strin
       requireField('planes_movilidad_peatonal_normativa', '14.- Indique si existen planes, presupuesto o normativa de movilidad peatonal.');
       requireField('observaciones_generales', 'Observaciones: escriba sus observaciones o propuestas adicionales.');
       if (source.acepta_declaracion === false) {
-        errors.push('Debe confirmar la veracidad de la información para enviar.');
+        pushError('acepta_declaracion', 'Debe confirmar la veracidad de la información para enviar.');
       }
       break;
     }
@@ -355,5 +368,9 @@ export function getStepErrors(stepIdx: number, data: Record<string, any>): strin
   }
 
   return errors;
+}
+
+export function getStepErrors(stepIdx: number, data: Record<string, any>): string[] {
+  return getStepValidationErrors(stepIdx, data).map((e) => e.message);
 }
 

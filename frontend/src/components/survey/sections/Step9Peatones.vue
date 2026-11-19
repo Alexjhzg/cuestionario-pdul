@@ -366,8 +366,9 @@ const emit = defineEmits<{
     </div>
 
     <div class="survey-field declaration-field">
-      <label class="declaration-label">
+      <label for="acepta_declaracion" class="declaration-label">
         <input
+          id="acepta_declaracion"
           type="checkbox"
           :checked="modelValue.acepta_declaracion !== false"
           @change="emit('update-field', 'acepta_declaracion', ($event.target as HTMLInputElement).checked)"
