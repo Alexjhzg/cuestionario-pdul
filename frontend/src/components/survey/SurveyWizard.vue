@@ -336,7 +336,7 @@ function onSubmit() {
         >
           <i v-if="submitting" class="pi pi-spin pi-spinner" aria-hidden="true"></i>
           <i v-else class="pi pi-check" aria-hidden="true"></i>
-          <span>{{ submitting ? 'Enviando encuesta...' : 'Finalizar y Enviar Encuesta' }}</span>
+          <span>{{ submitting ? 'Enviando encuesta...' : 'Enviar Encuesta' }}</span>
         </button>
       </footer>
     </main>
