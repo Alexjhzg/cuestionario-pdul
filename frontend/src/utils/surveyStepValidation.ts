@@ -223,7 +223,11 @@ export function getStepValidationErrors(stepIdx: number, data: Record<string, an
         if (isBlankValue(r.medio_transporte_habitual)) {
           pushError('residentes', `${prefix} seleccione el medio de transporte habitual.`);
         }
-        if (isBlankValue(r.posee_licencia)) pushError('residentes', `${prefix} indique si posee licencia de conducir.`);
+        if (isBlankValue(r.posee_licencia)) {
+          pushError('residentes', `${prefix} indique si posee licencia de conducir.`);
+        } else if (isNumericValue(r.edad) && Number(r.edad) < 16 && r.posee_licencia === 'si') {
+          pushError('residentes', `${prefix} un menor de 16 años no puede registrar licencia de conducir.`);
+        }
         if (isBlankValue(r.tiene_vehiculo_disponible)) {
           pushError('residentes', `${prefix} indique si tiene algún vehículo disponible.`);
         } else if (r.tiene_vehiculo_disponible === 'si') {

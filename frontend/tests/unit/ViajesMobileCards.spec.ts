@@ -216,4 +216,28 @@ describe('Componente ViajesMobileCards.vue', () => {
     expect(modalHorarios.text()).toContain('07:15 AM');
     expect(modalHorarios.text()).toContain('07:45 AM');
   });
+
+  it('deshabilita infantes (< 5 años) en el selector de viajes y muestra aviso de viaje acompañado para menores de 12 años', async () => {
+    const wrapper = mount(ViajesMobileCards, {
+      props: {
+        modelValue: [],
+        residentes: [
+          { persona_numero: 1, nombres: 'Ana Madre', parentesco: '1', sexo: '2', edad: 35 },
+          { persona_numero: 2, nombres: 'Lucas Niño', parentesco: '3', sexo: '1', edad: 8 },
+          { persona_numero: 3, nombres: 'Sofía Bebé', parentesco: '3', sexo: '2', edad: 3 }
+        ]
+      }
+    });
+
+    const options = wrapper.findAll('#viaje-persona option');
+    const optBebe = options.find((o) => o.text().includes('Sofía Bebé'));
+    expect(optBebe).toBeDefined();
+    expect(optBebe!.attributes('disabled')).toBeDefined();
+    expect(optBebe!.text()).toContain('Menor de 5 años');
+
+    await wrapper.find('#viaje-persona').setValue('2');
+    const minorNotice = wrapper.find('[data-testid="viaje-minor-notice"]');
+    expect(minorNotice.exists()).toBe(true);
+    expect(minorNotice.text()).toContain('menores de 12 años no viajan solos');
+  });
 });

@@ -147,6 +147,7 @@ export const MODOS_TRANSPORTE_LABELS: Record<string, string> = {
   automovil: 'Automóvil Particular',
   institucional: 'Transporte Institucional',
   transporte_institucional: 'Transporte Institucional',
+  no_aplica: 'No aplica / Viaja acompañado',
   taxi: 'Taxi',
   transporte_publico: 'Transporte público',
   otro: 'Otro'

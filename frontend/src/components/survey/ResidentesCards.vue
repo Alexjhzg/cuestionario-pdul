@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, nextTick } from 'vue';
+import { ref, computed, watch, nextTick } from 'vue';
 import { useToast } from 'primevue/usetoast';
 import QuestionHelpTip from '@/components/common/QuestionHelpTip.vue';
 import { QUESTION_HELP_TIPS } from '@/utils/questionHelpCatalog';
@@ -83,8 +83,94 @@ const medioTransporteLabels: Record<string, string> = {
   '7': 'Transporte informal (por puesto, mototaxi)',
   '8': 'Otro',
   '9': 'Transporte Institucional',
-  institucional: 'Transporte Institucional'
+  institucional: 'Transporte Institucional',
+  no_aplica: 'No aplica / Viaja acompañado'
 };
+
+const parsedEdad = computed<number | null>(() => {
+  const raw = nuevoResidente.value.edad;
+  if (raw === undefined || raw === null || String(raw).trim() === '') return null;
+  const n = Number(raw);
+  return Number.isFinite(n) && n >= 0 && n <= 120 ? n : null;
+});
+
+const isInfante = computed<boolean>(() => parsedEdad.value !== null && parsedEdad.value < 5);
+const isNinoMenor12 = computed<boolean>(() => parsedEdad.value !== null && parsedEdad.value < 12);
+const isMenor14 = computed<boolean>(() => parsedEdad.value !== null && parsedEdad.value < 14);
+const isMenorLicencia = computed<boolean>(() => parsedEdad.value !== null && parsedEdad.value < 16);
+
+const nivelesEducativosDisponibles = computed(() => {
+  const all = [
+    { value: 'ninguno', label: 'Ninguno' },
+    { value: 'primaria', label: 'Primaria' },
+    { value: 'secundaria', label: 'Secundaria' },
+    { value: 'tecnico', label: 'Técnico' },
+    { value: 'universitario', label: 'Universitario' },
+    { value: 'postgrado', label: 'Postgrado / Maestría' },
+    { value: 'doctorado', label: 'Doctorado' }
+  ];
+  if (isInfante.value) return all.filter((o) => o.value === 'ninguno');
+  if (parsedEdad.value !== null && parsedEdad.value < 11) {
+    return all.filter((o) => ['ninguno', 'primaria'].includes(o.value));
+  }
+  if (isMenorLicencia.value) {
+    return all.filter((o) => ['ninguno', 'primaria', 'secundaria'].includes(o.value));
+  }
+  return all;
+});
+
+const actividadesDisponibles = computed(() => {
+  const all = [
+    { value: '1', label: 'Trabaja' },
+    { value: '2', label: 'Estudia' },
+    { value: '3', label: 'Oficios del hogar' },
+    { value: '4', label: 'Jubilado / Pensionado' },
+    { value: '5', label: 'Busca trabajo' },
+    { value: '6', label: 'Otro' }
+  ];
+  if (isInfante.value) return all.filter((o) => ['2', '6'].includes(o.value));
+  if (isMenor14.value) return all.filter((o) => ['2', '3', '6'].includes(o.value));
+  if (isMenorLicencia.value) return all.filter((o) => !['4', '5'].includes(o.value));
+  return all;
+});
+
+watch(parsedEdad, (edad) => {
+  if (edad === null) return;
+
+  if (edad < 16) {
+    nuevoResidente.value.posee_licencia = 'no';
+    nuevoResidente.value.tiene_vehiculo_disponible = 'no';
+    nuevoResidente.value.tipo_vehiculo = '';
+    nuevoResidente.value.cantidad_vehiculo = undefined;
+  }
+
+  if (edad < 5) {
+    nuevoResidente.value.sabe_leer_escribir = 'no';
+    nuevoResidente.value.nivel_educativo = 'ninguno';
+    if (!['2', '6'].includes(String(nuevoResidente.value.actividad_principal || ''))) {
+      nuevoResidente.value.actividad_principal = '6';
+    }
+    if (!nuevoResidente.value.medio_transporte_habitual) {
+      nuevoResidente.value.medio_transporte_habitual = 'no_aplica';
+    }
+  } else {
+    if (
+      nuevoResidente.value.nivel_educativo &&
+      !nivelesEducativosDisponibles.value.some((o) => o.value === nuevoResidente.value.nivel_educativo)
+    ) {
+      nuevoResidente.value.nivel_educativo = '';
+    }
+    if (
+      nuevoResidente.value.actividad_principal &&
+      !actividadesDisponibles.value.some((o) => o.value === nuevoResidente.value.actividad_principal)
+    ) {
+      nuevoResidente.value.actividad_principal = '';
+    }
+    if (edad >= 12 && nuevoResidente.value.medio_transporte_habitual === 'no_aplica') {
+      nuevoResidente.value.medio_transporte_habitual = '';
+    }
+  }
+});
 
 function isBlankValue(value: unknown): boolean {
   return value === undefined || value === null || (typeof value === 'string' && value.trim().length === 0);
@@ -414,13 +500,30 @@ defineExpose({ resetDraft });
             class="survey-input"
             placeholder="Ej: 35 (edad en años cumplidos)"
           />
+          <p v-if="isInfante" class="age-coherence-notice" data-testid="age-coherence-notice">
+            <i class="pi pi-info-circle" aria-hidden="true"></i>
+            Menor de 5 años: se ajustaron automáticamente lectura, nivel educativo, transporte acompañado, licencia y vehículo.
+          </p>
+          <p v-else-if="isNinoMenor12" class="age-coherence-notice" data-testid="age-coherence-notice">
+            <i class="pi pi-info-circle" aria-hidden="true"></i>
+            Menor de 12 años: se omiten licencia y vehículo propio; en transporte indique el medio en el que lo trasladan acompañado.
+          </p>
+          <p v-else-if="isMenorLicencia" class="age-coherence-notice" data-testid="age-coherence-notice">
+            <i class="pi pi-info-circle" aria-hidden="true"></i>
+            Menor de 16 años: se omiten licencia de conducir y vehículo propio.
+          </p>
         </div>
 
         <div class="survey-field">
           <label class="survey-label" for="residente-sabe-leer">
             ¿Sabe leer y escribir?:
           </label>
-          <select id="residente-sabe-leer" v-model="nuevoResidente.sabe_leer_escribir" class="survey-select">
+          <select
+            id="residente-sabe-leer"
+            v-model="nuevoResidente.sabe_leer_escribir"
+            :disabled="isInfante"
+            class="survey-select"
+          >
             <option value="" disabled selected>-- Seleccione si sabe leer y escribir --</option>
             <option value="si">Sí</option>
             <option value="no">No</option>
@@ -433,13 +536,13 @@ defineExpose({ resetDraft });
           </label>
           <select id="residente-nivel-educativo" v-model="nuevoResidente.nivel_educativo" class="survey-select">
             <option value="" disabled selected>-- Seleccione el nivel educativo --</option>
-            <option value="ninguno">Ninguno</option>
-            <option value="primaria">Primaria</option>
-            <option value="secundaria">Secundaria</option>
-            <option value="tecnico">Técnico</option>
-            <option value="universitario">Universitario</option>
-            <option value="postgrado">Postgrado / Maestría</option>
-            <option value="doctorado">Doctorado</option>
+            <option
+              v-for="opt in nivelesEducativosDisponibles"
+              :key="opt.value"
+              :value="opt.value"
+            >
+              {{ opt.label }}
+            </option>
           </select>
         </div>
 
@@ -449,21 +552,27 @@ defineExpose({ resetDraft });
           </label>
           <select id="residente-actividad" v-model="nuevoResidente.actividad_principal" class="survey-select">
             <option value="" disabled selected>-- Seleccione la ocupación o actividad --</option>
-            <option value="1">Trabaja</option>
-            <option value="2">Estudia</option>
-            <option value="3">Oficios del hogar</option>
-            <option value="4">Jubilado / Pensionado</option>
-            <option value="5">Busca trabajo</option>
-            <option value="6">Otro</option>
+            <option
+              v-for="opt in actividadesDisponibles"
+              :key="opt.value"
+              :value="opt.value"
+            >
+              {{ opt.label }}
+            </option>
           </select>
         </div>
 
         <div class="survey-field">
           <label class="survey-label" for="residente-medio-transporte">
-            ¿Cuál es el medio de transporte que utiliza normalmente para trasladarse?:
+            {{
+              isNinoMenor12
+                ? '¿En qué medio de transporte lo trasladan normalmente (acompañado)?:'
+                : '¿Cuál es el medio de transporte que utiliza normalmente para trasladarse?:'
+            }}
           </label>
           <select id="residente-medio-transporte" v-model="nuevoResidente.medio_transporte_habitual" class="survey-select">
             <option value="" disabled selected>-- Seleccione el medio de transporte --</option>
+            <option v-if="isNinoMenor12" value="no_aplica">No aplica / Viaja acompañado (sin traslado habitual)</option>
             <option value="1">A pie</option>
             <option value="2">Bicicleta</option>
             <option value="3">Motocicleta</option>
@@ -476,7 +585,7 @@ defineExpose({ resetDraft });
           </select>
         </div>
 
-        <div class="survey-field">
+        <div v-if="!isMenorLicencia" class="survey-field">
           <label class="survey-label" for="residente-licencia">
             ¿Posee licencia de conducir?:
           </label>
@@ -487,7 +596,7 @@ defineExpose({ resetDraft });
           </select>
         </div>
 
-        <div class="survey-field">
+        <div v-if="!isMenorLicencia" class="survey-field">
           <label class="survey-label" for="residente-vehiculo-disp">
             ¿Tiene algún vehículo disponible?:
           </label>
@@ -498,7 +607,7 @@ defineExpose({ resetDraft });
           </select>
         </div>
 
-        <div v-if="nuevoResidente.tiene_vehiculo_disponible === 'si'" class="survey-field">
+        <div v-if="!isMenorLicencia && nuevoResidente.tiene_vehiculo_disponible === 'si'" class="survey-field">
           <label class="survey-label" for="residente-tipo-vehiculo">
             Tipo de vehículo:
           </label>
@@ -513,7 +622,7 @@ defineExpose({ resetDraft });
           </select>
         </div>
 
-        <div v-if="nuevoResidente.tiene_vehiculo_disponible === 'si'" class="survey-field">
+        <div v-if="!isMenorLicencia && nuevoResidente.tiene_vehiculo_disponible === 'si'" class="survey-field">
           <label class="survey-label" for="residente-cantidad-vehiculo">
             Cantidad de Vehículo:
           </label>
@@ -732,5 +841,25 @@ defineExpose({ resetDraft });
 .add-residente-btn {
   width: 100%;
   margin-top: var(--spacing-12);
+}
+
+.age-coherence-notice {
+  margin: 0.35rem 0 0 0;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-cards, 8px);
+  background-color: var(--color-lavender-wash, #f0f4fe);
+  border: 1px solid rgba(20, 90, 255, 0.22);
+  color: var(--color-midnight-ink, #020520);
+  font-size: var(--text-caption, 0.8125rem);
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.age-coherence-notice i {
+  color: var(--color-royal-signal, #145aff);
+  margin-top: 2px;
+  flex-shrink: 0;
 }
 </style>

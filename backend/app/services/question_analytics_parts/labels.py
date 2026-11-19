@@ -152,6 +152,7 @@ CUSTOM_FIELD_LABELS: Dict[str, Dict[str, str]] = {
         "8": "Otro",
         "9": "Transporte Institucional",
         "institucional": "Transporte Institucional",
+        "no_aplica": "No aplica / Viaja acompañado",
     },
     "frecuencia_visita_parques": {
         "diario": "A diario",

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, computed, watch } from 'vue';
 import QuestionHelpTip from '@/components/common/QuestionHelpTip.vue';
 import { QUESTION_HELP_TIPS } from '@/utils/questionHelpCatalog';
 import type { Residente, ViajeOD } from '@/types/survey';
@@ -42,6 +42,25 @@ const horaLlegadaM = ref<string>('00');
 const horaLlegadaPeriodo = ref<HoraPeriodo>('AM');
 
 const formError = ref<string>('');
+
+const hasEligibleTravelers = computed<boolean>(() => {
+  return (props.residentes || []).some((r) => typeof r.edad !== 'number' || r.edad >= 5);
+});
+
+function isInfantResident(r: Residente): boolean {
+  return hasEligibleTravelers.value && typeof r.edad === 'number' && r.edad < 5;
+}
+
+const selectedResidente = computed<Residente | undefined>(() => {
+  const num = Number(nuevoViaje.value.persona_numero);
+  if (!num) return undefined;
+  return (props.residentes || []).find((r) => Number(r.persona_numero) === num);
+});
+
+const isSelectedMinor = computed<boolean>(() => {
+  const r = selectedResidente.value;
+  return Boolean(r && typeof r.edad === 'number' && r.edad < 12);
+});
 
 watch(
   () => props.sugerenciaOrigen,
@@ -204,8 +223,10 @@ function onAgregarViaje() {
             v-for="r in residentes"
             :key="r.persona_numero"
             :value="r.persona_numero"
+            :disabled="isInfantResident(r)"
           >
             Persona #{{ r.persona_numero }}: {{ r.nombres || r.nombre_apellido || 'Residente' }}
+            <template v-if="isInfantResident(r)"> ({{ r.edad }} años — Menor de 5 años, sin viajes independientes)</template>
           </option>
         </select>
         <input
@@ -217,6 +238,10 @@ function onAgregarViaje() {
           class="survey-input"
           placeholder="Ej: 1 (número del residente que viajó)"
         />
+        <p v-if="isSelectedMinor" class="viaje-minor-notice" data-testid="viaje-minor-notice">
+          <i class="pi pi-info-circle" aria-hidden="true"></i>
+          Viaje de menor de edad ({{ selectedResidente?.edad }} años): los niños menores de 12 años no viajan solos en transporte público. Registre aquí el traslado en el que fue acompañado por un adulto o en transporte escolar/institucional.
+        </p>
       </div>
 
       <div class="survey-field">
@@ -620,5 +645,25 @@ function onAgregarViaje() {
 .add-viaje-btn {
   width: 100%;
   margin-top: var(--spacing-12);
+}
+
+.viaje-minor-notice {
+  margin: 0.4rem 0 0 0;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-cards, 8px);
+  background-color: var(--color-lavender-wash, #f0f4fe);
+  border: 1px solid rgba(20, 90, 255, 0.22);
+  color: var(--color-midnight-ink, #020520);
+  font-size: var(--text-caption, 0.8125rem);
+  line-height: 1.45;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+
+.viaje-minor-notice i {
+  color: var(--color-royal-signal, #145aff);
+  margin-top: 2px;
+  flex-shrink: 0;
 }
 </style>

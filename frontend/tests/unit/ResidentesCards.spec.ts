@@ -165,4 +165,61 @@ describe('Componente ResidentesCards.vue (Composición del Hogar PDUL)', () => {
     await nombreInput.setValue('María 123 P. #4!');
     expect(nombreInput.element.value).toBe('María  P. ');
   });
+
+  it('aplica reglas de coherencia por edad para infante (< 5 años) ocultando licencia/vehículo y ajustando valores', async () => {
+    const wrapper = mount(ResidentesCards, {
+      props: { modelValue: [] }
+    });
+
+    await wrapper.find('#residente-nombre').setValue('Mateo Pérez');
+    await wrapper.find('#residente-parentesco').setValue('3');
+    await wrapper.find('#residente-sexo').setValue('1');
+    await wrapper.find('#residente-edad').setValue(3);
+
+    expect(wrapper.find('[data-testid="age-coherence-notice"]').text()).toContain('Menor de 5 años');
+    expect(wrapper.find('#residente-licencia').exists()).toBe(false);
+    expect(wrapper.find('#residente-vehiculo-disp').exists()).toBe(false);
+    expect((wrapper.find('#residente-sabe-leer').element as HTMLSelectElement).disabled).toBe(true);
+    expect((wrapper.find('#residente-medio-transporte').element as HTMLSelectElement).value).toBe('no_aplica');
+
+    await wrapper.find('.add-residente-btn').trigger('click');
+    const emitted = wrapper.emitted('update:modelValue') as any[][];
+    expect(emitted).toBeTruthy();
+    expect(emitted[0][0][0]).toMatchObject({
+      nombres: 'Mateo Pérez',
+      edad: 3,
+      sabe_leer_escribir: 'no',
+      nivel_educativo: 'ninguno',
+      medio_transporte_habitual: 'no_aplica',
+      posee_licencia: 'no',
+      tiene_vehiculo_disponible: 'no'
+    });
+  });
+
+  it('adapta etiqueta de transporte acompañado y filtra opciones ilógicas para niño de 8 años', async () => {
+    const wrapper = mount(ResidentesCards, {
+      props: { modelValue: [] }
+    });
+
+    await wrapper.find('#residente-edad').setValue(8);
+
+    expect(wrapper.find('label[for="residente-medio-transporte"]').text()).toContain(
+      'lo trasladan normalmente (acompañado)'
+    );
+    expect(wrapper.find('#residente-licencia').exists()).toBe(false);
+    expect(wrapper.find('#residente-vehiculo-disp').exists()).toBe(false);
+
+    const actividades = wrapper
+      .findAll('#residente-actividad option')
+      .map((o) => o.attributes('value'));
+    expect(actividades).toContain('2'); // Estudia
+    expect(actividades).not.toContain('1'); // Trabaja
+    expect(actividades).not.toContain('4'); // Jubilado
+
+    const niveles = wrapper
+      .findAll('#residente-nivel-educativo option')
+      .map((o) => o.attributes('value'));
+    expect(niveles).toContain('primaria');
+    expect(niveles).not.toContain('universitario');
+  });
 });
