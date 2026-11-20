@@ -271,7 +271,7 @@ function onUpdateGps(payload: GpsPayload) {
       <option value="" disabled>
         {{
           modelValue.parroquia
-            ? `Seleccione su comunidad o sector (${comunidadesFiltradas.length} en ${formatParroquia(modelValue.parroquia)})`
+            ? 'Seleccione su comunidad o sector'
             : 'Seleccione primero una parroquia'
         }}
       </option>
