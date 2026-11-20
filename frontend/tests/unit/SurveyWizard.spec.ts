@@ -274,4 +274,37 @@ describe('Componente SurveyWizard.vue (Asistente de 9 Pasos)', () => {
 
     wrapper.unmount();
   });
+
+  it('salta la Sección VI (Transporte Público) si ningún viaje en Sección V usó transporte público (Opción A)', async () => {
+    const wrapper = mount(SurveyWizard, {
+      props: {
+        modelValue: {
+          viajes: [
+            {
+              viaje_numero: 1,
+              persona_numero: 1,
+              origen_direccion: 'Casa',
+              zona_od_origen: 'Centro',
+              destino_direccion: 'Trabajo',
+              zona_od_destino: 'Tipuro',
+              hora_salida: '07:00 AM',
+              hora_llegada: '07:30 AM',
+              motivo_viaje: '1',
+              modo_principal: '4', // Automóvil Particular (no público)
+              tiempo_viaje_min: 30
+            }
+          ]
+        },
+        step: 4 // Sección V: Viajes
+      }
+    });
+
+    const btnSiguiente = wrapper.findAll('button').find((b) => b.text().includes('Siguiente'));
+    await btnSiguiente!.trigger('click');
+
+    const emitted = wrapper.emitted('update:step');
+    expect(emitted).toBeDefined();
+    // Debe saltar del paso 4 directo al paso 6 (Sección VII: Movilidad Activa), obviando el paso 5 (Transporte Público)
+    expect(emitted![emitted!.length - 1]).toEqual([6]);
+  });
 });

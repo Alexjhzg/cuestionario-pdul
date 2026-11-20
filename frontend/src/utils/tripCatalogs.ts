@@ -125,6 +125,37 @@ export function isModoSinCosto(modo?: string | number): boolean {
   return COST_EXEMPT_MODE_LABELS.has(m);
 }
 
+const PUBLIC_TRANSIT_MODE_CODES = new Set(['6', '7']);
+const PUBLIC_TRANSIT_MODE_LABELS = new Set([
+  'transporte publico',
+  'transporte público',
+  'transporte publico (bus, buseta)',
+  'transporte público (bus, buseta)',
+  'bus',
+  'buseta',
+  'transporte informal',
+  'transporte informal (por puesto, mototaxi)',
+  'por puesto',
+  'por_puesto',
+  'mototaxi'
+]);
+
+export function isModoTransportePublico(modo?: string | number): boolean {
+  if (modo === undefined || modo === null) return false;
+  const m = String(modo).toLowerCase().trim();
+  if (PUBLIC_TRANSIT_MODE_CODES.has(m)) return true;
+  return PUBLIC_TRANSIT_MODE_LABELS.has(m);
+}
+
+export function hasPublicTransitTrips(viajes?: unknown): boolean {
+  if (!Array.isArray(viajes)) return false;
+  return viajes.some(
+    (v) =>
+      isModoTransportePublico(v?.modo_principal) ||
+      isModoTransportePublico(v?.modo_secundario)
+  );
+}
+
 export function validateNewTripForm(input: TripFormValidationInput): string | null {
   const { draft, sugerenciaOrigen, horaSalidaH, horaLlegadaH } = input;
   const origen = (draft.zona_od_origen || sugerenciaOrigen).trim();

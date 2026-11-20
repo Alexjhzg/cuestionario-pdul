@@ -7,6 +7,7 @@ import {
   getStepValidationErrors,
   type StepValidationError
 } from '@/utils/surveyStepValidation';
+import { hasPublicTransitTrips } from '@/utils/tripCatalogs';
 import ViajesMobileCards from './ViajesMobileCards.vue';
 import ResidentesCards from './ResidentesCards.vue';
 import Step1Ubicacion from './sections/Step1Ubicacion.vue';
@@ -216,6 +217,17 @@ function validateCurrentStep(): boolean {
   return true;
 }
 
+const isStep6Applicable = computed<boolean>(() => {
+  const data = props.modelValue || {};
+  const trips = Array.isArray(data.viajes) ? data.viajes : [];
+  if (trips.length === 0) return true;
+  return hasPublicTransitTrips(trips);
+});
+
+const visibleSteps = computed(() => {
+  return SURVEY_STEPS;
+});
+
 function cleanCurrentStepTransientFields() {
   if (currentStepIndex.value === 3) {
     residentesCardsRef.value?.resetDraft?.();
@@ -227,7 +239,12 @@ function cleanCurrentStepTransientFields() {
 function nextStep() {
   if (validateCurrentStep() && currentStepIndex.value < totalSteps - 1) {
     cleanCurrentStepTransientFields();
-    currentStepIndex.value++;
+    let nextIdx = currentStepIndex.value + 1;
+    // Opción A: Si el paso siguiente es la Sección VI (índice 5) y no aplica por no haber usado transporte público, saltar al paso 6
+    if (nextIdx === 5 && !isStep6Applicable.value) {
+      nextIdx = 6;
+    }
+    currentStepIndex.value = Math.min(nextIdx, totalSteps - 1);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
@@ -235,7 +252,12 @@ function nextStep() {
 function prevStep() {
   if (currentStepIndex.value > 0) {
     stepErrorItems.value = [];
-    currentStepIndex.value--;
+    let prevIdx = currentStepIndex.value - 1;
+    // Si al retroceder llegamos a la Sección VI (índice 5) y no aplica, retroceder directo al paso 4 (Viajes)
+    if (prevIdx === 5 && !isStep6Applicable.value) {
+      prevIdx = 4;
+    }
+    currentStepIndex.value = Math.max(0, prevIdx);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
@@ -243,6 +265,9 @@ function prevStep() {
 function goToStep(targetIndex: number) {
   if (targetIndex < currentStepIndex.value) {
     stepErrorItems.value = [];
+    if (targetIndex === 5 && !isStep6Applicable.value) {
+      targetIndex = 4;
+    }
     currentStepIndex.value = targetIndex;
   } else if (targetIndex === currentStepIndex.value + 1) {
     nextStep();
@@ -299,24 +324,28 @@ async function onSubmit() {
 
       <ol class="steps-indicators" role="list">
         <li
-          v-for="(st, idx) in SURVEY_STEPS"
+          v-for="(st, idx) in visibleSteps"
           :key="st.id"
           class="step-indicator-item"
           :class="{
             'is-active': idx === currentStepIndex,
-            'is-completed': idx < currentStepIndex
+            'is-completed': idx < currentStepIndex,
+            'is-skipped': idx === 5 && !isStep6Applicable
           }"
           :aria-current="idx === currentStepIndex ? 'step' : undefined"
         >
           <button
             type="button"
             class="step-indicator-btn"
-            :disabled="idx > currentStepIndex"
-            :aria-label="`Paso ${idx + 1}: ${st.title}${idx < currentStepIndex ? ' (completado)' : ''}`"
+            :disabled="idx > currentStepIndex || (idx === 5 && !isStep6Applicable)"
+            :aria-label="`Paso ${idx + 1}: ${st.title}${idx === 5 && !isStep6Applicable ? ' (no aplica)' : idx < currentStepIndex ? ' (completado)' : ''}`"
             @click="goToStep(idx)"
           >
             <span class="step-num">{{ idx + 1 }}</span>
-            <span class="step-short-name">{{ st.shortTitle }}</span>
+            <span class="step-short-name">
+              {{ st.shortTitle }}
+              <small v-if="idx === 5 && !isStep6Applicable" class="step-tag-na">(N/A)</small>
+            </span>
           </button>
         </li>
       </ol>

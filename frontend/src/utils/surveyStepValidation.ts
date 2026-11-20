@@ -1,5 +1,5 @@
 import { isValidParroquia } from '@/utils/validation';
-import { isModoSinCosto, isVehiculoParticular } from '@/utils/tripCatalogs';
+import { isModoSinCosto, isVehiculoParticular, hasPublicTransitTrips } from '@/utils/tripCatalogs';
 import type { Residente, ViajeOD } from '@/types/survey';
 
 export function isBlankValue(value: unknown): boolean {
@@ -62,6 +62,10 @@ export function calculateStepProgress(stepIdx: number, data: Record<string, any>
     case 4:
       return Array.isArray(data.viajes) && data.viajes.length > 0 ? 1 : 0.3;
     case 5: {
+      const trips = Array.isArray(data.viajes) ? data.viajes : [];
+      if (trips.length > 0 && !hasPublicTransitTrips(trips)) {
+        return 1;
+      }
       let filled = 0;
       const rutasCount = isNumericValue(data.rutas_tp_dia) ? Number(data.rutas_tp_dia) : 0;
       if (isFilled(data.rutas_tp_dia)) filled++;
@@ -297,6 +301,11 @@ export function getStepValidationErrors(stepIdx: number, data: Record<string, an
       break;
     }
     case 5: {
+      const trips = Array.isArray(source.viajes) ? source.viajes : [];
+      if (trips.length > 0 && !hasPublicTransitTrips(trips)) {
+        // Sección VI es opcional o no aplica si ningún viaje usó transporte público
+        break;
+      }
       requireNumber('rutas_tp_dia', '1.- Indique cuántas rutas de transporte público utilizó.', 0);
       const selectedRoutes = getSelectedRoutes(source.rutas_tp_utilizadas);
       const isZeroRoutes = isNumericValue(source.rutas_tp_dia) && Number(source.rutas_tp_dia) === 0;
