@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
 import QuestionHelpTip from '@/components/common/QuestionHelpTip.vue';
+import SearchableSelect, { type SearchableSelectOption } from '@/components/common/SearchableSelect.vue';
 import GpsLocationCapture, { type GpsPayload } from '@/components/common/GpsLocationCapture.vue';
 import { QUESTION_HELP_TIPS } from '@/utils/questionHelpCatalog';
 import comunidadesCatalogJson from '@shared/catalogs/comunidades_maturin.json';
@@ -166,13 +167,43 @@ watch(
   { immediate: true }
 );
 
-function onParroquiaChange(event: Event) {
-  const value = (event.target as HTMLSelectElement).value;
+const parroquiaOptions = computed<SearchableSelectOption[]>(() =>
+  PARROQUIAS_MATURIN.map((p) => ({ value: p, label: formatParroquia(p) }))
+);
+
+const comunidadOptions = computed<SearchableSelectOption[]>(() => {
+  const opts: SearchableSelectOption[] = [];
+  if (legacyComunidadOption.value) {
+    opts.push({ value: legacyComunidadOption.value, label: legacyComunidadOption.value });
+  }
+  for (const com of comunidadesFiltradas.value) {
+    opts.push({ value: com.nombre, label: com.nombre });
+  }
+  if (props.modelValue.parroquia) {
+    opts.push({
+      value: '__otra__',
+      label: '-- Otra comunidad / No aparece en la lista --'
+    });
+  }
+  return opts;
+});
+
+const zonaOptions = computed<SearchableSelectOption[]>(() => {
+  const opts: SearchableSelectOption[] = [];
+  if (legacyZonaOption.value) {
+    opts.push({ value: legacyZonaOption.value, label: legacyZonaOption.value });
+  }
+  for (const zona of zonasFiltradas.value) {
+    opts.push({ value: zona.codigo, label: zona.nombre });
+  }
+  return opts;
+});
+
+function onParroquiaChange(value: string) {
   emit('update-field', 'parroquia', value);
 }
 
-function onComunidadSelectChange(event: Event) {
-  const val = (event.target as HTMLSelectElement).value;
+function onComunidadSelectChange(val: string) {
   if (val === '__otra__') {
     isOtherComunidad.value = true;
     emit('update-field', 'comunidad_codigo', '');
@@ -203,8 +234,7 @@ function onOtherComunidadInput(event: Event) {
   emit('update-field', 'comunidad_sector', (event.target as HTMLInputElement).value);
 }
 
-function onZonaSelectChange(event: Event) {
-  const value = (event.target as HTMLSelectElement).value;
+function onZonaSelectChange(value: string) {
   emit('update-field', 'zona_residencia_od', value);
 }
 
@@ -228,19 +258,17 @@ function onUpdateGps(payload: GpsPayload) {
         question-label="Parroquia de residencia"
       />
     </div>
-    <select
+    <SearchableSelect
       id="parroquia"
-      :value="modelValue.parroquia || ''"
+      :model-value="modelValue.parroquia || ''"
+      :options="parroquiaOptions"
+      placeholder-option="Seleccione su parroquia"
+      search-placeholder="Buscar parroquia..."
+      search-aria-label="Buscar parroquia"
       required
-      class="survey-select"
       @blur="emit('mark-touched', 'parroquia')"
-      @change="onParroquiaChange"
-    >
-      <option value="" disabled selected>Seleccione su parroquia</option>
-      <option v-for="p in PARROQUIAS_MATURIN" :key="p" :value="p">
-        {{ formatParroquia(p) }}
-      </option>
-    </select>
+      @update:model-value="onParroquiaChange"
+    />
     <span class="survey-error-msg">
       <i class="pi pi-times-circle" aria-hidden="true"></i>
       Seleccione su parroquia.
@@ -258,37 +286,23 @@ function onUpdateGps(payload: GpsPayload) {
         question-label="Comunidad o Sector"
       />
     </div>
-    <select
+    <SearchableSelect
       id="comunidad_sector"
-      :value="selectedComunidadSelectValue"
+      :model-value="selectedComunidadSelectValue"
+      :options="comunidadOptions"
       :disabled="!modelValue.parroquia"
+      :placeholder-option="
+        modelValue.parroquia
+          ? `Seleccione su comunidad o sector (${comunidadesFiltradas.length} en ${formatParroquia(modelValue.parroquia)})`
+          : 'Seleccione primero una parroquia'
+      "
+      search-placeholder="Buscar comunidad o sector..."
+      search-aria-label="Buscar comunidad o sector"
+      select-test-id="select-comunidad-cascada"
       required
-      class="survey-select"
-      data-testid="select-comunidad-cascada"
       @blur="emit('mark-touched', 'comunidad_sector')"
-      @change="onComunidadSelectChange"
-    >
-      <option value="" disabled>
-        {{
-          modelValue.parroquia
-            ? `Seleccione su comunidad o sector (${comunidadesFiltradas.length} en ${formatParroquia(modelValue.parroquia)})`
-            : 'Seleccione primero una parroquia'
-        }}
-      </option>
-      <option v-if="legacyComunidadOption" :value="legacyComunidadOption">
-        {{ legacyComunidadOption }}
-      </option>
-      <option
-        v-for="com in comunidadesFiltradas"
-        :key="com.codigo"
-        :value="com.nombre"
-      >
-        {{ com.nombre }}
-      </option>
-      <option v-if="modelValue.parroquia" value="__otra__">
-        -- Otra comunidad / No aparece en la lista --
-      </option>
-    </select>
+      @update:model-value="onComunidadSelectChange"
+    />
     <span class="survey-error-msg">
       <i class="pi pi-times-circle" aria-hidden="true"></i>
       Seleccione su comunidad o sector.
@@ -322,34 +336,23 @@ function onUpdateGps(payload: GpsPayload) {
         question-label="Zona de residencia según zonificación O-D"
       />
     </div>
-    <select
+    <SearchableSelect
       id="zona_residencia_od"
-      :value="modelValue.zona_residencia_od || ''"
+      :model-value="modelValue.zona_residencia_od || ''"
+      :options="zonaOptions"
       :disabled="!modelValue.parroquia"
+      :placeholder-option="
+        modelValue.parroquia
+          ? `Seleccione la zona o sector O-D (${zonasFiltradas.length} disponibles)`
+          : 'Seleccione primero una parroquia'
+      "
+      search-placeholder="Buscar zona o sector O-D..."
+      search-aria-label="Buscar zona de residencia O-D"
+      select-test-id="select-zona-od-cascada"
       required
-      class="survey-select"
-      data-testid="select-zona-od-cascada"
       @blur="emit('mark-touched', 'zona_residencia_od')"
-      @change="onZonaSelectChange"
-    >
-      <option value="" disabled>
-        {{
-          modelValue.parroquia
-            ? `Seleccione la zona o sector O-D (${zonasFiltradas.length} disponibles)`
-            : 'Seleccione primero una parroquia'
-        }}
-      </option>
-      <option v-if="legacyZonaOption" :value="legacyZonaOption">
-        {{ legacyZonaOption }}
-      </option>
-      <option
-        v-for="zona in zonasFiltradas"
-        :key="zona.codigo"
-        :value="zona.codigo"
-      >
-        {{ zona.nombre }}
-      </option>
-    </select>
+      @update:model-value="onZonaSelectChange"
+    />
     <span class="survey-error-msg">
       <i class="pi pi-times-circle" aria-hidden="true"></i>
       Seleccione la zona de residencia (zonificación O-D).

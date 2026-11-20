@@ -2,6 +2,7 @@
 import { ref, computed, watch, nextTick } from 'vue';
 import { useToast } from 'primevue/usetoast';
 import QuestionHelpTip from '@/components/common/QuestionHelpTip.vue';
+import SearchableSelect, { type SearchableSelectOption } from '@/components/common/SearchableSelect.vue';
 import { QUESTION_HELP_TIPS } from '@/utils/questionHelpCatalog';
 import type { Residente } from '@/types/survey';
 
@@ -133,6 +134,58 @@ const actividadesDisponibles = computed(() => {
   if (isMenorLicencia.value) return all.filter((o) => !['4', '5'].includes(o.value));
   return all;
 });
+
+const parentescoOptions: SearchableSelectOption[] = [
+  { value: '1', label: 'Jefe(a) de Hogar' },
+  { value: '2', label: 'Cónyuge / Pareja' },
+  { value: '3', label: 'Hijo(a) / Hijastro(a)' },
+  { value: '4', label: 'Padre / Madre' },
+  { value: '5', label: 'Hermano(a)' },
+  { value: '6', label: 'Nieto(a)' },
+  { value: '7', label: 'Otro familiar' },
+  { value: '8', label: 'No familiar' }
+];
+
+const sexoOptions: SearchableSelectOption[] = [
+  { value: '1', label: 'Hombre' },
+  { value: '2', label: 'Mujer' }
+];
+
+const siNoOptions: SearchableSelectOption[] = [
+  { value: 'si', label: 'Sí' },
+  { value: 'no', label: 'No' }
+];
+
+const medioTransporteResidenteOptions = computed<SearchableSelectOption[]>(() => {
+  const opts: SearchableSelectOption[] = [];
+  if (isNinoMenor12.value) {
+    opts.push({
+      value: 'no_aplica',
+      label: 'No aplica / Viaja acompañado (sin traslado habitual)'
+    });
+  }
+  opts.push(
+    { value: '1', label: 'A pie' },
+    { value: '2', label: 'Bicicleta' },
+    { value: '3', label: 'Motocicleta' },
+    { value: '4', label: 'Automóvil Particular' },
+    { value: '9', label: 'Transporte Institucional' },
+    { value: '5', label: 'Taxi' },
+    { value: '6', label: 'Transporte público (bus, buseta)' },
+    { value: '7', label: 'Transporte informal (por puesto, mototaxi)' },
+    { value: '8', label: 'Otro' }
+  );
+  return opts;
+});
+
+const tipoVehiculoOptions: SearchableSelectOption[] = [
+  { value: 'automovil', label: 'Automóvil' },
+  { value: 'motocicleta', label: 'Motocicleta' },
+  { value: 'bicicleta', label: 'Bicicleta' },
+  { value: 'camioneta_rustico', label: 'Camioneta / Rústico' },
+  { value: 'camion', label: 'Camión / Carga' },
+  { value: 'otro', label: 'Otro' }
+];
 
 watch(parsedEdad, (edad) => {
   if (edad === null) return;
@@ -463,28 +516,28 @@ defineExpose({ resetDraft });
           <label class="survey-label" for="residente-parentesco">
             Parentesco con el jefe del hogar:
           </label>
-          <select id="residente-parentesco" v-model="nuevoResidente.parentesco" class="survey-select">
-            <option value="" disabled selected>-- Seleccione el parentesco con el jefe(a) --</option>
-            <option value="1">Jefe(a) de Hogar</option>
-            <option value="2">Cónyuge / Pareja</option>
-            <option value="3">Hijo(a) / Hijastro(a)</option>
-            <option value="4">Padre / Madre</option>
-            <option value="5">Hermano(a)</option>
-            <option value="6">Nieto(a)</option>
-            <option value="7">Otro familiar</option>
-            <option value="8">No familiar</option>
-          </select>
+          <SearchableSelect
+            id="residente-parentesco"
+            v-model="nuevoResidente.parentesco"
+            :options="parentescoOptions"
+            placeholder-option="-- Seleccione el parentesco con el jefe(a) --"
+            search-placeholder="Buscar parentesco..."
+            search-aria-label="Buscar parentesco con el jefe de hogar"
+          />
         </div>
 
         <div class="survey-field">
           <label class="survey-label" for="residente-sexo">
             Sexo (1=Hombre, 2=Mujer):
           </label>
-          <select id="residente-sexo" v-model="nuevoResidente.sexo" class="survey-select">
-            <option value="" disabled selected>-- Seleccione el sexo --</option>
-            <option value="1">Hombre</option>
-            <option value="2">Mujer</option>
-          </select>
+          <SearchableSelect
+            id="residente-sexo"
+            v-model="nuevoResidente.sexo"
+            :options="sexoOptions"
+            placeholder-option="-- Seleccione el sexo --"
+            search-placeholder="Buscar sexo..."
+            search-aria-label="Buscar sexo"
+          />
         </div>
 
         <div class="survey-field">
@@ -518,48 +571,43 @@ defineExpose({ resetDraft });
           <label class="survey-label" for="residente-sabe-leer">
             ¿Sabe leer y escribir?:
           </label>
-          <select
+          <SearchableSelect
             id="residente-sabe-leer"
             v-model="nuevoResidente.sabe_leer_escribir"
+            :options="siNoOptions"
             :disabled="isInfante"
-            class="survey-select"
-          >
-            <option value="" disabled selected>-- Seleccione si sabe leer y escribir --</option>
-            <option value="si">Sí</option>
-            <option value="no">No</option>
-          </select>
+            placeholder-option="-- Seleccione si sabe leer y escribir --"
+            search-placeholder="Buscar Sí / No..."
+            search-aria-label="Buscar si sabe leer y escribir"
+          />
         </div>
 
         <div class="survey-field">
           <label class="survey-label" for="residente-nivel-educativo">
             Nivel Educativo alcanzado:
           </label>
-          <select id="residente-nivel-educativo" v-model="nuevoResidente.nivel_educativo" class="survey-select">
-            <option value="" disabled selected>-- Seleccione el nivel educativo --</option>
-            <option
-              v-for="opt in nivelesEducativosDisponibles"
-              :key="opt.value"
-              :value="opt.value"
-            >
-              {{ opt.label }}
-            </option>
-          </select>
+          <SearchableSelect
+            id="residente-nivel-educativo"
+            v-model="nuevoResidente.nivel_educativo"
+            :options="nivelesEducativosDisponibles"
+            placeholder-option="-- Seleccione el nivel educativo --"
+            search-placeholder="Buscar nivel educativo..."
+            search-aria-label="Buscar nivel educativo"
+          />
         </div>
 
         <div class="survey-field">
           <label class="survey-label" for="residente-actividad">
             Ocupación principal:
           </label>
-          <select id="residente-actividad" v-model="nuevoResidente.actividad_principal" class="survey-select">
-            <option value="" disabled selected>-- Seleccione la ocupación o actividad --</option>
-            <option
-              v-for="opt in actividadesDisponibles"
-              :key="opt.value"
-              :value="opt.value"
-            >
-              {{ opt.label }}
-            </option>
-          </select>
+          <SearchableSelect
+            id="residente-actividad"
+            v-model="nuevoResidente.actividad_principal"
+            :options="actividadesDisponibles"
+            placeholder-option="-- Seleccione la ocupación o actividad --"
+            search-placeholder="Buscar ocupación o actividad..."
+            search-aria-label="Buscar ocupación principal"
+          />
         </div>
 
         <div class="survey-field">
@@ -570,56 +618,56 @@ defineExpose({ resetDraft });
                 : '¿Cuál es el medio de transporte que utiliza normalmente para trasladarse?:'
             }}
           </label>
-          <select id="residente-medio-transporte" v-model="nuevoResidente.medio_transporte_habitual" class="survey-select">
-            <option value="" disabled selected>-- Seleccione el medio de transporte --</option>
-            <option v-if="isNinoMenor12" value="no_aplica">No aplica / Viaja acompañado (sin traslado habitual)</option>
-            <option value="1">A pie</option>
-            <option value="2">Bicicleta</option>
-            <option value="3">Motocicleta</option>
-            <option value="4">Automóvil Particular</option>
-            <option value="9">Transporte Institucional</option>
-            <option value="5">Taxi</option>
-            <option value="6">Transporte público (bus, buseta)</option>
-            <option value="7">Transporte informal (por puesto, mototaxi)</option>
-            <option value="8">Otro</option>
-          </select>
+          <SearchableSelect
+            id="residente-medio-transporte"
+            v-model="nuevoResidente.medio_transporte_habitual"
+            :options="medioTransporteResidenteOptions"
+            placeholder-option="-- Seleccione el medio de transporte --"
+            search-placeholder="Buscar medio de transporte..."
+            search-aria-label="Buscar medio de transporte habitual"
+          />
         </div>
 
         <div v-if="!isMenorLicencia" class="survey-field">
           <label class="survey-label" for="residente-licencia">
             ¿Posee licencia de conducir?:
           </label>
-          <select id="residente-licencia" v-model="nuevoResidente.posee_licencia" class="survey-select">
-            <option value="" disabled selected>-- Seleccione si posee licencia --</option>
-            <option value="si">Sí</option>
-            <option value="no">No</option>
-          </select>
+          <SearchableSelect
+            id="residente-licencia"
+            v-model="nuevoResidente.posee_licencia"
+            :options="siNoOptions"
+            placeholder-option="-- Seleccione si posee licencia --"
+            search-placeholder="Buscar Sí / No..."
+            search-aria-label="Buscar si posee licencia"
+          />
         </div>
 
         <div v-if="!isMenorLicencia" class="survey-field">
           <label class="survey-label" for="residente-vehiculo-disp">
             ¿Tiene algún vehículo disponible?:
           </label>
-          <select id="residente-vehiculo-disp" v-model="nuevoResidente.tiene_vehiculo_disponible" class="survey-select">
-            <option value="" disabled selected>-- Seleccione si tiene vehículo disponible --</option>
-            <option value="si">Sí</option>
-            <option value="no">No</option>
-          </select>
+          <SearchableSelect
+            id="residente-vehiculo-disp"
+            v-model="nuevoResidente.tiene_vehiculo_disponible"
+            :options="siNoOptions"
+            placeholder-option="-- Seleccione si tiene vehículo disponible --"
+            search-placeholder="Buscar Sí / No..."
+            search-aria-label="Buscar si tiene vehículo disponible"
+          />
         </div>
 
         <div v-if="!isMenorLicencia && nuevoResidente.tiene_vehiculo_disponible === 'si'" class="survey-field">
           <label class="survey-label" for="residente-tipo-vehiculo">
             Tipo de vehículo:
           </label>
-          <select id="residente-tipo-vehiculo" v-model="nuevoResidente.tipo_vehiculo" class="survey-select">
-            <option value="" disabled selected>-- Seleccione el tipo de vehículo --</option>
-            <option value="automovil">Automóvil</option>
-            <option value="motocicleta">Motocicleta</option>
-            <option value="bicicleta">Bicicleta</option>
-            <option value="camioneta_rustico">Camioneta / Rústico</option>
-            <option value="camion">Camión / Carga</option>
-            <option value="otro">Otro</option>
-          </select>
+          <SearchableSelect
+            id="residente-tipo-vehiculo"
+            v-model="nuevoResidente.tipo_vehiculo"
+            :options="tipoVehiculoOptions"
+            placeholder-option="-- Seleccione el tipo de vehículo --"
+            search-placeholder="Buscar tipo de vehículo..."
+            search-aria-label="Buscar tipo de vehículo"
+          />
         </div>
 
         <div v-if="!isMenorLicencia && nuevoResidente.tiene_vehiculo_disponible === 'si'" class="survey-field">
