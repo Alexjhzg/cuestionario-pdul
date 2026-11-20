@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue';
 import QuestionHelpTip from '@/components/common/QuestionHelpTip.vue';
-import SearchableSelect, { type SearchableSelectOption } from '@/components/common/SearchableSelect.vue';
 import { QUESTION_HELP_TIPS } from '@/utils/questionHelpCatalog';
 import type { Residente, ViajeOD } from '@/types/survey';
 import { formatParroquia } from '@/utils/validation';
@@ -63,24 +62,6 @@ const isSelectedMinor = computed<boolean>(() => {
   const r = selectedResidente.value;
   return Boolean(r && typeof r.edad === 'number' && r.edad < 12);
 });
-
-const personaViajeOptions = computed<SearchableSelectOption[]>(() =>
-  (props.residentes || []).map((r) => ({
-    value: r.persona_numero,
-    label: isInfantResident(r)
-      ? `Persona #${r.persona_numero}: ${r.nombres || r.nombre_apellido || 'Residente'} (${r.edad} años — Menor de 5 años, sin viajes independientes)`
-      : `Persona #${r.persona_numero}: ${r.nombres || r.nombre_apellido || 'Residente'}`,
-    disabled: isInfantResident(r)
-  }))
-);
-
-const motivoViajeOptions = computed<SearchableSelectOption[]>(() =>
-  MOTIVO_OPTIONS.map((opt) => ({ value: opt.codigo, label: opt.nombre }))
-);
-
-const modoViajeOptions = computed<SearchableSelectOption[]>(() =>
-  MODO_OPTIONS.map((opt) => ({ value: opt.codigo, label: opt.nombre }))
-);
 
 watch(
   () => props.sugerenciaOrigen,
@@ -236,16 +217,23 @@ function onAgregarViaje() {
             question-label="persona que realizó el viaje"
           />
         </div>
-        <SearchableSelect
+        <select
           v-if="residentes && residentes.length > 0"
           id="viaje-persona"
-          :model-value="nuevoViaje.persona_numero ?? ''"
-          :options="personaViajeOptions"
-          placeholder-option="-- Seleccione el residente que viajó --"
-          search-placeholder="Buscar residente..."
-          search-aria-label="Buscar residente que realizó el viaje"
-          @update:model-value="nuevoViaje.persona_numero = $event ? Number($event) : undefined"
-        />
+          v-model.number="nuevoViaje.persona_numero"
+          class="survey-select"
+        >
+          <option value="" disabled selected>-- Seleccione el residente que viajó --</option>
+          <option
+            v-for="r in residentes"
+            :key="r.persona_numero"
+            :value="r.persona_numero"
+            :disabled="isInfantResident(r)"
+          >
+            Persona #{{ r.persona_numero }}: {{ r.nombres || r.nombre_apellido || 'Residente' }}
+            <template v-if="isInfantResident(r)"> ({{ r.edad }} años — Menor de 5 años, sin viajes independientes)</template>
+          </option>
+        </select>
         <input
           v-else
           id="viaje-persona"
@@ -413,14 +401,12 @@ function onAgregarViaje() {
             question-label="motivo del viaje"
           />
         </div>
-        <SearchableSelect
-          id="viaje-motivo"
-          v-model="nuevoViaje.motivo_viaje"
-          :options="motivoViajeOptions"
-          placeholder-option="-- Seleccione el motivo del viaje --"
-          search-placeholder="Buscar motivo del viaje..."
-          search-aria-label="Buscar motivo del viaje"
-        />
+        <select id="viaje-motivo" v-model="nuevoViaje.motivo_viaje" class="survey-select">
+          <option value="" disabled selected>-- Seleccione el motivo del viaje --</option>
+          <option v-for="opt in MOTIVO_OPTIONS" :key="`motivo-${opt.codigo}`" :value="opt.codigo">
+            {{ opt.nombre }}
+          </option>
+        </select>
       </div>
 
       <div v-if="nuevoViaje.motivo_viaje === '8'" class="survey-field">
@@ -446,14 +432,12 @@ function onAgregarViaje() {
             question-label="modo principal de transporte del viaje"
           />
         </div>
-        <SearchableSelect
-          id="viaje-modo"
-          v-model="nuevoViaje.modo_principal"
-          :options="modoViajeOptions"
-          placeholder-option="-- Seleccione el modo de transporte principal --"
-          search-placeholder="Buscar modo principal..."
-          search-aria-label="Buscar modo de transporte principal"
-        />
+        <select id="viaje-modo" v-model="nuevoViaje.modo_principal" class="survey-select">
+          <option value="" disabled selected>-- Seleccione el modo de transporte principal --</option>
+          <option v-for="opt in MODO_OPTIONS" :key="`modo-${opt.codigo}`" :value="opt.codigo">
+            {{ opt.nombre }}
+          </option>
+        </select>
       </div>
 
       <div v-if="nuevoViaje.modo_principal === '8'" class="survey-field">
@@ -473,15 +457,12 @@ function onAgregarViaje() {
         <label class="survey-label" for="viaje-modo-sec">
           Modo secundario:
         </label>
-        <SearchableSelect
-          id="viaje-modo-sec"
-          v-model="nuevoViaje.modo_secundario"
-          :options="modoViajeOptions"
-          :allow-clear-empty-option="true"
-          placeholder-option="Ninguno / No aplica"
-          search-placeholder="Buscar modo secundario..."
-          search-aria-label="Buscar modo de transporte secundario"
-        />
+        <select id="viaje-modo-sec" v-model="nuevoViaje.modo_secundario" class="survey-select">
+          <option value="" selected>Ninguno / No aplica</option>
+          <option v-for="opt in MODO_OPTIONS" :key="`modosec-${opt.codigo}`" :value="opt.codigo">
+            {{ opt.nombre }}
+          </option>
+        </select>
       </div>
 
       <div v-if="!isVehiculoParticular(nuevoViaje.modo_principal) && nuevoViaje.modo_secundario === '8'" class="survey-field">
