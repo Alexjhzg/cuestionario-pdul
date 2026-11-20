@@ -4,12 +4,9 @@ import QuestionHelpTip from '@/components/common/QuestionHelpTip.vue';
 import GpsLocationCapture, { type GpsPayload } from '@/components/common/GpsLocationCapture.vue';
 import { QUESTION_HELP_TIPS } from '@/utils/questionHelpCatalog';
 import comunidadesCatalogJson from '@shared/catalogs/comunidades_maturin.json';
-import zonasOdCatalogJson from '@shared/catalogs/zonas_od_maturin.json';
 import {
   fetchCatalogoComunidades,
-  fetchCatalogoZonasOd,
-  type ComunidadCatalogoItem,
-  type ZonaOdCatalogoItem
+  type ComunidadCatalogoItem
 } from '@/services/api';
 import { PARROQUIAS_MATURIN, formatParroquia } from '@/utils/validation';
 
@@ -23,10 +20,8 @@ const emit = defineEmits<{
 }>();
 
 const localCatalog = comunidadesCatalogJson as ComunidadCatalogoItem[];
-const localZonasCatalog = zonasOdCatalogJson as ZonaOdCatalogoItem[];
 
 const remoteCommunities = ref<ComunidadCatalogoItem[] | null>(null);
-const remoteZonas = ref<ZonaOdCatalogoItem[] | null>(null);
 const isOtherComunidad = ref<boolean>(false);
 
 function filterLocalByParroquia(parroquia: string): ComunidadCatalogoItem[] {
@@ -39,12 +34,6 @@ function filterLocalByParroquia(parroquia: string): ComunidadCatalogoItem[] {
     .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
 }
 
-function filterLocalZonasByParroquia(parroquia: string): ZonaOdCatalogoItem[] {
-  if (!parroquia) return [];
-  const p = parroquia.trim().toLowerCase();
-  return localZonasCatalog.filter((item) => item.parroquia === p);
-}
-
 const comunidadesFiltradas = computed<ComunidadCatalogoItem[]>(() => {
   const p = props.modelValue.parroquia || '';
   if (!p) return [];
@@ -54,54 +43,12 @@ const comunidadesFiltradas = computed<ComunidadCatalogoItem[]>(() => {
   return filterLocalByParroquia(p);
 });
 
-const selectedComunidadObj = computed<ComunidadCatalogoItem | undefined>(() => {
-  const code = String(props.modelValue.comunidad_codigo || '').trim();
-  const name = String(props.modelValue.comunidad_sector || '').trim();
-  if (code) {
-    const byCode = comunidadesFiltradas.value.find((c) => c.codigo === code);
-    if (byCode) return byCode;
-  }
-  if (name) {
-    return comunidadesFiltradas.value.find(
-      (c) => c.nombre.toLowerCase() === name.toLowerCase()
-    );
-  }
-  return undefined;
-});
-
-const zonasFiltradas = computed<ZonaOdCatalogoItem[]>(() => {
-  const p = props.modelValue.parroquia || '';
-  if (!p) return [];
-  const baseZonas =
-    remoteZonas.value && remoteZonas.value.length > 0
-      ? remoteZonas.value
-      : filterLocalZonasByParroquia(p);
-
-  const selectedXpar = selectedComunidadObj.value?.xpar;
-  if (selectedXpar) {
-    const byXpar = baseZonas.filter((z) => z.xpar === selectedXpar);
-    if (byXpar.length > 0) {
-      return byXpar;
-    }
-  }
-  return baseZonas;
-});
-
 const legacyComunidadOption = computed<string>(() => {
   if (isOtherComunidad.value) return '';
   const current = String(props.modelValue.comunidad_sector || '').trim();
   if (!current) return '';
   const exists = comunidadesFiltradas.value.some(
     (c) => c.nombre.toLowerCase() === current.toLowerCase()
-  );
-  return exists ? '' : current;
-});
-
-const legacyZonaOption = computed<string>(() => {
-  const current = String(props.modelValue.zona_residencia_od || '').trim();
-  if (!current) return '';
-  const exists = zonasFiltradas.value.some(
-    (z) => z.codigo.toLowerCase() === current.toLowerCase()
   );
   return exists ? '' : current;
 });
@@ -120,7 +67,6 @@ watch(
   () => props.modelValue.parroquia,
   async (newParroquia, oldParroquia) => {
     remoteCommunities.value = null;
-    remoteZonas.value = null;
 
     if (!newParroquia) {
       return;
@@ -137,27 +83,12 @@ watch(
         emit('update-field', 'comunidad_codigo', '');
         emit('update-field', 'comunidad_sector', '');
       }
-
-      const validZonas = filterLocalZonasByParroquia(newParroquia);
-      const currentZona = String(props.modelValue.zona_residencia_od || '').trim();
-      if (
-        currentZona &&
-        !validZonas.some((z) => z.codigo.toLowerCase() === currentZona.toLowerCase())
-      ) {
-        emit('update-field', 'zona_residencia_od', '');
-      }
     }
 
     try {
-      const [comRows, zonaRows] = await Promise.allSettled([
-        fetchCatalogoComunidades(newParroquia),
-        fetchCatalogoZonasOd(newParroquia)
-      ]);
-      if (comRows.status === 'fulfilled' && Array.isArray(comRows.value) && comRows.value.length > 0) {
-        remoteCommunities.value = comRows.value;
-      }
-      if (zonaRows.status === 'fulfilled' && Array.isArray(zonaRows.value) && zonaRows.value.length > 0) {
-        remoteZonas.value = zonaRows.value;
+      const comRows = await fetchCatalogoComunidades(newParroquia);
+      if (Array.isArray(comRows) && comRows.length > 0) {
+        remoteCommunities.value = comRows;
       }
     } catch {
       // Respaldo offline inmediato con catálogos locales sincronizados
@@ -184,18 +115,6 @@ function onComunidadSelectChange(event: Event) {
   const found = comunidadesFiltradas.value.find((c) => c.nombre === val);
   emit('update-field', 'comunidad_sector', val);
   emit('update-field', 'comunidad_codigo', found ? found.codigo : '');
-
-  if (found?.xpar) {
-    const matchingZonas = zonasFiltradas.value.filter((z) => z.xpar === found.xpar);
-    const currentZona = String(props.modelValue.zona_residencia_od || '').trim();
-    if (
-      matchingZonas.length > 0 &&
-      currentZona &&
-      !matchingZonas.some((z) => z.codigo === currentZona)
-    ) {
-      emit('update-field', 'zona_residencia_od', '');
-    }
-  }
 }
 
 function onOtherComunidadInput(event: Event) {
@@ -203,8 +122,8 @@ function onOtherComunidadInput(event: Event) {
   emit('update-field', 'comunidad_sector', (event.target as HTMLInputElement).value);
 }
 
-function onZonaSelectChange(event: Event) {
-  const value = (event.target as HTMLSelectElement).value;
+function onZonaInput(event: Event) {
+  const value = (event.target as HTMLInputElement).value;
   emit('update-field', 'zona_residencia_od', value);
 }
 
@@ -322,37 +241,20 @@ function onUpdateGps(payload: GpsPayload) {
         question-label="Zona de residencia según zonificación O-D"
       />
     </div>
-    <select
+    <input
       id="zona_residencia_od"
+      type="text"
       :value="modelValue.zona_residencia_od || ''"
-      :disabled="!modelValue.parroquia"
       required
-      class="survey-select"
-      data-testid="select-zona-od-cascada"
+      class="survey-input"
+      data-testid="input-zona-od"
+      placeholder="Ej: Zona Centro, Tipuro, Los Cortijos, etc."
       @blur="emit('mark-touched', 'zona_residencia_od')"
-      @change="onZonaSelectChange"
-    >
-      <option value="" disabled>
-        {{
-          modelValue.parroquia
-            ? `Seleccione la zona o sector O-D (${zonasFiltradas.length} disponibles)`
-            : 'Seleccione primero una parroquia'
-        }}
-      </option>
-      <option v-if="legacyZonaOption" :value="legacyZonaOption">
-        {{ legacyZonaOption }}
-      </option>
-      <option
-        v-for="zona in zonasFiltradas"
-        :key="zona.codigo"
-        :value="zona.codigo"
-      >
-        {{ zona.nombre }}
-      </option>
-    </select>
+      @input="onZonaInput"
+    />
     <span class="survey-error-msg">
       <i class="pi pi-times-circle" aria-hidden="true"></i>
-      Seleccione la zona de residencia (zonificación O-D).
+      Indique la zona de residencia (zonificación O-D).
     </span>
   </div>
 
