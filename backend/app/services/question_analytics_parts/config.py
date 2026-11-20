@@ -151,6 +151,13 @@ QUESTIONS_METRIC_CONFIG: List[Dict[str, Any]] = [
     },
     {
         "seccion": "Sección VI: Características de Transporte Público",
+        "clave": "rutas_tp_utilizadas",
+        "pregunta": "1.b.- Rutas o líneas de transporte colectivo utilizadas",
+        "tipo_grafico": "bar",
+        "aliases": ["rutas_tp_utilizadas"],
+    },
+    {
+        "seccion": "Sección VI: Características de Transporte Público",
         "clave": "tiempo_espera_paradas_min",
         "pregunta": "2.- Tiempo total de espera en las paradas (en minutos)",
         "tipo_grafico": "bar",

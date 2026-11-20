@@ -1,5 +1,5 @@
 import { isValidParroquia } from '@/utils/validation';
-import { isVehiculoParticular } from '@/utils/tripCatalogs';
+import { isModoSinCosto, isVehiculoParticular } from '@/utils/tripCatalogs';
 import type { Residente, ViajeOD } from '@/types/survey';
 
 export function isBlankValue(value: unknown): boolean {
@@ -16,6 +16,19 @@ export function isNumericValue(value: unknown): boolean {
 
 function isFilled(value: unknown): boolean {
   return value !== undefined && value !== null && value !== '';
+}
+
+function getSelectedRoutes(raw: unknown): string[] {
+  if (Array.isArray(raw)) {
+    return raw.map((item) => String(item).trim()).filter(Boolean);
+  }
+  if (raw && typeof raw === 'object') {
+    return Object.entries(raw as Record<string, unknown>)
+      .filter(([, checked]) => Boolean(checked))
+      .map(([key]) => key.trim())
+      .filter(Boolean);
+  }
+  return [];
 }
 
 export function calculateStepProgress(stepIdx: number, data: Record<string, any>): number {
@@ -50,14 +63,17 @@ export function calculateStepProgress(stepIdx: number, data: Record<string, any>
       return Array.isArray(data.viajes) && data.viajes.length > 0 ? 1 : 0.3;
     case 5: {
       let filled = 0;
+      const rutasCount = isNumericValue(data.rutas_tp_dia) ? Number(data.rutas_tp_dia) : 0;
       if (isFilled(data.rutas_tp_dia)) filled++;
+      if (rutasCount > 0 && getSelectedRoutes(data.rutas_tp_utilizadas).length > 0) filled++;
       if (isFilled(data.tiempo_espera_paradas_min)) filled++;
       if (isFilled(data.km_residencia_parada)) filled++;
       if (data.dificultades_acceso_tp) filled++;
       if (data.calificacion_servicio_tp) filled++;
       if (isFilled(data.gasto_semanal_transporte_bs)) filled++;
       if (data.acuerdo_rutas_directas) filled++;
-      return filled > 0 ? filled / 7 : 0.25;
+      const totalFields = rutasCount > 0 ? 8 : 7;
+      return filled > 0 ? filled / totalFields : 0.25;
     }
     case 6: {
       let filled = 0;
@@ -272,7 +288,7 @@ export function getStepValidationErrors(stepIdx: number, data: Record<string, an
         if (!isNumericValue(v.tiempo_viaje_min) || Number(v.tiempo_viaje_min) < 1) {
           pushError('viajes', `${prefix} indique el tiempo de viaje en minutos.`);
         }
-        if (!isVehiculoParticular(v.modo_principal)) {
+        if (!isModoSinCosto(v.modo_principal)) {
           if (!isNumericValue(v.costo_viaje_bs) || Number(v.costo_viaje_bs) < 0) {
             pushError('viajes', `${prefix} indique el costo del viaje (puede ser 0).`);
           }
@@ -282,6 +298,22 @@ export function getStepValidationErrors(stepIdx: number, data: Record<string, an
     }
     case 5: {
       requireNumber('rutas_tp_dia', '1.- Indique cuántas rutas de transporte público utilizó.', 0);
+      const selectedRoutes = getSelectedRoutes(source.rutas_tp_utilizadas);
+      const isZeroRoutes = isNumericValue(source.rutas_tp_dia) && Number(source.rutas_tp_dia) === 0;
+      if (isNumericValue(source.rutas_tp_dia) && Number(source.rutas_tp_dia) > 0) {
+        if (selectedRoutes.length === 0) {
+          pushError(
+            'rutas_tp_utilizadas',
+            '1.b.- Seleccione al menos una ruta de transporte colectivo utilizada (o marque «Otra»).'
+          );
+        }
+      }
+      if (!isZeroRoutes && selectedRoutes.includes('otra')) {
+        requireField(
+          'rutas_tp_utilizadas_otra',
+          '1.b.- Especifique la otra ruta de transporte colectivo utilizada.'
+        );
+      }
       requireNumber('tiempo_espera_paradas_min', '2.- Indique el tiempo total de espera en paradas.', 0);
       requireNumber('km_residencia_parada', '3.- Indique los kilómetros desde su residencia hasta la parada.', 0);
       requireField('dificultades_acceso_tp', '4.- Indique si ha tenido dificultades para acceder al transporte público.');

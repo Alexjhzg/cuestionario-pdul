@@ -66,6 +66,8 @@ export interface SurveyArchetype {
   }>;
   paso6: {
     rutas_tp_dia: string;
+    rutas_tp_utilizadas?: string[];
+    rutas_tp_utilizadas_otra?: string;
     tiempo_espera_paradas_min: string;
     km_residencia_parada: string;
     dificultades_acceso_tp: string;
@@ -187,6 +189,7 @@ export const ARCHETYPES: Record<string, SurveyArchetype> = {
     ],
     paso6: {
       rutas_tp_dia: '1',
+      rutas_tp_utilizadas: ['ruta_01_y_05_union_de_conductores_lucas_perez'],
       tiempo_espera_paradas_min: '20',
       km_residencia_parada: '0.2',
       dificultades_acceso_tp: 'no', // Rama NO activa dificultad
@@ -308,6 +311,8 @@ export const ARCHETYPES: Record<string, SurveyArchetype> = {
     ],
     paso6: {
       rutas_tp_dia: '3',
+      rutas_tp_utilizadas: ['ruta_02_a_civil_linea_conductores_la_pica', 'otra'],
+      rutas_tp_utilizadas_otra: 'Ruta Comunal Los Guaritos',
       tiempo_espera_paradas_min: '45',
       km_residencia_parada: '0.8',
       dificultades_acceso_tp: 'si', // Bifurcación activa principal_dificultad_tp

@@ -13,6 +13,7 @@ import {
   validateNewTripForm,
   buildTripFromDraft,
   isVehiculoParticular,
+  isModoSinCosto,
   type HoraPeriodo
 } from '@/utils/tripCatalogs';
 
@@ -73,11 +74,15 @@ watch(
 
 watch(
   () => nuevoViaje.value.modo_principal,
-  (newModo) => {
+  (newModo, oldModo) => {
     if (isVehiculoParticular(newModo)) {
       nuevoViaje.value.modo_secundario = '';
       nuevoViaje.value.modo_secundario_otro = '';
+    }
+    if (isModoSinCosto(newModo)) {
       nuevoViaje.value.costo_viaje_bs = 0;
+    } else if (isModoSinCosto(oldModo)) {
+      nuevoViaje.value.costo_viaje_bs = undefined;
     }
   }
 );
@@ -493,7 +498,7 @@ function onAgregarViaje() {
         />
       </div>
 
-      <div v-if="!isVehiculoParticular(nuevoViaje.modo_principal)" class="survey-field">
+      <div v-if="!isModoSinCosto(nuevoViaje.modo_principal)" class="survey-field">
         <div class="survey-label-row">
           <label class="survey-label" for="viaje-costo">
             Costo del Viaje (Bs):

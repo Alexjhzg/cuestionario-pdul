@@ -14,3 +14,8 @@ export interface CatalogOptionItem {
   label: string;
 }
 
+export interface RutaTransporteCatalogItem extends CatalogOptionItem {
+  modalidades: string[];
+  tipos_vehiculo: string[];
+}
+

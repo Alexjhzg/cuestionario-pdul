@@ -1,4 +1,5 @@
 import { PARROQUIA_NOMBRES } from '@/utils/validation';
+import { RUTAS_TRANSPORTE_LABELS } from '@/utils/surveyOptions';
 
 export interface ResponseResidentRecord {
   persona_numero?: number;
@@ -53,6 +54,8 @@ export interface ResponseDisplayData {
   tiempo_espera_paradas_min?: number | string;
   km_residencia_parada?: number | string;
   rutas_tp_dia?: number | string;
+  rutas_tp_utilizadas?: string[] | Record<string, boolean>;
+  rutas_tp_utilizadas_otra?: string;
   gasto_semanal_transporte_bs?: number | string;
   acuerdo_rutas_directas?: string;
   seguridad_centro?: string;
@@ -252,4 +255,24 @@ export function humanLabel(map: Readonly<Record<string, string>>, val: unknown):
   const raw = String(val);
   const lower = raw.toLowerCase();
   return map[lower] || map[raw] || raw.replace(/_/g, ' ');
+}
+
+export function formatRutasTpUtilizadas(rutas: unknown, otra?: unknown): string[] {
+  let codes: string[] = [];
+  if (Array.isArray(rutas)) {
+    codes = rutas.map((r) => String(r).trim()).filter(Boolean);
+  } else if (rutas && typeof rutas === 'object') {
+    codes = Object.entries(rutas as Record<string, unknown>)
+      .filter(([, checked]) => Boolean(checked))
+      .map(([key]) => key.trim())
+      .filter(Boolean);
+  }
+
+  const otraText = typeof otra === 'string' ? otra.trim() : '';
+  return codes.map((code) => {
+    if (code === 'otra') {
+      return otraText ? `Otra: ${otraText}` : 'Otra';
+    }
+    return RUTAS_TRANSPORTE_LABELS[code] || code.replace(/_/g, ' ');
+  });
 }

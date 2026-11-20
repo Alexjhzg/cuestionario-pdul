@@ -221,6 +221,7 @@ test.describe('Citizen Mobile Journeys (360x740)', () => {
 
     // Step 6
     await page.locator('#rutas_tp_dia').fill('1');
+    await page.locator('#rutas_tp_utilizadas input[name="rutas_tp_utilizadas"]').first().check();
     await page.locator('#tiempo_espera_paradas_min').fill('10');
     await page.locator('#km_residencia_parada').fill('0.5');
     await page.locator('input[name="dificultades_acceso_tp"][value="no"]').check();

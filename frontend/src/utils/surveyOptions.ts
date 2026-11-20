@@ -1,7 +1,31 @@
+import rutasTransporteCatalog from '@shared/catalogs/rutas_transporte_maturin.json';
+import type { RutaTransporteCatalogItem } from '@shared/types';
+
 export interface SurveyOption {
   readonly value: string;
   readonly label: string;
 }
+
+export const RUTAS_TRANSPORTE_COLECTIVO: readonly RutaTransporteCatalogItem[] =
+  rutasTransporteCatalog as RutaTransporteCatalogItem[];
+
+export const OTRA_RUTA_OPTION: SurveyOption = {
+  value: 'otra',
+  label: 'Otra (especifique)'
+};
+
+export const RUTAS_TRANSPORTE_OPTIONS: readonly SurveyOption[] = [
+  ...RUTAS_TRANSPORTE_COLECTIVO.map((item) => ({
+    value: item.value,
+    label: item.label
+  })),
+  OTRA_RUTA_OPTION
+];
+
+export const RUTAS_TRANSPORTE_LABELS: Record<string, string> = {
+  ...Object.fromEntries(RUTAS_TRANSPORTE_COLECTIVO.map((item) => [item.codigo, item.nombre])),
+  otra: 'Otra'
+};
 
 export const TIPOS_VIVIENDA: readonly SurveyOption[] = [
   { value: 'quinta_casa_quinta', label: 'a.- Quinta o Casa quinta' },

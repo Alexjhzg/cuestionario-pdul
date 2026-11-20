@@ -879,15 +879,11 @@
               "type": "number",
               "key": "costo_viaje_bs",
               "label": "Costo del Viaje (Bs)",
-              "conditional": {
-                "show": false,
-                "when": "modo_principal",
-                "eq": "4"
-              },
               "validate": {
                 "required": true,
                 "min": 0
-              }
+              },
+              "customConditional": "show = !['1', '2', '3', '4'].includes(String((row && row.modo_principal) || data.modo_principal || ''));"
             }
           ]
         }
@@ -926,6 +922,449 @@
             "show": true,
             "when": "uso_transporte_publico",
             "eq": "si"
+          }
+        },
+        {
+          "type": "select",
+          "key": "rutas_tp_utilizadas",
+          "label": "1.b.- ¿Qué rutas o líneas de transporte colectivo utilizó?",
+          "multiple": true,
+          "searchEnabled": true,
+          "dataSrc": "values",
+          "data": {
+            "values": [
+              {
+                "label": "RUTA 01 Y 05 UNION DE CONDUCTORES \"LUCAS PEREZ\"",
+                "value": "ruta_01_y_05_union_de_conductores_lucas_perez"
+              },
+              {
+                "label": "RUTA 02 / A. CIVIL LINEA CONDUCTORES LA PICA",
+                "value": "ruta_02_a_civil_linea_conductores_la_pica"
+              },
+              {
+                "label": "RUTA 04 / A. CIVIL CONDUCTORES LOS HIJOS DE BOQUERON",
+                "value": "ruta_04_a_civil_conductores_los_hijos_de_boqueron"
+              },
+              {
+                "label": "RUTA 04 / A. CIVIL DE CONDUCTORES BOQUERON.",
+                "value": "ruta_04_a_civil_de_conductores_boqueron"
+              },
+              {
+                "label": "RUTA 04 / UNION DE CONDUCTORES BOQUERON",
+                "value": "ruta_04_union_de_conductores_boqueron"
+              },
+              {
+                "label": "RUTA 06 / A. CIVIL UNION DE CONDUCTORES JUANICO",
+                "value": "ruta_06_a_civil_union_de_conductores_juanico"
+              },
+              {
+                "label": "RUTA 07 / A. CIVIL UNION PARAISO",
+                "value": "ruta_07_a_civil_union_paraiso"
+              },
+              {
+                "label": "RUTA 09 / A. BOLIVARIANA TRANSPORTE URBANO \"CIUDAD UNIVERSITARIA LOS GUARITOS\"",
+                "value": "ruta_09_a_bolivariana_transporte_urbano_ciudad_universitaria_los_guaritos"
+              },
+              {
+                "label": "RUTA 09 / UNION DE COND. CIUDAD UNIV. LOS GUARITOS",
+                "value": "ruta_09_union_de_cond_ciudad_univ_los_guaritos"
+              },
+              {
+                "label": "RUTA 11 / A. CIVIL AUTOS LIBRES Y POR PUESTO DISPONIBLES LA LIBERTAD",
+                "value": "ruta_11_a_civil_autos_libres_y_por_puesto_disponibles_la_libertad"
+              },
+              {
+                "label": "RUTA 12 / A. CIVIL UNION DE CONDUCTORES EL BUEN PASTOR",
+                "value": "ruta_12_a_civil_union_de_conductores_el_buen_pastor"
+              },
+              {
+                "label": "RUTA 13 / UNION DE CONDUCTORES EL MEREY DE AMANA",
+                "value": "ruta_13_union_de_conductores_el_merey_de_amana"
+              },
+              {
+                "label": "RUTA 14 / A. CIVIL DE CONDUCTORES LA LIBERTAD JOSE TADEO MONAGAS",
+                "value": "ruta_14_a_civil_de_conductores_la_libertad_jose_tadeo_monagas"
+              },
+              {
+                "label": "RUTA 15 / A. CIVIL UNION DE CONDUCTORES ANTONIO JOSE DE SUCRE",
+                "value": "ruta_15_a_civil_union_de_conductores_antonio_jose_de_sucre"
+              },
+              {
+                "label": "RUTA 16 / A. CIVIL NUEVO AMANECER 2014",
+                "value": "ruta_16_a_civil_nuevo_amanecer_2014"
+              },
+              {
+                "label": "RUTA 17 / A. CIVIL UNION DE CONDUCTORES SAN JAIME",
+                "value": "ruta_17_a_civil_union_de_conductores_san_jaime"
+              },
+              {
+                "label": "RUTA 18 / A. COOP. LA GENERACION DEL FARAON R.L.",
+                "value": "ruta_18_a_coop_la_generacion_del_faraon_r_l"
+              },
+              {
+                "label": "RUTA 19 / A. CIV. CONDUCTORES ALTO PARAMACONI",
+                "value": "ruta_19_a_civ_conductores_alto_paramaconi"
+              },
+              {
+                "label": "RUTA 19 / A. CIVIL SERVICIO Y TRANSPORTE PARAMACONI R.L,",
+                "value": "ruta_19_a_civil_servicio_y_transporte_paramaconi_r_l"
+              },
+              {
+                "label": "RUTA 20 / A. CIVIL DE CONDUCTORES JOSE FELIX RIBAS",
+                "value": "ruta_20_a_civil_de_conductores_jose_felix_ribas"
+              },
+              {
+                "label": "RUTA 21 / A. CIVIL LOS VENCEDORES DE LA CRUZ A.C",
+                "value": "ruta_21_a_civil_los_vencedores_de_la_cruz_a_c"
+              },
+              {
+                "label": "RUTA 22 / A. CIVIL RUTA UNION DE CONDUCTORES",
+                "value": "ruta_22_a_civil_ruta_union_de_conductores"
+              },
+              {
+                "label": "RUTA 23 / A. CIVIL DE BUSETEROS LOS NOVENOS",
+                "value": "ruta_23_a_civil_de_buseteros_los_novenos"
+              },
+              {
+                "label": "RUTA 26 / A. CIVIL COND. UNIDOS LOS ARCANGELES",
+                "value": "ruta_26_a_civil_cond_unidos_los_arcangeles"
+              },
+              {
+                "label": "RUTA 27 / A. CIVIL DE CARROS POR PUESTOS “LA VINO TINTO”,",
+                "value": "ruta_27_a_civil_de_carros_por_puestos_la_vino_tinto"
+              },
+              {
+                "label": "RUTA 28 / A. CIVIL DE CONDUCTORES VIRGEN DEL VALLE",
+                "value": "ruta_28_a_civil_de_conductores_virgen_del_valle"
+              },
+              {
+                "label": "RUTA 29 / A. CIVIL UNION COND. AUTOS LIBRES Y POR PUESTO SAN VICENTE , PUEBLO LIBRE Y AMARILIS",
+                "value": "ruta_29_a_civil_union_cond_autos_libres_y_por_puesto_san_vicente_pueblo_libre_y_amarilis"
+              },
+              {
+                "label": "RUTA 30 / A. CIVIL DE TRANSPORTE FUERZAS UNIDAS DE LOS AVANCES BOLIVARIANOS 2021",
+                "value": "ruta_30_a_civil_de_transporte_fuerzas_unidas_de_los_avances_bolivarianos_2021"
+              },
+              {
+                "label": "RUTA 31 / A. CIVIL UNION DE CONDUCTORES RUTA 31",
+                "value": "ruta_31_a_civil_union_de_conductores_ruta_31"
+              },
+              {
+                "label": "RUTA 32 / A. CIVIL TRANSP. MIXTO LA FUERZA DEL MORICHAL MONAGAS 32",
+                "value": "ruta_32_a_civil_transp_mixto_la_fuerza_del_morichal_monagas_32"
+              },
+              {
+                "label": "RUTA 33 / A. CIVIL. INDUSTRIALES DEL OESTE",
+                "value": "ruta_33_a_civil_industriales_del_oeste"
+              },
+              {
+                "label": "RUTA 35 / A. CIVIL UNION DE CONCUTORES LA LINEA",
+                "value": "ruta_35_a_civil_union_de_concutores_la_linea"
+              },
+              {
+                "label": "RUTA 36 / A. CIVIL U. DE CONDUCTORES DEL OESTE",
+                "value": "ruta_36_a_civil_u_de_conductores_del_oeste"
+              },
+              {
+                "label": "RUTA 37 / A. CIVIL LA MORROCOYA",
+                "value": "ruta_37_a_civil_la_morrocoya"
+              },
+              {
+                "label": "RUTA 38 / A. COOP. DE TRANSPORTE FUNDACION DEL SUR,R.L",
+                "value": "ruta_38_a_coop_de_transporte_fundacion_del_sur_r_l"
+              },
+              {
+                "label": "RUTA 39 / A. CIVIL UNION DE CONDUCTORES VISAPLANSA",
+                "value": "ruta_39_a_civil_union_de_conductores_visaplansa"
+              },
+              {
+                "label": "RUTA 40 / A. CIVIL UNION DE COND. PROF. Y AFINES NAZARET",
+                "value": "ruta_40_a_civil_union_de_cond_prof_y_afines_nazaret"
+              },
+              {
+                "label": "RUTA 41 / A. CIVIL UNION DE CONDUCTORES “TIEMPO DE CAMBIO DEL NAZARENO”",
+                "value": "ruta_41_a_civil_union_de_conductores_tiempo_de_cambio_del_nazareno"
+              },
+              {
+                "label": "RUTA 42 / A. CIVIL DE TRANSPORTE BRISAS DEL ROSILLO",
+                "value": "ruta_42_a_civil_de_transporte_brisas_del_rosillo"
+              },
+              {
+                "label": "RUTA 43 / A. CIVIL DE TRANSPORTE LOMAS DEL ROSILLO",
+                "value": "ruta_43_a_civil_de_transporte_lomas_del_rosillo"
+              },
+              {
+                "label": "RUTA 44 / ASOCIACIÓN CIVIL LINEA POR PUESTO Y TAXIS DEL ESTE",
+                "value": "ruta_44_asociacion_civil_linea_por_puesto_y_taxis_del_este"
+              },
+              {
+                "label": "RUTA 45 / A. COOP. EL TESORO DE OROCUAL",
+                "value": "ruta_45_a_coop_el_tesoro_de_orocual"
+              },
+              {
+                "label": "RUTA 46 / A. CIVIL CAMPO AYACUCHO",
+                "value": "ruta_46_a_civil_campo_ayacucho"
+              },
+              {
+                "label": "RUTA 47 / A. CIVIL COMITE DE TRANSPORTE AVANCES Y COLECTORES HIJOS DE DIOS",
+                "value": "ruta_47_a_civil_comite_de_transporte_avances_y_colectores_hijos_de_dios"
+              },
+              {
+                "label": "RUTA 48 / A. C. UNION DE CONDUCTORES VIBORAL",
+                "value": "ruta_48_a_c_union_de_conductores_viboral"
+              },
+              {
+                "label": "RUTA 51 / A. COOP. DE TRANSPORTE DEL OESTE, R.L",
+                "value": "ruta_51_a_coop_de_transporte_del_oeste_r_l"
+              },
+              {
+                "label": "RUTA 52 / A. CIVIL DE CONDUCTORES VIBORAL MATURIN",
+                "value": "ruta_52_a_civil_de_conductores_viboral_maturin"
+              },
+              {
+                "label": "RUTA 53 / UNION DE CONDUCTORES ARTIGAS",
+                "value": "ruta_53_union_de_conductores_artigas"
+              },
+              {
+                "label": "RUTA 55 / A. COOP. TRANSPORTE LOS COA R.L.",
+                "value": "ruta_55_a_coop_transporte_los_coa_r_l"
+              },
+              {
+                "label": "RUTA 56 / A. COOP. LOS ALMENDRONES RS",
+                "value": "ruta_56_a_coop_los_almendrones_rs"
+              },
+              {
+                "label": "RUTA 57 / A. CIVIL DE TRANSPORTE ALIANZA DE LA NEGRA HIPOLITA",
+                "value": "ruta_57_a_civil_de_transporte_alianza_de_la_negra_hipolita"
+              },
+              {
+                "label": "RUTA 58 / POR PUESTO POWER LINE",
+                "value": "ruta_58_por_puesto_power_line"
+              },
+              {
+                "label": "RUTA 59 / A. CIVIL ANDRES ELOY BLANCO",
+                "value": "ruta_59_a_civil_andres_eloy_blanco"
+              },
+              {
+                "label": "RUTA 61 /A. CIVIL CAMIONEROS RURAL DEL SUR",
+                "value": "ruta_61_a_civil_camioneros_rural_del_sur"
+              },
+              {
+                "label": "RUTA 62 / A. CIVIL DE TRANSPORTE - PRADOS DEL SUR",
+                "value": "ruta_62_a_civil_de_transporte_prados_del_sur"
+              },
+              {
+                "label": "RUTA 77 / A. CIVIL UNION DE CONDUCTORES PATRIA NUEVA",
+                "value": "ruta_77_a_civil_union_de_conductores_patria_nueva"
+              },
+              {
+                "label": "RUTA 84 / A. CIVIL LUCHADORES POR SIEMPRE RL.",
+                "value": "ruta_84_a_civil_luchadores_por_siempre_rl"
+              },
+              {
+                "label": "RUTA 86 / A. COOP. MANCOMUNIDAD BOLIVARIANA RL",
+                "value": "ruta_86_a_coop_mancomunidad_bolivariana_rl"
+              },
+              {
+                "label": "RUTA 98 / A. CIVIL DE TRANSPORTE PARQUE DEL SUR",
+                "value": "ruta_98_a_civil_de_transporte_parque_del_sur"
+              },
+              {
+                "label": "RUTA 100 / A. CIVIL UNION DE CONDUCTORES PQ. ALTOS DE LOS GODOS",
+                "value": "ruta_100_a_civil_union_de_conductores_pq_altos_de_los_godos"
+              },
+              {
+                "label": "RUTA 110 / A. CIVIL AUTOS LIBRES Y POR PUESTO U. CONDUCTORES DEL CENTRO",
+                "value": "ruta_110_a_civil_autos_libres_y_por_puesto_u_conductores_del_centro"
+              },
+              {
+                "label": "A. CIVIL DE CONDUCTORES PIRATAS EXPRESS",
+                "value": "a_civil_de_conductores_piratas_express"
+              },
+              {
+                "label": "A. CIVIL DE TRANSPORTE ESEQUIBO VENEZUELA",
+                "value": "a_civil_de_transporte_esequibo_venezuela"
+              },
+              {
+                "label": "A. CIVIL DE TRANSPORTE Y TURISMO EZEQUIEL ZAMORA",
+                "value": "a_civil_de_transporte_y_turismo_ezequiel_zamora"
+              },
+              {
+                "label": "A. CIVIL EXPRESOS ANZOATEGUI",
+                "value": "a_civil_expresos_anzoategui"
+              },
+              {
+                "label": "A. CIVIL LA CANDELARIA",
+                "value": "a_civil_la_candelaria"
+              },
+              {
+                "label": "A. CIVIL LINEA EL CARMEN",
+                "value": "a_civil_linea_el_carmen"
+              },
+              {
+                "label": "A. CIVIL LINEA ORIENTAL 23 DE ENERO",
+                "value": "a_civil_linea_oriental_23_de_enero"
+              },
+              {
+                "label": "A. CIVIL TRANSPORTE EJECUTIVO ORIONCA MATURIN",
+                "value": "a_civil_transporte_ejecutivo_orionca_maturin"
+              },
+              {
+                "label": "A. CIVIL UNION ANZOATEGUI",
+                "value": "a_civil_union_anzoategui"
+              },
+              {
+                "label": "A. CIVIL UNION DE CONDUCTORES CIUDAD GUAYANA",
+                "value": "a_civil_union_de_conductores_ciudad_guayana"
+              },
+              {
+                "label": "A. CIVIL UNION DE CONDUCTORES EL 70",
+                "value": "a_civil_union_de_conductores_el_70"
+              },
+              {
+                "label": "A. CIVIL UNION DE CONDUCTORES EL ESEQUIBO",
+                "value": "a_civil_union_de_conductores_el_esequibo"
+              },
+              {
+                "label": "A. CIVIL UNION MERCURY",
+                "value": "a_civil_union_mercury"
+              },
+              {
+                "label": "A. CIVIL UNION MONTES",
+                "value": "a_civil_union_montes"
+              },
+              {
+                "label": "A. CIVIL UNION SAN JUAN S.C.",
+                "value": "a_civil_union_san_juan_s_c"
+              },
+              {
+                "label": "A. COOP. CHOFERES UNIDOS EL TIGRE, R.L.",
+                "value": "a_coop_choferes_unidos_el_tigre_r_l"
+              },
+              {
+                "label": "A. COOP. COND. PUERTO LA CRUZ, R.L.",
+                "value": "a_coop_cond_puerto_la_cruz_r_l"
+              },
+              {
+                "label": "A. COOP. DE TRANS. EJECUTIVOS SIN FRONTERAS",
+                "value": "a_coop_de_trans_ejecutivos_sin_fronteras"
+              },
+              {
+                "label": "A. COOP. DE TRANSPORTE 5 DE JULIO R.L.",
+                "value": "a_coop_de_transporte_5_de_julio_r_l"
+              },
+              {
+                "label": "A. COOP. DE TRANSPORTE CUMANAGOTO R.L.",
+                "value": "a_coop_de_transporte_cumanagoto_r_l"
+              },
+              {
+                "label": "A. COOP. DE TRANSPORTE LO MEJOR DE LO MEJOR.",
+                "value": "a_coop_de_transporte_lo_mejor_de_lo_mejor"
+              },
+              {
+                "label": "A. COOP. DELTANOS RL",
+                "value": "a_coop_deltanos_rl"
+              },
+              {
+                "label": "A. COOP. ORIENTE EXPRESS 2000, RL",
+                "value": "a_coop_oriente_express_2000_rl"
+              },
+              {
+                "label": "A. COOP. TRANSPORTE EJECUTIVOS MONAGAS R.L.",
+                "value": "a_coop_transporte_ejecutivos_monagas_r_l"
+              },
+              {
+                "label": "A. COOP. TRANSPORTE JUSEPIN-MATURIN EL NAZARENO",
+                "value": "a_coop_transporte_jusepin_maturin_el_nazareno"
+              },
+              {
+                "label": "A. EJECUTIVA DE TRANSPORTE TADEO CAR EXPRESS",
+                "value": "a_ejecutiva_de_transporte_tadeo_car_express"
+              },
+              {
+                "label": "A.CIVIL CONDUCTORES Y TRANSPORTE LOS FOSILES DE OROCUAL",
+                "value": "a_civil_conductores_y_transporte_los_fosiles_de_orocual"
+              },
+              {
+                "label": "CONDUCTORES UNIDOS MATURIN, S.C.",
+                "value": "conductores_unidos_maturin_s_c"
+              },
+              {
+                "label": "GRUPO DE TRANSPORTE LOS INTENDENTES C.A",
+                "value": "grupo_de_transporte_los_intendentes_c_a"
+              },
+              {
+                "label": "LINEA MATURIN SOCIEDAD CIVIL",
+                "value": "linea_maturin_sociedad_civil"
+              },
+              {
+                "label": "SOCIEDAD CIVIL UNION DE COND. EXPRESO EL GUACHARO",
+                "value": "sociedad_civil_union_de_cond_expreso_el_guacharo"
+              },
+              {
+                "label": "UNION CARUPANO SOCIEDAD CIVIL",
+                "value": "union_carupano_sociedad_civil"
+              },
+              {
+                "label": "UNION CONDUCTORES ARAGUA DE BARCELONA, A.C.",
+                "value": "union_conductores_aragua_de_barcelona_a_c"
+              },
+              {
+                "label": "UNION CONDUCTORES SAN MIGUEL",
+                "value": "union_conductores_san_miguel"
+              },
+              {
+                "label": "UNION CONDUCTORES UPATA A. C.",
+                "value": "union_conductores_upata_a_c"
+              },
+              {
+                "label": "UNION DE CONDUCTORES DE ANACO A.",
+                "value": "union_de_conductores_de_anaco_a"
+              },
+              {
+                "label": "UNION DE CONDUCTORES LA RESPONSABLE SOCIEDAD CIVIL",
+                "value": "union_de_conductores_la_responsable_sociedad_civil"
+              },
+              {
+                "label": "UNION DE CONDUCTORES LO BARRANCOS",
+                "value": "union_de_conductores_lo_barrancos"
+              },
+              {
+                "label": "UNION DE CONDUCTORES SAN BUENAVENTURA",
+                "value": "union_de_conductores_san_buenaventura"
+              },
+              {
+                "label": "UNION DE CONDUCTORES SAN RAFAEL ARCANGEL",
+                "value": "union_de_conductores_san_rafael_arcangel"
+              },
+              {
+                "label": "UNION GUAYANA",
+                "value": "union_guayana"
+              },
+              {
+                "label": "UNION MATURIN, A.C",
+                "value": "union_maturin_a_c"
+              },
+              {
+                "label": "Otra ruta no listada",
+                "value": "otra"
+              }
+            ]
+          },
+          "conditional": {
+            "show": true,
+            "when": "uso_transporte_publico",
+            "eq": "si"
+          }
+        },
+        {
+          "type": "textfield",
+          "key": "rutas_tp_utilizadas_otra",
+          "label": "Especifique otra ruta de transporte público utilizada",
+          "conditional": {
+            "show": true,
+            "when": "rutas_tp_utilizadas",
+            "eq": "otra"
           }
         },
         {

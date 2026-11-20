@@ -107,6 +107,24 @@ export function isVehiculoParticular(modo?: string | number): boolean {
   return m === '4' || m === 'automovil' || m.includes('particular');
 }
 
+const COST_EXEMPT_MODE_CODES = new Set(['1', '2', '3', '4']);
+const COST_EXEMPT_MODE_LABELS = new Set([
+  'a pie',
+  'a_pie',
+  'caminata',
+  'bicicleta',
+  'motocicleta',
+  'moto'
+]);
+
+export function isModoSinCosto(modo?: string | number): boolean {
+  if (modo === undefined || modo === null) return false;
+  if (isVehiculoParticular(modo)) return true;
+  const m = String(modo).toLowerCase().trim();
+  if (COST_EXEMPT_MODE_CODES.has(m)) return true;
+  return COST_EXEMPT_MODE_LABELS.has(m);
+}
+
 export function validateNewTripForm(input: TripFormValidationInput): string | null {
   const { draft, sugerenciaOrigen, horaSalidaH, horaLlegadaH } = input;
   const origen = (draft.zona_od_origen || sugerenciaOrigen).trim();
@@ -159,7 +177,7 @@ export function validateNewTripForm(input: TripFormValidationInput): string | nu
   ) {
     return 'Por favor indique el tiempo de viaje en minutos.';
   }
-  if (!isVehiculoParticular(draft.modo_principal)) {
+  if (!isModoSinCosto(draft.modo_principal)) {
     if (
       isBlankValue(draft.costo_viaje_bs) ||
       isNaN(Number(draft.costo_viaje_bs)) ||
@@ -182,6 +200,7 @@ export function buildTripFromDraft(input: TripBuildInput): ViajeOD {
   const horaSalidaFinal = getHoraFormateada(horaSalida.hora, horaSalida.minuto, horaSalida.periodo);
   const horaLlegadaFinal = getHoraFormateada(horaLlegada.hora, horaLlegada.minuto, horaLlegada.periodo);
   const esParticular = isVehiculoParticular(draft.modo_principal);
+  const sinCosto = isModoSinCosto(draft.modo_principal);
 
   return {
     viaje_numero: viajeNumero,
@@ -199,7 +218,7 @@ export function buildTripFromDraft(input: TripBuildInput): ViajeOD {
     modo_secundario: !esParticular && draft.modo_secundario ? String(draft.modo_secundario) : undefined,
     modo_secundario_otro: !esParticular && draft.modo_secundario === '8' ? (draft.modo_secundario_otro || '').trim() : undefined,
     tiempo_viaje_min: Number(draft.tiempo_viaje_min),
-    costo_viaje_bs: esParticular ? 0 : Number(draft.costo_viaje_bs ?? 0)
+    costo_viaje_bs: sinCosto ? 0 : Number(draft.costo_viaje_bs ?? 0)
   };
 }
 
@@ -209,6 +228,7 @@ export function buildReturnTrip(
   zonaResidenciaDefault = ''
 ): ViajeOD {
   const esParticular = isVehiculoParticular(viajeIda.modo_principal);
+  const sinCosto = isModoSinCosto(viajeIda.modo_principal);
   const regreso: ViajeOD = {
     viaje_numero: viajeNumero,
     persona_numero: viajeIda.persona_numero,
@@ -217,7 +237,7 @@ export function buildReturnTrip(
     motivo_viaje: viajeIda.motivo_viaje,
     modo_principal: viajeIda.modo_principal,
     tiempo_viaje_min: viajeIda.tiempo_viaje_min,
-    costo_viaje_bs: esParticular ? 0 : viajeIda.costo_viaje_bs
+    costo_viaje_bs: sinCosto ? 0 : viajeIda.costo_viaje_bs
   };
 
   if (viajeIda.destino_direccion) regreso.origen_direccion = viajeIda.destino_direccion;

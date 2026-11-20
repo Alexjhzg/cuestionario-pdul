@@ -177,8 +177,8 @@ export class SurveyBotOperator {
         await expect(campoModoOtro).toHaveCount(0);
       }
 
-      // Modo secundario y bifurcación otro
-      if (v.modo_secundario !== undefined) {
+      // Modo secundario y bifurcación otro (oculto cuando modo_principal === '4')
+      if (v.modo_secundario !== undefined && v.modo_principal !== '4') {
         await this.page.selectOption('#viaje-modo-sec', v.modo_secundario);
         const campoModoSecOtro = this.page.locator('#viaje-modo-sec-otro');
         if (v.modo_secundario === '8') {
@@ -190,7 +190,11 @@ export class SurveyBotOperator {
       }
 
       await this.page.fill('#viaje-tiempo', v.tiempo_min);
-      await this.page.fill('#viaje-costo', v.costo_bs);
+      if (!['1', '2', '3', '4'].includes(v.modo_principal)) {
+        await this.page.fill('#viaje-costo', v.costo_bs);
+      } else {
+        await expect(this.page.locator('#viaje-costo')).toHaveCount(0);
+      }
 
       await btnAgregarViaje.click();
       await this.page.waitForTimeout(300);
@@ -228,6 +232,24 @@ export class SurveyBotOperator {
   // =========================================================================
   async fillPaso6(data: SurveyArchetype['paso6']) {
     await this.page.fill('#rutas_tp_dia', data.rutas_tp_dia);
+    const rutasFieldset = this.page.locator('#rutas_tp_utilizadas');
+    if (Number(data.rutas_tp_dia) === 0) {
+      await expect(rutasFieldset).toHaveCount(0);
+    } else if (data.rutas_tp_utilizadas && data.rutas_tp_utilizadas.length > 0) {
+      await expect(rutasFieldset).toBeVisible();
+      for (const rutaCode of data.rutas_tp_utilizadas) {
+        await this.page.check(`input[name="rutas_tp_utilizadas"][value="${rutaCode}"]`);
+      }
+      const campoOtraRuta = this.page.locator('#rutas_tp_utilizadas_otra');
+      if (data.rutas_tp_utilizadas.includes('otra')) {
+        await expect(campoOtraRuta).toBeVisible();
+        if (data.rutas_tp_utilizadas_otra) {
+          await campoOtraRuta.fill(data.rutas_tp_utilizadas_otra);
+        }
+      } else {
+        await expect(campoOtraRuta).toHaveCount(0);
+      }
+    }
     await this.page.fill('#tiempo_espera_paradas_min', data.tiempo_espera_paradas_min);
     await this.page.fill('#km_residencia_parada', data.km_residencia_parada);
 

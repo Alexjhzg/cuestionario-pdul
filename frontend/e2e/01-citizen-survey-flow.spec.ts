@@ -169,6 +169,8 @@ test.describe('Auditoría Funcional - Flujo Ciudadano (Llenado del Cuestionario 
     // =========================================================================
     await expect(page.locator('.step-title')).toBeVisible();
     await page.fill('#rutas_tp_dia', '2');
+    await page.check('input[name="rutas_tp_utilizadas"][value="ruta_01_y_05_union_de_conductores_lucas_perez"]');
+    await page.check('input[name="rutas_tp_utilizadas"][value="ruta_02_a_civil_linea_conductores_la_pica"]');
     await page.fill('#tiempo_espera_paradas_min', '35');
     await page.fill('#km_residencia_parada', '0.4');
 

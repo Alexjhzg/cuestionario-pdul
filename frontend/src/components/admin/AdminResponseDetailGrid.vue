@@ -13,6 +13,7 @@ import {
   DIFICULTAD_TP_LABELS,
   FRECUENCIA_LABELS,
   formatParroquia,
+  formatRutasTpUtilizadas,
   humanLabel
 } from '@/utils/responseFormatters';
 
@@ -223,6 +224,24 @@ defineProps<{
         <div class="detail-field">
           <span class="field-title">Rutas Utilizadas al Día</span>
           <span class="field-content">{{ displayData.rutas_tp_dia ?? '0' }}</span>
+        </div>
+        <div class="detail-field full-width" data-testid="admin-detail-rutas-tp">
+          <span class="field-title">Rutas de Transporte Colectivo Utilizadas</span>
+          <span class="field-content">
+            <template v-if="formatRutasTpUtilizadas(displayData.rutas_tp_utilizadas, displayData.rutas_tp_utilizadas_otra).length > 0">
+              {{ formatRutasTpUtilizadas(displayData.rutas_tp_utilizadas, displayData.rutas_tp_utilizadas_otra).join(' · ') }}
+            </template>
+            <template v-else>
+              {{
+                displayData.rutas_tp_dia !== '' &&
+                displayData.rutas_tp_dia !== undefined &&
+                displayData.rutas_tp_dia !== null &&
+                Number(displayData.rutas_tp_dia) === 0
+                  ? 'Ninguna / No utilizó'
+                  : '—'
+              }}
+            </template>
+          </span>
         </div>
         <div class="detail-field">
           <span class="field-title">Gasto Semanal Familiar</span>

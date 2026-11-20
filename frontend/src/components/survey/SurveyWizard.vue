@@ -381,7 +381,11 @@ async function onSubmit() {
       </section>
 
       <section v-else-if="currentStepIndex === 5" class="step-form-section">
-        <Step6TransportePublico :model-value="modelValue" @update-field="updateField" />
+        <Step6TransportePublico
+          :model-value="modelValue"
+          @update-field="updateField"
+          @toggle-multi="toggleMultiSelect"
+        />
       </section>
 
       <section v-else-if="currentStepIndex === 6" class="step-form-section">

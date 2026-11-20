@@ -31,6 +31,8 @@ const {
   parroquia: '',
   residentes: [],
   viajes: [],
+  rutas_tp_utilizadas: [],
+  rutas_tp_utilizadas_otra: '',
   acepta_declaracion: true
 });
 
@@ -149,6 +151,8 @@ function getCleanInitialFormData(): Record<string, any> {
     residentes: [],
     viajes: [],
     rutas_tp_dia: '',
+    rutas_tp_utilizadas: [],
+    rutas_tp_utilizadas_otra: '',
     tiempo_espera_paradas_min: '',
     km_residencia_parada: '',
     dificultades_acceso_tp: '',

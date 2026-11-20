@@ -1,0 +1,1407 @@
+[
+  {
+    "codigo": "ruta_01_y_05_union_de_conductores_lucas_perez",
+    "value": "ruta_01_y_05_union_de_conductores_lucas_perez",
+    "nombre": "RUTA 01 Y 05 UNION DE CONDUCTORES \"LUCAS PEREZ\"",
+    "label": "RUTA 01 Y 05 UNION DE CONDUCTORES \"LUCAS PEREZ\"",
+    "modalidades": [
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "ruta_02_a_civil_linea_conductores_la_pica",
+    "value": "ruta_02_a_civil_linea_conductores_la_pica",
+    "nombre": "RUTA 02 / A. CIVIL LINEA CONDUCTORES LA PICA",
+    "label": "RUTA 02 / A. CIVIL LINEA CONDUCTORES LA PICA",
+    "modalidades": [
+      "PERIFERICA",
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "AUTOBUS",
+      "BUSETA-VANS",
+      "MINIBUS",
+      "POR PUESTO",
+      "POR PUESTO RESERVADO"
+    ]
+  },
+  {
+    "codigo": "ruta_04_a_civil_conductores_los_hijos_de_boqueron",
+    "value": "ruta_04_a_civil_conductores_los_hijos_de_boqueron",
+    "nombre": "RUTA 04 / A. CIVIL CONDUCTORES LOS HIJOS DE BOQUERON",
+    "label": "RUTA 04 / A. CIVIL CONDUCTORES LOS HIJOS DE BOQUERON",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_04_a_civil_de_conductores_boqueron",
+    "value": "ruta_04_a_civil_de_conductores_boqueron",
+    "nombre": "RUTA 04 / A. CIVIL DE CONDUCTORES BOQUERON.",
+    "label": "RUTA 04 / A. CIVIL DE CONDUCTORES BOQUERON.",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MINIBUS",
+      "POR PUESTO",
+      "POR PUESTO RESERVADO"
+    ]
+  },
+  {
+    "codigo": "ruta_04_union_de_conductores_boqueron",
+    "value": "ruta_04_union_de_conductores_boqueron",
+    "nombre": "RUTA 04 / UNION DE CONDUCTORES BOQUERON",
+    "label": "RUTA 04 / UNION DE CONDUCTORES BOQUERON",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MINIBUS",
+      "POR PUESTO",
+      "POR PUESTO RESERVADO"
+    ]
+  },
+  {
+    "codigo": "ruta_06_a_civil_union_de_conductores_juanico",
+    "value": "ruta_06_a_civil_union_de_conductores_juanico",
+    "nombre": "RUTA 06 / A. CIVIL UNION DE CONDUCTORES JUANICO",
+    "label": "RUTA 06 / A. CIVIL UNION DE CONDUCTORES JUANICO",
+    "modalidades": [
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "ruta_07_a_civil_union_paraiso",
+    "value": "ruta_07_a_civil_union_paraiso",
+    "nombre": "RUTA 07 / A. CIVIL UNION PARAISO",
+    "label": "RUTA 07 / A. CIVIL UNION PARAISO",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_09_a_bolivariana_transporte_urbano_ciudad_universitaria_los_guaritos",
+    "value": "ruta_09_a_bolivariana_transporte_urbano_ciudad_universitaria_los_guaritos",
+    "nombre": "RUTA 09 / A. BOLIVARIANA TRANSPORTE URBANO \"CIUDAD UNIVERSITARIA LOS GUARITOS\"",
+    "label": "RUTA 09 / A. BOLIVARIANA TRANSPORTE URBANO \"CIUDAD UNIVERSITARIA LOS GUARITOS\"",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_09_union_de_cond_ciudad_univ_los_guaritos",
+    "value": "ruta_09_union_de_cond_ciudad_univ_los_guaritos",
+    "nombre": "RUTA 09 / UNION DE COND. CIUDAD UNIV. LOS GUARITOS",
+    "label": "RUTA 09 / UNION DE COND. CIUDAD UNIV. LOS GUARITOS",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_11_a_civil_autos_libres_y_por_puesto_disponibles_la_libertad",
+    "value": "ruta_11_a_civil_autos_libres_y_por_puesto_disponibles_la_libertad",
+    "nombre": "RUTA 11 / A. CIVIL AUTOS LIBRES Y POR PUESTO DISPONIBLES LA LIBERTAD",
+    "label": "RUTA 11 / A. CIVIL AUTOS LIBRES Y POR PUESTO DISPONIBLES LA LIBERTAD",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO",
+      "POR PUESTO RESERVADO"
+    ]
+  },
+  {
+    "codigo": "ruta_12_a_civil_union_de_conductores_el_buen_pastor",
+    "value": "ruta_12_a_civil_union_de_conductores_el_buen_pastor",
+    "nombre": "RUTA 12 / A. CIVIL UNION DE CONDUCTORES EL BUEN PASTOR",
+    "label": "RUTA 12 / A. CIVIL UNION DE CONDUCTORES EL BUEN PASTOR",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "AUTOBUS",
+      "BUSETA-VANS",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_13_union_de_conductores_el_merey_de_amana",
+    "value": "ruta_13_union_de_conductores_el_merey_de_amana",
+    "nombre": "RUTA 13 / UNION DE CONDUCTORES EL MEREY DE AMANA",
+    "label": "RUTA 13 / UNION DE CONDUCTORES EL MEREY DE AMANA",
+    "modalidades": [
+      "PERIFERICA"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MASIVO RESERVADO",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_14_a_civil_de_conductores_la_libertad_jose_tadeo_monagas",
+    "value": "ruta_14_a_civil_de_conductores_la_libertad_jose_tadeo_monagas",
+    "nombre": "RUTA 14 / A. CIVIL DE CONDUCTORES LA LIBERTAD JOSE TADEO MONAGAS",
+    "label": "RUTA 14 / A. CIVIL DE CONDUCTORES LA LIBERTAD JOSE TADEO MONAGAS",
+    "modalidades": [
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "ruta_15_a_civil_union_de_conductores_antonio_jose_de_sucre",
+    "value": "ruta_15_a_civil_union_de_conductores_antonio_jose_de_sucre",
+    "nombre": "RUTA 15 / A. CIVIL UNION DE CONDUCTORES ANTONIO JOSE DE SUCRE",
+    "label": "RUTA 15 / A. CIVIL UNION DE CONDUCTORES ANTONIO JOSE DE SUCRE",
+    "modalidades": [
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "ruta_16_a_civil_nuevo_amanecer_2014",
+    "value": "ruta_16_a_civil_nuevo_amanecer_2014",
+    "nombre": "RUTA 16 / A. CIVIL NUEVO AMANECER 2014",
+    "label": "RUTA 16 / A. CIVIL NUEVO AMANECER 2014",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_17_a_civil_union_de_conductores_san_jaime",
+    "value": "ruta_17_a_civil_union_de_conductores_san_jaime",
+    "nombre": "RUTA 17 / A. CIVIL UNION DE CONDUCTORES SAN JAIME",
+    "label": "RUTA 17 / A. CIVIL UNION DE CONDUCTORES SAN JAIME",
+    "modalidades": [
+      "PERIFERICA",
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "AUTOBUS",
+      "BUSETA-VANS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_18_a_coop_la_generacion_del_faraon_r_l",
+    "value": "ruta_18_a_coop_la_generacion_del_faraon_r_l",
+    "nombre": "RUTA 18 / A. COOP. LA GENERACION DEL FARAON R.L.",
+    "label": "RUTA 18 / A. COOP. LA GENERACION DEL FARAON R.L.",
+    "modalidades": [
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "AUTOBUS",
+      "BUSETA-VANS",
+      "MASIVO RESERVADO",
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "ruta_19_a_civ_conductores_alto_paramaconi",
+    "value": "ruta_19_a_civ_conductores_alto_paramaconi",
+    "nombre": "RUTA 19 / A. CIV. CONDUCTORES ALTO PARAMACONI",
+    "label": "RUTA 19 / A. CIV. CONDUCTORES ALTO PARAMACONI",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_19_a_civil_servicio_y_transporte_paramaconi_r_l",
+    "value": "ruta_19_a_civil_servicio_y_transporte_paramaconi_r_l",
+    "nombre": "RUTA 19 / A. CIVIL SERVICIO Y TRANSPORTE PARAMACONI R.L,",
+    "label": "RUTA 19 / A. CIVIL SERVICIO Y TRANSPORTE PARAMACONI R.L,",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "AUTOBUS",
+      "BUSETA-VANS",
+      "MASIVO RESERVADO",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_20_a_civil_de_conductores_jose_felix_ribas",
+    "value": "ruta_20_a_civil_de_conductores_jose_felix_ribas",
+    "nombre": "RUTA 20 / A. CIVIL DE CONDUCTORES JOSE FELIX RIBAS",
+    "label": "RUTA 20 / A. CIVIL DE CONDUCTORES JOSE FELIX RIBAS",
+    "modalidades": [
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "MASIVO RESERVADO",
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "ruta_21_a_civil_los_vencedores_de_la_cruz_a_c",
+    "value": "ruta_21_a_civil_los_vencedores_de_la_cruz_a_c",
+    "nombre": "RUTA 21 / A. CIVIL LOS VENCEDORES DE LA CRUZ A.C",
+    "label": "RUTA 21 / A. CIVIL LOS VENCEDORES DE LA CRUZ A.C",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MASIVO",
+      "MASIVO RESERVADO",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_22_a_civil_ruta_union_de_conductores",
+    "value": "ruta_22_a_civil_ruta_union_de_conductores",
+    "nombre": "RUTA 22 / A. CIVIL RUTA UNION DE CONDUCTORES",
+    "label": "RUTA 22 / A. CIVIL RUTA UNION DE CONDUCTORES",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MASIVO",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_23_a_civil_de_buseteros_los_novenos",
+    "value": "ruta_23_a_civil_de_buseteros_los_novenos",
+    "nombre": "RUTA 23 / A. CIVIL DE BUSETEROS LOS NOVENOS",
+    "label": "RUTA 23 / A. CIVIL DE BUSETEROS LOS NOVENOS",
+    "modalidades": [
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MASIVO",
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "ruta_26_a_civil_cond_unidos_los_arcangeles",
+    "value": "ruta_26_a_civil_cond_unidos_los_arcangeles",
+    "nombre": "RUTA 26 / A. CIVIL COND. UNIDOS LOS ARCANGELES",
+    "label": "RUTA 26 / A. CIVIL COND. UNIDOS LOS ARCANGELES",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "MINIBUS",
+      "POR PUESTO",
+      "POR PUESTO RESERVADO"
+    ]
+  },
+  {
+    "codigo": "ruta_27_a_civil_de_carros_por_puestos_la_vino_tinto",
+    "value": "ruta_27_a_civil_de_carros_por_puestos_la_vino_tinto",
+    "nombre": "RUTA 27 / A. CIVIL DE CARROS POR PUESTOS “LA VINO TINTO”,",
+    "label": "RUTA 27 / A. CIVIL DE CARROS POR PUESTOS “LA VINO TINTO”,",
+    "modalidades": [
+      "PERIFERICA",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "MASIVO RESERVADO",
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "ruta_28_a_civil_de_conductores_virgen_del_valle",
+    "value": "ruta_28_a_civil_de_conductores_virgen_del_valle",
+    "nombre": "RUTA 28 / A. CIVIL DE CONDUCTORES VIRGEN DEL VALLE",
+    "label": "RUTA 28 / A. CIVIL DE CONDUCTORES VIRGEN DEL VALLE",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MASIVO RESERVADO",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_29_a_civil_union_cond_autos_libres_y_por_puesto_san_vicente_pueblo_libre_y_amarilis",
+    "value": "ruta_29_a_civil_union_cond_autos_libres_y_por_puesto_san_vicente_pueblo_libre_y_amarilis",
+    "nombre": "RUTA 29 / A. CIVIL UNION COND. AUTOS LIBRES Y POR PUESTO SAN VICENTE , PUEBLO LIBRE Y AMARILIS",
+    "label": "RUTA 29 / A. CIVIL UNION COND. AUTOS LIBRES Y POR PUESTO SAN VICENTE , PUEBLO LIBRE Y AMARILIS",
+    "modalidades": [
+      "PERIFERICA",
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_30_a_civil_de_transporte_fuerzas_unidas_de_los_avances_bolivarianos_2021",
+    "value": "ruta_30_a_civil_de_transporte_fuerzas_unidas_de_los_avances_bolivarianos_2021",
+    "nombre": "RUTA 30 / A. CIVIL DE TRANSPORTE FUERZAS UNIDAS DE LOS AVANCES BOLIVARIANOS 2021",
+    "label": "RUTA 30 / A. CIVIL DE TRANSPORTE FUERZAS UNIDAS DE LOS AVANCES BOLIVARIANOS 2021",
+    "modalidades": [
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "ruta_31_a_civil_union_de_conductores_ruta_31",
+    "value": "ruta_31_a_civil_union_de_conductores_ruta_31",
+    "nombre": "RUTA 31 / A. CIVIL UNION DE CONDUCTORES RUTA 31",
+    "label": "RUTA 31 / A. CIVIL UNION DE CONDUCTORES RUTA 31",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "AUTOBUS",
+      "BUSETA-VANS",
+      "POR PUESTO",
+      "POR PUESTO RESERVADO"
+    ]
+  },
+  {
+    "codigo": "ruta_32_a_civil_transp_mixto_la_fuerza_del_morichal_monagas_32",
+    "value": "ruta_32_a_civil_transp_mixto_la_fuerza_del_morichal_monagas_32",
+    "nombre": "RUTA 32 / A. CIVIL TRANSP. MIXTO LA FUERZA DEL MORICHAL MONAGAS 32",
+    "label": "RUTA 32 / A. CIVIL TRANSP. MIXTO LA FUERZA DEL MORICHAL MONAGAS 32",
+    "modalidades": [
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "ruta_33_a_civil_industriales_del_oeste",
+    "value": "ruta_33_a_civil_industriales_del_oeste",
+    "nombre": "RUTA 33 / A. CIVIL. INDUSTRIALES DEL OESTE",
+    "label": "RUTA 33 / A. CIVIL. INDUSTRIALES DEL OESTE",
+    "modalidades": [
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "ruta_35_a_civil_union_de_concutores_la_linea",
+    "value": "ruta_35_a_civil_union_de_concutores_la_linea",
+    "nombre": "RUTA 35 / A. CIVIL UNION DE CONCUTORES LA LINEA",
+    "label": "RUTA 35 / A. CIVIL UNION DE CONCUTORES LA LINEA",
+    "modalidades": [
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "AUTOBUS",
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "ruta_36_a_civil_u_de_conductores_del_oeste",
+    "value": "ruta_36_a_civil_u_de_conductores_del_oeste",
+    "nombre": "RUTA 36 / A. CIVIL U. DE CONDUCTORES DEL OESTE",
+    "label": "RUTA 36 / A. CIVIL U. DE CONDUCTORES DEL OESTE",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_37_a_civil_la_morrocoya",
+    "value": "ruta_37_a_civil_la_morrocoya",
+    "nombre": "RUTA 37 / A. CIVIL LA MORROCOYA",
+    "label": "RUTA 37 / A. CIVIL LA MORROCOYA",
+    "modalidades": [
+      "PERIFERICA"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "ruta_38_a_coop_de_transporte_fundacion_del_sur_r_l",
+    "value": "ruta_38_a_coop_de_transporte_fundacion_del_sur_r_l",
+    "nombre": "RUTA 38 / A. COOP. DE TRANSPORTE FUNDACION DEL SUR,R.L",
+    "label": "RUTA 38 / A. COOP. DE TRANSPORTE FUNDACION DEL SUR,R.L",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "POR PUESTO",
+      "POR PUESTO RESERVADO"
+    ]
+  },
+  {
+    "codigo": "ruta_39_a_civil_union_de_conductores_visaplansa",
+    "value": "ruta_39_a_civil_union_de_conductores_visaplansa",
+    "nombre": "RUTA 39 / A. CIVIL UNION DE CONDUCTORES VISAPLANSA",
+    "label": "RUTA 39 / A. CIVIL UNION DE CONDUCTORES VISAPLANSA",
+    "modalidades": [
+      "MASIVO",
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MASIVO",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_40_a_civil_union_de_cond_prof_y_afines_nazaret",
+    "value": "ruta_40_a_civil_union_de_cond_prof_y_afines_nazaret",
+    "nombre": "RUTA 40 / A. CIVIL UNION DE COND. PROF. Y AFINES NAZARET",
+    "label": "RUTA 40 / A. CIVIL UNION DE COND. PROF. Y AFINES NAZARET",
+    "modalidades": [
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "AUTOBUS",
+      "BUSETA-VANS",
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "ruta_41_a_civil_union_de_conductores_tiempo_de_cambio_del_nazareno",
+    "value": "ruta_41_a_civil_union_de_conductores_tiempo_de_cambio_del_nazareno",
+    "nombre": "RUTA 41 / A. CIVIL UNION DE CONDUCTORES “TIEMPO DE CAMBIO DEL NAZARENO”",
+    "label": "RUTA 41 / A. CIVIL UNION DE CONDUCTORES “TIEMPO DE CAMBIO DEL NAZARENO”",
+    "modalidades": [
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "AUTOBUS",
+      "BUSETA-VANS",
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "ruta_42_a_civil_de_transporte_brisas_del_rosillo",
+    "value": "ruta_42_a_civil_de_transporte_brisas_del_rosillo",
+    "nombre": "RUTA 42 / A. CIVIL DE TRANSPORTE BRISAS DEL ROSILLO",
+    "label": "RUTA 42 / A. CIVIL DE TRANSPORTE BRISAS DEL ROSILLO",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MASIVO RESERVADO",
+      "MINIBUS",
+      "POR PUESTO",
+      "POR PUESTO RESERVADO"
+    ]
+  },
+  {
+    "codigo": "ruta_43_a_civil_de_transporte_lomas_del_rosillo",
+    "value": "ruta_43_a_civil_de_transporte_lomas_del_rosillo",
+    "nombre": "RUTA 43 / A. CIVIL DE TRANSPORTE LOMAS DEL ROSILLO",
+    "label": "RUTA 43 / A. CIVIL DE TRANSPORTE LOMAS DEL ROSILLO",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_44_asociacion_civil_linea_por_puesto_y_taxis_del_este",
+    "value": "ruta_44_asociacion_civil_linea_por_puesto_y_taxis_del_este",
+    "nombre": "RUTA 44 / ASOCIACIÓN CIVIL LINEA POR PUESTO Y TAXIS DEL ESTE",
+    "label": "RUTA 44 / ASOCIACIÓN CIVIL LINEA POR PUESTO Y TAXIS DEL ESTE",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_45_a_coop_el_tesoro_de_orocual",
+    "value": "ruta_45_a_coop_el_tesoro_de_orocual",
+    "nombre": "RUTA 45 / A. COOP. EL TESORO DE OROCUAL",
+    "label": "RUTA 45 / A. COOP. EL TESORO DE OROCUAL",
+    "modalidades": [
+      "PERIFERICA"
+    ],
+    "tipos_vehiculo": [
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_46_a_civil_campo_ayacucho",
+    "value": "ruta_46_a_civil_campo_ayacucho",
+    "nombre": "RUTA 46 / A. CIVIL CAMPO AYACUCHO",
+    "label": "RUTA 46 / A. CIVIL CAMPO AYACUCHO",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_47_a_civil_comite_de_transporte_avances_y_colectores_hijos_de_dios",
+    "value": "ruta_47_a_civil_comite_de_transporte_avances_y_colectores_hijos_de_dios",
+    "nombre": "RUTA 47 / A. CIVIL COMITE DE TRANSPORTE AVANCES Y COLECTORES HIJOS DE DIOS",
+    "label": "RUTA 47 / A. CIVIL COMITE DE TRANSPORTE AVANCES Y COLECTORES HIJOS DE DIOS",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "AUTOBUS",
+      "BUSETA-VANS",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_48_a_c_union_de_conductores_viboral",
+    "value": "ruta_48_a_c_union_de_conductores_viboral",
+    "nombre": "RUTA 48 / A. C. UNION DE CONDUCTORES VIBORAL",
+    "label": "RUTA 48 / A. C. UNION DE CONDUCTORES VIBORAL",
+    "modalidades": [
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "AUTOBUS",
+      "BUSETA-VANS",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_51_a_coop_de_transporte_del_oeste_r_l",
+    "value": "ruta_51_a_coop_de_transporte_del_oeste_r_l",
+    "nombre": "RUTA 51 / A. COOP. DE TRANSPORTE DEL OESTE, R.L",
+    "label": "RUTA 51 / A. COOP. DE TRANSPORTE DEL OESTE, R.L",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MASIVO",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_52_a_civil_de_conductores_viboral_maturin",
+    "value": "ruta_52_a_civil_de_conductores_viboral_maturin",
+    "nombre": "RUTA 52 / A. CIVIL DE CONDUCTORES VIBORAL MATURIN",
+    "label": "RUTA 52 / A. CIVIL DE CONDUCTORES VIBORAL MATURIN",
+    "modalidades": [
+      "PERIFERICA",
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MASIVO RESERVADO",
+      "MINIBUS",
+      "POR PUESTO",
+      "POR PUESTO RESERVADO"
+    ]
+  },
+  {
+    "codigo": "ruta_53_union_de_conductores_artigas",
+    "value": "ruta_53_union_de_conductores_artigas",
+    "nombre": "RUTA 53 / UNION DE CONDUCTORES ARTIGAS",
+    "label": "RUTA 53 / UNION DE CONDUCTORES ARTIGAS",
+    "modalidades": [
+      "PERIFERICA"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS"
+    ]
+  },
+  {
+    "codigo": "ruta_55_a_coop_transporte_los_coa_r_l",
+    "value": "ruta_55_a_coop_transporte_los_coa_r_l",
+    "nombre": "RUTA 55 / A. COOP. TRANSPORTE LOS COA R.L.",
+    "label": "RUTA 55 / A. COOP. TRANSPORTE LOS COA R.L.",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "AUTOBUS",
+      "BUSETA-VANS",
+      "MASIVO",
+      "MINIBUS",
+      "POR PUESTO",
+      "POR PUESTO RESERVADO"
+    ]
+  },
+  {
+    "codigo": "ruta_56_a_coop_los_almendrones_rs",
+    "value": "ruta_56_a_coop_los_almendrones_rs",
+    "nombre": "RUTA 56 / A. COOP. LOS ALMENDRONES RS",
+    "label": "RUTA 56 / A. COOP. LOS ALMENDRONES RS",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "AUTOBUS",
+      "BUSETA-VANS",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_57_a_civil_de_transporte_alianza_de_la_negra_hipolita",
+    "value": "ruta_57_a_civil_de_transporte_alianza_de_la_negra_hipolita",
+    "nombre": "RUTA 57 / A. CIVIL DE TRANSPORTE ALIANZA DE LA NEGRA HIPOLITA",
+    "label": "RUTA 57 / A. CIVIL DE TRANSPORTE ALIANZA DE LA NEGRA HIPOLITA",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_58_por_puesto_power_line",
+    "value": "ruta_58_por_puesto_power_line",
+    "nombre": "RUTA 58 / POR PUESTO POWER LINE",
+    "label": "RUTA 58 / POR PUESTO POWER LINE",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_59_a_civil_andres_eloy_blanco",
+    "value": "ruta_59_a_civil_andres_eloy_blanco",
+    "nombre": "RUTA 59 / A. CIVIL ANDRES ELOY BLANCO",
+    "label": "RUTA 59 / A. CIVIL ANDRES ELOY BLANCO",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_61_a_civil_camioneros_rural_del_sur",
+    "value": "ruta_61_a_civil_camioneros_rural_del_sur",
+    "nombre": "RUTA 61 /A. CIVIL CAMIONEROS RURAL DEL SUR",
+    "label": "RUTA 61 /A. CIVIL CAMIONEROS RURAL DEL SUR",
+    "modalidades": [
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MASIVO RESERVADO",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_62_a_civil_de_transporte_prados_del_sur",
+    "value": "ruta_62_a_civil_de_transporte_prados_del_sur",
+    "nombre": "RUTA 62 / A. CIVIL DE TRANSPORTE - PRADOS DEL SUR",
+    "label": "RUTA 62 / A. CIVIL DE TRANSPORTE - PRADOS DEL SUR",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_77_a_civil_union_de_conductores_patria_nueva",
+    "value": "ruta_77_a_civil_union_de_conductores_patria_nueva",
+    "nombre": "RUTA 77 / A. CIVIL UNION DE CONDUCTORES PATRIA NUEVA",
+    "label": "RUTA 77 / A. CIVIL UNION DE CONDUCTORES PATRIA NUEVA",
+    "modalidades": [
+      "PERIFERICA",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MASIVO RESERVADO",
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "ruta_84_a_civil_luchadores_por_siempre_rl",
+    "value": "ruta_84_a_civil_luchadores_por_siempre_rl",
+    "nombre": "RUTA 84 / A. CIVIL LUCHADORES POR SIEMPRE RL.",
+    "label": "RUTA 84 / A. CIVIL LUCHADORES POR SIEMPRE RL.",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "MASIVO RESERVADO",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_86_a_coop_mancomunidad_bolivariana_rl",
+    "value": "ruta_86_a_coop_mancomunidad_bolivariana_rl",
+    "nombre": "RUTA 86 / A. COOP. MANCOMUNIDAD BOLIVARIANA RL",
+    "label": "RUTA 86 / A. COOP. MANCOMUNIDAD BOLIVARIANA RL",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "AUTOBUS",
+      "BUSETA-VANS",
+      "MASIVO RESERVADO",
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_98_a_civil_de_transporte_parque_del_sur",
+    "value": "ruta_98_a_civil_de_transporte_parque_del_sur",
+    "nombre": "RUTA 98 / A. CIVIL DE TRANSPORTE PARQUE DEL SUR",
+    "label": "RUTA 98 / A. CIVIL DE TRANSPORTE PARQUE DEL SUR",
+    "modalidades": [
+      "PERIFERICA"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "ruta_100_a_civil_union_de_conductores_pq_altos_de_los_godos",
+    "value": "ruta_100_a_civil_union_de_conductores_pq_altos_de_los_godos",
+    "nombre": "RUTA 100 / A. CIVIL UNION DE CONDUCTORES PQ. ALTOS DE LOS GODOS",
+    "label": "RUTA 100 / A. CIVIL UNION DE CONDUCTORES PQ. ALTOS DE LOS GODOS",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "BUSETA-VANS",
+      "POR PUESTO",
+      "POR PUESTO RESERVADO"
+    ]
+  },
+  {
+    "codigo": "ruta_110_a_civil_autos_libres_y_por_puesto_u_conductores_del_centro",
+    "value": "ruta_110_a_civil_autos_libres_y_por_puesto_u_conductores_del_centro",
+    "nombre": "RUTA 110 / A. CIVIL AUTOS LIBRES Y POR PUESTO U. CONDUCTORES DEL CENTRO",
+    "label": "RUTA 110 / A. CIVIL AUTOS LIBRES Y POR PUESTO U. CONDUCTORES DEL CENTRO",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_civil_de_conductores_piratas_express",
+    "value": "a_civil_de_conductores_piratas_express",
+    "nombre": "A. CIVIL DE CONDUCTORES PIRATAS EXPRESS",
+    "label": "A. CIVIL DE CONDUCTORES PIRATAS EXPRESS",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_civil_de_transporte_esequibo_venezuela",
+    "value": "a_civil_de_transporte_esequibo_venezuela",
+    "nombre": "A. CIVIL DE TRANSPORTE ESEQUIBO VENEZUELA",
+    "label": "A. CIVIL DE TRANSPORTE ESEQUIBO VENEZUELA",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_civil_de_transporte_y_turismo_ezequiel_zamora",
+    "value": "a_civil_de_transporte_y_turismo_ezequiel_zamora",
+    "nombre": "A. CIVIL DE TRANSPORTE Y TURISMO EZEQUIEL ZAMORA",
+    "label": "A. CIVIL DE TRANSPORTE Y TURISMO EZEQUIEL ZAMORA",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_civil_expresos_anzoategui",
+    "value": "a_civil_expresos_anzoategui",
+    "nombre": "A. CIVIL EXPRESOS ANZOATEGUI",
+    "label": "A. CIVIL EXPRESOS ANZOATEGUI",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_civil_la_candelaria",
+    "value": "a_civil_la_candelaria",
+    "nombre": "A. CIVIL LA CANDELARIA",
+    "label": "A. CIVIL LA CANDELARIA",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_civil_linea_el_carmen",
+    "value": "a_civil_linea_el_carmen",
+    "nombre": "A. CIVIL LINEA EL CARMEN",
+    "label": "A. CIVIL LINEA EL CARMEN",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_civil_linea_oriental_23_de_enero",
+    "value": "a_civil_linea_oriental_23_de_enero",
+    "nombre": "A. CIVIL LINEA ORIENTAL 23 DE ENERO",
+    "label": "A. CIVIL LINEA ORIENTAL 23 DE ENERO",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_civil_transporte_ejecutivo_orionca_maturin",
+    "value": "a_civil_transporte_ejecutivo_orionca_maturin",
+    "nombre": "A. CIVIL TRANSPORTE EJECUTIVO ORIONCA MATURIN",
+    "label": "A. CIVIL TRANSPORTE EJECUTIVO ORIONCA MATURIN",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_civil_union_anzoategui",
+    "value": "a_civil_union_anzoategui",
+    "nombre": "A. CIVIL UNION ANZOATEGUI",
+    "label": "A. CIVIL UNION ANZOATEGUI",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_civil_union_de_conductores_ciudad_guayana",
+    "value": "a_civil_union_de_conductores_ciudad_guayana",
+    "nombre": "A. CIVIL UNION DE CONDUCTORES CIUDAD GUAYANA",
+    "label": "A. CIVIL UNION DE CONDUCTORES CIUDAD GUAYANA",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_civil_union_de_conductores_el_70",
+    "value": "a_civil_union_de_conductores_el_70",
+    "nombre": "A. CIVIL UNION DE CONDUCTORES EL 70",
+    "label": "A. CIVIL UNION DE CONDUCTORES EL 70",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_civil_union_de_conductores_el_esequibo",
+    "value": "a_civil_union_de_conductores_el_esequibo",
+    "nombre": "A. CIVIL UNION DE CONDUCTORES EL ESEQUIBO",
+    "label": "A. CIVIL UNION DE CONDUCTORES EL ESEQUIBO",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_civil_union_mercury",
+    "value": "a_civil_union_mercury",
+    "nombre": "A. CIVIL UNION MERCURY",
+    "label": "A. CIVIL UNION MERCURY",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_civil_union_montes",
+    "value": "a_civil_union_montes",
+    "nombre": "A. CIVIL UNION MONTES",
+    "label": "A. CIVIL UNION MONTES",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_civil_union_san_juan_s_c",
+    "value": "a_civil_union_san_juan_s_c",
+    "nombre": "A. CIVIL UNION SAN JUAN S.C.",
+    "label": "A. CIVIL UNION SAN JUAN S.C.",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_coop_choferes_unidos_el_tigre_r_l",
+    "value": "a_coop_choferes_unidos_el_tigre_r_l",
+    "nombre": "A. COOP. CHOFERES UNIDOS EL TIGRE, R.L.",
+    "label": "A. COOP. CHOFERES UNIDOS EL TIGRE, R.L.",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_coop_cond_puerto_la_cruz_r_l",
+    "value": "a_coop_cond_puerto_la_cruz_r_l",
+    "nombre": "A. COOP. COND. PUERTO LA CRUZ, R.L.",
+    "label": "A. COOP. COND. PUERTO LA CRUZ, R.L.",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_coop_de_trans_ejecutivos_sin_fronteras",
+    "value": "a_coop_de_trans_ejecutivos_sin_fronteras",
+    "nombre": "A. COOP. DE TRANS. EJECUTIVOS SIN FRONTERAS",
+    "label": "A. COOP. DE TRANS. EJECUTIVOS SIN FRONTERAS",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_coop_de_transporte_5_de_julio_r_l",
+    "value": "a_coop_de_transporte_5_de_julio_r_l",
+    "nombre": "A. COOP. DE TRANSPORTE 5 DE JULIO R.L.",
+    "label": "A. COOP. DE TRANSPORTE 5 DE JULIO R.L.",
+    "modalidades": [
+      "POR PUESTO",
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "AUTOBUS",
+      "BUSETA-VANS",
+      "MASIVO RESERVADO",
+      "MINIBUS",
+      "POR PUESTO",
+      "POR PUESTO RESERVADO"
+    ]
+  },
+  {
+    "codigo": "a_coop_de_transporte_cumanagoto_r_l",
+    "value": "a_coop_de_transporte_cumanagoto_r_l",
+    "nombre": "A. COOP. DE TRANSPORTE CUMANAGOTO R.L.",
+    "label": "A. COOP. DE TRANSPORTE CUMANAGOTO R.L.",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_coop_de_transporte_lo_mejor_de_lo_mejor",
+    "value": "a_coop_de_transporte_lo_mejor_de_lo_mejor",
+    "nombre": "A. COOP. DE TRANSPORTE LO MEJOR DE LO MEJOR.",
+    "label": "A. COOP. DE TRANSPORTE LO MEJOR DE LO MEJOR.",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_coop_deltanos_rl",
+    "value": "a_coop_deltanos_rl",
+    "nombre": "A. COOP. DELTANOS RL",
+    "label": "A. COOP. DELTANOS RL",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_coop_oriente_express_2000_rl",
+    "value": "a_coop_oriente_express_2000_rl",
+    "nombre": "A. COOP. ORIENTE EXPRESS 2000, RL",
+    "label": "A. COOP. ORIENTE EXPRESS 2000, RL",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_coop_transporte_ejecutivos_monagas_r_l",
+    "value": "a_coop_transporte_ejecutivos_monagas_r_l",
+    "nombre": "A. COOP. TRANSPORTE EJECUTIVOS MONAGAS R.L.",
+    "label": "A. COOP. TRANSPORTE EJECUTIVOS MONAGAS R.L.",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "a_coop_transporte_jusepin_maturin_el_nazareno",
+    "value": "a_coop_transporte_jusepin_maturin_el_nazareno",
+    "nombre": "A. COOP. TRANSPORTE JUSEPIN-MATURIN EL NAZARENO",
+    "label": "A. COOP. TRANSPORTE JUSEPIN-MATURIN EL NAZARENO",
+    "modalidades": [
+      "URBANO"
+    ],
+    "tipos_vehiculo": [
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "a_ejecutiva_de_transporte_tadeo_car_express",
+    "value": "a_ejecutiva_de_transporte_tadeo_car_express",
+    "nombre": "A. EJECUTIVA DE TRANSPORTE TADEO CAR EXPRESS",
+    "label": "A. EJECUTIVA DE TRANSPORTE TADEO CAR EXPRESS",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO",
+      "POR PUESTO RESERVADO"
+    ]
+  },
+  {
+    "codigo": "a_civil_conductores_y_transporte_los_fosiles_de_orocual",
+    "value": "a_civil_conductores_y_transporte_los_fosiles_de_orocual",
+    "nombre": "A.CIVIL CONDUCTORES Y TRANSPORTE LOS FOSILES DE OROCUAL",
+    "label": "A.CIVIL CONDUCTORES Y TRANSPORTE LOS FOSILES DE OROCUAL",
+    "modalidades": [
+      "PERIFERICA",
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "MINIBUS",
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "conductores_unidos_maturin_s_c",
+    "value": "conductores_unidos_maturin_s_c",
+    "nombre": "CONDUCTORES UNIDOS MATURIN, S.C.",
+    "label": "CONDUCTORES UNIDOS MATURIN, S.C.",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "grupo_de_transporte_los_intendentes_c_a",
+    "value": "grupo_de_transporte_los_intendentes_c_a",
+    "nombre": "GRUPO DE TRANSPORTE LOS INTENDENTES C.A",
+    "label": "GRUPO DE TRANSPORTE LOS INTENDENTES C.A",
+    "modalidades": [
+      "INTER URBANO CORTO"
+    ],
+    "tipos_vehiculo": [
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "linea_maturin_sociedad_civil",
+    "value": "linea_maturin_sociedad_civil",
+    "nombre": "LINEA MATURIN SOCIEDAD CIVIL",
+    "label": "LINEA MATURIN SOCIEDAD CIVIL",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "sociedad_civil_union_de_cond_expreso_el_guacharo",
+    "value": "sociedad_civil_union_de_cond_expreso_el_guacharo",
+    "nombre": "SOCIEDAD CIVIL UNION DE COND. EXPRESO EL GUACHARO",
+    "label": "SOCIEDAD CIVIL UNION DE COND. EXPRESO EL GUACHARO",
+    "modalidades": [
+      "INTER URBANO CORTO"
+    ],
+    "tipos_vehiculo": [
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "union_carupano_sociedad_civil",
+    "value": "union_carupano_sociedad_civil",
+    "nombre": "UNION CARUPANO SOCIEDAD CIVIL",
+    "label": "UNION CARUPANO SOCIEDAD CIVIL",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "union_conductores_aragua_de_barcelona_a_c",
+    "value": "union_conductores_aragua_de_barcelona_a_c",
+    "nombre": "UNION CONDUCTORES ARAGUA DE BARCELONA, A.C.",
+    "label": "UNION CONDUCTORES ARAGUA DE BARCELONA, A.C.",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "union_conductores_san_miguel",
+    "value": "union_conductores_san_miguel",
+    "nombre": "UNION CONDUCTORES SAN MIGUEL",
+    "label": "UNION CONDUCTORES SAN MIGUEL",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "union_conductores_upata_a_c",
+    "value": "union_conductores_upata_a_c",
+    "nombre": "UNION CONDUCTORES UPATA A. C.",
+    "label": "UNION CONDUCTORES UPATA A. C.",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "union_de_conductores_de_anaco_a",
+    "value": "union_de_conductores_de_anaco_a",
+    "nombre": "UNION DE CONDUCTORES DE ANACO A.",
+    "label": "UNION DE CONDUCTORES DE ANACO A.",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "union_de_conductores_la_responsable_sociedad_civil",
+    "value": "union_de_conductores_la_responsable_sociedad_civil",
+    "nombre": "UNION DE CONDUCTORES LA RESPONSABLE SOCIEDAD CIVIL",
+    "label": "UNION DE CONDUCTORES LA RESPONSABLE SOCIEDAD CIVIL",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "union_de_conductores_lo_barrancos",
+    "value": "union_de_conductores_lo_barrancos",
+    "nombre": "UNION DE CONDUCTORES LO BARRANCOS",
+    "label": "UNION DE CONDUCTORES LO BARRANCOS",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "union_de_conductores_san_buenaventura",
+    "value": "union_de_conductores_san_buenaventura",
+    "nombre": "UNION DE CONDUCTORES SAN BUENAVENTURA",
+    "label": "UNION DE CONDUCTORES SAN BUENAVENTURA",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "union_de_conductores_san_rafael_arcangel",
+    "value": "union_de_conductores_san_rafael_arcangel",
+    "nombre": "UNION DE CONDUCTORES SAN RAFAEL ARCANGEL",
+    "label": "UNION DE CONDUCTORES SAN RAFAEL ARCANGEL",
+    "modalidades": [
+      "SUB URBANO"
+    ],
+    "tipos_vehiculo": [
+      "MINIBUS"
+    ]
+  },
+  {
+    "codigo": "union_guayana",
+    "value": "union_guayana",
+    "nombre": "UNION GUAYANA",
+    "label": "UNION GUAYANA",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  },
+  {
+    "codigo": "union_maturin_a_c",
+    "value": "union_maturin_a_c",
+    "nombre": "UNION MATURIN, A.C",
+    "label": "UNION MATURIN, A.C",
+    "modalidades": [
+      "POR PUESTO"
+    ],
+    "tipos_vehiculo": [
+      "POR PUESTO"
+    ]
+  }
+]

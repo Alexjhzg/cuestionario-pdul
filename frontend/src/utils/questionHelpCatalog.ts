@@ -58,6 +58,8 @@ export const QUESTION_HELP_TIPS: Record<string, string> = {
   // Sección VI: Características de Transporte Público
   rutas_tp_dia:
     'Cantidad de líneas o rutas distintas (autobús, buseta o por puesto) que abordó ayer en todos sus viajes. Si hizo trasbordo entre 2 unidades distintas, cuente 2.',
+  rutas_tp_utilizadas:
+    'Seleccione todas las rutas o líneas de transporte colectivo que utilizó ayer. Si alguna no figura en la lista oficial, marque «Otra» y escríbala.',
   tiempo_espera_paradas_min:
     'Suma estimada en minutos de todo el tiempo que esperó en paradas durante los viajes del día.',
   km_residencia_parada:

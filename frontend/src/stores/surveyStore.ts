@@ -10,6 +10,8 @@ const formData = ref<Record<string, any>>({
   parroquia: '',
   residentes: [],
   viajes: [],
+  rutas_tp_utilizadas: [],
+  rutas_tp_utilizadas_otra: '',
   acepta_declaracion: true
 });
 
@@ -40,6 +42,8 @@ export function useSurveyStore() {
       parroquia: '',
       residentes: [],
       viajes: [],
+      rutas_tp_utilizadas: [],
+      rutas_tp_utilizadas_otra: '',
       acepta_declaracion: true
     };
   }

@@ -199,7 +199,7 @@ describe('Sección II Q2 reformulada y tooltips en secciones del cuestionario', 
     const step8 = trackMount(mount(Step8Esparcimiento, { props: { modelValue: {} } }));
     const step9 = trackMount(mount(Step9Peatones, { props: { modelValue: { cruce_peatonal_todas: 'si' } } }));
 
-    expect(step6.findAll('[data-testid="btn-question-help"]').length).toBe(9);
+    expect(step6.findAll('[data-testid="btn-question-help"]').length).toBe(10);
     expect(step7.findAll('[data-testid="btn-question-help"]').length).toBe(8);
     expect(step8.findAll('[data-testid="btn-question-help"]').length).toBe(16);
     expect(step9.findAll('[data-testid="btn-question-help"]').length).toBe(14);
