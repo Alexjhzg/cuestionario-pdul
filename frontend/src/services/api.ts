@@ -119,13 +119,6 @@ export interface ComunidadCatalogoItem {
   municipio: string;
 }
 
-export interface ZonaOdCatalogoItem {
-  codigo: string;
-  nombre: string;
-  parroquia: string;
-  xpar: string;
-}
-
 // --- Endpoints Públicos ---
 
 export async function fetchCatalogoComunidades(
@@ -141,24 +134,6 @@ export async function fetchCatalogoComunidades(
     throw new ApiError(
       response.status,
       `Error al obtener catálogo de comunidades (${response.status})`
-    );
-  }
-  return response.json();
-}
-
-export async function fetchCatalogoZonasOd(
-  parroquia?: string
-): Promise<ZonaOdCatalogoItem[]> {
-  const query = parroquia ? `?parroquia=${encodeURIComponent(parroquia)}` : '';
-  const response = await fetch(`${BASE_URL}/encuestas/catalogo/zonas-od${query}`, {
-    headers: {
-      Accept: 'application/json'
-    }
-  });
-  if (!response.ok) {
-    throw new ApiError(
-      response.status,
-      `Error al obtener catálogo de zonas O-D (${response.status})`
     );
   }
   return response.json();

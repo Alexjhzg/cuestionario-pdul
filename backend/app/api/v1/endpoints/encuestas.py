@@ -1,5 +1,3 @@
-import json
-from pathlib import Path
 import uuid
 from typing import Any, Dict, List, Optional
 from fastapi import APIRouter, Depends, Query, Response, status
@@ -74,30 +72,6 @@ async def listar_catalogo_comunidades(
         }
         for r in rows
     ]
-
-
-@router.get(
-    "/catalogo/zonas-od",
-    response_model=List[Dict[str, Any]],
-    summary="Obtiene el catálogo de zonas O-D del Municipio Maturín filtrable por parroquia",
-)
-async def listar_catalogo_zonas_od(
-    parroquia: Optional[str] = Query(
-        default=None,
-        description="Slug de parroquia (ej. alto_de_los_godos, boqueron, san_simon) para filtrado en cascada",
-    ),
-) -> List[Dict[str, Any]]:
-    catalog_path = (
-        Path(__file__).resolve().parents[4] / "shared" / "catalogs" / "zonas_od_maturin.json"
-    )
-    if not catalog_path.exists():
-        return []
-    with open(catalog_path, "r", encoding="utf-8") as f:
-        items: List[Dict[str, Any]] = json.load(f)
-    if parroquia:
-        par_norm = parroquia.strip().lower()
-        return [it for it in items if str(it.get("parroquia", "")).lower() == par_norm]
-    return items
 
 
 @router.get(
