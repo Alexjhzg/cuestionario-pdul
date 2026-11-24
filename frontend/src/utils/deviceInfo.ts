@@ -94,3 +94,4 @@ function detectBrowser(ua: string): string {
   if (/safari/i.test(ua)) return 'Safari';
   return 'Otro';
 }
+
