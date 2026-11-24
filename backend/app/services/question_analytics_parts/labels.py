@@ -1,6 +1,34 @@
 """Catálogos de etiquetas y normalización humana de opciones para analítica PDUL."""
 
+import json
+from pathlib import Path
 from typing import Any, Dict
+
+
+def _load_rutas_transporte_labels() -> Dict[str, str]:
+    labels: Dict[str, str] = {"otra": "Otra"}
+    catalog_path = (
+        Path(__file__).resolve().parents[4]
+        / "shared"
+        / "catalogs"
+        / "rutas_transporte_maturin.json"
+    )
+    if not catalog_path.exists():
+        return labels
+    try:
+        with open(catalog_path, "r", encoding="utf-8") as fh:
+            items = json.load(fh)
+        if isinstance(items, list):
+            for item in items:
+                if not isinstance(item, dict):
+                    continue
+                code = str(item.get("codigo") or item.get("value") or "").strip()
+                name = str(item.get("nombre") or item.get("label") or code).strip()
+                if code:
+                    labels[code] = name
+    except Exception:
+        pass
+    return labels
 
 COMMON_LABELS: Dict[str, str] = {
     "si": "Sí",
@@ -170,6 +198,7 @@ CUSTOM_FIELD_LABELS: Dict[str, Dict[str, str]] = {
         "mala": "Mala",
         "muy_mala": "Muy Mala",
     },
+    "rutas_tp_utilizadas": _load_rutas_transporte_labels(),
 }
 
 

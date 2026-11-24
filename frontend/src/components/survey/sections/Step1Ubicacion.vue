@@ -245,6 +245,7 @@ function onUpdateGps(payload: GpsPayload) {
       id="zona_residencia_od"
       type="text"
       :value="modelValue.zona_residencia_od || ''"
+      maxlength="120"
       required
       class="survey-input"
       data-testid="input-zona-od"

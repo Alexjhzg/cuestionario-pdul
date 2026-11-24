@@ -77,7 +77,8 @@ class FormioSubmissionIn(BaseModel):
 
         # 3. Zona OD (residencia)
         zona = self.data.get("zona_residencia_od") or self.data.get("zona_od")
-        self.zona_od = str(zona).strip() if zona else None
+        zona_clean = str(zona).strip() if zona else ""
+        self.zona_od = zona_clean[:120] if zona_clean else None
         if self.zona_od:
             self.data["zona_od"] = self.zona_od
 

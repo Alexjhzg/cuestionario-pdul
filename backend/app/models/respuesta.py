@@ -49,7 +49,7 @@ class RespuestaCiudadana(Base):
         nullable=True,
         index=True,
     )
-    zona_od: Mapped[Optional[str]] = mapped_column(String(30), nullable=True, index=True)
+    zona_od: Mapped[Optional[str]] = mapped_column(String(120), nullable=True, index=True)
     datos: Mapped[Dict[str, Any]] = mapped_column(UniversalJSON(), nullable=False)
     fecha_registro: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),

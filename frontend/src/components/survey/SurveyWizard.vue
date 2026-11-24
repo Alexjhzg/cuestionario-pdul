@@ -274,6 +274,21 @@ function goToStep(targetIndex: number) {
   }
 }
 
+const STEP6_PUBLIC_TRANSIT_FIELDS = [
+  'rutas_tp_dia',
+  'rutas_tp_utilizadas',
+  'rutas_tp_utilizadas_otra',
+  'tiempo_espera_paradas_min',
+  'km_residencia_parada',
+  'dificultades_acceso_tp',
+  'principal_dificultad_tp',
+  'principal_dificultad_tp_otro',
+  'calificacion_servicio_tp',
+  'gasto_semanal_transporte_bs',
+  'acuerdo_rutas_directas',
+  'comentarios_transporte_maturin'
+] as const;
+
 async function onSubmit() {
   const data = props.modelValue || {};
   for (let idx = 0; idx < totalSteps; idx++) {
@@ -292,7 +307,13 @@ async function onSubmit() {
     }
   }
   stepErrorItems.value = [];
-  emit('submit', data);
+  const payload: Record<string, any> = { ...data };
+  if (!isStep6Applicable.value) {
+    for (const field of STEP6_PUBLIC_TRANSIT_FIELDS) {
+      delete payload[field];
+    }
+  }
+  emit('submit', payload);
 }
 </script>
 

@@ -307,4 +307,115 @@ describe('Componente SurveyWizard.vue (Asistente de 9 Pasos)', () => {
     // Debe saltar del paso 4 directo al paso 6 (Sección VII: Movilidad Activa), obviando el paso 5 (Transporte Público)
     expect(emitted![emitted!.length - 1]).toEqual([6]);
   });
+
+  it('limpia campos residuales de Sección VI al enviar si no hubo viajes en transporte público', async () => {
+    const wrapper = mount(SurveyWizard, {
+      props: {
+        modelValue: {
+          parroquia: 'boqueron',
+          comunidad_sector: 'TIPURO',
+          zona_residencia_od: 'Sector Tipuro Norte frente a Palma Real',
+          avenida_calle: 'Av. Principal',
+          casa_apartamento: 'Casa 12',
+          tipo_vivienda: 'casa',
+          total_cuartos_vivienda: 4,
+          grupos_gastos_separados: 1,
+          hogar_numero: 1,
+          cuartos_dormir_hogar: 2,
+          numero_personas_hogar: 1,
+          tenencia_vivienda: 'propia_pagada',
+          residentes: [
+            {
+              persona_numero: 1,
+              nombres: 'Carlos Pérez',
+              parentesco: '1',
+              sexo: '1',
+              edad: 34,
+              sabe_leer_escribir: 'si',
+              nivel_educativo: 'universitario',
+              actividad_principal: '1',
+              medio_transporte_habitual: '4',
+              posee_licencia: 'si',
+              tiene_vehiculo_disponible: 'si',
+              tipo_vehiculo: 'automovil',
+              cantidad_vehiculo: 1
+            }
+          ],
+          viajes: [
+            {
+              viaje_numero: 1,
+              persona_numero: 1,
+              origen_direccion: 'Casa',
+              zona_od_origen: 'Tipuro',
+              destino_direccion: 'Oficina',
+              zona_od_destino: 'Centro',
+              hora_salida: '07:00 AM',
+              hora_llegada: '07:30 AM',
+              motivo_viaje: '1',
+              modo_principal: '4',
+              tiempo_viaje_min: 30
+            }
+          ],
+          // Datos residuales de Sección VI llenados previamente
+          rutas_tp_dia: 2,
+          rutas_tp_utilizadas: ['ruta_01_y_05_union_de_conductores_lucas_perez'],
+          calificacion_servicio_tp: 'bueno',
+          gasto_semanal_transporte_bs: 150,
+          comentarios_transporte_maturin: 'Comentario viejo',
+          // Secciones VII, VIII y IX completas
+          cambio_movilidad_5_anos: 'no',
+          caminatas_mas_10min: 'si',
+          usa_bicicleta: 'no',
+          dias_camina_bici_semana: 3,
+          modo_actividades_centro: 'caminando',
+          aceras_adecuadas: 'no',
+          seguridad_desplazamiento_centro: 'neutral',
+          frecuencia_visita_parques: 'mensual',
+          actividades_parques: ['caminar'],
+          caminatas_ciudad: 'si',
+          seguridad_parques_dia: 'seguro',
+          seguridad_parques_noche: 'inseguro',
+          limpieza_parques: 'regular',
+          impedimentos_espacios: ['inseguridad'],
+          satisfaccion_centro: 'regular',
+          mejoras_prioritarias: ['iluminacion'],
+          parque_mejorar_primero: 'Parque La Guaricha',
+          disposicion_participar_mejoras: 'si',
+          sugerencias_esparcimiento: 'Más sombra',
+          acera_comoda: 'en_desacuerdo',
+          sectores_para_caminar: 'Av. Bolívar',
+          facilidad_llegada_parques: 'regular',
+          esparcimientos_faltantes: ['bancas'],
+          cruce_peatonal_todas: 'no',
+          hay_semaforo_peatonal: 'no',
+          mapas_senales_caminata: 'no',
+          movilidad_reducida_sin_ayuda: 'no',
+          nombres_calles_visibles: 'si',
+          senalizacion_clara_sin_obstaculos: 'no',
+          trayecto_pie_parada_seguro: 'inseguro',
+          aire_ruido_aceptables: 'no',
+          conductores_ceden_paso: 'no',
+          ciudad_prioriza_peaton: 'no',
+          participacion_consultas_peatonales: 'no',
+          planes_movilidad_peatonal_normativa: 'no_se',
+          observaciones_generales: 'Todo bien',
+          acepta_declaracion: true
+        },
+        step: 8
+      }
+    });
+
+    const submitBtn = wrapper.find('.submit-final-btn');
+    await submitBtn.trigger('click');
+
+    const submitted = wrapper.emitted('submit');
+    expect(submitted).toBeDefined();
+    const payload = submitted![0][0] as Record<string, any>;
+    expect(payload.rutas_tp_dia).toBeUndefined();
+    expect(payload.rutas_tp_utilizadas).toBeUndefined();
+    expect(payload.calificacion_servicio_tp).toBeUndefined();
+    expect(payload.gasto_semanal_transporte_bs).toBeUndefined();
+    expect(payload.comentarios_transporte_maturin).toBeUndefined();
+    expect(payload.zona_residencia_od).toBe('Sector Tipuro Norte frente a Palma Real');
+  });
 });

@@ -54,7 +54,7 @@ def test_clean_sqlite_upgrade_check_downgrade_roundtrip(tmp_path: Path) -> None:
         assert {"alembic_version", "encuestas", "respuestas_ciudadanas"}.issubset(tables)
 
         version = conn.execute("SELECT version_num FROM alembic_version").fetchone()
-        assert version == ("0001_initial_schema",)
+        assert version == ("0002_widen_zona_od",)
 
         indexes = {
             row[0]
@@ -89,7 +89,7 @@ def test_clean_sqlite_upgrade_check_downgrade_roundtrip(tmp_path: Path) -> None:
         version_reupgraded = conn.execute(
             "SELECT version_num FROM alembic_version"
         ).fetchone()
-        assert version_reupgraded == ("0001_initial_schema",)
+        assert version_reupgraded == ("0002_widen_zona_od",)
 
 
 def test_offline_postgresql_sql_ddl_generation() -> None:
@@ -120,6 +120,7 @@ def test_offline_postgresql_sql_ddl_generation() -> None:
         "CREATE INDEX idx_respuestas_encuesta_zona_od ON respuestas_ciudadanas (encuesta_id, zona_od)"
         in up_sql
     )
+    assert "ALTER TABLE respuestas_ciudadanas ALTER COLUMN zona_od TYPE VARCHAR(120)" in up_sql
 
     down_buf = io.StringIO()
     down_cfg = _make_cli_style_config(
@@ -182,7 +183,7 @@ async def test_preexisting_db_is_stamped_and_preserves_rows(tmp_path: Path) -> N
 
     with sqlite3.connect(db_path) as conn:
         version = conn.execute("SELECT version_num FROM alembic_version").fetchone()
-        assert version == ("0001_initial_schema",)
+        assert version == ("0002_widen_zona_od",)
         enc_count = conn.execute("SELECT COUNT(*) FROM encuestas").fetchone()[0]
         resp_count = conn.execute(
             "SELECT COUNT(*) FROM respuestas_ciudadanas"
@@ -244,7 +245,7 @@ async def test_lifespan_sqlite_fallback_runs_alembic_and_seeds(
                 version = conn.execute(
                     "SELECT version_num FROM alembic_version"
                 ).fetchone()
-                assert version == ("0001_initial_schema",)
+                assert version == ("0002_widen_zona_od",)
                 seeded_count = conn.execute(
                     "SELECT COUNT(*) FROM encuestas"
                 ).fetchone()[0]
@@ -308,7 +309,7 @@ def test_settings_database_url_normalization_and_bare_sqlite_import(tmp_path: Pa
     assert proc.returncode == 0, proc.stderr + proc.stdout
     with sqlite3.connect(db_file) as conn:
         version = conn.execute("SELECT version_num FROM alembic_version").fetchone()
-        assert version == ("0001_initial_schema",)
+        assert version == ("0002_widen_zona_od",)
 
 
 async def test_concurrent_get_db_fallback_seeding_waits_for_seed_completion(
@@ -443,4 +444,4 @@ def test_alembic_cli_works_from_arbitrary_cwd(tmp_path: Path) -> None:
     assert proc.returncode == 0, proc.stderr + proc.stdout
     with sqlite3.connect(db_file) as conn:
         version = conn.execute("SELECT version_num FROM alembic_version").fetchone()
-        assert version == ("0001_initial_schema",)
+        assert version == ("0002_widen_zona_od",)

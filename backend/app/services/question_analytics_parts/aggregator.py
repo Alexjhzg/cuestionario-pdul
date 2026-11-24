@@ -103,7 +103,7 @@ def aggregate_all_survey_questions(
                         if isinstance(val, dict):
                             for subk, subv in val.items():
                                 if subv:
-                                    lbl = _humanize_value(subk, subk, options_map)
+                                    lbl = _humanize_value(a, subk, options_map)
                                     counts[lbl] += 1
                         elif isinstance(val, list):
                             for list_item in val:
