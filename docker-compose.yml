@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: pdul-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: pdul_db
+      POSTGRES_USER: pdul_user
+      POSTGRES_PASSWORD: pdul_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pdul_user -d pdul_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: pdul-backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+asyncpg://pdul_user:pdul_password@db:5432/pdul_db
+      CORS_ORIGINS: "*"
+      ENVIRONMENT: production
+      DEFAULT_PDUL_SCHEMA_PATH: shared/schemas/pdul_origen_destino.json
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    container_name: pdul-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+
+volumes:
+  postgres_data:
+
