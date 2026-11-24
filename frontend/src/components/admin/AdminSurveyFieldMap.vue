@@ -2,7 +2,6 @@
 import { ref, shallowRef, watch, onMounted, onBeforeUnmount, nextTick } from 'vue';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import canonicalGeoJsonRaw from '@shared/geojson/maturin_parroquias.geojson?raw';
 import type { SurveyFieldMapPoint, CalidadUbicacion } from '@/services/api';
 import type { FieldMapViewMode } from '@/composables/useAdminFieldMap';
 import {
@@ -12,10 +11,8 @@ import {
   humanLabel
 } from '@/utils/responseFormatters';
 
-const parsedCanonicalGeoJson = JSON.parse(canonicalGeoJsonRaw) as unknown as GeoJSON.FeatureCollection;
-
 const MATURIN_CENTER: [number, number] = [9.7457, -63.1832];
-const MATURIN_DEFAULT_ZOOM = 11;
+const MATURIN_DEFAULT_ZOOM = 12;
 
 const props = withDefaults(
   defineProps<{
@@ -36,7 +33,6 @@ const emit = defineEmits<{
 
 const mapContainer = ref<HTMLElement | null>(null);
 const mapInstance = shallowRef<L.Map | null>(null);
-const baseGeoJsonLayer = shallowRef<L.GeoJSON | null>(null);
 const markersLayer = shallowRef<L.LayerGroup | null>(null);
 const precisionCircle = shallowRef<L.Circle | null>(null);
 let resizeObserver: ResizeObserver | null = null;
@@ -166,22 +162,6 @@ function initLeafletMap() {
         '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'
     }).addTo(map);
 
-    baseGeoJsonLayer.value = L.geoJSON(parsedCanonicalGeoJson, {
-      style: () => ({
-        color: '#3b82f6',
-        weight: 1.5,
-        opacity: 0.7,
-        fillColor: '#f0f4fe',
-        fillOpacity: 0.12
-      }),
-      onEachFeature: (feature, layer) => {
-        const nombre = feature?.properties?.nombre_parroquia || feature?.properties?.nombre;
-        if (nombre) {
-          layer.bindTooltip(String(nombre), { sticky: true });
-        }
-      }
-    }).addTo(map);
-
     map.on('popupopen', (evt: L.PopupEvent) => {
       const popupEl = evt.popup.getElement();
       const btn = popupEl?.querySelector<HTMLButtonElement>('.popup-inspect-btn');
@@ -266,10 +246,6 @@ onBeforeUnmount(() => {
     markersLayer.value.clearLayers();
     markersLayer.value = null;
   }
-  if (baseGeoJsonLayer.value) {
-    baseGeoJsonLayer.value.clearLayers();
-    baseGeoJsonLayer.value = null;
-  }
   if (mapInstance.value) {
     mapInstance.value.remove();
     mapInstance.value = null;
@@ -287,7 +263,7 @@ defineExpose({
   <figure class="field-map-card" aria-label="Mapa georreferenciado de encuestas levantadas">
     <div class="field-map-toolbar">
       <figcaption class="field-map-caption">
-        Ubicación GPS capturada por encuesta sobre el mapa parroquial de Maturín (puntos rojos indican baja precisión o coordenada fuera del municipio).
+        Ubicación GPS capturada por encuesta en el municipio Maturín (puntos rojos indican baja precisión o coordenada fuera del área).
       </figcaption>
       <div v-if="viewMode === 'map'" class="map-controls-group">
         <button
