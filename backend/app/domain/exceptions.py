@@ -78,3 +78,11 @@ class PersistenceUnavailableError(DomainError):
             "Error temporal en la base de datos. Por favor reintente su envío.",
             code="DATABASE_UNAVAILABLE",
         )
+
+
+class SubmissionNotFoundError(DomainError):
+    """Se lanza cuando la respuesta solicitada no existe o no pertenece a la encuesta."""
+
+    def __init__(self, identifier: str, message: Optional[str] = None) -> None:
+        detail = message or f"No se encontró la respuesta '{identifier}'."
+        super().__init__(detail, code="RESPUESTA_NO_ENCONTRADA")

@@ -11,6 +11,7 @@ from backend.app.domain.exceptions import (
     DuplicateSlugError,
     PersistenceUnavailableError,
     RestrictedPiiFieldError,
+    SubmissionNotFoundError,
     SurveyInactiveError,
     SurveyNotFoundError,
 )
@@ -18,6 +19,7 @@ from backend.app.schemas.problem import ProblemDetailOut
 
 DOMAIN_ERROR_HTTP_MAP: Dict[Type[DomainError], Tuple[int, str]] = {
     SurveyNotFoundError: (status.HTTP_404_NOT_FOUND, "Encuesta no encontrada"),
+    SubmissionNotFoundError: (status.HTTP_404_NOT_FOUND, "Respuesta no encontrada"),
     SurveyInactiveError: (status.HTTP_400_BAD_REQUEST, "Encuesta inactiva"),
     DuplicateCedulaError: (status.HTTP_409_CONFLICT, "Conflicto de participación"),
     DuplicateSlugError: (status.HTTP_409_CONFLICT, "Conflicto de registro"),

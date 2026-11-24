@@ -6,6 +6,7 @@ import SurveyFillView from './views/SurveyFillView.vue';
 const FormBuilderView = defineAsyncComponent(() => import('./views/FormBuilderView.vue'));
 const AdminSurveyListView = defineAsyncComponent(() => import('./views/AdminSurveyListView.vue'));
 const AdminResponsesView = defineAsyncComponent(() => import('./views/AdminResponsesView.vue'));
+const AdminFieldMapView = defineAsyncComponent(() => import('./views/AdminFieldMapView.vue'));
 const DashboardView = defineAsyncComponent(() => import('./views/DashboardView.vue'));
 
 export type AppView =
@@ -13,6 +14,7 @@ export type AppView =
   | 'form-builder'
   | 'admin-surveys'
   | 'admin-responses'
+  | 'admin-field-map'
   | 'gis-dashboard';
 
 export interface NavTabItem {
@@ -65,6 +67,12 @@ const navTabs: NavTabItem[] = [
     label: 'Dashboard Analítico',
     icon: 'pi pi-chart-bar',
     ariaLabel: 'Ir al panel de indicadores y analítica de movilidad urbana'
+  },
+  {
+    id: 'admin-field-map',
+    label: 'Mapa de Levantamiento',
+    icon: 'pi pi-map-marker',
+    ariaLabel: 'Ir al mapa georreferenciado de levantamiento de encuestas en campo'
   },
   {
     id: 'admin-surveys',
@@ -204,6 +212,18 @@ function onSurveyCreated(surveyId: string) {
         v-if="currentView === 'gis-dashboard'"
       >
         <DashboardView />
+      </section>
+
+      <!-- 1b. Mapa de Levantamiento en Campo -->
+      <section
+        id="panel-admin-field-map"
+        role="tabpanel"
+        aria-labelledby="tab-admin-field-map"
+        tabindex="0"
+        class="view-panel"
+        v-if="currentView === 'admin-field-map'"
+      >
+        <AdminFieldMapView :initial-survey-id="selectedSurveyIdForResponses || undefined" />
       </section>
 
       <!-- 2. Gestión y Administración de Encuestas -->

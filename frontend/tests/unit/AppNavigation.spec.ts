@@ -31,6 +31,16 @@ vi.mock('@/services/api', () => ({
     limit: 10,
     items: []
   }),
+  fetchAdminMapaLevantamiento: vi.fn().mockResolvedValue({
+    encuesta_id: '00000000-0000-0000-0000-000000000001',
+    total_respuestas: 0,
+    total_con_gps: 0,
+    total_sin_gps: 0,
+    porcentaje_cobertura_gps: 0,
+    total_alertas_ubicacion: 0,
+    puntos: []
+  }),
+  fetchAdminRespuestaDetalle: vi.fn(),
   updateEncuestaEstado: vi.fn(),
   exportarRespuestasAdmin: vi.fn(),
   descargarBlob: vi.fn(),
@@ -58,7 +68,7 @@ describe('App.vue Navigation & WAI-ARIA Tabs (Milestone 4)', () => {
     vi.clearAllMocks();
   });
 
-  it('1. Estructura semántica WAI-ARIA: existe <nav>, role="tablist" y 5 pestañas accesibles', () => {
+  it('1. Estructura semántica WAI-ARIA: existe <nav>, role="tablist" y 6 pestañas accesibles', () => {
     const wrapper = mount(App);
 
     const nav = wrapper.find('nav[role="navigation"]');
@@ -69,11 +79,12 @@ describe('App.vue Navigation & WAI-ARIA Tabs (Milestone 4)', () => {
     expect(tablist.exists()).toBe(true);
 
     const tabs = tablist.findAll('[role="tab"]');
-    expect(tabs).toHaveLength(5);
+    expect(tabs).toHaveLength(6);
 
     // Comprobar IDs y controles
     const expectedTabs = [
       { id: 'tab-gis-dashboard', controls: 'panel-gis-dashboard', label: 'Dashboard Analítico' },
+      { id: 'tab-admin-field-map', controls: 'panel-admin-field-map', label: 'Mapa de Levantamiento' },
       { id: 'tab-admin-surveys', controls: 'panel-admin-surveys', label: 'Gestión de Encuestas' },
       { id: 'tab-admin-responses', controls: 'panel-admin-responses', label: 'Respuestas Ciudadanas' },
       { id: 'tab-form-builder', controls: 'panel-form-builder', label: 'Constructor de Encuestas' },
@@ -120,7 +131,15 @@ describe('App.vue Navigation & WAI-ARIA Tabs (Milestone 4)', () => {
     expect(wrapper.find('#panel-form-builder').exists()).toBe(true);
     expect(wrapper.find('#tab-gis-dashboard').attributes('aria-selected')).toBe('false');
 
-    // 2. Clic en "Gestión de Encuestas"
+    // 2. Clic en "Mapa de Levantamiento"
+    const fieldMapTab = wrapper.find('#tab-admin-field-map');
+    await fieldMapTab.trigger('click');
+    await flushPromises();
+
+    expect(fieldMapTab.attributes('aria-selected')).toBe('true');
+    expect(wrapper.find('#panel-admin-field-map').exists()).toBe(true);
+
+    // 3. Clic en "Gestión de Encuestas"
     const surveysTab = wrapper.find('#tab-admin-surveys');
     await surveysTab.trigger('click');
     await flushPromises();

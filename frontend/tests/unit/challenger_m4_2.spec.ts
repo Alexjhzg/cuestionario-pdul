@@ -233,7 +233,7 @@ describe('Empirical Verification Challenger M4-2: Ergonomía Táctil, WCAG AA y 
       expect(tablist.exists()).toBe(true);
 
       const tabs = wrapper.findAll('[role="tab"]');
-      expect(tabs.length).toBe(5);
+      expect(tabs.length).toBe(6);
 
       expect(tabs[0].attributes('aria-selected')).toBe('true');
       expect(tabs[0].attributes('tabindex')).toBe('0');
@@ -249,30 +249,30 @@ describe('Empirical Verification Challenger M4-2: Ergonomía Táctil, WCAG AA y 
     it('5.1 WAI-ARIA TABS: App.vue debe soportar navegación con teclas de flecha (ArrowRight, ArrowLeft, Home, End)', async () => {
       const wrapper = mount(App);
       const tabs = wrapper.findAll('[role="tab"]');
-      expect(tabs.length).toBe(5);
+      expect(tabs.length).toBe(6);
 
       // Enfocar tab 0 y presionar ArrowRight -> debe activar tab 1
       await tabs[0].trigger('keydown', { key: 'ArrowRight' });
       await flushPromises();
       expect(tabs[1].attributes('aria-selected'), 'ArrowRight debe avanzar a tab 1').toBe('true');
 
-      // Presionar End -> debe activar el último tab (tab 4)
+      // Presionar End -> debe activar el último tab visible (tab 5: Llenar Encuesta PDUL)
       await tabs[1].trigger('keydown', { key: 'End' });
       await flushPromises();
-      expect(tabs[4].attributes('aria-selected'), 'End debe ir al último tab').toBe('true');
+      expect(tabs[5].attributes('aria-selected'), 'End debe ir al último tab').toBe('true');
 
       // Presionar ArrowRight en el último -> debe ciclar al primer tab (tab 0)
-      await tabs[4].trigger('keydown', { key: 'ArrowRight' });
+      await tabs[5].trigger('keydown', { key: 'ArrowRight' });
       await flushPromises();
       expect(tabs[0].attributes('aria-selected'), 'ArrowRight en último tab debe ciclar al primero').toBe('true');
 
-      // Presionar ArrowLeft en el primero -> debe ciclar al último tab (tab 4)
+      // Presionar ArrowLeft en el primero -> debe ciclar al último tab visible (tab 5)
       await tabs[0].trigger('keydown', { key: 'ArrowLeft' });
       await flushPromises();
-      expect(tabs[4].attributes('aria-selected'), 'ArrowLeft en primer tab debe ciclar al último').toBe('true');
+      expect(tabs[5].attributes('aria-selected'), 'ArrowLeft en primer tab debe ciclar al último').toBe('true');
 
       // Presionar Home -> debe ir al primer tab (tab 0)
-      await tabs[4].trigger('keydown', { key: 'Home' });
+      await tabs[5].trigger('keydown', { key: 'Home' });
       await flushPromises();
       expect(tabs[0].attributes('aria-selected'), 'Home debe ir al primer tab').toBe('true');
     });

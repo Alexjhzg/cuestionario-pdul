@@ -89,6 +89,32 @@ export interface AdminRespuestasResponse {
   items: AdminRespuestaItem[];
 }
 
+export type CalidadUbicacion = 'alta' | 'media' | 'alerta';
+
+export interface SurveyFieldMapPoint {
+  id: number;
+  latitud: number;
+  longitud: number;
+  precision_m?: number | null;
+  parroquia: string;
+  comunidad_sector?: string | null;
+  zona_od?: string | null;
+  dispositivo_tipo: string;
+  fecha_registro?: string | null;
+  calidad_ubicacion: CalidadUbicacion;
+  motivo_alerta?: string | null;
+}
+
+export interface SurveyFieldMapSummary {
+  encuesta_id: string;
+  total_respuestas: number;
+  total_con_gps: number;
+  total_sin_gps: number;
+  porcentaje_cobertura_gps: number;
+  total_alertas_ubicacion: number;
+  puntos: SurveyFieldMapPoint[];
+}
+
 const resolveBaseUrl = (): string => {
   const raw = import.meta.env.VITE_API_BASE_URL;
   if (!raw) return '/api/v1';
@@ -377,6 +403,71 @@ export async function fetchAdminRespuestas(
     throw new ApiError(
       response.status,
       problem?.detail || `Error al obtener las respuestas (${response.status})`,
+      problem
+    );
+  }
+
+  return response.json();
+}
+
+/**
+ * Obtiene puntos georreferenciados no-PII y resumen de cobertura GPS para el mapa administrativo
+ */
+export async function fetchAdminMapaLevantamiento(
+  encuestaId: string
+): Promise<SurveyFieldMapSummary> {
+  const response = await fetch(
+    `${BASE_URL}/admin/encuestas/${encuestaId}/mapa-levantamiento`,
+    {
+      headers: {
+        Accept: 'application/json'
+      }
+    }
+  );
+
+  if (!response.ok) {
+    let problem: ProblemDetail | undefined;
+    try {
+      problem = await response.json();
+    } catch {
+      // Ignorar si no es json
+    }
+    throw new ApiError(
+      response.status,
+      problem?.detail || `Error al obtener el mapa de levantamiento (${response.status})`,
+      problem
+    );
+  }
+
+  return response.json();
+}
+
+/**
+ * Obtiene el detalle completo de una respuesta ciudadana por ID
+ */
+export async function fetchAdminRespuestaDetalle(
+  encuestaId: string,
+  respuestaId: number
+): Promise<AdminRespuestaItem> {
+  const response = await fetch(
+    `${BASE_URL}/admin/encuestas/${encuestaId}/respuestas/${respuestaId}`,
+    {
+      headers: {
+        Accept: 'application/json'
+      }
+    }
+  );
+
+  if (!response.ok) {
+    let problem: ProblemDetail | undefined;
+    try {
+      problem = await response.json();
+    } catch {
+      // Ignorar si no es json
+    }
+    throw new ApiError(
+      response.status,
+      problem?.detail || `Error al obtener el detalle de la respuesta (${response.status})`,
       problem
     );
   }

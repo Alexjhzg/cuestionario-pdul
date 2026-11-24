@@ -1,17 +1,27 @@
 import csv
 import io
 import json
+import math
 import uuid
 from collections.abc import AsyncIterator
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
-from backend.app.domain.exceptions import DuplicateSlugError, SurveyNotFoundError
+from backend.app.domain.exceptions import (
+    DuplicateSlugError,
+    SubmissionNotFoundError,
+    SurveyNotFoundError,
+)
 from backend.app.domain.interfaces.unit_of_work import AbstractUnitOfWork
 from backend.app.schemas.encuesta import (
     EncuestaCreate,
     EncuestaListItem,
     EncuestaOut,
     EncuestaUpdate,
+)
+from backend.app.schemas.field_map import (
+    CalidadUbicacion,
+    FieldMapPointOut,
+    FieldMapSummaryOut,
 )
 from backend.app.services.normalizers import sanitize_pii
 
@@ -113,6 +123,128 @@ class AdminService:
             "limit": limit,
             "items": items,
         }
+
+    async def get_submission_detail(
+        self, encuesta_id: uuid.UUID, respuesta_id: int
+    ) -> Dict[str, Any]:
+        await self._require_survey(encuesta_id)
+        sub = await self.uow.submissions.get_submission_by_id(
+            encuesta_id, respuesta_id
+        )
+        if not sub:
+            raise SubmissionNotFoundError(str(respuesta_id))
+
+        return {
+            "id": sub.id,
+            "encuesta_id": str(sub.encuesta_id),
+            "client_submission_id": (
+                str(sub.client_submission_id) if sub.client_submission_id else None
+            ),
+            "parroquia": sub.parroquia,
+            "zona_od": sub.zona_od,
+            "fecha_registro": (
+                sub.fecha_registro.isoformat() if sub.fecha_registro else None
+            ),
+            "datos": sub.datos,
+        }
+
+    @staticmethod
+    def _parse_finite_float(raw: Any) -> Optional[float]:
+        if raw in (None, "") or isinstance(raw, bool):
+            return None
+        try:
+            val = float(raw)
+        except (TypeError, ValueError):
+            return None
+        return val if math.isfinite(val) else None
+
+    @staticmethod
+    def _classify_gps_quality(
+        lat: float, lng: float, precision_m: Optional[float]
+    ) -> tuple[CalidadUbicacion, Optional[str]]:
+        in_monagas_bbox = (8.3 <= lat <= 10.6) and (-64.2 <= lng <= -62.0)
+        if not in_monagas_bbox:
+            return (
+                "alerta",
+                "Coordenada fuera del ámbito geográfico de Maturín / Monagas",
+            )
+        if precision_m is not None and precision_m > 500:
+            return (
+                "alerta",
+                f"Baja precisión (±{round(precision_m)} m, posible ubicación por red/IP)",
+            )
+        if precision_m is None or precision_m > 100:
+            return ("media", None)
+        return ("alta", None)
+
+    async def get_field_map_summary(
+        self, encuesta_id: uuid.UUID
+    ) -> FieldMapSummaryOut:
+        await self._require_survey(encuesta_id)
+        rows = await self.uow.submissions.list_field_map_rows(encuesta_id)
+        total_respuestas = len(rows)
+        puntos: List[FieldMapPointOut] = []
+        total_alertas = 0
+
+        for row in rows:
+            row_id, parroquia, zona_od_col, fecha_registro, datos = row
+            datos_dict = datos if isinstance(datos, dict) else {}
+
+            lat = self._parse_finite_float(datos_dict.get("gps_latitud"))
+            lng = self._parse_finite_float(datos_dict.get("gps_longitud"))
+            if lat is None or lng is None or not (-90 <= lat <= 90) or not (-180 <= lng <= 180):
+                continue
+
+            precision_raw = self._parse_finite_float(datos_dict.get("gps_precision"))
+            precision_m = precision_raw if (precision_raw is not None and precision_raw >= 0) else None
+
+            calidad, motivo_alerta = self._classify_gps_quality(lat, lng, precision_m)
+            if calidad == "alerta":
+                total_alertas += 1
+
+            comunidad = str(datos_dict.get("comunidad_sector") or "").strip() or None
+            zona_od_val = (
+                str(zona_od_col or datos_dict.get("zona_residencia_od") or "").strip()
+                or None
+            )
+            dispositivo = (
+                str(datos_dict.get("dispositivo_tipo") or "desconocido").strip().lower()
+                or "desconocido"
+            )
+
+            puntos.append(
+                FieldMapPointOut(
+                    id=int(row_id),
+                    latitud=lat,
+                    longitud=lng,
+                    precision_m=precision_m,
+                    parroquia=str(parroquia or ""),
+                    comunidad_sector=comunidad,
+                    zona_od=zona_od_val,
+                    dispositivo_tipo=dispositivo,
+                    fecha_registro=fecha_registro,
+                    calidad_ubicacion=calidad,
+                    motivo_alerta=motivo_alerta,
+                )
+            )
+
+        total_con_gps = len(puntos)
+        total_sin_gps = max(0, total_respuestas - total_con_gps)
+        porcentaje_cobertura = (
+            round((total_con_gps / total_respuestas) * 100, 1)
+            if total_respuestas > 0
+            else 0.0
+        )
+
+        return FieldMapSummaryOut(
+            encuesta_id=encuesta_id,
+            total_respuestas=total_respuestas,
+            total_con_gps=total_con_gps,
+            total_sin_gps=total_sin_gps,
+            porcentaje_cobertura_gps=porcentaje_cobertura,
+            total_alertas_ubicacion=total_alertas,
+            puntos=puntos,
+        )
 
     @staticmethod
     def _format_export_row(s: Any, redact_pii: bool) -> Dict[str, Any]:

@@ -11,6 +11,7 @@ from backend.app.schemas.encuesta import (
     EncuestaOut,
     EncuestaUpdate,
 )
+from backend.app.schemas.field_map import FieldMapSummaryOut
 from backend.app.schemas.problem import ProblemDetailOut
 from backend.app.services.admin_service import AdminService
 
@@ -98,6 +99,32 @@ async def listar_respuestas_admin(
     service: AdminService = Depends(get_admin_service),
 ) -> Dict[str, Any]:
     return await service.list_submissions(encuesta_id, skip=skip, limit=limit)
+
+
+@router.get(
+    "/encuestas/{encuesta_id}/mapa-levantamiento",
+    response_model=FieldMapSummaryOut,
+    summary="Obtiene puntos georreferenciados no-PII y métricas de cobertura GPS de campo",
+    responses={404: {"model": ProblemDetailOut, "description": "Encuesta no encontrada"}},
+)
+async def obtener_mapa_levantamiento_admin(
+    encuesta_id: uuid.UUID,
+    service: AdminService = Depends(get_admin_service),
+) -> FieldMapSummaryOut:
+    return await service.get_field_map_summary(encuesta_id)
+
+
+@router.get(
+    "/encuestas/{encuesta_id}/respuestas/{respuesta_id}",
+    summary="Obtiene el detalle completo de una respuesta ciudadana por su ID",
+    responses={404: {"model": ProblemDetailOut, "description": "Encuesta o respuesta no encontrada"}},
+)
+async def obtener_detalle_respuesta_admin(
+    encuesta_id: uuid.UUID,
+    respuesta_id: int,
+    service: AdminService = Depends(get_admin_service),
+) -> Dict[str, Any]:
+    return await service.get_submission_detail(encuesta_id, respuesta_id)
 
 
 @router.get(

@@ -46,6 +46,16 @@ class AbstractSubmissionRepository(ABC):
         ...
 
     @abstractmethod
+    async def get_submission_by_id(
+        self, encuesta_id: uuid.UUID, respuesta_id: int
+    ) -> Optional[Any]:
+        ...
+
+    @abstractmethod
+    async def list_field_map_rows(self, encuesta_id: uuid.UUID) -> List[Any]:
+        ...
+
+    @abstractmethod
     async def count_submissions(self, encuesta_id: uuid.UUID) -> int:
         ...
 

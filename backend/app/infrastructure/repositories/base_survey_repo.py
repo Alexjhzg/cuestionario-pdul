@@ -144,6 +144,35 @@ class BaseSurveyRepository(AbstractSubmissionRepository):
         result = await self.session.execute(stmt)
         return list(result.scalars().all())
 
+    async def get_submission_by_id(
+        self, encuesta_id: uuid.UUID, respuesta_id: int
+    ) -> Optional[RespuestaCiudadana]:
+        stmt = (
+            select(RespuestaCiudadana)
+            .where(
+                RespuestaCiudadana.encuesta_id == encuesta_id,
+                RespuestaCiudadana.id == respuesta_id,
+            )
+            .limit(1)
+        )
+        result = await self.session.execute(stmt)
+        return result.scalar_one_or_none()
+
+    async def list_field_map_rows(self, encuesta_id: uuid.UUID) -> List[Any]:
+        stmt = (
+            select(
+                RespuestaCiudadana.id,
+                RespuestaCiudadana.parroquia,
+                RespuestaCiudadana.zona_od,
+                RespuestaCiudadana.fecha_registro,
+                RespuestaCiudadana.datos,
+            )
+            .where(RespuestaCiudadana.encuesta_id == encuesta_id)
+            .order_by(RespuestaCiudadana.fecha_registro.desc())
+        )
+        result = await self.session.execute(stmt)
+        return list(result.all())
+
     async def count_submissions(self, encuesta_id: uuid.UUID) -> int:
         stmt = (
             select(func.count(RespuestaCiudadana.id))

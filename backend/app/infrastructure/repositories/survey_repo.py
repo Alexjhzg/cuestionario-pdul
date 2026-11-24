@@ -61,6 +61,14 @@ class SurveyRepository(AbstractSubmissionRepository):
     ) -> List[RespuestaCiudadana]:
         return await self._delegate.list_submissions(encuesta_id, skip=skip, limit=limit)
 
+    async def get_submission_by_id(
+        self, encuesta_id: uuid.UUID, respuesta_id: int
+    ) -> Optional[RespuestaCiudadana]:
+        return await self._delegate.get_submission_by_id(encuesta_id, respuesta_id)
+
+    async def list_field_map_rows(self, encuesta_id: uuid.UUID) -> List[Any]:
+        return await self._delegate.list_field_map_rows(encuesta_id)
+
     async def count_submissions(self, encuesta_id: uuid.UUID) -> int:
         return await self._delegate.count_submissions(encuesta_id)
 
