@@ -99,7 +99,7 @@
           "label": "3.- Zona de Residencia (Según Zonificación O-D)",
           "validate": {
             "required": true,
-            "maxLength": 30
+            "maxLength": 120
           }
         },
         {
@@ -539,6 +539,10 @@
                   {
                     "label": "8 = Otro",
                     "value": "8"
+                  },
+                  {
+                    "label": "No aplica / Viaja acompañado",
+                    "value": "no_aplica"
                   }
                 ]
               },
@@ -892,9 +896,10 @@
     {
       "type": "panel",
       "key": "panel_seccion_vi",
-      "title": "Sección VI: Características de Transporte Público",
+      "title": "Sección VI: Características de Transporte Público (Si se utilizó en algún viaje)",
       "collapsible": true,
       "collapsed": false,
+      "customConditional": "const trips = Array.isArray(data.viajes) ? data.viajes : []; show = trips.length === 0 || trips.some((v) => ['6', '7'].includes(String(v && v.modo_principal || '')) || ['6', '7'].includes(String(v && v.modo_secundario || '')));",
       "components": [
         {
           "type": "radio",

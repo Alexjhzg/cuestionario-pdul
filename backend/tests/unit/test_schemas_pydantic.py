@@ -183,3 +183,102 @@ def test_problem_detail_rfc7807_serialization():
     assert dumped["status"] == 400
     assert dumped["detail"] == "A detailed message for the user"
     assert dumped["field"] == "cedula"
+
+
+def test_defensive_residentes_validations():
+    # Edad fuera de rango (> 120)
+    with pytest.raises(ValidationError, match="entre 0 y 120"):
+        FormioSubmissionIn.model_validate(
+            {"data": {"parroquia": "boqueron", "residentes": [{"edad": 135}]}}
+        )
+
+    # Edad negativa
+    with pytest.raises(ValidationError, match="entre 0 y 120"):
+        FormioSubmissionIn.model_validate(
+            {"data": {"parroquia": "boqueron", "residentes": [{"edad": -2}]}}
+        )
+
+    # Menor de 16 años con licencia de conducir
+    with pytest.raises(ValidationError, match="menor de 16 años"):
+        FormioSubmissionIn.model_validate(
+            {
+                "data": {
+                    "parroquia": "boqueron",
+                    "residentes": [{"edad": 12, "posee_licencia": "si"}],
+                }
+            }
+        )
+
+    # Cantidad de vehículos inválida (< 1)
+    with pytest.raises(ValidationError, match="al menos 1"):
+        FormioSubmissionIn.model_validate(
+            {
+                "data": {
+                    "parroquia": "boqueron",
+                    "residentes": [{"edad": 30, "cantidad_vehiculo": 0}],
+                }
+            }
+        )
+
+    # Residente válido
+    sub = FormioSubmissionIn.model_validate(
+        {
+            "data": {
+                "parroquia": "boqueron",
+                "residentes": [
+                    {"edad": 30, "posee_licencia": "si", "cantidad_vehiculo": 1},
+                    {"edad": 4, "posee_licencia": "no"},
+                ],
+            }
+        }
+    )
+    assert len(sub.data["residentes"]) == 2
+
+
+def test_defensive_viajes_gps_and_rutas_validations():
+    # Costo negativo en viaje
+    with pytest.raises(ValidationError, match="no puede ser negativo"):
+        FormioSubmissionIn.model_validate(
+            {
+                "data": {
+                    "parroquia": "san_simon",
+                    "viajes": [{"tiempo_viaje_min": 15, "costo_viaje_bs": -5}],
+                }
+            }
+        )
+
+    # GPS incompleto o fuera de rango
+    with pytest.raises(ValidationError, match="latitud como longitud"):
+        FormioSubmissionIn.model_validate(
+            {"data": {"parroquia": "san_simon", "gps_latitud": 9.74}}
+        )
+    with pytest.raises(ValidationError, match="fuera de rango"):
+        FormioSubmissionIn.model_validate(
+            {
+                "data": {
+                    "parroquia": "san_simon",
+                    "gps_latitud": 95.0,
+                    "gps_longitud": -63.18,
+                }
+            }
+        )
+
+    # rutas_tp_dia negativo
+    with pytest.raises(ValidationError, match="no puede ser negativo"):
+        FormioSubmissionIn.model_validate(
+            {"data": {"parroquia": "san_simon", "rutas_tp_dia": -1}}
+        )
+
+    # Payload completo válido
+    sub = FormioSubmissionIn.model_validate(
+        {
+            "data": {
+                "parroquia": "san_simon",
+                "gps_latitud": 9.7458,
+                "gps_longitud": -63.1832,
+                "viajes": [{"persona_numero": 1, "tiempo_viaje_min": 20, "costo_viaje_bs": 0}],
+                "rutas_tp_dia": 0,
+            }
+        }
+    )
+    assert sub.parroquia == "san_simon"
