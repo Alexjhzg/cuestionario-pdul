@@ -58,3 +58,39 @@ def test_analytics_humanizes_rutas_tp_utilizadas_from_catalog_for_list_and_dict(
         'RUTA 01 Y 05 UNION DE CONDUCTORES "LUCAS PEREZ"'
     )
     assert rutas_metric.values[idx_lucas] == 2
+
+
+def test_dispositivo_tipo_normalization_and_analytics_aggregation() -> None:
+    sub_mobile = FormioSubmissionIn(
+        data={"parroquia": "san_simon", "dispositivo_tipo": "Mobile"}
+    )
+    assert sub_mobile.data["dispositivo_tipo"] == "movil"
+
+    sub_desktop = FormioSubmissionIn(
+        data={"parroquia": "san_simon", "dispositivo_tipo": "desktop"}
+    )
+    assert sub_desktop.data["dispositivo_tipo"] == "escritorio"
+
+    sub_unknown = FormioSubmissionIn(
+        data={"parroquia": "san_simon", "dispositivo_tipo": "smart_fridge"}
+    )
+    assert sub_unknown.data["dispositivo_tipo"] == "desconocido"
+
+    metrics = aggregate_all_survey_questions(
+        schema={},
+        rows=[
+            {"dispositivo_tipo": "movil"},
+            {"dispositivo_tipo": "movil"},
+            {"dispositivo_tipo": "escritorio"},
+            {"dispositivo_tipo": "tablet"},
+        ],
+    )
+    dev_metric = next(m for m in metrics if m.clave == "dispositivo_tipo")
+    assert dev_metric.total_respuestas == 4
+    assert dev_metric.labels == [
+        "Teléfono móvil",
+        "Computadora / Escritorio",
+        "Tablet",
+    ]
+    assert dev_metric.values == [2, 1, 1]
+

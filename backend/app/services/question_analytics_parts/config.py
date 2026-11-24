@@ -445,4 +445,11 @@ QUESTIONS_METRIC_CONFIG: List[Dict[str, Any]] = [
         "tipo_grafico": "donut",
         "aliases": ["existen_planes_movilidad_peatonal", "planes_movilidad_peatonal_normativa"],
     },
+    {
+        "seccion": "Metadatos de Captura",
+        "clave": "dispositivo_tipo",
+        "pregunta": "Tipo de dispositivo utilizado para llenar el formulario",
+        "tipo_grafico": "donut",
+        "aliases": ["dispositivo_tipo"],
+    },
 ]

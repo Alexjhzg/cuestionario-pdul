@@ -11,6 +11,7 @@ import {
   CALIFICACION_LABELS,
   ACUERDO_LABELS,
   DIFICULTAD_TP_LABELS,
+  DISPOSITIVO_TIPO_LABELS,
   FRECUENCIA_LABELS,
   formatParroquia,
   formatRutasTpUtilizadas,
@@ -86,6 +87,19 @@ defineProps<{
               <span>Abrir en OpenStreetMap</span>
             </a>
           </div>
+        </div>
+        <div
+          v-if="displayData.dispositivo_tipo"
+          class="detail-field full-width"
+          data-testid="admin-detail-device"
+        >
+          <span class="field-title">Dispositivo de captura</span>
+          <span class="field-content">
+            {{ humanLabel(DISPOSITIVO_TIPO_LABELS, displayData.dispositivo_tipo) }}
+            <template v-if="displayData.dispositivo_so"> · {{ displayData.dispositivo_so }}</template>
+            <template v-if="displayData.dispositivo_navegador"> · {{ displayData.dispositivo_navegador }}</template>
+            <template v-if="displayData.dispositivo_viewport"> ({{ displayData.dispositivo_viewport }})</template>
+          </span>
         </div>
       </div>
     </section>

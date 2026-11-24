@@ -12,6 +12,9 @@ from backend.app.domain.value_objects import (
 )
 
 
+VALID_DEVICE_TYPES = {"movil", "tablet", "escritorio", "desconocido"}
+
+
 class FormioSubmissionIn(BaseModel):
     """Valida tanto un payload envuelto en {'data': {...}} como el objeto directo."""
 
@@ -206,6 +209,18 @@ class FormioSubmissionIn(BaseModel):
                     raise ValueError(
                         f"El campo '{tp_key}' no puede ser negativo."
                     )
+
+        # 8. Normalizar tipo de dispositivo si fue enviado
+        raw_device = self.data.get("dispositivo_tipo")
+        if raw_device not in (None, ""):
+            norm_device = str(raw_device).strip().lower()
+            if norm_device in ("mobile", "phone", "smartphone", "celular"):
+                norm_device = "movil"
+            elif norm_device in ("desktop", "pc", "laptop"):
+                norm_device = "escritorio"
+            elif norm_device not in VALID_DEVICE_TYPES:
+                norm_device = "desconocido"
+            self.data["dispositivo_tipo"] = norm_device
 
         return self
 

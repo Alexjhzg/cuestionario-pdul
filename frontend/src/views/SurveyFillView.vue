@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue';
 import { useSurveyDraft } from '@/composables/useSurveyDraft';
 import { submitRespuesta, fetchEncuesta, type RespuestaSubmissionResponse } from '@/services/api';
+import { detectDeviceInfo } from '@/utils/deviceInfo';
 import SurveyWizard from '@/components/survey/SurveyWizard.vue';
 import DraftRestoreBanner from '@/components/common/DraftRestoreBanner.vue';
 import OfflineSyncBadge from '@/components/common/OfflineSyncBadge.vue';
@@ -59,10 +60,15 @@ async function handleSubmit(data: Record<string, any>) {
   submitting.value = true;
   generalError.value = null;
 
+  const enrichedData: Record<string, any> = {
+    ...data,
+    ...detectDeviceInfo()
+  };
+
   try {
     if (!isOnline.value) {
       // Sin conexión: guardar en cola offline
-      const subId = enqueueOfflineSubmission(encuestaId.value, data);
+      const subId = enqueueOfflineSubmission(encuestaId.value, enrichedData);
       submissionOfflineStored.value = true;
       submitSuccess.value = true;
       submissionReceipt.value = {
@@ -83,7 +89,7 @@ async function handleSubmit(data: Record<string, any>) {
 
     const res = await submitRespuesta(encuestaId.value, {
       client_submission_id: clientSubmissionId,
-      data
+      data: enrichedData
     });
 
     submissionReceipt.value = res;
@@ -93,7 +99,7 @@ async function handleSubmit(data: Record<string, any>) {
   } catch (err: any) {
     if (!navigator.onLine || err.message?.includes('fetch') || err.message?.includes('Network')) {
       // Fallo de red inesperado durante el envío: encolar offline
-      const subId = enqueueOfflineSubmission(encuestaId.value, data);
+      const subId = enqueueOfflineSubmission(encuestaId.value, enrichedData);
       submissionOfflineStored.value = true;
       submitSuccess.value = true;
       submissionReceipt.value = {

@@ -1,6 +1,6 @@
 import uuid
 from typing import Any, Dict, List, Optional
-from fastapi import APIRouter, Depends, Query, Response, status
+from fastapi import APIRouter, Depends, Query, Request, Response, status
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
@@ -89,6 +89,34 @@ async def obtener_encuesta_activa(
     return await service.get_active_survey_by_slug(slug)
 
 
+def _infer_device_from_user_agent(user_agent: str) -> Dict[str, str]:
+    ua = (user_agent or "").strip()
+    lower = ua.lower()
+    if not ua:
+        return {"dispositivo_tipo": "desconocido"}
+    if "ipad" in lower or "tablet" in lower or ("android" in lower and "mobile" not in lower):
+        tipo = "tablet"
+    elif any(k in lower for k in ("mobi", "iphone", "ipod", "windows phone", "blackberry")):
+        tipo = "movil"
+    else:
+        tipo = "escritorio"
+
+    if "android" in lower:
+        so = "Android"
+    elif any(k in lower for k in ("iphone", "ipad", "ipod")):
+        so = "iOS"
+    elif "windows" in lower:
+        so = "Windows"
+    elif "mac os x" in lower or "macintosh" in lower:
+        so = "macOS"
+    elif "linux" in lower or "x11" in lower:
+        so = "Linux"
+    else:
+        so = "Otro"
+
+    return {"dispositivo_tipo": tipo, "dispositivo_so": so}
+
+
 @router.post(
     "/{encuesta_id}/respuestas",
     response_model=SubmissionReceiptOut,
@@ -106,9 +134,14 @@ async def obtener_encuesta_activa(
 async def registrar_respuesta(
     encuesta_id: uuid.UUID,
     submission: FormioSubmissionIn,
+    request: Request,
     response: Response,
     service: SurveyService = Depends(get_survey_service),
 ) -> SubmissionReceiptOut:
+    if not submission.data.get("dispositivo_tipo"):
+        inferred = _infer_device_from_user_agent(request.headers.get("user-agent", ""))
+        for k, v in inferred.items():
+            submission.data.setdefault(k, v)
     receipt = await service.register_participation(encuesta_id, submission)
     if receipt.idempotent_replay:
         response.status_code = status.HTTP_200_OK

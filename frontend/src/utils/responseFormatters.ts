@@ -39,6 +39,10 @@ export interface ResponseDisplayData {
   gps_longitud?: number | null;
   gps_precision?: number | null;
   gps_capturado_en?: string | null;
+  dispositivo_tipo?: string;
+  dispositivo_so?: string;
+  dispositivo_navegador?: string;
+  dispositivo_viewport?: string;
   cedula?: string;
   tipo_vivienda?: string;
   tenencia_vivienda?: string;
@@ -71,6 +75,13 @@ export interface ResponseDisplayData {
   observaciones_generales?: string;
   [key: string]: unknown;
 }
+
+export const DISPOSITIVO_TIPO_LABELS: Record<string, string> = {
+  movil: 'Teléfono móvil',
+  tablet: 'Tablet',
+  escritorio: 'Computadora / Escritorio',
+  desconocido: 'Desconocido'
+};
 
 export const TIPOS_VIVIENDA_LABELS: Record<string, string> = {
   quinta_casa_quinta: 'Quinta o Casa quinta',

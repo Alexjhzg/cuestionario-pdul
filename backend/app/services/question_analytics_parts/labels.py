@@ -199,6 +199,12 @@ CUSTOM_FIELD_LABELS: Dict[str, Dict[str, str]] = {
         "muy_mala": "Muy Mala",
     },
     "rutas_tp_utilizadas": _load_rutas_transporte_labels(),
+    "dispositivo_tipo": {
+        "movil": "Teléfono móvil",
+        "tablet": "Tablet",
+        "escritorio": "Computadora / Escritorio",
+        "desconocido": "Desconocido",
+    },
 }
 
 
