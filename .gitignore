@@ -27,8 +27,10 @@ test-results/
 !.env.example
 .DS_Store
 
-# Directorios temporales de agentes
+# Directorios temporales y configuración de agentes
 .agents/
+.agent
+skills-antigravity-alcaldia/
 
 # Archivos residuales archivados fuera de la raíz
 archive/
